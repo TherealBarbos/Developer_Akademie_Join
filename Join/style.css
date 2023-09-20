@@ -2,9 +2,11 @@ body {
     margin: 0px;
 }
 
-.page1-logo {
+.page1-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #F6F7F8;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(246, 247, 248);
 }
