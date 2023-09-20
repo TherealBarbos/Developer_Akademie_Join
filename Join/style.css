@@ -10,3 +10,101 @@ body {
     height: 100vh;
     background-color: rgb(246, 247, 248);
 }
+
+.login-page {
+    background-color: rgb(246, 247, 248);
+    width: 100vw;
+    height: 30vh;
+}
+
+.login-page-2 {
+    background-color: rgb(246, 247, 248);
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 70vh;
+}
+
+.login-logo {
+    height: 120px;
+    width: 100px;
+    padding-left: 77px;
+}
+
+.login-logo-upper-part {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 30px;
+}
+
+.login-signup-upper-part {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 70px;
+    padding-right: 120px;
+}
+
+.btn-signup {
+    height: 40px;
+    width: 80px;
+    background-color: #2A3647;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+
+.login-window {
+    height: 500px;
+    width: 650px;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 14px 3px #0000000A;
+}
+
+.login-legalnotice {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    color: #BBBBBC;
+    margin-top: 80px;
+}
+
+.login-text {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.login-window-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.login-input {
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: rgb(215,215,215);
+    border: solid 1px lightgrey;
+    width: 300px;
+    font-size: 16px;
+}
+
+#input-email {
+    background-image: url(assets/img/mail.png);
+    background-repeat: no-repeat;
+    background-position: 290px 10px;
+}
+
+#input-password {
+    background-image: url(assets/img/lock.png);
+    background-repeat: no-repeat;
+    background-position: 290px 8px;
+}
