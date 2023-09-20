@@ -1,174 +1,8 @@
-body {
-  margin: 0px;
-  font-family: "Inter";
-  width: 1440px;
-  height: 1024px;
-  background: #f6f7f8;
-}
-
-.page1-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgb(246, 247, 248);
-}
-
-.login-page {
-  background-color: rgb(246, 247, 248);
-  width: 100vw;
-  height: 30vh;
-}
-
-.login-page-2 {
-  background-color: rgb(246, 247, 248);
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  height: 70vh;
-}
-
-.login-logo {
-  height: 120px;
-  width: 100px;
-  padding-left: 77px;
-}
-
-.login-logo-upper-part {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 30px;
-}
-
-.login-signup-upper-part {
-  display: flex;
-  gap: 35px;
-  align-items: center;
-  justify-content: flex-end;
-  padding-top: 70px;
-  padding-right: 120px;
-}
-
-.login-btn {
-  height: 40px;
-  width: 80px;
-  background-color: #2a3647;
-  color: white;
-  border-radius: 5px;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.login-window {
-  height: 500px;
-  width: 650px;
-  background-color: white;
-  border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 0px 14px 3px #0000000a;
-}
-
-.login-legalnotice {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  color: #bbbbbc;
-  margin-top: 80px;
-}
-
-.login-text {
-  font-size: 60px;
-  font-weight: bold;
-}
-
-.login-window-inputs {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.login-input {
-  padding: 10px 15px;
-  border-radius: 10px;
-  color: rgb(215, 215, 215);
-  border: solid 1px lightgrey;
-  width: 300px;
-  font-size: 16px;
-}
-
-#input-email {
-  background-image: url(assets/img/mail.png);
-  background-repeat: no-repeat;
-  background-position: 290px 10px;
-}
-
-#input-email::placeholder {
-  color: rgb(215, 215, 215);
-}
-
-#input-email:focus {
-  outline: none !important;
-  border-color: rgb(215, 215, 215);
-}
-
-#input-password {
-  background-image: url(assets/img/lock.png);
-  background-repeat: no-repeat;
-  background-position: 290px 8px;
-}
-
-#input-password::placeholder {
-  color: rgb(215, 215, 215);
-}
-
-#input-password:focus {
-  outline: none !important;
-  border-color: rgb(215, 215, 215);
-}
-
-.login-checkbox {
-  padding-left: 30px;
-}
-
-.login-btn-guest {
-  height: 38px;
-  width: 130px;
-  border-radius: 5px;
-  border: solid 1px black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.login-window-buttons {
-  display: flex;
-  gap: 30px;
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.underline {
-  border-bottom: 2px solid #29abe2;
-  padding-bottom: 10px;
-}
-
-/* Test Figma config */
-/* Test Figma config */
-/* Test Figma config */
-
-.summary-user,
-.summary-user * {
+.summary-guest,
+.summary-guest * {
   box-sizing: border-box;
 }
-.summary-user {
+.summary-guest {
   background: #f6f7f8;
   width: 1440px;
   height: 1024px;
@@ -227,7 +61,6 @@ body {
   position: static;
 }
 .frame-31 {
-  background: var(--white, #ffffff);
   border-radius: 559px;
   padding: 10px;
   display: flex;
@@ -235,19 +68,10 @@ body {
   gap: 10px;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
   position: absolute;
   left: calc(50% - 24px);
   top: calc(50% - -24px);
-  transform-origin: 0 0;
-  transform: rotate(0deg) scale(1, -1);
-  overflow: hidden;
-}
-.group-9 {
-  flex-shrink: 0;
-  position: relative;
-  transform: translate(0px, 0px);
+  transform: translate(0px, -48px);
   overflow: visible;
 }
 .ellipse-3 {
@@ -261,7 +85,7 @@ body {
   left: 0px;
   top: 0px;
 }
-.frame-71 {
+.frame-70 {
   width: 560px;
   height: 562px;
   position: absolute;
@@ -553,7 +377,7 @@ body {
   justify-content: center;
   position: absolute;
   left: 968px;
-  top: 547.5px;
+  top: 587.5px;
 }
 .good-morning {
   color: #2a3647;
@@ -561,13 +385,6 @@ body {
   font: var(--version-2-t-2, 500 47px/120% "Inter", sans-serif);
   position: relative;
   width: 338px;
-}
-.sofia-m-ller {
-  color: var(--ligthblue, #29abe2);
-  text-align: left;
-  font: 700 64px/120% "Inter", sans-serif;
-  position: relative;
-  width: 385px;
 }
 .frame-40 {
   display: flex;
@@ -609,7 +426,6 @@ body {
   left: 0px;
   top: 0px;
   box-shadow: var(--nuevo-box-shadow, 0px 0px 4px 0px rgba(0, 0, 0, 0.1));
-  overflow: hidden;
 }
 .capa-22 {
   flex-shrink: 0;
@@ -623,7 +439,7 @@ body {
   top: 64px;
   overflow: visible;
 }
-.menu {
+.menu-3 {
   display: flex;
   flex-direction: column;
   gap: 15px;

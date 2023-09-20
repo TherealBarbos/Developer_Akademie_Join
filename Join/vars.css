@@ -1,0 +1,31 @@
+/* Figma Styles of your File */
+:root {
+    /* Colors */
+    --icon: #a8a8a8;
+    --style: #d1d1d1;
+    --botongradient: linear-gradient(
+      180deg,
+      rgba(249, 249, 249, 1) 0%,
+      rgba(240, 240, 240, 1) 100%
+    );
+    --black: #000000;
+    --white: #ffffff;
+    --ligthblue: #29abe2;
+    --version-2-maincolor: #2a3647;
+  
+    /* Fonts */
+    --version-2-body: 400 16px/120% "Inter", sans-serif;
+    --version-2-t-7: 400 12px/120% "Inter", sans-serif;
+    --version-2-t-6: 400 20px/120% "Inter", sans-serif;
+    --version-2-t-5: 400 27px/120% "Inter", sans-serif;
+    --version-2-t-2: 500 47px/120% "Inter", sans-serif;
+    --version-2-t-1: 700 61px/120% "Inter", sans-serif;
+  
+    /* Effects */
+    --drop-shadow-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.04);
+    --nuevo-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+    --stronger-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    --shadoebacklogbox-box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    --barrasuperior-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  }
+  
