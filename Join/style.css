@@ -1,185 +1,289 @@
 body {
-    margin: 0px;
-    font-family: 'Inter';
+  margin: 0px;
+  font-family: "Inter";
+  width: 1440px;
+  height: 1024px;
+  background: #f6f7f8;
 }
 
 .page1-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgb(246, 247, 248);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(246, 247, 248);
 }
 
 .login-page {
-    background-color: rgb(246, 247, 248);
-    width: 100vw;
-    height: 30vh;
+  background-color: rgb(246, 247, 248);
+  width: 100vw;
+  height: 30vh;
 }
 
 .login-page-2 {
-    background-color: rgb(246, 247, 248);
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 70vh;
+  background-color: rgb(246, 247, 248);
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 70vh;
 }
 
 .login-logo {
-    height: 120px;
-    width: 100px;
-    padding-left: 77px;
+  height: 120px;
+  width: 100px;
+  padding-left: 77px;
 }
 
 .login-logo-upper-part {
-    display: flex;
-    justify-content: space-between;
-    padding-left: 30px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 30px;
 }
 
 .login-signup-upper-part {
-    display: flex;
-    gap: 35px;
-    align-items: center;
-    justify-content: flex-end;
-    padding-top: 70px;
-    padding-right: 120px;
+  display: flex;
+  gap: 35px;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 70px;
+  padding-right: 120px;
 }
 
 .login-btn {
-    height: 40px;
-    width: 80px;
-    background-color: #2A3647;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 40px;
+  width: 80px;
+  background-color: #2a3647;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-window {
-    height: 500px;
-    width: 650px;
-    background-color: white;
-    border-radius: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 0px 14px 3px #0000000A;
+  height: 500px;
+  width: 650px;
+  background-color: white;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 14px 3px #0000000a;
 }
 
 .login-legalnotice {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    color: #BBBBBC;
-    margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  color: #bbbbbc;
+  margin-top: 80px;
 }
 
 .login-text {
-    font-size: 60px;
-    font-weight: bold;
+  font-size: 60px;
+  font-weight: bold;
 }
 
 .login-window-inputs {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
 .login-input {
-    padding: 10px 15px;
-    border-radius: 10px;
-    color: rgb(215, 215, 215);
-    border: solid 1px lightgrey;
-    width: 300px;
-    font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: rgb(215, 215, 215);
+  border: solid 1px lightgrey;
+  width: 300px;
+  font-size: 16px;
 }
 
 #input-email {
-    background-image: url(assets/img/mail.png);
-    background-repeat: no-repeat;
-    background-position: 290px 10px;
+  background-image: url(assets/img/mail.png);
+  background-repeat: no-repeat;
+  background-position: 290px 10px;
 }
 
 #input-email::placeholder {
-    color: rgb(215, 215, 215);
+  color: rgb(215, 215, 215);
 }
 
 #input-email:focus {
-    outline: none !important;
-    border-color: rgb(215, 215, 215);
+  outline: none !important;
+  border-color: rgb(215, 215, 215);
 }
 
 #input-password {
-    background-image: url(assets/img/lock.png);
-    background-repeat: no-repeat;
-    background-position: 290px 8px;
+  background-image: url(assets/img/lock.png);
+  background-repeat: no-repeat;
+  background-position: 290px 8px;
 }
 
 #input-password::placeholder {
-    color: rgb(215, 215, 215);
+  color: rgb(215, 215, 215);
 }
 
 #input-password:focus {
-    outline: none !important;
-    border-color: rgb(215, 215, 215);
+  outline: none !important;
+  border-color: rgb(215, 215, 215);
 }
 
 .login-checkbox {
-    padding-left: 30px;
+  padding-left: 30px;
 }
 
 .login-btn-guest {
-    height: 38px;
-    width: 130px;
-    border-radius: 5px;
-    border: solid 1px black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 38px;
+  width: 130px;
+  border-radius: 5px;
+  border: solid 1px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-window-buttons {
-    display: flex;
-    gap: 30px;
-    font-weight: bold;
-    font-size: 18px;
+  display: flex;
+  gap: 30px;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .underline {
-    border-bottom: 2px solid #29ABE2;
-    padding-bottom: 10px;
+  border-bottom: 2px solid #29abe2;
+  padding-bottom: 10px;
 }
 
-.summaryLogo {
-    position: fixed;
-    width: 232px;
-    height: 1024px;
-    background-color: #2A3647;
+/* Test Figma config */
+
+.summaryuser {
+  width: 1440px;
+  height: 1024px;
+  background: #f6f7f8;
 }
 
+.header {
+  display: flex;
+  width: 1440px;
+  padding: 20px 40px 20px 348px;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
 
-.summaryLogo img {
-    width: 100.03px;
-    height: 121.97px;
+  /* Barra superior */
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+}
+.headerText {
+  color: #000;
+
+  /* Version 2/t6 */
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 24px */
+}
+.frame42 {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.frame3 {
+  display: flex;
+  width: 232px;
+  height: 1024px;
+  padding: 64px 0px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  background: #2a3647;
+
+  /* nuevo */
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+.capa2 {
+  width: 100.034px;
+  height: 121.966px;
+  flex-shrink: 0;
 }
 
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.frame10 {
+  display: flex;
+  width: 232px;
+  height: 46px;
+  padding: 8px 56px;
+  align-items: center;
+  gap: 8px;
+}
+.addTask {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.board {
+  display: flex;
+  width: 232px;
+  align-items: flex-start;
+  gap: 20px;
+}
+.contacts {
+  display: flex;
+  width: 232px;
+  align-items: flex-start;
+  gap: 8px;
+}
+.frame21 {
+  display: flex;
+  padding: 243px 0px 0px 52px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+}
+.textButton {
+  display: flex;
+  padding: 8px;
+  align-items: center;
+  gap: 8px;
+}
+.frame40 {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.frame40textI {
+  color: #000;
 
-.summaryHead {
-    width: 1440px;
-    height: 96px;
-    padding: 20px 40px 20px 348px;
-    display: flex;
-    justify-content: space-between;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
-    background-color: #FFFFFF;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
+  /* Version 2/t1 */
+  font-family: Inter;
+  font-size: 61px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 73.2px */
+}
+.frame40textII {
+  color: #2a3647;
+
+  /* Version 2/t5 */
+  font-family: Inter;
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 32.4px */
 }
