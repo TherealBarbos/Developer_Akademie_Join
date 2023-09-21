@@ -258,7 +258,6 @@ body {
 .contentHeader {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   height: 73px;
   width: 655px;
   gap: 30px;
