@@ -320,7 +320,8 @@ body {
   align-items: center;
   justify-content: flex-start;
   gap: 8px;
-  margin-left: 56px;
+  padding-left: 56px;
+  text-decoration: none;
 }
 .left-side-menu-btn:hover {
   background-color: #29abe2;
