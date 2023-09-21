@@ -4,38 +4,108 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="fonts.css" />
+
     <title>Summary</title>
   </head>
-  <body>
-    <div class="menu-bar"></div>
+  <body onload="">
+    <div class="header">
+      <div class="headerText">Kanban Project Management Tool</div>
+      <div class="headerMenu">
+        <a href="help.html" class="Help">
+          <img src="assets/img/help.png" alt="Hilfe" />
+        </a>
+        <a href="user.html" class="User">
+          <img src="assets/img/BSP.png" alt="Hilfe" />
+        </a>
+      </div>
+    </div>
     <div class="left-side">
       <div class="left-side-logo">
         <img src="assets/img/logo_white.png" alt="logo" />
-        <div class="left-side-menu">
-          <ul>
-            <li>
-              <a href="summary.html"
-                ><img src="assets/img/summary.png" alt="" />Summary</a
-              >
-            </li>
-            <li>
-              <a href="add_task.html"
-                ><img src="assets/img/add_task.png" alt="" />Add Task</a
-              >
-            </li>
-            <li>
-              <a href="board.html"
-                ><img src="assets/img/board.png" alt="" />Board</a
-              >
-            </li>
-            <li>
-              <a href="contact.html"
-                ><img src="assets/img/contacts.png" alt="" />Contacts</a
-              >
-            </li>
-          </ul>
-        </div>
+      </div>
+
+      <div class="left-side-menu">
+        <a href="summary.html" class="left-side-menu-btn">
+          <img src="assets/img/summary.png" alt="" />
+          <p>Summary</p>
+        </a>
+        <a href="add_task.html" class="left-side-menu-btn">
+          <img src="assets/img/add_task.png" alt="" />
+          <p>Add Task</p>
+        </a>
+        <a href="board.html" class="left-side-menu-btn">
+          <img src="assets/img/board.png" alt="" />
+          <p>Board</p>
+        </a>
+        <a href="contact.html" class="left-side-menu-btn">
+          <img src="assets/img/contacts.png" alt="" />
+          <p>Contacts</p>
+        </a>
+      </div>
+
+      <div class="left-side-Policy">
+        <p>Privacy Policy</p>
+        <p>Legal notice</p>
       </div>
     </div>
+
+    <div id="content"></div>
+    <!-- das wird später zur content funktion-->
+
+    <div class="contentHeader">
+      <div class="contentHeaderTitle">Summary</div>
+      <img src="assets/img/summaryLine.png" alt="Line" class="contentHeaderIMG">
+      <div class="contentHeaderText">Everything in a nutshell!</div>
+        
+    </div>
+
+    <div class="contentWelcome">
+      <div class="contentWelcomeText">Good morning,<br>
+        <span class="contentWelcomeTextName">Sofia Müller</span>
+      </div>
+    </div>
+    <div class="summary">
+
+      <div class="summaryTop">
+       <div class="summaryTopLeft">
+         <div class="summaryTopLeftText">Your Tasks</div>
+          <div class="summaryTopLeftNumber">3</div>
+        </div>
+       <div class="summaryTopRight">
+         <div class="summaryTopRightText">Your Contacts</div>
+         <div class="summaryTopRightNumber">5</div>
+       </div>
+      </div>
+
+      <div class="summaryMiddle">
+        <div class="summaryMiddlePriority">
+          <div class="summaryMiddlePriorityIMG"><img src="assets/img/urgent.png" alt="Urgent"></div>^
+            <div class="summaryMiddlePriorityLevel"></div>
+            <div class="summaryMiddlePriorityNumber">1</div>
+            <div class="summaryMiddlePriorityText">Urgent</div>
+        </div>
+        <div class="summaryMiddlePriorityDate"></div>
+
+
+      </div>
+
+      <div class="summaryBottom">
+        <div class="summaryBottomLeft">
+          <div class="summaryBottomLeftText">Your Projects</div>
+          <div class="summaryBottomLeftNumber">2</div>
+        </div>
+        <div class="summaryBottomRight">
+          <div class="summaryBottomRightText">Your Boards</div>
+          <div class="summaryBottomRightNumber">1</div>
+        </div>
+
+
+
+
+
+
+    </div>
+
   </body>
 </html>
