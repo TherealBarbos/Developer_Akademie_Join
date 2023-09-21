@@ -98,7 +98,7 @@ body {
 .login-input {
   padding: 10px 15px;
   border-radius: 10px;
-  color: rgb(215, 215, 215);
+  color: black;
   border: solid 1px lightgrey;
   width: 300px;
   font-size: 16px;
@@ -134,6 +134,21 @@ body {
   border-color: rgb(215, 215, 215);
 }
 
+#input-name {
+  background-image: url(assets/img/person.svg);
+  background-repeat: no-repeat;
+  background-position: 292px 10px;
+}
+
+#input-name::placeholder {
+  color: rgb(215, 215, 215);
+}
+
+#input-name:focus {
+  outline: none !important;
+  border-color: rgb(215, 215, 215);
+}
+
 .login-checkbox {
   padding-left: 30px;
 }
@@ -160,6 +175,104 @@ body {
   padding-bottom: 10px;
 }
 
+.signup-logo-upper-part {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-top: 80px;
+}
+
+.signup-page {
+  background-color: rgb(246, 247, 248);
+  width: 100vw;
+}
+
+.signup-window-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.signup-window {
+  height: 630px;
+  width: 500px;
+  background-color: white;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 14px 3px #0000000a;
+}
+
+.signup-btn {
+  height: 40px;
+  width: 100px;
+  background-color: #2a3647;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.signup-checkbox {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.signup-grey-text {
+  color: #BDBDBD;
+}
+
+.signup-blue-text {
+  color: #29abe2;
+}
+
+.signup-window-upper-part {
+  display: flex;
+  padding-right: 125px;
+}
+
+.signup-arrow {
+  width: 32px;
+  height: 32px;
+  padding-right: 85px;
+}
+
+.signup-vector {
+  padding-top: 15px;
+  width: 150px;
+  padding-left: 20px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-legalnotice {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  color: #bbbbbc;
+  padding-top: 165px;
+}
+
+.signup-page-2 {
+  background-color: rgb(246, 247, 248);
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 80vh;
+}
+
 /* SUMMARY PAGE */
 
 .left-side {
@@ -176,6 +289,7 @@ body {
   height: 896px;
   gap: 20px;
 }
+
 .left-side-logo {
   display: flex;
   width: 232px;
@@ -184,11 +298,13 @@ body {
   align-items: center;
   flex-shrink: 0;
 }
+
 .left-side-logo img {
   width: 100.034px;
   height: 121.966px;
   flex-shrink: 0;
 }
+
 .left-side-menu {
   display: flex;
   flex-direction: column;
@@ -196,6 +312,7 @@ body {
   align-items: center;
   gap: 15px;
 }
+
 .left-side-menu-btn {
   display: flex;
   width: 176px;
