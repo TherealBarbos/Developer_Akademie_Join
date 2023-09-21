@@ -227,7 +227,7 @@ body {
 }
 
 .signup-grey-text {
-  color: #BDBDBD;
+  color: #bdbdbd;
 }
 
 .signup-blue-text {
@@ -444,29 +444,122 @@ body {
   align-items: center;
   gap: 28px;
 }
+.summaryTopImg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.summaryTopLeft {
+  display: flex;
+  width: 264px;
+  height: 168px;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background-color: white;
+}
+.summaryTopRight {
+  display: flex;
+  width: 264px;
+  height: 168px;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background-color: white;
+}
+.summaryTopCount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.summaryTopCountNumber {
+  color: #000000;
+  text-align: center;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+}
+.summaryTopCountText {
+  color: #2a3647;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
 .summaryMiddle {
   display: flex;
   width: 560px;
-  flex-direction: row;
-  justify-content: space-between;
+  height: 168px;
+  justify-content: center;
   align-items: center;
-  gap: 28px;
+  gap: 61px;
+  border-radius: 30px;
+  background-color: white;
 }
 .summaryMiddlePriority {
   display: flex;
-  width: 560px;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   gap: 18px;
 }
+.summaryMiddlePriorityNumber {
+  color: #000000;
+  text-align: center;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+}
+.summaryMiddlePriorityText {
+  color: #2a3647;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+.summaryMiddlePriorityLevel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 13px;
+}
+.summaryMiddlePriorityDate {
+  color: #2a3647;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 13px;
+}
+.summaryMiddlePriorityDateTextI {
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+.summaryMiddlePriorityDateTextII {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
 .summaryBottom {
   display: flex;
-  width: 560px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 28px;
+  border-radius: 30px;
+  background-color: white;
 }
 
 /* Add Task */
