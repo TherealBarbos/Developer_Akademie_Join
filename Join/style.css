@@ -520,7 +520,7 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.summaryTopCountNumber {
+.summaryBigNumber {
   color: #000000;
   text-align: center;
   font-size: 64px;
@@ -528,7 +528,7 @@ body {
   font-weight: 600;
   line-height: 120%;
 }
-.summaryTopCountText {
+.summaryBigText {
   color: #2a3647;
   font-size: 20px;
   font-style: normal;
@@ -553,21 +553,7 @@ body {
   align-items: center;
   gap: 18px;
 }
-.summaryMiddlePriorityNumber {
-  color: #000000;
-  text-align: center;
-  font-size: 64px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%;
-}
-.summaryMiddlePriorityText {
-  color: #2a3647;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-}
+
 .summaryMiddlePriorityLevel {
   display: flex;
   flex-direction: column;
