@@ -589,7 +589,6 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 28px;
-
 }
 .summaryBottomCard {
   display: flex;
@@ -603,7 +602,31 @@ body {
   flex-shrink: 0;
   border-radius: 30px;
   background-color: white;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+/* Help + Privacy Policy + Legal notice */
+
+.textField {
+  display: flex;
+  width: 1014px;
+  margin: 311px 98px 0px 328px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+.textNormal {
+  align-self: stretch;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+.textBig {
+  width: 346px;
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
 }
 
 /* Add Task */
