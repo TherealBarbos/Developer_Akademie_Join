@@ -608,10 +608,23 @@ body {
 .textField {
   display: flex;
   width: 1014px;
+  height: 713px;
   margin: 311px 98px 0px 328px;
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
+  overflow-y: scroll;
+}
+.return-arrow {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  padding: 225px 96px 762px 1307px;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+
 }
 .textNormal {
   align-self: stretch;
@@ -620,8 +633,34 @@ body {
   font-weight: 400;
   line-height: 120%;
 }
+.textNormal p {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  margin: 0;
+}
 .textBig {
   width: 346px;
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+.textEnumeration {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+.helpList {
+  display: flex;
+  align-items: flex-start;
+  gap: 35px;
+  align-self: stretch;
+}
+.helpListNumber {
   font-size: 27px;
   font-style: normal;
   font-weight: 700;
@@ -641,10 +680,9 @@ body {
   color: black;
   font-size: 61px;
   font-weight: 700;
-  line-height: 73.20px;
+  line-height: 73.2px;
   word-wrap: break-word;
   margin-bottom: 80px;
-
 }
 
 .add-task-inputs {
@@ -685,7 +723,7 @@ body {
 
 .separation-line {
   height: 100%;
-  background-color: #D1D1D1;
+  background-color: #d1d1d1;
   width: 1px;
   height: 400px;
 }
@@ -723,14 +761,14 @@ body {
   display: flex;
   justify-content: space-between;
   font-size: 20px;
-  color: #D1D1D1;
+  color: #d1d1d1;
   background-color: white;
   font-size: 16px;
 }
 
 .border-radius-6 {
   border-radius: 6px;
-  border-color: #D1D1D1;
+  border-color: #d1d1d1;
 }
 
 .gap-8 {
