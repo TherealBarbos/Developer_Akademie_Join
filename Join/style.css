@@ -509,8 +509,21 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 28px;
+
+}
+.summaryBottomCard {
+  display: flex;
+  width: 168px;
+  height: 168px;
+  padding: 25px 0px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  flex-shrink: 0;
   border-radius: 30px;
   background-color: white;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
 }
 
 /* Add Task */
