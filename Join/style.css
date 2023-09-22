@@ -5,6 +5,36 @@ body {
   height: 1024px;
   background: #f6f7f8;
 }
+/* Overlay test */
+
+/* CSS-Styling für das Overlay hier */
+.overlay {
+  /* Andere Stile für das Overlay */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 3s cubic-bezier(0.25, 1, 0.5, 1); /* Langsamer und glatter Übergang */
+  opacity: 1;
+  transform: scale(1) translate(0, 0); /* Startposition und Größe */
+}
+.logo {
+  width: 200px;
+  height: auto;
+  transition: all 3s cubic-bezier(0.25, 1, 0.5, 1) 4s; /* Starten Sie die Transformation nach 4 Sekunden */
+  transform: scale(1) translate(0, 0); /* Startposition und Größe */
+}
+
+/* Stil für das Logo, wenn das Overlay sichtbar ist */
+.overlay.active {
+  opacity: 0;
+  transform: scale(0.5) translate(-100%, -100%); /* Zielposition und Größe (kleiner und oben links) */
+}
 
 .d-none {
   display: none;
@@ -378,8 +408,6 @@ body {
   align-items: flex-start;
   gap: 4px;
   align-self: stretch;
-
-
 }
 .left-side-Policy a {
   padding: 8px;
@@ -643,7 +671,7 @@ body {
   height: 32px;
   flex-shrink: 0;
 }
-.click{
+.click {
   cursor: pointer;
 }
 .textNormal {
@@ -667,11 +695,10 @@ body {
   font-weight: 700;
   line-height: 120%;
 }
-.textlist ul{
+.textlist ul {
   align-self: stretch;
   margin: 0;
   padding: 0;
-
 }
 .textEnumeration {
   display: flex;
@@ -785,25 +812,25 @@ body {
 }
 
 .urgent {
-  background-color: #FF3D00;
+  background-color: #ff3d00;
   color: white;
   font-weight: bold;
 }
 
 .medium {
-  background-color: #FFA800;
+  background-color: #ffa800;
   color: white;
   font-weight: bold;
 }
 
 .low {
-  background-color: #7AE229;
+  background-color: #7ae229;
   color: white;
   font-weight: bold;
 }
 
 .prio-button:hover {
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 

@@ -1,54 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>login</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="fonts.css" />
     <link rel="icon" type="image/x-icon" href="assets/img/logo_favicon.ico" />
-</head>
+    <script>
+      function hideOverlay() {
+        // Holen Sie sich das Overlay-Element
+        var overlay = document.getElementById("overlay");
 
-<body>
+        // Fügen Sie eine Transition-Eigenschaft hinzu
+        overlay.style.transition =
+          "opacity 3s cubic-bezier(0.25, 1, 0.5, 1), transform 3s cubic-bezier(0.25, 1, 0.5, 1)";
+
+        // Ändern Sie die Opazität auf 0 und die Größe sowie Position auf kleiner und oben links, um das Overlay auszublenden
+        overlay.style.opacity = 0;
+        overlay.style.transform = "scale(0.2) translate(-130%, -120%)";
+
+        // Warten Sie, bis die Transition abgeschlossen ist, und fügen Sie dann die Klasse 'd-none' hinzu
+        setTimeout(function () {
+          overlay.classList.add("d-none");
+        }, 750); // 750 Millisekunden (0.75 Sekunden)
+      }
+
+      // Rufen Sie die Funktion auf, um das Overlay zu verbergen
+      hideOverlay();
+    </script>
+  </head>
+
+  <body onload="hideOverlay()">
+    <div class="overlay" id="overlay">
+      <div class="page1-container">
+        <img src="assets/img/logo.png" alt="logo" />
+      </div>
+    </div>
+
     <div class="login-page">
-        <div class="login-signup-upper-part">
-            <span>Not a Join user?</span>
-            <button class="login-btn">Sign up</button>
+      <div class="login-signup-upper-part">
+        <span>Not a Join user?</span>
+        <button class="login-btn">Sign up</button>
+      </div>
+      <div class="login-logo-upper-part">
+        <div>
+          <img class="login-logo" src="assets/img/Logo.png" alt="logo" />
         </div>
-        <div class="login-logo-upper-part">
-            <div>
-                <img class="login-logo" src="assets/img/Logo.png" alt="logo">
-            </div>
-        </div>
+      </div>
     </div>
     <div class="login-page-2">
-        <div class="login-window">
-            <div>
-                <span class="login-text  underline">Log in</span>
-            </div>
-            <div class="login-window-inputs">
-                <input placeholder="Email" id="input-email" type="text" class="login-input">
-                <input placeholder="Password" id="input-password" type="text" class="login-input">
-                <div class="login-checkbox">
-                    <input type="checkbox">
-                    <span>
-                        Remember me
-                    </span>
-                </div>
-            </div>
-            <div class="login-window-buttons">
-                <div class="login-btn">Log in</div>
-                <a href="summary.html"><div class="login-btn-guest">Guest Log in</div></a> 
-            </div>
+      <div class="login-window">
+        <div>
+          <span class="login-text underline">Log in</span>
         </div>
-
-
-        <div class="login-legalnotice">
-            <a href="privacy-policy.html" target="_blank">Privacy Policy</a>
-            <a href="legal-notice.html" target="_blank">Legal notice</a>
+        <div class="login-window-inputs">
+          <input
+            placeholder="Email"
+            id="input-email"
+            type="text"
+            class="login-input"
+          />
+          <input
+            placeholder="Password"
+            id="input-password"
+            type="text"
+            class="login-input"
+          />
+          <div class="login-checkbox">
+            <input type="checkbox" />
+            <span> Remember me </span>
+          </div>
         </div>
+        <div class="login-window-buttons">
+          <div class="login-btn">Log in</div>
+          <a href="summary.html"
+            ><div class="login-btn-guest">Guest Log in</div></a
+          >
+        </div>
+      </div>
+
+      <div class="login-legalnotice">
+        <a href="privacy-policy.html" target="_blank">Privacy Policy</a>
+        <a href="legal-notice.html" target="_blank">Legal notice</a>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
