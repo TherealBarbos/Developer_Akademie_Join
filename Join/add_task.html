@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="fonts.css" />
+  <script src="js/add_task.js"></script>
 
     <title>Add Task</title>
   </head>
@@ -62,12 +63,12 @@
         <div class="add-task-left">
           <div class="enter-title-container gap-8">
             <span> Title </span>
-            <input class="border-radius-6" placeholder="Enter Title"></input>
+            <input id="task-title" class="border-radius-6" placeholder="Enter Title"></input>
           </div>
 
           <div class="enter-description-container gap-8">
             <span> Description </span>
-            <textarea class="border-radius-6 description-textarea"></textarea>
+            <textarea id="task-description" class="border-radius-6 description-textarea"></textarea>
           </div>
 
           <div class="assigned-to-container gap-8">
@@ -82,7 +83,7 @@
 
           <div class="enter-date gap-8">
             <span> Due date </span>
-            <input type="date" class=""></input>
+            <input id="dueDate" type="date" class=""></input>
           </div>
 
           <div class="priority gap-8">
@@ -111,6 +112,11 @@
                 <span>+</span>
             </button>
           </div>
+          
+          <div class="create-clear-button-container">
+            <button onclick="addTask()"> Add Task </button>
+          </div>
+
         </div>
       </div>
     </div>
