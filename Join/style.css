@@ -242,7 +242,7 @@ body {
 }
 
 .signup-grey-text {
-  color: #BDBDBD;
+  color: #bdbdbd;
 }
 
 .signup-blue-text {
@@ -344,7 +344,8 @@ body {
   align-items: center;
   justify-content: flex-start;
   gap: 8px;
-  margin-left: 56px;
+  padding-left: 56px;
+  text-decoration: none;
 }
 
 .left-side-menu-btn:hover {
@@ -484,32 +485,32 @@ body {
   align-items: center;
   gap: 28px;
 }
-
 .summaryMiddle {
   display: flex;
   width: 560px;
-  flex-direction: row;
-  justify-content: space-between;
+  height: 168px;
+  justify-content: center;
   align-items: center;
-  gap: 28px;
+  gap: 61px;
+  border-radius: 30px;
+  background-color: white;
 }
 
 .summaryMiddlePriority {
   display: flex;
-  width: 560px;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   gap: 18px;
 }
-
 .summaryBottom {
   display: flex;
-  width: 560px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 28px;
+  border-radius: 30px;
+  background-color: white;
 }
 
 /* Add Task */
