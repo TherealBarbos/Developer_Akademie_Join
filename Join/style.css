@@ -384,7 +384,7 @@ body {
   top: 0px;
   display: flex;
   width: 1440px;
-  padding: 20px 40px 20px 348px;
+  padding: 20px 0px 20px 0px;
   justify-content: space-between;
   align-items: center;
   background: #fff;
@@ -397,12 +397,14 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
+  margin-left: 348px;
 }
 
 .headerMenu {
   display: flex;
   align-items: center;
   gap: 16px;
+  margin-right: 40px;
 }
 
 .contentHeader {
