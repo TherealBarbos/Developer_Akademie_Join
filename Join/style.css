@@ -134,6 +134,21 @@ body {
   border-color: rgb(215, 215, 215);
 }
 
+#input-confirm-password {
+  background-image: url(assets/img/lock.png);
+  background-repeat: no-repeat;
+  background-position: 290px 8px;
+}
+
+#input-confirm-password::placeholder {
+  color: rgb(215, 215, 215);
+}
+
+#input-confirm-password:focus {
+  outline: none !important;
+  border-color: rgb(215, 215, 215);
+}
+
 #input-name {
   background-image: url(assets/img/person.svg);
   background-repeat: no-repeat;
@@ -273,6 +288,15 @@ body {
   height: 80vh;
 }
 
+.signup-window-buttons {
+  display: flex;
+  gap: 30px;
+  font-weight: bold;
+  font-size: 18px;
+  justify-content: center;
+  padding-top: 24px;
+}
+
 /* SUMMARY PAGE */
 
 .left-side {
@@ -323,22 +347,26 @@ body {
   padding-left: 56px;
   text-decoration: none;
 }
+
 .left-side-menu-btn:hover {
   background-color: #29abe2;
   border-radius: 5px;
   cursor: pointer;
 }
+
 .left-side-menu-btn img {
   width: 30px;
   height: 30px;
   flex-shrink: 0;
 }
+
 .left-side-menu-btn p {
   font-size: 18px;
   font-weight: 500;
   color: #ffffff;
   flex-shrink: 0;
 }
+
 .left-side-Policy {
   display: flex;
   padding: 243px 0px 0px 52px;
@@ -349,6 +377,7 @@ body {
   align-self: stretch;
   color: #a8a8a8;
 }
+
 .header {
   position: absolute;
   left: 0px;
@@ -362,17 +391,20 @@ body {
   /* Barra superior */
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
 }
+
 .headerText {
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
 }
+
 .headerMenu {
   display: flex;
   align-items: center;
   gap: 16px;
 }
+
 .contentHeader {
   position: absolute;
   left: 0px;
@@ -384,16 +416,19 @@ body {
   gap: 30px;
   margin: 206px 461px 745px 328px;
 }
+
 .contentHeaderTitle {
   font-size: 61px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
 }
+
 .contentHeaderIMG {
   width: 3px;
   height: 59px;
 }
+
 .contentHeaderText {
   color: #2a3647;
   font-size: 27px;
@@ -401,6 +436,7 @@ body {
   font-weight: 400;
   line-height: 120%;
 }
+
 .contentWelcome {
   position: absolute;
   left: 0px;
@@ -411,6 +447,7 @@ body {
   gap: 3px;
   margin: 548px 87px 341px 968px;
 }
+
 .contentWelcomeText {
   color: #2a3647;
   font-size: 47px;
@@ -418,6 +455,7 @@ body {
   font-weight: 500;
   line-height: 120%;
 }
+
 .contentWelcomeTextName {
   color: #29abe2;
   font-size: 64px;
@@ -425,6 +463,7 @@ body {
   font-weight: 700;
   line-height: 120%;
 }
+
 .summary {
   position: absolute;
   left: 0px;
@@ -437,6 +476,7 @@ body {
   align-items: flex-start;
   gap: 28px;
 }
+
 .summaryTop {
   display: flex;
   width: 560px;
@@ -444,55 +484,6 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 28px;
-}
-.summaryTopImg {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-.summaryTopLeft {
-  display: flex;
-  width: 264px;
-  height: 168px;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-  flex-shrink: 0;
-  border-radius: 30px;
-  background-color: white;
-}
-.summaryTopRight {
-  display: flex;
-  width: 264px;
-  height: 168px;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-  flex-shrink: 0;
-  border-radius: 30px;
-  background-color: white;
-}
-.summaryTopCount {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.summaryTopCountNumber {
-  color: #000000;
-  text-align: center;
-  font-size: 64px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%;
-}
-.summaryTopCountText {
-  color: #2a3647;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
 }
 .summaryMiddle {
   display: flex;
@@ -504,54 +495,13 @@ body {
   border-radius: 30px;
   background-color: white;
 }
+
 .summaryMiddlePriority {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   gap: 18px;
-}
-.summaryMiddlePriorityNumber {
-  color: #000000;
-  text-align: center;
-  font-size: 64px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%;
-}
-.summaryMiddlePriorityText {
-  color: #2a3647;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-}
-.summaryMiddlePriorityLevel {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 13px;
-}
-.summaryMiddlePriorityDate {
-  color: #2a3647;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 13px;
-}
-.summaryMiddlePriorityDateTextI {
-  font-size: 21px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 120%;
-}
-.summaryMiddlePriorityDateTextII {
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
 }
 .summaryBottom {
   display: flex;
