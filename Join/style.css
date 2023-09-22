@@ -133,6 +133,21 @@ body {
   border-color: rgb(215, 215, 215);
 }
 
+#input-confirm-password {
+  background-image: url(assets/img/lock.png);
+  background-repeat: no-repeat;
+  background-position: 290px 8px;
+}
+
+#input-confirm-password::placeholder {
+  color: rgb(215, 215, 215);
+}
+
+#input-confirm-password:focus {
+  outline: none !important;
+  border-color: rgb(215, 215, 215);
+}
+
 #input-name {
   background-image: url(assets/img/person.svg);
   background-repeat: no-repeat;
@@ -272,7 +287,16 @@ body {
   height: 80vh;
 }
 
-/* SUMMARY PAGE */
+.signup-window-buttons {
+  display: flex;
+  gap: 30px;
+  font-weight: bold;
+  font-size: 18px;
+  justify-content: center;
+  padding-top: 24px;
+}
+
+/* Basement Left+Header+Headline */
 
 .left-side {
   position: absolute;
@@ -319,7 +343,8 @@ body {
   align-items: center;
   justify-content: flex-start;
   gap: 8px;
-  margin-left: 56px;
+  padding-left: 56px;
+  text-decoration: none;
 }
 
 .left-side-menu-btn:hover {
@@ -358,7 +383,7 @@ body {
   top: 0px;
   display: flex;
   width: 1440px;
-  padding: 20px 40px 20px 348px;
+  padding: 20px 0px 20px 0px;
   justify-content: space-between;
   align-items: center;
   background: #fff;
@@ -371,12 +396,14 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
+  margin-left: 348px;
 }
 
 .headerMenu {
   display: flex;
   align-items: center;
   gap: 16px;
+  margin-right: 40px;
 }
 
 .contentHeader {
@@ -390,16 +417,19 @@ body {
   gap: 30px;
   margin: 206px 461px 745px 328px;
 }
+
 .contentHeaderTitle {
   font-size: 61px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
 }
+
 .contentHeaderIMG {
   width: 3px;
   height: 59px;
 }
+
 .contentHeaderText {
   color: #2a3647;
   font-size: 27px;
@@ -407,6 +437,9 @@ body {
   font-weight: 400;
   line-height: 120%;
 }
+
+/* SUMMARY PAGE */
+
 .contentWelcome {
   position: absolute;
   left: 0px;
@@ -417,6 +450,7 @@ body {
   gap: 3px;
   margin: 548px 87px 341px 968px;
 }
+
 .contentWelcomeText {
   color: #2a3647;
   font-size: 47px;
@@ -424,6 +458,7 @@ body {
   font-weight: 500;
   line-height: 120%;
 }
+
 .contentWelcomeTextName {
   color: #29abe2;
   font-size: 64px;
@@ -431,6 +466,7 @@ body {
   font-weight: 700;
   line-height: 120%;
 }
+
 .summary {
   position: absolute;
   left: 0px;
@@ -485,7 +521,7 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.summaryTopCountNumber {
+.summaryBigNumber {
   color: #000000;
   text-align: center;
   font-size: 64px;
@@ -493,7 +529,7 @@ body {
   font-weight: 600;
   line-height: 120%;
 }
-.summaryTopCountText {
+.summaryBigText {
   color: #2a3647;
   font-size: 20px;
   font-style: normal;
@@ -510,6 +546,7 @@ body {
   border-radius: 30px;
   background-color: white;
 }
+
 .summaryMiddlePriority {
   display: flex;
   flex-direction: row;
@@ -517,21 +554,7 @@ body {
   align-items: center;
   gap: 18px;
 }
-.summaryMiddlePriorityNumber {
-  color: #000000;
-  text-align: center;
-  font-size: 64px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%;
-}
-.summaryMiddlePriorityText {
-  color: #2a3647;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-}
+
 .summaryMiddlePriorityLevel {
   display: flex;
   flex-direction: column;
@@ -565,8 +588,44 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 28px;
+}
+.summaryBottomCard {
+  display: flex;
+  width: 168px;
+  height: 168px;
+  padding: 25px 0px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  flex-shrink: 0;
   border-radius: 30px;
   background-color: white;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+/* Help + Privacy Policy + Legal notice */
+
+.textField {
+  display: flex;
+  width: 1014px;
+  margin: 311px 98px 0px 328px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+.textNormal {
+  align-self: stretch;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+.textBig {
+  width: 346px;
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
 }
 
 /* Add Task */
