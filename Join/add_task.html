@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="fonts.css" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="fonts.css" />
 
     <title>Add Task</title>
   </head>
@@ -22,9 +23,7 @@
     </div>
     <div class="left-side">
       <div class="left-side-logo">
-        <a href="summary.html">
         <img src="assets/img/logo_white.png" alt="logo" />
-        </a>
       </div>
 
       <div class="left-side-menu">
@@ -46,18 +45,77 @@
         </a>
       </div>
 
-      <div class="left-side-Policy">
-        <p>Privacy Policy</p>
-        <p>Legal notice</p>
+    <div class="left-side-Policy">
+      <p>Privacy Policy</p>
+      <p>Legal notice</p>
+    </div>
+  </div>
+
+  <div id="content">
+
+    <div class="addTask">
+      <span class="addTaskHeader">Add Task</span>
+
+      <div class="add-task-inputs">
+        <div class="add-task-left">
+          <div class="enter-title-container gap-8">
+            <span> Title </span>
+            <input class="border-radius-6" placeholder="Enter Title"></input>
+          </div>
+
+          <div class="enter-description-container gap-8">
+            <span> Description </span>
+            <textarea class="border-radius-6 description-textarea"></textarea>
+          </div>
+
+          <div class="assigned-to-container gap-8">
+            <span> Assigned to </span>
+            <select class="border-radius-6" name="Select contacts to assign to"></select>
+          </div>
+        </div>
+
+        <div class="separation-line"></div>
+
+        <div class="add-task-right">
+
+          <div class="enter-date gap-8">
+            <span> Due date </span>
+            <input type="date" class=""></input>
+          </div>
+
+          <div class="priority gap-8">
+            <span> Prio </span>
+            <div class="prio-select">
+              <button class="prio-button border-radius-6"> Urgent <img src="assets/img/urgent_no_bg.png"></button>
+              <button class="prio-button border-radius-6"> Medium <img src="assets/img/medium_no_bg.png"></button>
+              <button class="prio-button border-radius-6"> Low <img src="assets/img/low_no_bg.png"></button>
+            </div>
+          </div>
+
+          <div class="assigned-to-container gap-8">
+            <span> Category </span>
+            <select class="select-category border-radius-6">
+              <option value="" disabled selected hidden>Select task category</option>
+              <option value="HTML"> HTML </option>
+              <option value="CSS"> CSS</option>
+              <option value="JS"> JS </option>
+            </select>
+          </div>
+
+          <div class="assigned-to-container gap-8">
+            <span> Subtasks </span>
+            <button class="border-radius-6 subtask-button" placeholder="Enter Title">
+                <span>Add new subtask</span>
+                <span>+</span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div id="content"></div>
-    <!-- das wird später zur content funktion-->
 
-    <div class="contentHeader">
-      <div class="contentHeaderTitle">Add Task</div>
-    </div>
+  </div> <!-- id="content" -->
 
-  </body>
+</body>
+
 </html>
