@@ -135,6 +135,18 @@ h2 {
     fill: white;
 }
 
+.save-btn {
+    height: 56px;
+    width: 124px;
+    background-color: #2a3647;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
 .create-btn {
     height: 56px;
     width: 214px;
@@ -164,4 +176,11 @@ h2 {
     justify-content: center;
     gap: 24px;
     padding-right: 88px;
+}
+
+.edit-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding-right: 178px;
 }
