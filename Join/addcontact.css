@@ -1,0 +1,58 @@
+body {
+    margin: 0px;
+    font-family: "Inter";
+    width: 1440px;
+    height: 1024px;
+    background: #f6f7f8;
+}
+
+.add-c-left-part {
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    width: 470px;
+    height: 600px;
+    background-color: #2A3647;
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo {
+    width: auto;
+    height: 64px;
+}
+
+.vector {
+    width: 90px;
+}
+
+h1 {
+    font-size: 58px;
+    font-weight: 700;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+h2 {
+    font-size: 26px;
+    font-weight: 400;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.left-part-content {
+    gap: 24px;
+    padding-left: 40px;
+    padding-bottom: 80px;
+}
+
+.gap {
+    padding: 4px 0px;
+}
+
+.page {
+    border-radius: 30px;
+    background-color: #FFFFFF;
+}
