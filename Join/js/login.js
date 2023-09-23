@@ -10,5 +10,13 @@ function login() {
     if (account) {
         console.log('Account gefunden');
     }
+    clearLoginInputs();
 }
 
+/**
+ * this function is used to clear the Input fields from the Sign up page
+ */
+function clearLoginInputs() {
+    document.getElementById('input-email').value = '';
+    document.getElementById('input-password').value = '';
+}

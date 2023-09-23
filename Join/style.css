@@ -5,6 +5,7 @@ body {
   height: 1024px;
   background: #f6f7f8;
 }
+
 /* Overlay test */
 
 /* CSS-Styling für das Overlay hier */
@@ -19,21 +20,27 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 3s cubic-bezier(0.25, 1, 0.5, 1); /* Langsamer und glatter Übergang */
+  transition: all 3s cubic-bezier(0.25, 1, 0.5, 1);
+  /* Langsamer und glatter Übergang */
   opacity: 1;
-  transform: scale(1) translate(0, 0); /* Startposition und Größe */
+  transform: scale(1) translate(0, 0);
+  /* Startposition und Größe */
 }
+
 .logo {
   width: 200px;
   height: auto;
-  transition: all 3s cubic-bezier(0.25, 1, 0.5, 1) 4s; /* Starten Sie die Transformation nach 4 Sekunden */
-  transform: scale(1) translate(0, 0); /* Startposition und Größe */
+  transition: all 3s cubic-bezier(0.25, 1, 0.5, 1) 4s;
+  /* Starten Sie die Transformation nach 4 Sekunden */
+  transform: scale(1) translate(0, 0);
+  /* Startposition und Größe */
 }
 
 /* Stil für das Logo, wenn das Overlay sichtbar ist */
 .overlay.active {
   opacity: 0;
-  transform: scale(0.5) translate(-100%, -100%); /* Zielposition und Größe (kleiner und oben links) */
+  transform: scale(0.5) translate(-100%, -100%);
+  /* Zielposition und Größe (kleiner und oben links) */
 }
 
 .d-none {
@@ -319,6 +326,11 @@ body {
   padding-top: 165px;
 }
 
+.legal-notice-private-policy {
+  color: #bbbbbc;
+  text-decoration: none;
+}
+
 .signup-page-2 {
   background-color: rgb(246, 247, 248);
   width: 100vw;
@@ -416,6 +428,7 @@ body {
   gap: 4px;
   align-self: stretch;
 }
+
 .left-side-Policy a {
   padding: 8px;
   color: #a8a8a8;
@@ -524,6 +537,7 @@ body {
   align-items: flex-start;
   gap: 28px;
 }
+
 .summaryTop {
   display: flex;
   width: 560px;
@@ -532,6 +546,7 @@ body {
   align-items: center;
   gap: 28px;
 }
+
 .summaryTopImg {
   display: flex;
   flex-direction: column;
@@ -539,6 +554,7 @@ body {
   align-items: center;
   gap: 10px;
 }
+
 .summaryTopLeft {
   display: flex;
   width: 264px;
@@ -550,6 +566,7 @@ body {
   border-radius: 30px;
   background-color: white;
 }
+
 .summaryTopRight {
   display: flex;
   width: 264px;
@@ -561,11 +578,13 @@ body {
   border-radius: 30px;
   background-color: white;
 }
+
 .summaryTopCount {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .summaryBigNumber {
   color: #000000;
   text-align: center;
@@ -574,6 +593,7 @@ body {
   font-weight: 600;
   line-height: 120%;
 }
+
 .summaryBigText {
   color: #2a3647;
   font-size: 20px;
@@ -581,6 +601,7 @@ body {
   font-weight: 400;
   line-height: 120%;
 }
+
 .summaryMiddle {
   display: flex;
   width: 560px;
@@ -607,6 +628,7 @@ body {
   align-items: center;
   gap: 13px;
 }
+
 .summaryMiddlePriorityDate {
   color: #2a3647;
   display: flex;
@@ -615,18 +637,21 @@ body {
   align-items: center;
   gap: 13px;
 }
+
 .summaryMiddlePriorityDateTextI {
   font-size: 21px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
 }
+
 .summaryMiddlePriorityDateTextII {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
 }
+
 .summaryBottom {
   display: flex;
   flex-direction: row;
@@ -634,6 +659,7 @@ body {
   align-items: center;
   gap: 28px;
 }
+
 .summaryBottomCard {
   display: flex;
   width: 168px;
@@ -648,6 +674,7 @@ body {
   background-color: white;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
 }
+
 /* Help + Privacy Policy + Legal notice */
 
 .textField {
@@ -659,6 +686,7 @@ body {
   align-items: flex-start;
   gap: 24px;
 }
+
 .textFieldBig {
   display: flex;
   width: 1014px;
@@ -669,6 +697,7 @@ body {
   gap: 24px;
   overflow-y: scroll;
 }
+
 .return-arrow {
   position: absolute;
   left: 1307px;
@@ -678,9 +707,11 @@ body {
   height: 32px;
   flex-shrink: 0;
 }
+
 .click {
   cursor: pointer;
 }
+
 .textNormal {
   align-self: stretch;
   font-size: 16px;
@@ -688,6 +719,7 @@ body {
   font-weight: 400;
   line-height: 120%;
 }
+
 .textNormal p {
   font-size: 20px;
   font-style: normal;
@@ -695,6 +727,7 @@ body {
   line-height: 120%;
   margin: 0;
 }
+
 .textBig {
   width: 346px;
   font-size: 27px;
@@ -702,11 +735,13 @@ body {
   font-weight: 700;
   line-height: 120%;
 }
+
 .textlist ul {
   align-self: stretch;
   margin: 0;
   padding: 0;
 }
+
 .textEnumeration {
   display: flex;
   flex-direction: column;
@@ -714,12 +749,14 @@ body {
   gap: 16px;
   align-self: stretch;
 }
+
 .helpList {
   display: flex;
   align-items: flex-start;
   gap: 35px;
   align-self: stretch;
 }
+
 .helpListNumber {
   font-size: 27px;
   font-style: normal;
