@@ -1,0 +1,101 @@
+.contact-list {
+    position: absolute;
+    left: 232px;
+    top: 210px;
+    height: 813px;
+    width: 450px;
+    background: white;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-shadow: 4px 4px 6px 0px #00000014;
+}
+
+.create-btn {
+    height: 56px;
+    width: 350px;
+    background-color: #2a3647;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+}
+
+.add-btn-bg {
+    position: absolute;
+    left: 232px;
+    top: 100px;
+    padding: 27px 50px;
+    background-color: white;
+    box-shadow: 4px 0px 6px 0px #00000014;
+}
+
+.text {
+    position: absolute;
+    top: 200px;
+    left: 750px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 570px;
+    height: 74px;
+}
+
+.text-contacts {
+    font-weight: 700;
+    font-size: 60px;
+}
+
+.text-team {
+    font-weight: 400;
+    font-size: 27px;
+    color: #2A3647;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.email-text {
+    color: #007CEE;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.name-text {
+    color: black;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 80px;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    padding: 15px 0px;
+    padding-left: 80px;
+    gap: 35px;
+}
+
+.pfp {
+    height: 42px;
+    width: 42px;
+    border: solid 0px white;
+    background-color: orange;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
