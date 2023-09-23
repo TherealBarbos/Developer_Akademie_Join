@@ -55,4 +55,113 @@ h2 {
 .page {
     border-radius: 30px;
     background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+}
+
+.right-part {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    padding: 60px 60px;
+    gap: 60px;
+}
+
+.input {
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: black;
+    border: solid 1px lightgrey;
+    width: 420px;
+    height: 40px;
+    font-size: 20px;
+}
+
+.input::placeholder {
+    color: #D1D1D1;
+}
+
+.input:focus {
+    outline: none !important;
+    border-color: rgb(215, 215, 215);
+}
+
+#input-email {
+    background-image: url(assets/img/mail.png);
+    background-repeat: no-repeat;
+    background-position: 400px 22px;
+}
+
+#input-name {
+    background-image: url(assets/img/person.svg);
+    background-repeat: no-repeat;
+    background-position: 400px 22px;
+}
+
+#input-phone {
+    background-image: url(assets/img/call.svg);
+    background-repeat: no-repeat;
+    background-position: 400px 22px;
+}
+
+.input-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.rightpart-middle {
+    display: flex;
+}
+
+.img-person-bg {
+    height: 120px;
+    width: 120px;
+    background-color: #D1D1D1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 3px #FFFFFF;
+    border-radius: 70px;
+    box-shadow: 0px 0px 4px 0px #0000001A;
+    margin-right: 160px;
+    margin-top: 60px;
+}
+
+.img-person {
+    height: 42px;
+    width: 42px;
+    fill: white;
+}
+
+.create-btn {
+    height: 56px;
+    width: 214px;
+    background-color: #2a3647;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.cancel-btn {
+    height: 56px;
+    width: 124px;
+    background-color: white;
+    color: black;
+    border-radius: 8px;
+    border: solid 1px black;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding-right: 88px;
 }
