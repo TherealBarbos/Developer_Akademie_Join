@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fonts.css">
     <link rel="icon" type="image/x-icon" href="assets/img/logo_favicon.ico" />
+    <script src="js/login.js"></script>
+    <script src="js/storage.js"></script>
 </head>
 
-<body>
+<body onload="init()">
     <div class="login-page">
         <div class="login-signup-upper-part">
             <span>Not a Join user?</span>
@@ -38,8 +40,8 @@
                 </div>
             </div>
             <div class="login-window-buttons">
-                <div class="login-btn">Log in</div>
-                <div class="login-btn-guest">Guest Log in</div>
+                <button class="login-btn" onclick="login()">Log in</button>
+                <button class="login-btn-guest">Guest Log in</button>
             </div>
         </div>
 
