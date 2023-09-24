@@ -42,7 +42,8 @@ let contacts = [{
     'name': 'oliver',
     'email': 'oliver@gmail',
 },
-]
+];
+let letters = [];
 
 function load() {
     loadContacts();
@@ -54,15 +55,20 @@ function displayContacts() {
     list.innerHTML = '';
     for (let i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
-        let letter = contact['name'].charAt(0).toUpperCase();
+        const letter = contact['name'].charAt(0).toUpperCase();
+        
+        if (!letters.includes(letter)) {
+            letters.push(letter);
+        }
+
         list.innerHTML += /*html*/`
-    <div class="contact">
-        <div class="pfp">${letter}</div>
-        <div class="contact-info column">
-          <div class="name-text" >${contact['name']}</div>
-          <div class="email-text">${contact['email']}</div>
-        </div>
-    </div>
+          <div class="contact" id='${letter}'>
+              <div class="pfp">${letter}</div>
+              <div class="contact-info column">
+                <div class="name-text" >${contact['name']}</div>
+                <div class="email-text">${contact['email']}</div>
+              </div>
+          </div>
         `;
     }
 }
