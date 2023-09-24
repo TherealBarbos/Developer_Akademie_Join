@@ -43,12 +43,16 @@ let contacts = [{
     'email': 'oliver@gmail',
 },
 ];
+
 let letters = [];
 
 function load() {
     loadContacts();
+    collectLetters();
     displayContacts();
 }
+
+
 
 function displayContacts() {
     let list = document.getElementById('contact-list');
@@ -56,11 +60,6 @@ function displayContacts() {
     for (let i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
         const letter = contact['name'].charAt(0).toUpperCase();
-        
-        if (!letters.includes(letter)) {
-            letters.push(letter);
-        }
-
         list.innerHTML += /*html*/`
           <div class="contact" id='${letter}'>
               <div class="pfp">${letter}</div>
@@ -70,6 +69,17 @@ function displayContacts() {
               </div>
           </div>
         `;
+    }
+}
+
+function collectLetters() {
+    for (let i = 0; i < contacts.length; i++) {
+        let contact = contacts[i];
+        const FirstLetter = contact['name'].charAt(0).toUpperCase();
+
+        if (!letters.includes(FirstLetter)) {
+            letters.push(FirstLetter);
+        }
     }
 }
 
