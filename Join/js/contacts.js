@@ -2,57 +2,18 @@
 const STORAGE_TOKEN = '4AVD74O6ONTUSWYBIKRAF3SC5B2U9YW3OCE1JRVE';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
-let contacts = [{
-    'name': 'ersan',
-    'email': 'ersan@gmail',
-},
-{
-    'name': 'manuel',
-    'email': 'manuel@gmail',
-},
-{
-    'name': 'oliver',
-    'email': 'oliver@gmail',
-},
-{
-    'name': 'oliver',
-    'email': 'oliver@gmail',
-},
-{
-    'name': 'oliver',
-    'email': 'oliver@gmail',
-},
-{
-    'name': 'oliver',
-    'email': 'oliver@gmail',
-},
-{
-    'name': 'oliver',
-    'email': 'oliver@gmail',
-},
-{
-    'name': 'oliver',
-    'email': 'oliver@gmail',
-},
-{
-    'name': 'oliver',
-    'email': 'oliver@gmail',
-},
-{
-    'name': 'oliver',
-    'email': 'oliver@gmail',
-},
-];
+let contacts = []
+let letters = []
 
-let letters = [];
-
-function load() {
-    loadContacts();
+async function load() {
+    await loadContacts();
     collectLetters();
     displayContacts();
 }
 
-
+function addContact() {
+    location.href = "addcontact.html";
+}
 
 function displayContacts() {
     let list = document.getElementById('contact-list');

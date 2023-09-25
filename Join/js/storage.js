@@ -3,14 +3,14 @@ const STORAGE_TOKEN = '4AVD74O6ONTUSWYBIKRAF3SC5B2U9YW3OCE1JRVE';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
 async function init() {
-    load();
+    loadAccounts();
 }
 
-async function load() {
+async function loadAccounts() {
     try {
         accounts = JSON.parse(await getItem('accounts'));
     } catch (e) {
-    console.error('Loading error:', e);
+        console.error('Loading error:', e);
     }
 }
 
