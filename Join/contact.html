@@ -1,60 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="fonts.css" />
-    <link rel="stylesheet" href="assets/css/basement.css">
-    <link rel="icon" type="image/x-icon" href="assets/img/logo_favicon.ico" />
 
-    <title>Contacts</title>
-  </head>
-  <body onload="">
-    <div class="header">
-      <div class="headerText">Kanban Project Management Tool</div>
-      <div class="headerMenu">
-        <a href="help.html" class="Help">
-          <img src="assets/img/help.png" alt="Hilfe" />
-        </a>
-        <a href="user.html" class="User">
-          <img src="assets/img/BSP.png" alt="Hilfe" />
-        </a>
-      </div>
-    </div>
-    <div class="left-side">
-      <div class="left-side-logo">
-        <a href="summary.html">
-          <img src="assets/img/logo_white.png" alt="logo" />
-        </a>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="fonts.css" />
+  <link rel="stylesheet" href="assets/css/basement.css">
+  <link rel="icon" type="image/x-icon" href="assets/img/logo_favicon.ico" />
+  <link rel="stylesheet" href="contact.css">
+  <script src="js/contacts.js"></script>
+  <title>Contacts</title>
+</head>
 
-      <div class="left-side-menu">
-        <a href="summary.html" class="left-side-menu-btn">
-          <img src="assets/img/summary.png" alt="" />
-          <p>Summary</p>
-        </a>
-        <a href="add_task.html" class="left-side-menu-btn">
-          <img src="assets/img/add_task.png" alt="" />
-          <p>Add Task</p>
-        </a>
-        <a href="board.html" class="left-side-menu-btn">
-          <img src="assets/img/board.png" alt="" />
-          <p>Board</p>
-        </a>
-        <a href="contact.html" class="left-side-menu-btn">
-          <img src="assets/img/contacts.png" alt="" />
-          <p>Contacts</p>
-        </a>
-      </div>
-      <div class="left-side-Policy">
-        <a href="privacy-policy.html" target="_blank">Privacy Policy</a>
-        <a href="legal-notice.html" target="_blank">Legal notice</a>
-      </div>
+<body onload="load()">
+  <div class="header">
+    <div class="headerText">Kanban Project Management Tool</div>
+    <div class="headerMenu">
+      <a href="help.html" class="Help">
+        <img src="assets/img/help.png" alt="Hilfe" />
+      </a>
+      <a href="user.html" class="User">
+        <img src="assets/img/BSP.png" alt="Hilfe" />
+      </a>
     </div>
-    <div class="contentHeader">
-      <div class="contentHeaderTitle">Contacts</div>
+  </div>
+  <div class="left-side">
+    <div class="left-side-logo">
+      <a href="summary.html">
+        <img src="assets/img/logo_white.png" alt="logo" />
+      </a>
     </div>
 
-  </body>
+    <div class="left-side-menu">
+      <a href="summary.html" class="left-side-menu-btn">
+        <img src="assets/img/summary.png" alt="" />
+        <p>Summary</p>
+      </a>
+      <a href="add_task.html" class="left-side-menu-btn">
+        <img src="assets/img/add_task.png" alt="" />
+        <p>Add Task</p>
+      </a>
+      <a href="board.html" class="left-side-menu-btn">
+        <img src="assets/img/board.png" alt="" />
+        <p>Board</p>
+      </a>
+      <a href="contact.html" class="left-side-menu-btn">
+        <img src="assets/img/contacts.png" alt="" />
+        <p>Contacts</p>
+      </a>
+    </div>
+    <div class="left-side-Policy">
+      <a href="privacy-policy.html" target="_blank">Privacy Policy</a>
+      <a href="legal-notice.html" target="_blank">Legal notice</a>
+    </div>
+  </div>
+  <div class="add-btn-bg">
+    <button onclick="addContact()" class="create-btn">
+      Add new contact
+      <img class="add-person" src="assets/img/person_add.png" alt="person-add">
+    </button>
+  </div>
+
+  <div class="contact-list" id="contact-list">
+  </div>
+
+  <div class="text">
+    <div class="text-contacts">Contacts</div>
+    <img src="assets/img/Vector-contact.svg" alt="vector">
+    <div class="text-team">better with a team</div>
+  </div>
+</body>
+
 </html>

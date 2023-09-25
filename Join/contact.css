@@ -83,19 +83,41 @@
 .contact {
     display: flex;
     align-items: center;
-    padding: 15px 0px;
-    padding-left: 80px;
+    margin: 5px 50px;
     gap: 35px;
+    padding: 10px 30px;
+    border-radius: 10px;
+}
+
+.contact:hover {
+    background-color: #2A3647;
+}
+
+.contact:hover .name-text {
+    color: white;
 }
 
 .pfp {
     height: 42px;
     width: 42px;
-    border: solid 0px white;
+    border: solid 2px white;
     background-color: orange;
     border-radius: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #A8A8A8;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
 }

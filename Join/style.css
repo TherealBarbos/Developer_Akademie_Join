@@ -419,6 +419,8 @@ body {
   height: 400px;
 }
 
+/* right side */
+
 .enter-date {
   display: flex;
   flex-direction: column;
@@ -449,6 +451,16 @@ body {
   padding: 8px 16px 8px 16px;
 }
 
+.prio-button:hover {
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+#urgent-img, #medium-img, #low-img {
+  height: 16px;
+  width: 21px;
+}
+
 .urgent {
   background-color: #ff3d00;
   color: white;
@@ -465,11 +477,6 @@ body {
   background-color: #7ae229;
   color: white;
   font-weight: bold;
-}
-
-.prio-button:hover {
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
 }
 
 .subtask-button {

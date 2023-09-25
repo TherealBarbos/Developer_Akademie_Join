@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="assets/css/basement.css">
     <link rel="icon" type="image/x-icon" href="assets/img/logo_favicon.ico" />
     <script src="js/addcontact.js"></script>
+    <script src="js/storage.js"></script>
 
 </head>
 
-<body>
+<body onload="init2()">
     <div class="page">
         <div class="add-c-left-part">
             <div class="left-part-content">
@@ -26,7 +27,7 @@
 
         <div class="right-part">
             <div>
-                <img src="assets/img/close.svg" alt="x">
+                <img onclick="redirectToContacts()" src="assets/img/close.svg" alt="x">
             </div>
             <div class="rightpart-middle">
                 <div class="img-person-bg">
@@ -42,7 +43,7 @@
                 <button class="cancel-btn">
                     <span>Cancel <img src="assets/img/x.svg" alt="x"></span>
                 </button>
-                <button class="create-btn">
+                <button onclick="AddContact()" class="create-btn">
                     <span>Create Contact <img src="assets/img/check.svg" alt="check"></span>
                 </button>
             </div>

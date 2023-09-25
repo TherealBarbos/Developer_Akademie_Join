@@ -2,51 +2,17 @@
 const STORAGE_TOKEN = '4AVD74O6ONTUSWYBIKRAF3SC5B2U9YW3OCE1JRVE';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
-let contacts = [{
-    'name': 'ersan',
-    'email': 'ersan@gmail',
-},
-{
-    'name': 'manuel',
-    'email': 'manuel@gmail',
-},
-{
-    'name': 'oliver',
-    'email': 'oliver@gmail',
-},
-{
-    'name': 'oliver',
-    'email': 'oliver@gmail',
-},
-{
-    'name': 'oliver',
-    'email': 'oliver@gmail',
-},
-{
-    'name': 'oliver',
-    'email': 'oliver@gmail',
-},
-{
-    'name': 'oliver',
-    'email': 'oliver@gmail',
-},
-{
-    'name': 'oliver',
-    'email': 'oliver@gmail',
-},
-{
-    'name': 'oliver',
-    'email': 'oliver@gmail',
-},
-{
-    'name': 'oliver',
-    'email': 'oliver@gmail',
-},
-]
+let contacts = []
+let letters = []
 
-function load() {
-    loadContacts();
+async function load() {
+    await loadContacts();
+    collectLetters();
     displayContacts();
+}
+
+function addContact() {
+    location.href = "addcontact.html";
 }
 
 function displayContacts() {
@@ -54,16 +20,27 @@ function displayContacts() {
     list.innerHTML = '';
     for (let i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
-        let letter = contact['name'].charAt(0).toUpperCase();
+        const letter = contact['name'].charAt(0).toUpperCase();
         list.innerHTML += /*html*/`
-    <div class="contact">
-        <div class="pfp">${letter}</div>
-        <div class="contact-info column">
-          <div class="name-text" >${contact['name']}</div>
-          <div class="email-text">${contact['email']}</div>
-        </div>
-    </div>
+          <div class="contact" id='${letter}'>
+              <div class="pfp">${letter}</div>
+              <div class="contact-info column">
+                <div class="name-text" >${contact['name']}</div>
+                <div class="email-text">${contact['email']}</div>
+              </div>
+          </div>
         `;
+    }
+}
+
+function collectLetters() {
+    for (let i = 0; i < contacts.length; i++) {
+        let contact = contacts[i];
+        const FirstLetter = contact['name'].charAt(0).toUpperCase();
+
+        if (!letters.includes(FirstLetter)) {
+            letters.push(FirstLetter);
+        }
     }
 }
 
