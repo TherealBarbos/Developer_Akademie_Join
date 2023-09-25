@@ -57,6 +57,7 @@
 
   <div id="content">
 
+    <!-- <form onsubmit="addTask()"> -->
     <div class="addTask">
       <span class="addTaskHeader">Add Task</span>
 
@@ -93,12 +94,15 @@
           <div class="priority gap-8">
             <span> Prio </span>
             <div class="prio-select">
-                <button onclick="urgentButton()" id="urgent" class="prio-button border-radius-6"> Urgent <img id="urgent-img" src="assets/img/urgent_no_bg.png"></button>
-                <button onclick="mediumButton()" id="medium" class="prio-button medium-clicked border-radius-6"> Medium <img src="assets/img/medium_no_bg.png"></button>
-                <button onclick="lowButton()" id="low" class="prio-button low-clicked border-radius-6"> Low <img src="assets/img/low_no_bg.png"></button>
+              <button onclick="urgentButton()" id="urgent" class="prio-button border-radius-6"> Urgent <img
+                  id="urgent-img" src="assets/img/urgent_no_bg.png"></button>
+              <button onclick="mediumButton()" id="medium" class="prio-button medium-clicked border-radius-6"> Medium
+                <img id="medium-img" src="assets/img/medium_no_bg.png"></button>
+              <button onclick="lowButton()" id="low" class="prio-button low-clicked border-radius-6"> Low <img
+                  id="low-img" src="assets/img/low_no_bg.png"></button>
             </div>
-        </div>
-        
+          </div>
+
 
           <div class="assigned-to-container gap-8">
             <span> Category </span>
@@ -124,6 +128,7 @@
         </div>
       </div>
     </div>
+    <!-- </form> -->
 
 
   </div> <!-- id="content" -->
