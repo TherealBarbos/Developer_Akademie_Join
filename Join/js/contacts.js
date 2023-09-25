@@ -15,6 +15,50 @@ function addContact() {
     location.href = "addcontact.html";
 }
 
+function deleteContact(index) {
+    contacts.splice(index, 1);
+    setItem('contacts', contacts);
+    load();
+}
+
+async function editContact(index) {
+    await setItem('index', index);
+    location.href = 'editcontact.html';
+}
+
+function displayContactDetails(index) {
+    let details = document.getElementById('details');
+    details.innerHTML = '';
+    details.innerHTML = /*html*/`
+    
+    <div class="details-upper-part">
+      <div class="details-pfp">pfp</div>
+      <div class="gap">
+        <div class="details-name">${contacts[index]['name']}</div>
+        <div class="edit-delete">
+          <div onclick="editContact(${index})" class="flex">
+            <img src="assets/img/edit.png" alt="edit">
+            <div>Edit</div>
+          </div>
+          <div onclick="deleteContact(${index})" class="flex">
+            <img src="assets/img/delete.png" alt="delete">
+            <div>Delete</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <span class="details-info-text">Contact Information</span>
+
+    <div class="details-email-phone">
+        <div class="details-mini-headline">Email</div>
+        <div class="details-email">${contacts[index]['email']}</div>
+        <div class="details-mini-headline">Phone</div>
+        <div>${contacts[index]['phone']}</div>
+    </div>
+`
+}
+
 function displayContacts() {
     let list = document.getElementById('contact-list');
     list.innerHTML = '';
@@ -22,7 +66,7 @@ function displayContacts() {
         let contact = contacts[i];
         const letter = contact['name'].charAt(0).toUpperCase();
         list.innerHTML += /*html*/`
-          <div class="contact" id='${letter}'>
+          <div onclick="displayContactDetails(${i})" class="contact" id='${letter}'>
               <div class="pfp">${letter}</div>
               <div class="contact-info column">
                 <div class="name-text" >${contact['name']}</div>

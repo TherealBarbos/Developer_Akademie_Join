@@ -121,3 +121,82 @@
 ::-webkit-scrollbar {
     width: 10px;
 }
+
+.details {
+    position: absolute;
+    top: 300px;
+    left: 750px;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 365px;
+    gap: 20px;
+}
+
+.details-upper-part {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.edit-delete {
+    display: flex;
+    height: 18px;
+    gap: 16px;
+}
+
+.details-name {
+    font-size: 47px;
+    font-weight: 500;
+
+}
+
+.details-pfp {
+    height: 120px;
+    width: 120px;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 47px;
+    border: solid 3px white;
+    border-radius: 70px;
+}
+
+.flex {
+    display: flex;
+    gap: 4px;
+}
+
+.details-info-text {
+    font-size: 20px;
+    font-weight: 400px;
+    height: 74px;
+    display: flex;
+    align-items: center;
+}
+
+.gap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.details-email-phone {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.details-mini-headline {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.details-email {
+    color: #007CEE;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
