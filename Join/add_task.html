@@ -77,20 +77,20 @@
 
           <div class="assigned-to-container gap-8">
             <span> Assigned to </span>
-            <select class="border-radius-6" name="Select contacts to assign to">
+            <select id="assignedName" class="border-radius-6" name="Select contacts to assign to">
               <option value="" disabled selected hidden>Select contacts to assign</option>
-              <option value="Test">Test</option>
+              <option value="Test">Test</option>  <!-- hier müssen die Contacts eingefügt werden -->
             </select>
           </div>
         </div>
 
-        <div class="separation-line"></div>
+        <img src="assets/img/lineGray.png" alt="grey-separation-line">
 
         <div class="add-task-right">
 
           <div class="enter-date gap-8">
             <span> Due date </span>
-            <input id="dueDate" type="date" class=""></input>
+            <input class="border-radius-6" id="dueDate" type="date" class=""></input>
           </div>
 
           <div class="priority gap-8">
@@ -117,14 +117,18 @@
 
           <div class="assigned-to-container gap-8">
             <span> Subtasks </span>
-            <button class="border-radius-6 subtask-button" placeholder="Enter Title">
-              <span>Add new subtask</span>
-              <span>+</span>
+            <button class="subtask-button-inactive border-radius-6" onclick="transformIntoInput()"
+              id="add-subtask-button">
+              <span> Add new subtask </span>
+              <img src="assets/img/addtask.png" class="plus-sign-exit-tick" id="plus-sign">
             </button>
           </div>
 
+          <div id="subtask-container"></div>
+
           <div class="create-clear-button-container">
-            <button onclick="addTask()"> Add Task </button>
+            <!-- <button> clear</button> -->
+            <button onclick="addTask()"> Add Task (needs form validation) </button>
           </div>
 
         </div>
