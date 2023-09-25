@@ -21,8 +21,12 @@ function deleteContact(index) {
     load();
 }
 
-async function editContact(index) {
-    await setItem('index', index);
+function setArray(key, array) {
+    localStorage.setItem(key, JSON.stringify(array));
+}
+
+function editContact(index) {
+    setArray('index', index);
     location.href = 'editcontact.html';
 }
 
