@@ -1,0 +1,88 @@
+
+.textField {
+    display: flex;
+    width: 1014px;
+    height: 713px;
+    margin: 311px 98px 0px 328px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  
+  .textFieldBig {
+    display: flex;
+    width: 1014px;
+    height: 713px;
+    margin: 311px 98px 0px 328px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    overflow-y: scroll;
+  }
+  
+  .return-arrow {
+    position: absolute;
+    left: 1307px;
+    top: 225px;
+    display: flex;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+  
+  .click {
+    cursor: pointer;
+  }
+  
+  .textNormal {
+    align-self: stretch;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+  }
+  
+  .textNormal p {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    margin: 0;
+  }
+  
+  .textBig {
+    width: 346px;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+  }
+  
+  .textlist ul {
+    align-self: stretch;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .textEnumeration {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+  }
+  
+  .helpList {
+    display: flex;
+    align-items: flex-start;
+    gap: 35px;
+    align-self: stretch;
+  }
+  
+  .helpListNumber {
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+  }
+  

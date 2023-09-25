@@ -16,12 +16,14 @@ async function init2() {
 async function AddContact() {
     let email = document.getElementById('input-email');
     let name = document.getElementById('input-name');
+    let phone = document.getElementById('input-phone');
     let account = accounts.find(a => a.email == email.value && a.name == name.value);
     if (account) {
         console.log('Account gefunden');
         let contact = {
             'name': name.value,
             'email': email.value,
+            'phone': '+' + phone.value,
         };
         contacts.push(contact)
         await setItem('contacts', JSON.stringify(contacts));
