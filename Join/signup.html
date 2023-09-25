@@ -24,14 +24,14 @@
         <div class="signup-window">
             <div class="signup-window-upper-part">
                 <div>
-                    <img class="signup-arrow" src="assets/img/arrow-left-line.svg" alt="arrow-left">
+                    <img onclick="redirectToLogin()" class="signup-arrow" src="assets/img/arrow-left-line.svg" alt="arrow-left">
                 </div>
                 <div class="column">
                     <span class="login-text">Sign up</span>
                     <img class="signup-vector" src="assets/img/Vector 5.svg" alt="vector">
                 </div>
             </div>
-            <form onsubmit="signUp()">
+            <form onsubmit="signUp(); return false">
                 <div class="signup-window-inputs">
                     <input placeholder="Name" id="input-name" minlength="1" maxlength="20" required type="text"
                         class="login-input">
@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="signup-window-buttons">
-                    <button class="signup-btn">Sign up</button>
+                    <button type="submit" class="signup-btn">Sign up</button>
                 </div>
             </form>
         </div>

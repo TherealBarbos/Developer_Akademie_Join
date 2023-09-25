@@ -17,13 +17,17 @@ async function signUp() {
             'createdAt': createdAt,
         };
         accounts.push(account);
-        console.log(accounts);
         await setItem('accounts', JSON.stringify(accounts));
+        redirectToLogin();
     }
     else {
         alert('your Confirmed password is not equal to your password, or your forgot to type in your name');
     }
     clearSignupInputs();
+}
+
+async function redirectToLogin() {
+    location.href = "login.html";
 }
 
 /**

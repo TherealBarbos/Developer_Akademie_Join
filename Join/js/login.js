@@ -9,6 +9,7 @@ function login() {
     console.log(account);
     if (account) {
         console.log('Account gefunden');
+        redirectToSummary();
     }
     clearLoginInputs();
 }
@@ -19,4 +20,12 @@ function login() {
 function clearLoginInputs() {
     document.getElementById('input-email').value = '';
     document.getElementById('input-password').value = '';
+}
+
+function redirectToSummary() {
+    location.href = "summary.html";
+}
+
+function redirectToSignUp() {
+    location.href = "signup.html";
 }

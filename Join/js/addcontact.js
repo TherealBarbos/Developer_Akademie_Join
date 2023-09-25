@@ -1,7 +1,7 @@
 let contacts = [];
 
 function redirectToContacts() {
-    location.href = "contact-test-ersan.html";
+    location.href = "contact.html";
 }
 
 async function init2() {
