@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="assets/img/logo_favicon.ico" />
 
-    <script src="js/script.js"></script>
+    <script src="assets/js/board.js"></script>
 
     <title>Board</title>
   </head>
-  <body onload="">
+  <body onload="updateHTML()">
     <div class="header">
       <div class="headerText">Kanban Project Management Tool</div>
       <div class="headerMenu">
@@ -25,7 +25,7 @@
     <div class="left-side">
       <div class="left-side-logo">
         <a href="summary.html">
-        <img src="assets/img/logo_white.png" alt="logo" />
+          <img src="assets/img/logo_white.png" alt="logo" />
         </a>
       </div>
 
@@ -59,17 +59,22 @@
     </div>
 
     <div class="board">
-
-      <div class="drag" id="toDo" ondragover="" ondragleave="" ondrop=""></div>
-
-      <div class="drag" id="inProgress" ondragover="" ondragleave="" ondrop=""></div>
-
-      <div class="drag" id="awaitFeedback" ondragover="" ondragleave="" ondrop=""></div>
-
-      <div class="drag" id="done" ondragover="" ondragleave="" ondrop=""></div>
-
-
-
+      <div class="drag" id="toDo" ondrop="moveTo('toDo')" ondragleave="unhighlight('toDo')" ondragover="allowDrop(event); highlight('toDo')" >
+        <!-- Bereich 'toDo' -->
+      </div>
+    
+      <div class="drag" id="inProgress" ondrop="moveTo('inProgress')" ondragleave="unhighlight('inProgress')" ondragover="allowDrop(event); highlight('inProgress')" >
+        <!-- Bereich 'inProgress' -->
+      </div>
+    
+      <div class="drag" id="awaitFeedback" ondrop="moveTo('awaitFeedback')" ondragleave="unhighlight('awaitFeedback')" ondragover="allowDrop(event); highlight('awaitFeedback')" >
+        <!-- Bereich 'awaitFeedback' -->
+      </div>
+    
+      <div class="drag" id="done" ondrop="moveTo('done')" ondragleave="unhighlight('done')" ondragover="allowDrop(event); highlight('done')" >
+        <!-- Bereich 'done' -->
+      </div>
     </div>
+    
   </body>
 </html>
