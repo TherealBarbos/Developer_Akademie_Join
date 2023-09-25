@@ -1,3 +1,25 @@
+/* Importieren Sie andere CSS-Dateien */
+
+/* Fonts PAGE */
+/* new css in assets*/
+@import url("assets/css/fonts.css");
+
+/* Basement Left+Header+Headline */
+/* new css in assets*/
+@import url("assets/css/basement.css");
+
+/* SUMMARY PAGE */
+/* new css in assets*/
+@import url("assets/css/summary.css");
+
+/* Board PAGE */
+/* new css in assets*/
+@import url("assets/css/board.css");
+
+/* Help + Privacy Policy + Legal notice */
+/* new css in assets*/
+@import url("assets/css/help-pp-ln.css");
+
 body {
   margin: 0px;
   font-family: "Inter";
@@ -348,15 +370,6 @@ body {
   justify-content: center;
   padding-top: 24px;
 }
-
-/* Basement Left+Header+Headline */
-/* new css in assets*/
-
-/* SUMMARY PAGE */
-/* new css in assets*/
-
-/* Help + Privacy Policy + Legal notice */
-/* new css in assets*/
 
 /* Add Task */
 
