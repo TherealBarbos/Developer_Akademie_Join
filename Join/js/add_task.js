@@ -4,21 +4,16 @@ let SubtaskArray = [];
 function addTask() { // this function creates a JSON array that holds the title, description, etc. of the task you want to add
     const taskTitle = document.getElementById('task-title').value;
     const taskDescription = document.getElementById('task-description').value;
-    const assignedName = document.getElementById('assignedName');
+    const assignedName = document.getElementById('assignedName').value;
     const dueDateStr = document.getElementById('dueDate').value;
     const dueDate = new Date(dueDateStr).getTime();
     const priority = getSelectedPriority();
     const category = document.getElementById('category').value;
     const subtask = SubtaskArray;
 
-
-
     console.log('task-title', taskTitle);
     console.log('task-description', taskDescription);
     console.log('dueDate', dueDate);
-
-
-
 
     let task = {
         'title': taskTitle,
@@ -102,33 +97,48 @@ function lowButton() { //this function handles the clicking/unclicking of the lo
     mediumButton.classList.remove('medium');
 }
 
-function transformIntoInput() {
+    // Subtask-Section
+
+function transformIntoInput() { //this function activates the input field to add subtasks
     const subtaskButton = document.getElementById('add-subtask-button');
 
     const input = document.createElement('div');
     input.placeholder = 'Add Subtask';
     input.innerHTML = `
-    <div class="subtask-button">
-        <input id="subtask" class="subtask-input" placeholder="Add new subtask">
+    <div id="subtask" class="subtask-button">
+        <input id="subtask-input" class="subtask-input" placeholder="Contact Form">
         <div>
-            <img onclick="addNewTaskToList()" class="plus-sign-exit-tick" src="assets/img/check.png">
-            <img onclick="revertBackToButton" class="plus-sign-exit-tick" src="assets/img/close.png">
-        </div<
+            <img onclick="revertBackToButton()" class="exit" id="exit" src="assets/img/cancel.png">
+            <img onclick="addNewTaskToList()" class="tick" id="tick" src="assets/img/check.png">
+        </div>
     </div>`;
 
     subtaskButton.replaceWith(input);
-
     input.focus();
 }
 
-function addNewTaskToList() {
-    let subtaskContainer = document.getElementById('subtask-container');
-    let newSubtask = document.getElementById('subtask').value;
+function addNewTaskToList() { // this function pushes added subtasks into an array and renders them into a list below the input field
+    let subtaskContainer = document.getElementById('subtask-list');
+    let newSubtask = document.getElementById('subtask-input').value;
     SubtaskArray.push(newSubtask);
-    console.log(SubtaskArray);
+    subtaskContainer.innerHTML = '';
 
-    for (let i = 0; i < SubtaskArray; i++) {
+    for (let i = 0; i < SubtaskArray.length; i++) {
         const addedTask = SubtaskArray[i];
-        subtaskContainer.innerHTML += `<span>${addedTask}</span>`;
+        subtaskContainer.innerHTML += `<li class="addtask-list-element">${addedTask}</li>`;
     }
+}
+
+function revertBackToButton() { // this function handles the deactivation of the subtask-input
+    const input = document.getElementById('subtask');
+    const subtaskButton = document.createElement('div');
+
+    subtaskButton.innerHTML = `
+        <button class="subtask-button-inactive border-radius-6" onclick="transformIntoInput()" id="add-subtask-button">
+            <span> Add new subtask </span>
+            <img src="assets/img/addtask.png" class="plus-sign" id="plus-sign">
+        </button>
+    `;
+
+    input.replaceWith(subtaskButton);
 }
