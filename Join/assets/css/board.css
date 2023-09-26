@@ -11,6 +11,39 @@
   gap: 26px;
   flex-shrink: 0;
 }
+.boardTitel {
+  display: flex;
+  width: 1208px;
+  padding: 0px 64px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.boardTitelBox {
+  display: flex;
+  width: 244px;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+.boardTitelBoxText {
+  color: #42526e;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+.boardTitelBoxButton {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  padding: 3px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+
+
+}
 .drag {
   display: flex;
   flex-direction: column;
@@ -26,7 +59,7 @@
 }
 .card {
   display: flex;
-  width: 252px;
+  width: 220px;
   padding: 16px;
   flex-direction: column;
   justify-content: center;
@@ -53,7 +86,7 @@
   gap: 10px;
   border-radius: 8px;
   background: #0038ff;
-  color: #FFF;
+  color: #fff;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
