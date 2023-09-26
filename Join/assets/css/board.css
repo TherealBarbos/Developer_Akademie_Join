@@ -4,9 +4,9 @@
   top: 0px;
   margin: 336px 0px 0px 232px;
   display: flex;
-  width: 1208px;
+  width: 1080px;
   height: 688px;
-  padding: 0px 64px;
+  padding: 0px 64px 0px 64px;
   align-items: flex-start;
   gap: 26px;
   flex-shrink: 0;
