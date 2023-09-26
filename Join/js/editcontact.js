@@ -2,24 +2,47 @@ let index = [];
 
 async function init() {
     await loadContacts();
-    await loadIndex();
-    displayContactInfo();
+    getIndexArray();
+    setContactValues();
 }
 
-function displayContactInfo() {
-    document.getElementById('input-name').value = `${contacts[`${index[0]}`]['name']}`;
+//async function deleteContact() {
+//    contacts.splice(index, 1);
+//    await setItem('contacts', contacts);
+//    redirectToContacts();
+//}
+
+async function saveContactValues() {
+    let email = document.getElementById('input-email');
+    let name = document.getElementById('input-name');
+    let phone = document.getElementById('input-phone');
+    let contact = {
+        'name': name.value,
+        'email': email.value,
+        'phone': phone.value,
+    };
+    contacts.splice(index, 1);
+    contacts.splice(index, 0, contact);
+    await setItem('contacts', contacts);
+    redirectToContacts();
+}
+
+function setContactValues() {
+    document.getElementById('input-name').value = `${contacts[index]['name']}`;
+    document.getElementById('input-email').value = `${contacts[index]['email']}`;
+    document.getElementById('input-phone').value = `${contacts[index]['phone']}`;
 }
 
 function redirectToContacts() {
     location.href = "contact.html";
 }
 
-async function loadIndex() {
-    try {
-        index = JSON.parse(await getItem('index'));
-    } catch (e) {
-        console.error('Loading error:', e);
-    }
+function getArray(key) {
+    return JSON.parse(localStorage.getItem(key));
+}
+
+function getIndexArray() {
+    index = getArray('index');
 }
 
 async function loadContacts() {
