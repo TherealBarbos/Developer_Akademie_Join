@@ -54,54 +54,89 @@
       </div>
     </div>
 
-    <div class="contentHeader">
-      <div class="contentHeaderTitle">Board</div>
+    <div class="boardHeader">
+      <div class="contentHeader">
+        <div class="contentHeaderTitle">Board</div>
+        <div class="boardNav">
+          <div class="contentHeaderSearch">
+            <input type="text" placeholder="Find Task" />
+            <img src="assets/img/search.png" alt="" />
+          </div>
+          <div class="boardAddtast">
+            <button>
+              <a href="add_task.html">Add Task</a>
+              <img src="assets/img/Add.png" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="boardTitel">
+        <div class="boardTitelBox">
+          <div class="boardTitelBoxText">to do</div>
+          <div class="boardTitelBoxButton">
+            <img src="assets/img/Add.png" alt="" />
+          </div>
+        </div>
+        <div class="boardTitelBox">
+          <div class="boardTitelBoxText">In progress</div>
+          <div class="boardTitelBoxButton">
+            <img src="assets/img/Add.png" alt="" />
+          </div>
+        </div>
+        <div class="boardTitelBox">
+          <div class="boardTitelBoxText">Await feedback</div>
+          <div class="boardTitelBoxButton">
+            <img src="assets/img/Add.png" alt="" />
+          </div>
+        </div>
+        <div class="boardTitelBox">
+          <div class="boardTitelBoxText">Done</div>
+          <div class="boardTitelBoxButton">
+            <img src="assets/img/Add.png" alt="" />
+          </div>
+        </div>
       </div>
     </div>
-    <div class="boardTitel">
-      <div class="boardTitelBox">
-        <div class="boardTitelBoxText">To Do</div>
-        <div class="boardTitelBoxButton">
-          <img src="assets/img/Add.png" alt="">
-        </div>
-      </div>
-      <div class="boardTitelBox">
-        <div class="boardTitelBoxText">In progress</div>
-        <div class="boardTitelBoxButton">
-          <img src="assets/img/Add.png" alt="">
-        </div>
-      </div>
-      <div class="boardTitelBox">
-        <div class="boardTitelBoxText">Await feedback</div>
-        <div class="boardTitelBoxButton">
-          <img src="assets/img/Add.png" alt="">
-        </div>
-      </div>
-      <div class="boardTitelBox">
-        <div class="boardTitelBoxText">To Do</div>
-        <div class="boardTitelBoxButton">
-          <img src="assets/img/Add.png" alt="">
-        </div>
-      </div>
-    
-
     <div class="board">
-      <div class="drag" id="toDo" ondrop="moveTo('toDo')" ondragleave="unhighlight('toDo')" ondragover="allowDrop(event); highlight('toDo')" >
+      <div
+        class="drag"
+        id="toDo"
+        ondrop="moveTo('toDo')"
+        ondragleave="unhighlight('toDo')"
+        ondragover="allowDrop(event); highlight('toDo')"
+      >
         <!-- Bereich 'toDo' -->
       </div>
-    
-      <div class="drag" id="inProgress" ondrop="moveTo('inProgress')" ondragleave="unhighlight('inProgress')" ondragover="allowDrop(event); highlight('inProgress')" >
+
+      <div
+        class="drag"
+        id="inProgress"
+        ondrop="moveTo('inProgress')"
+        ondragleave="unhighlight('inProgress')"
+        ondragover="allowDrop(event); highlight('inProgress')"
+      >
         <!-- Bereich 'inProgress' -->
       </div>
-    
-      <div class="drag" id="awaitFeedback" ondrop="moveTo('awaitFeedback')" ondragleave="unhighlight('awaitFeedback')" ondragover="allowDrop(event); highlight('awaitFeedback')" >
+
+      <div
+        class="drag"
+        id="awaitFeedback"
+        ondrop="moveTo('awaitFeedback')"
+        ondragleave="unhighlight('awaitFeedback')"
+        ondragover="allowDrop(event); highlight('awaitFeedback')"
+      >
         <!-- Bereich 'awaitFeedback' -->
       </div>
-    
-      <div class="drag" id="done" ondrop="moveTo('done')" ondragleave="unhighlight('done')" ondragover="allowDrop(event); highlight('done')" >
+
+      <div
+        class="drag"
+        id="done"
+        ondrop="moveTo('done')"
+        ondragleave="unhighlight('done')"
+        ondragover="allowDrop(event); highlight('done')"
+      >
         <!-- Bereich 'done' -->
       </div>
     </div>
-    
   </body>
 </html>

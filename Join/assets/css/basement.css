@@ -88,7 +88,7 @@
     left: 0px;
     top: 0px;
     display: flex;
-    width: 1440px;
+    width: 100%;
     padding: 20px 0px 20px 0px;
     justify-content: space-between;
     align-items: center;
@@ -117,10 +117,10 @@
     top: 0px;
     display: inline-flex;
     align-items: center;
+    justify-content: space-between;
     height: 73px;
-    width: 655px;
     gap: 30px;
-    margin: 206px 461px 745px 328px;
+    margin: 206px 0px 0px 328px;
   }
   
   .contentHeaderTitle {

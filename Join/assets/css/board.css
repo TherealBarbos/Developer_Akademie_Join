@@ -1,22 +1,29 @@
 .board {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  margin: 336px 0px 0px 232px;
+  margin: 0px 0px 0px 232px;
   display: flex;
-  width: 1080px;
   height: 688px;
   padding: 0px 64px 0px 64px;
-  align-items: flex-start;
   gap: 26px;
   flex-shrink: 0;
+  justify-content: space-between;
+}
+.contendHeaderSearch {
+  border-radius: 10px;
+  border: 1px solid var(--icon, #a8a8a8);
+  background: #fff;
+}
+.boardNav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 32px;
 }
 .boardTitel {
   display: flex;
-  width: 1208px;
+  margin: 301px 0px 0px 232px;
   padding: 0px 64px;
   justify-content: space-between;
-  align-items: flex-start;
+  gap: 26px;
 }
 .boardTitelBox {
   display: flex;
@@ -41,16 +48,13 @@
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
-
-
 }
 .drag {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  width: 244px;
   gap: 24px;
-  flex: 1 0 0;
-  align-self: stretch;
+  flex-shrink: 0;
 }
 .drag-over {
   border-radius: 24px;
@@ -59,7 +63,6 @@
 }
 .card {
   display: flex;
-  width: 220px;
   padding: 16px;
   flex-direction: column;
   justify-content: center;

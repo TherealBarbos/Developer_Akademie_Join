@@ -1,43 +1,43 @@
 let todos = [
   {
     id: "0",
-    category: "toDo",
-    title: "Story",
-    textI: "Kochwelt Page & Recipe Recommender",
-    textII: "Build start page with recipe recommendation...",
+    state: "toDo",
+    category: "Story",
+    title: "Kochwelt Page & Recipe Recommender",
+    description: "Build start page with recipe recommendation...",
     progressbar: "",
     progress: "1/2 Subtasks",
-    badge: "assets/img/BSP.png",
-    prio: "assets/img/medium_no_bg.png",
+    assignedName: "assets/img/BSP.png",
+    priorityImageSource: "assets/img/medium_no_bg.png",
   },
   {
     id: "1",
-    category: "done",
-    title: "BUG?",
-    textI: "Kochwelt Page & Recipe Recommender",
-    textII: "Build start page with recipe recommendation...",
+    state: "done",
+    category: "Story",
+    title: "Kochwelt Page & Recipe Recommender",
+    description: "Build start page with recipe recommendation...",
     progressbar: "",
     progress: "1/2 Subtasks",
-    badge: "assets/img/BSP.png",
-    prio: "assets/img/medium_no_bg.png",
-  },
-  {
+    assignedName: "assets/img/BSP.png",
+    priorityImageSource: "assets/img/medium_no_bg.png",
+  },  {
     id: "2",
-    category: "inProgress",
-    title: "Test",
-    textI: "Kochwelt Page & Recipe Recommender",
-    textII: "Build start page with recipe recommendation...",
+    state: "inProgress",
+    category: "Story",
+    title: "Kochwelt Page & Recipe Recommender",
+    description: "Build start page with recipe recommendation...",
     progressbar: "",
     progress: "1/2 Subtasks",
-    badge: "assets/img/BSP.png",
-    prio: "assets/img/medium_no_bg.png",
+    assignedName: "assets/img/BSP.png",
+    priorityImageSource: "assets/img/medium_no_bg.png",
   },
+
 ];
 
 let currentDraggedElement;
 
 function updateHTML() {
-  let toDo = todos.filter((t) => t["category"] == "toDo");
+  let toDo = todos.filter((t) => t["state"] == "toDo");
 
   document.getElementById("toDo").innerHTML = "";
 
@@ -46,7 +46,7 @@ function updateHTML() {
     document.getElementById("toDo").innerHTML += generateTodoCard(element);
   }
 
-  let inProgress = todos.filter((t) => t["category"] == "inProgress");
+  let inProgress = todos.filter((t) => t["state"] == "inProgress");
 
   document.getElementById("inProgress").innerHTML = "";
 
@@ -56,7 +56,7 @@ function updateHTML() {
       generateInProgressCard(element);
   }
 
-  let done = todos.filter((t) => t["category"] == "done");
+  let done = todos.filter((t) => t["state"] == "done");
 
   document.getElementById("done").innerHTML = "";
 
@@ -65,7 +65,7 @@ function updateHTML() {
     document.getElementById("done").innerHTML += generateDoneCard(element);
   }
 
-  let awaitFeedback = todos.filter((t) => t["category"] == "awaitFeedback");
+  let awaitFeedback = todos.filter((t) => t["state"] == "awaitFeedback");
 
   document.getElementById("awaitFeedback").innerHTML = "";
 
@@ -84,10 +84,10 @@ function startDregging(id) {
 function generateTodoCard(todo) {
   return ` <div class="card" draggable="true" ondragstart="startDregging('${todo.id}')">
     <div class="cardFrame">
-      <div class="cardLable">${todo.title}</div>
+      <div class="cardLable">${todo.category}</div>
       <div class="cardTextbox">
-        <div class="cardTextI">${todo.textI}</div>
-        <div class="cardTextII">${todo.textII}</div>
+        <div class="cardTextI">${todo.title}</div>
+        <div class="cardTextII">${todo.description}</div>
       </div>
       <div class="cardProgress">
         <div class="cardProgressbar">${todo.progressbar}</div>
@@ -95,10 +95,10 @@ function generateTodoCard(todo) {
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
-          <img src="${todo.badge}" alt="" class="cardContactsBadgeImg" />
+          <img src="${todo.assignedName}" alt="" class="cardContactsBadgeImg" />
         </div>
         <div class="cardContactsPrio">
-          <img src="${todo.prio}" alt="" class="cardContactsPrioImg" />
+          <img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" />
         </div>
       </div>
     </div>
@@ -107,10 +107,10 @@ function generateTodoCard(todo) {
 function generateDoneCard(todo) {
   return ` <div class="card" draggable="true" ondragstart="startDregging('${todo.id}')">
     <div class="cardFrame">
-      <div class="cardLable">${todo.title}</div>
+      <div class="cardLable">${todo.category}</div>
       <div class="cardTextbox">
-        <div class="cardTextI">${todo.textI}</div>
-        <div class="cardTextII">${todo.textII}</div>
+        <div class="cardTextI">${todo.title}</div>
+        <div class="cardTextII">${todo.description}</div>
       </div>
       <div class="cardProgress">
         <div class="cardProgressbar">${todo.progressbar}</div>
@@ -118,10 +118,10 @@ function generateDoneCard(todo) {
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
-          <img src="${todo.badge}" alt="" class="cardContactsBadgeImg" />
+          <img src="${todo.assignedName}" alt="" class="cardContactsBadgeImg" />
         </div>
         <div class="cardContactsPrio">
-          <img src="${todo.prio}" alt="" class="cardContactsPrioImg" />
+          <img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" />
         </div>
       </div>
     </div>
@@ -130,10 +130,10 @@ function generateDoneCard(todo) {
 function generateInProgressCard(todo) {
   return ` <div class="card" draggable="true" ondragstart="startDregging('${todo.id}')">
     <div class="cardFrame">
-      <div class="cardLable">${todo.title}</div>
+      <div class="cardLable">${todo.category}</div>
       <div class="cardTextbox">
-        <div class="cardTextI">${todo.textI}</div>
-        <div class="cardTextII">${todo.textII}</div>
+        <div class="cardTextI">${todo.title}</div>
+        <div class="cardTextII">${todo.description}</div>
       </div>
       <div class="cardProgress">
         <div class="cardProgressbar">${todo.progressbar}</div>
@@ -141,10 +141,10 @@ function generateInProgressCard(todo) {
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
-          <img src="${todo.badge}" alt="" class="cardContactsBadgeImg" />
+          <img src="${todo.assignedName}" alt="" class="cardContactsBadgeImg" />
         </div>
         <div class="cardContactsPrio">
-          <img src="${todo.prio}" alt="" class="cardContactsPrioImg" />
+          <img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" />
         </div>
       </div>
     </div>
@@ -153,10 +153,10 @@ function generateInProgressCard(todo) {
 function generateAwaitFeedbackCard(todo) {
   return ` <div class="card" draggable="true" ondragstart="startDregging('${todo.id}')">
     <div class="cardFrame">
-      <div class="cardLable">${todo.title}</div>
+      <div class="cardLable">${todo.category}</div>
       <div class="cardTextbox">
-        <div class="cardTextI">${todo.textI}</div>
-        <div class="cardTextII">${todo.textII}</div>
+        <div class="cardTextI">${todo.title}</div>
+        <div class="cardTextII">${todo.description}</div>
       </div>
       <div class="cardProgress">
         <div class="cardProgressbar">${todo.progressbar}</div>
@@ -164,10 +164,10 @@ function generateAwaitFeedbackCard(todo) {
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
-          <img src="${todo.badge}" alt="" class="cardContactsBadgeImg" />
+          <img src="${todo.assignedName}" alt="" class="cardContactsBadgeImg" />
         </div>
         <div class="cardContactsPrio">
-          <img src="${todo.prio}" alt="" class="cardContactsPrioImg" />
+          <img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" />
         </div>
       </div>
     </div>
@@ -178,10 +178,10 @@ function allowDrop(ev) {
   ev.preventDefault();
 }
 
-function moveTo(category) {
-  todos[currentDraggedElement]["category"] = category;
+function moveTo(state) {
+  todos[currentDraggedElement]["state"] = state;
   updateHTML();
-  unhighlight(category);
+  unhighlight(state);
 }
 
 function highlight(id) {
