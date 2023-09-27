@@ -10,28 +10,6 @@ let todos = [
     assignedName: "assets/img/BSP.png",
     priorityImageSource: "assets/img/medium_no_bg.png",
   },
-  {
-    id: "1",
-    state: "done",
-    category: "Story",
-    title: "Kochwelt Page & Recipe Recommender",
-    description: "Build start page with recipe recommendation...",
-    progressbar: "",
-    progress: "1/2 Subtasks",
-    assignedName: "assets/img/BSP.png",
-    priorityImageSource: "assets/img/medium_no_bg.png",
-  },  {
-    id: "2",
-    state: "inProgress",
-    category: "Story",
-    title: "Kochwelt Page & Recipe Recommender",
-    description: "Build start page with recipe recommendation...",
-    progressbar: "",
-    progress: "1/2 Subtasks",
-    assignedName: "assets/img/BSP.png",
-    priorityImageSource: "assets/img/medium_no_bg.png",
-  },
-
 ];
 
 let currentDraggedElement;
