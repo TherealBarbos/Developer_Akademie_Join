@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="fonts.css" />
   <link rel="stylesheet" href="assets/css/basement.css">
   <link rel="icon" type="image/x-icon" href="assets/img/logo_favicon.ico" />
-<script src="js/add_task.js"></script>
+  <script src="assets/js/add_task.js"></script>
 
   <title>Add Task</title>
 </head>
@@ -67,17 +67,17 @@
         <div class="add-task-left">
           <div class="enter-title-container gap-8">
             <span> Title </span>
-            <input id="task-title" class="border-radius-6" placeholder="Enter Title"></input>
+            <input id="task-title" class="border-radius-6 border-color" placeholder="Enter Title"></input>
           </div>
 
           <div class="enter-description-container gap-8">
             <span> Description </span>
-            <textarea id="task-description" class="border-radius-6 description-textarea"></textarea>
+            <textarea id="task-description" class="border-radius-6 description-textarea border-color"></textarea>
           </div>
 
           <div class="assigned-to-container gap-8">
             <span> Assigned to </span>
-            <select id="assignedName" class="border-radius-6" name="Select contacts to assign to">
+            <select id="assignedName" class="border-radius-6 border-color" name="Select contacts to assign to">
               <option value="" disabled selected hidden>Select contacts to assign</option>
               <option value="Test">Test</option>  <!-- hier müssen die Contacts eingefügt werden -->
             </select>
@@ -90,7 +90,7 @@
 
           <div class="enter-date gap-8">
             <span> Due date </span>
-            <input class="border-radius-6" id="dueDate" type="date" class=""></input>
+            <input class="border-radius-6 border-color" id="dueDate" type="date" class=""></input>
           </div>
 
           <div class="priority gap-8">
@@ -108,7 +108,7 @@
 
           <div class="assigned-to-container gap-8">
             <span> Category </span>
-            <select id="category" class="select-category border-radius-6">
+            <select id="category" class="select-category border-radius-6 border-color">
               <option value="" disabled selected hidden>Select task category</option>
               <option value="Technical Task"> Technical Task </option>
               <option value="User Story"> User Story</option>
@@ -117,7 +117,7 @@
 
           <div class="assigned-to-container gap-8">
             <span> Subtasks </span>
-            <button class="subtask-button-inactive border-radius-6" onclick="transformIntoInput()"
+            <button class="subtask-button-inactive border-radius-6 border-color" onclick="transformIntoInput()"
               id="add-subtask-button">
               <span> Add new subtask </span>
               <img src="assets/img/addtask.png" class="plus-sign" id="plus-sign">
@@ -128,7 +128,7 @@
 
           <div class="create-clear-button-container">
             <!-- <button> clear</button> -->
-            <button onclick="addTask()"> Add Task (needs form validation) </button>
+            <button class="create-button" onclick="addTask()"> Create Task </button>
           </div>
 
         </div>

@@ -2,12 +2,14 @@ let allTasks = [];
 let SubtaskArray = [];
 
 function addTask() { // this function creates a JSON array that holds the title, description, etc. of the task you want to add
+    const id = createID();
     const taskTitle = document.getElementById('task-title').value;
     const taskDescription = document.getElementById('task-description').value;
     const assignedName = document.getElementById('assignedName').value;
     const dueDateStr = document.getElementById('dueDate').value;
     const dueDate = new Date(dueDateStr).getTime();
     const priority = getSelectedPriority();
+    const prioritySource = getSelectedPriorityImageSource();
     const category = document.getElementById('category').value;
     const subtask = SubtaskArray;
 
@@ -16,11 +18,14 @@ function addTask() { // this function creates a JSON array that holds the title,
     console.log('dueDate', dueDate);
 
     let task = {
+        'id': id,
+        'state': 'toDo',
         'title': taskTitle,
         'description': taskDescription,
         'assignedName': assignedName,
         'dueDate': dueDate, // dueDate represents Unix timestamp. Needs to be re-converted later?
         'priority': priority,
+        'priorityImageSource': prioritySource,
         'category': category,
         'subtasks': subtask,
     }
@@ -29,17 +34,38 @@ function addTask() { // this function creates a JSON array that holds the title,
     let allTasksAsString = JSON.stringify(allTasks);
 }
 
+function createID() {
+    const newID = allTasks.length;
+    return newID;
+}
+
+    // Priority Section
+
 function getSelectedPriority() {
     const urgentButton = document.getElementById('urgent');
     const mediumButton = document.getElementById('medium');
     const lowButton = document.getElementById('low');
 
     if (urgentButton.classList.contains('urgent')) {
-        return 'urgent';
+        return 'urgent'; 
     } else if (mediumButton.classList.contains('medium')) {
         return 'medium';
     } else if (lowButton.classList.contains('low')) {
         return 'low';
+    }
+}
+
+function getSelectedPriorityImageSource() {
+    const urgentButton = document.getElementById('urgent');
+    const mediumButton = document.getElementById('medium');
+    const lowButton = document.getElementById('low');
+
+    if (urgentButton.classList.contains('urgent')) {
+        return 'assets/img/urgent.png'; 
+    } else if (mediumButton.classList.contains('medium')) {
+        return 'assets/img/medium.png';
+    } else if (lowButton.classList.contains('low')) {
+        return 'assets/img/low.png';
     }
 }
 
@@ -105,7 +131,7 @@ function transformIntoInput() { //this function activates the input field to add
     const input = document.createElement('div');
     input.placeholder = 'Add Subtask';
     input.innerHTML = `
-    <div id="subtask" class="subtask-button">
+    <div id="subtask" class="subtask-button border-color border-radius-6">
         <input id="subtask-input" class="subtask-input" placeholder="Contact Form">
         <div>
             <img onclick="revertBackToButton()" class="exit" id="exit" src="assets/img/cancel.png">
@@ -114,7 +140,7 @@ function transformIntoInput() { //this function activates the input field to add
     </div>`;
 
     subtaskButton.replaceWith(input);
-    input.focus();
+    document.getElementById('subtask-input').focus();
 }
 
 function addNewTaskToList() { // this function pushes added subtasks into an array and renders them into a list below the input field
@@ -134,7 +160,7 @@ function revertBackToButton() { // this function handles the deactivation of the
     const subtaskButton = document.createElement('div');
 
     subtaskButton.innerHTML = `
-        <button class="subtask-button-inactive border-radius-6" onclick="transformIntoInput()" id="add-subtask-button">
+        <button class="subtask-button-inactive border-radius-6 border-color" onclick="transformIntoInput()" id="add-subtask-button">
             <span> Add new subtask </span>
             <img src="assets/img/addtask.png" class="plus-sign" id="plus-sign">
         </button>
