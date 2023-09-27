@@ -131,7 +131,7 @@ function transformIntoInput() { //this function activates the input field to add
     const input = document.createElement('div');
     input.placeholder = 'Add Subtask';
     input.innerHTML = `
-    <div id="subtask" class="subtask-button border-color border-radius-6">
+    <div id="subtask" class="subtask-button border-radius-6">
         <input id="subtask-input" class="subtask-input" placeholder="Contact Form">
         <div>
             <img onclick="revertBackToButton()" class="exit" id="exit" src="assets/img/cancel.png">
@@ -160,7 +160,7 @@ function revertBackToButton() { // this function handles the deactivation of the
     const subtaskButton = document.createElement('div');
 
     subtaskButton.innerHTML = `
-        <button class="subtask-button-inactive border-radius-6 border-color" onclick="transformIntoInput()" id="add-subtask-button">
+        <button class="subtask-button-inactive border-radius-6" onclick="transformIntoInput()" id="add-subtask-button">
             <span> Add new subtask </span>
             <img src="assets/img/addtask.png" class="plus-sign" id="plus-sign">
         </button>

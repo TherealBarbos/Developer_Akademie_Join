@@ -426,10 +426,6 @@ select:hover {
   font-size: 24px;
 }
 
-textarea:focus {
-  border: #29ABE2 !important;
-}
-
 .assigned-to-container {
   display: flex;
   flex-direction: column;
@@ -553,6 +549,7 @@ input[type="date"]::before {
   height: 48px;
   width: 440px;
   margin-bottom: 20px;
+  border: 1px solid #D1D1D1;
 }
 
 .subtask-button-inactive {
@@ -565,6 +562,7 @@ input[type="date"]::before {
   width: 440px;
   font-size: 24px;
   margin-bottom: 20px;
+  border: 1px solid #D1D1D1;
 }
 
 .plus-sign,
@@ -573,9 +571,17 @@ input[type="date"]::before {
   height: 18px;
 }
 
+#plus-sign {
+  margin-right: 16px;
+}
+
 #plus-sign:hover {
   content: url(assets/img/addtask-hover.png);
   border-radius: 10px;
+}
+
+#tick {
+  margin-right: 16px;
 }
 
 #tick:hover {
@@ -593,11 +599,11 @@ input[type="date"]::before {
 .subtask-input {
   font-size: 24px;
   border: unset;
+  margin-left: 6px;
 }
 
-.subtask-input:active {
-  outline: none !important;
-  border: unset !important;
+.subtask-input:focus {
+  outline: none;
 }
 
 #subtask-list {
@@ -608,8 +614,34 @@ input[type="date"]::before {
   font-size: 16px;
 }
 
+#clear-button {
+  display: inline-flex;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 10px;
+  border: 1px solid var(--version-2-main-color, #2A3647);
+  stroke: #2A3647;
+}
+
+#clear-button:hover{
+  color: #29ABE2;
+  stroke: #29ABE2;
+  border-color: #29ABE2;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border: 2px solid var(--Ligth-blue, #29ABE2);
+}
+
 .create-button {
-  background-color: #2A3647;
+  display: inline-flex;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 10px;
+  border: unset;
+  background: #2A3647;
   color: #FFF;
   font-size: 21px;
   font-style: normal;
@@ -617,8 +649,21 @@ input[type="date"]::before {
   line-height: 120%;
   height: 56px;
   width: 183px;
+}
+
+.create-button:hover {
   border-radius: 10px;
-  background: #2A3647;
+  background: var(--Ligth-blue, #29ABE2);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.create-task-tick {
+  height: 24px;
+  width: 24px;
+}
+
+#create-task-tick:hover {
+  content: url(assets/img/done-blue.png);
 }
 
 .border-radius-6 {
@@ -633,7 +678,8 @@ input[type="date"]::before {
   border: 1px solid #D1D1D1;
 }
 
-.border-color:focus-within {
+.border-color:focus {
+  outline: none;
   border-color: #29ABE2
 }
 

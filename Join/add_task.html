@@ -79,7 +79,7 @@
             <span> Assigned to </span>
             <select id="assignedName" class="border-radius-6 border-color" name="Select contacts to assign to">
               <option value="" disabled selected hidden>Select contacts to assign</option>
-              <option value="Test">Test</option>  <!-- hier müssen die Contacts eingefügt werden -->
+              <option value="Test">Test</option> <!-- hier müssen die Contacts eingefügt werden -->
             </select>
           </div>
         </div>
@@ -117,7 +117,7 @@
 
           <div class="assigned-to-container gap-8">
             <span> Subtasks </span>
-            <button class="subtask-button-inactive border-radius-6 border-color" onclick="transformIntoInput()"
+            <button class="subtask-button-inactive border-radius-6" onclick="transformIntoInput()"
               id="add-subtask-button">
               <span> Add new subtask </span>
               <img src="assets/img/addtask.png" class="plus-sign" id="plus-sign">
@@ -127,8 +127,19 @@
           <ul id="subtask-list"></ul>
 
           <div class="create-clear-button-container">
-            <!-- <button> clear</button> -->
-            <button class="create-button" onclick="addTask()"> Create Task </button>
+            <button id="clear-button">
+              <span> Clear </span>
+              <svg class="clearSVG" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                <path
+                  d="M12.0692 12.0001L17.3122 17.2431M6.82617 17.2431L12.0692 12.0001L6.82617 17.2431ZM17.3122 6.75708L12.0682 12.0001L17.3122 6.75708ZM12.0682 12.0001L6.82617 6.75708L12.0682 12.0001Z"
+                  stroke="" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+
+            <button class="create-button" onclick="addTask()">
+              <span> Create Task </span>
+              <img id="create-task-tick" class="create-task-tick" src="assets/img/create_task_button.png">
+            </button>
           </div>
 
         </div>
