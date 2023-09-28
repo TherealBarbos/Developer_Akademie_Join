@@ -36,7 +36,7 @@ function displayContactDetails(index) {
     details.innerHTML = /*html*/`
     
     <div class="details-upper-part">
-      <div class="details-pfp">pfp</div>
+      <div class="details-pfp">   </div>
       <div class="gap">
         <div class="details-name">${contacts[index]['name']}</div>
         <div class="edit-delete">
@@ -68,7 +68,7 @@ function displayContacts() {
     list.innerHTML = '';
     for (let i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
-        const letter = contact['name'].charAt(0).toUpperCase();
+        let letter = contact['name'].charAt(0).toUpperCase();
         list.innerHTML += /*html*/`
           <div onclick="displayContactDetails(${i})" class="contact" id='${letter}'>
               <div class="pfp">${letter}</div>
