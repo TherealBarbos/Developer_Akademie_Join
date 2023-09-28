@@ -376,6 +376,30 @@ select:hover {
   cursor: pointer;
 }
 
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 30px;
+  background-image: url('assets/img/down_arrow_select.svg');
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+select:focus {
+  background-image: url('assets/img/down_arrow_select_rotated.svg');
+}
+
+textarea {
+  resize: none;
+  padding-right: 30px;
+  background-image: url('assets/img/textarea_drag_bars.png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background: 0 6.1px 6.1px 0;
+  background-size: 18.9px;
+}
+
 .addTask {
   position: absolute;
   margin: 206px 0 0 328px;
@@ -414,6 +438,10 @@ select:hover {
   font-size: 24px;
 }
 
+#task-title::placeholder {
+  color: #D1D1D1;
+}
+
 .enter-description-container {
   display: flex;
   flex-direction: column;
@@ -435,12 +463,14 @@ select:hover {
 #assignedName {
   height: 48px;
   font-size: 24px;
+  color: #D1D1D1;
 }
 
 .select-category {
   padding: 8px 8px 8px 8px;
   height: 48px;
   font-size: 24px;
+  color: #D1D1D1;
 }
 
 .separation-line {
@@ -464,25 +494,16 @@ select:hover {
   font-family: "Inter";
   font-size: 24px;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  padding: 0 16px 0 16px;
+  color: #D1D1D1;
 }
 
-/* Hide the default date input arrow */
 input[type="date"]::-webkit-calendar-picker-indicator {
-  appearance: none;
-  background-image: none;
-  padding-right: 20px;
-  /* Adjust as needed */
-}
-
-/* Add a custom calendar icon */
-input[type="date"]::before {
-  content: url(assets/img/date.png);
-  /* Unicode character for a calendar icon */
-  font-family: Arial, sans-serif;
-  /* Use a suitable font family */
-  padding-left: 5px;
-  /* Adjust as needed */
+  color: rgba(0, 0, 0, 0);
+  opacity: 1;
+  display: block;
+  background: url(assets/img/date.png) no-repeat;
 }
 
 .priority {
@@ -614,6 +635,12 @@ input[type="date"]::before {
   font-size: 16px;
 }
 
+.create-clear-button-container {
+  display: flex;
+  justify-content: end;
+  gap: 16px;
+}
+
 #clear-button {
   display: inline-flex;
   padding: 16px;
@@ -623,9 +650,10 @@ input[type="date"]::before {
   border-radius: 10px;
   border: 1px solid var(--version-2-main-color, #2A3647);
   stroke: #2A3647;
+  font-size: 21px;
 }
 
-#clear-button:hover{
+#clear-button:hover {
   color: #29ABE2;
   stroke: #29ABE2;
   border-color: #29ABE2;
