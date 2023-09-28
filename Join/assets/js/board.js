@@ -1,16 +1,22 @@
-let todos = [
-  {
-    id: "0",
-    state: "toDo",
-    category: "Story",
-    title: "Kochwelt Page & Recipe Recommender",
-    description: "Build start page with recipe recommendation...",
-    progressbar: "",
-    progress: "1/2 Subtasks",
-    assignedName: "assets/img/BSP.png",
-    priorityImageSource: "assets/img/medium_no_bg.png",
-  },
-];
+let todos = [];
+
+async function loadTasks() {
+  try {
+      todos = JSON.parse(await getItem('allTasks'));
+      console.log(todos)
+  } catch(e) {
+      console.error('loading error:', e);
+  }
+}
+
+async function getItem(key) {
+  const url = `${STORAGE_URL}?key=${key}&token=4AVD74O6ONTUSWYBIKRAF3SC5B2U9YW3OCE1JRVE`;
+  return fetch(url).then(res => res.json()).then(res => {
+      if (res.data) {
+          return res.data.value;
+      } throw `Could not find data with key "${key}".`;
+  });
+}
 
 let currentDraggedElement;
 
@@ -59,24 +65,24 @@ function startDregging(id) {
   document.getElementById(id).classList.add("cardDragging");
 }
 
-function generateTodoCard(todo) {
-  return ` <div class="card" draggable="true" ondragstart="startDregging('${todo.id}')">
+function generateTodoCard() {
+  return  `<div class="card" draggable="true" ondragstart="startDregging(${todos.id})">
     <div class="cardFrame">
-      <div class="cardLable">${todo.category}</div>
+      <div class="cardLable">${todos.category}</div>
       <div class="cardTextbox">
-        <div class="cardTextI">${todo.title}</div>
-        <div class="cardTextII">${todo.description}</div>
+        <div class="cardTextI">${todos.title}</div>
+        <div class="cardTextII">${todos.description}</div>
       </div>
       <div class="cardProgress">
-        <div class="cardProgressbar">${todo.progressbar}</div>
-        <div class="cardProgressText">${todo.progress}s</div>
+        <div class="cardProgressbar">${todos.progressbar}</div>
+        <div class="cardProgressText">${todos.progress}s</div>
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
-          <img src="${todo.assignedName}" alt="" class="cardContactsBadgeImg" />
+          <img src="${todos.assignedName}" alt="" class="cardContactsBadgeImg" />
         </div>
         <div class="cardContactsPrio">
-          <img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" />
+          <img src="${todos.priorityImageSource}" alt="" class="cardContactsPrioImg" />
         </div>
       </div>
     </div>
