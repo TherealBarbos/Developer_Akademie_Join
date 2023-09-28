@@ -6,8 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="fonts.css" />
+  <link rel="stylesheet" href="assets/css/add-task.css">
   <link rel="stylesheet" href="assets/css/basement.css">
   <link rel="icon" type="image/x-icon" href="assets/img/logo_favicon.ico" />
+
   <script src="assets/js/add_task.js"></script>
 
   <title>Add Task</title>
@@ -127,7 +129,7 @@
           <ul id="subtask-list"></ul>
 
           <div class="create-clear-button-container">
-            <button id="clear-button">
+            <button onclick="clearInputs()" id="clear-button">
               <span> Clear </span>
               <svg class="clearSVG" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
                 <path

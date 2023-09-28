@@ -39,7 +39,24 @@ function createID() {
     return newID;
 }
 
-    // Priority Section
+function clearInputs() {
+    document.getElementById('task-title').value = '';
+    document.getElementById('task-description').value = '';
+    document.getElementById('assignedName').value = '';
+    document.getElementById('dueDate').value = '';
+    document.getElementById('urgent').classList.remove('urgent');
+    document.getElementById('urgent-img').src = 'assets/img/urgent_no_bg.png'; 
+    document.getElementById('medium').classList.remove('medium');
+    document.getElementById('medium-img').src = 'assets/img/medium_no_bg.png';
+    document.getElementById('low').classList.remove('low');
+    document.getElementById('low-img').src = 'assets/img/low_no_bg.png';
+    document.getElementById('category').value = '';
+    document.getElementById('subtask-input').value = '';
+    document.getElementById('subtask-list').innerHTML = '';
+    revertBackToButton();
+}
+
+// Priority Section
 
 function getSelectedPriority() {
     const urgentButton = document.getElementById('urgent');
@@ -47,7 +64,7 @@ function getSelectedPriority() {
     const lowButton = document.getElementById('low');
 
     if (urgentButton.classList.contains('urgent')) {
-        return 'urgent'; 
+        return 'urgent';
     } else if (mediumButton.classList.contains('medium')) {
         return 'medium';
     } else if (lowButton.classList.contains('low')) {
@@ -61,7 +78,7 @@ function getSelectedPriorityImageSource() {
     const lowButton = document.getElementById('low');
 
     if (urgentButton.classList.contains('urgent')) {
-        return 'assets/img/urgent.png'; 
+        return 'assets/img/urgent.png';
     } else if (mediumButton.classList.contains('medium')) {
         return 'assets/img/medium.png';
     } else if (lowButton.classList.contains('low')) {
@@ -123,7 +140,7 @@ function lowButton() { //this function handles the clicking/unclicking of the lo
     mediumButton.classList.remove('medium');
 }
 
-    // Subtask-Section
+// Subtask-Section
 
 function transformIntoInput() { //this function activates the input field to add subtasks
     const subtaskButton = document.getElementById('add-subtask-button');
