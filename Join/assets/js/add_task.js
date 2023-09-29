@@ -1,11 +1,7 @@
 const STORAGE_TOKEN = '4AVD74O6ONTUSWYBIKRAF3SC5B2U9YW3OCE1JRVE';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
-let allTasks = [];
+let allTasks = loadTasks();
 let SubtaskArray = [];
 
 async function addTask() { // this function creates a JSON array that holds the title, description, etc. of the task you want to add
@@ -39,6 +35,7 @@ async function addTask() { // this function creates a JSON array that holds the 
 
     allTasks.push(task);
     await setItem('allTasks', JSON.stringify(allTasks));
+    clearInputs();
 }
 
 function createID() {
@@ -52,7 +49,7 @@ function clearInputs() {
     document.getElementById('assignedName').value = '';
     document.getElementById('dueDate').value = '';
     document.getElementById('urgent').classList.remove('urgent');
-    document.getElementById('urgent-img').src = 'assets/img/urgent_no_bg.png'; 
+    document.getElementById('urgent-img').src = 'assets/img/urgent_no_bg.png';
     document.getElementById('medium').classList.remove('medium');
     document.getElementById('medium-img').src = 'assets/img/medium_no_bg.png';
     document.getElementById('low').classList.remove('low');
@@ -60,6 +57,7 @@ function clearInputs() {
     document.getElementById('category').value = '';
     document.getElementById('subtask-input').value = '';
     document.getElementById('subtask-list').innerHTML = '';
+    SubtaskArray = [];
     revertBackToButton();
 }
 
@@ -155,19 +153,21 @@ function transformIntoInput() { //this function activates the input field to add
     const input = document.createElement('div');
     input.placeholder = 'Add Subtask';
     input.innerHTML = `
+    <form>
     <div id="subtask" class="subtask-button border-radius-6">
-        <input id="subtask-input" class="subtask-input" placeholder="Contact Form">
+        <input required id="subtask-input" class="subtask-input" placeholder="Contact Form">
         <div>
             <img onclick="revertBackToButton()" class="exit" id="exit" src="assets/img/cancel.png">
-            <img onclick="addNewTaskToList()" class="tick" id="tick" src="assets/img/check.png">
+            <img onclick="addNewSubtaskToList()" class="tick" id="tick" src="assets/img/check.png">
         </div>
-    </div>`;
+    </div>
+    </form>`;
 
     subtaskButton.replaceWith(input);
     document.getElementById('subtask-input').focus();
 }
 
-function addNewTaskToList() { // this function pushes added subtasks into an array and renders them into a list below the input field
+function addNewSubtaskToList() { // this function pushes added subtasks into an array and renders them into a list below the input field
     let subtaskContainer = document.getElementById('subtask-list');
     let newSubtask = document.getElementById('subtask-input').value;
     SubtaskArray.push(newSubtask);
@@ -177,6 +177,7 @@ function addNewTaskToList() { // this function pushes added subtasks into an arr
         const addedTask = SubtaskArray[i];
         subtaskContainer.innerHTML += `<li class="addtask-list-element">${addedTask}</li>`;
     }
+    revertBackToButton();
 }
 
 function revertBackToButton() { // this function handles the deactivation of the subtask-input
@@ -193,18 +194,21 @@ function revertBackToButton() { // this function handles the deactivation of the
     input.replaceWith(subtaskButton);
 }
 
-async function loadTasks() {
-    try {
-        allTasks = JSON.parse(await getItem('allTasks'));
-    } catch(e) {
-        console.error('loading error:', e);
-    }
-}
+
+// remote storage
 
 async function setItem(key, value) {
     const payload = { key, value, token: STORAGE_TOKEN };
     return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload) })
         .then(res => res.json());
+}
+
+async function loadTasks() {
+    try {
+        allTasks = JSON.parse(await getItem('allTasks'));
+    } catch (e) {
+        console.error('loading error:', e);
+    }
 }
 
 async function getItem(key) {
