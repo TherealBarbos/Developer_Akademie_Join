@@ -36,6 +36,7 @@ async function addTask() { // this function creates a JSON array that holds the 
     allTasks.push(task);
     await setItem('allTasks', JSON.stringify(allTasks));
     clearInputs();
+
 }
 
 function createID() {
@@ -168,17 +169,38 @@ function transformIntoInput() { //this function activates the input field to add
 }
 
 function addNewSubtaskToList() { // this function pushes added subtasks into an array and renders them into a list below the input field
-    let subtaskContainer = document.getElementById('subtask-list');
     let newSubtask = document.getElementById('subtask-input').value;
     SubtaskArray.push(newSubtask);
-    subtaskContainer.innerHTML = '';
-
-    for (let i = 0; i < SubtaskArray.length; i++) {
-        const addedTask = SubtaskArray[i];
-        subtaskContainer.innerHTML += `<li class="addtask-list-element">${addedTask}</li>`;
-    }
+    renderSubtaskContainer();
     revertBackToButton();
 }
+
+function renderSubtaskContainer(){
+    let subtaskContainer = document.getElementById('subtask-list');
+    subtaskContainer.innerHTML = '';
+    for (let i = 0; i < SubtaskArray.length; i++) {
+        const addedTask = SubtaskArray[i];
+        subtaskContainer.innerHTML +=
+            `<li class="addsubtask-list-element">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <img style="height: 6px; width:6px" src="assets/img/list_marker.png">
+                <span style="font-size: 19px;">${addedTask}</span>
+              </div>
+              <div class="edit-and-delete">
+                <img class="edit-and-delete-img" src="assets/img/edit.png">
+                <img src="assets/img/short_separating_line.png">
+                <img onclick="deleteSubtaskItem(${i})" class="edit-and-delete-img" src="assets/img/delete.png">
+              </div>
+        </li>`;
+    }
+}
+
+function deleteSubtaskItem(i) {
+        SubtaskArray.splice(i, 1);
+        renderSubtaskContainer();
+    }
+
+
 
 function revertBackToButton() { // this function handles the deactivation of the subtask-input
     const input = document.getElementById('subtask');
