@@ -1,18 +1,60 @@
-//--local storage / sign up // 
-const STORAGE_TOKEN = '4AVD74O6ONTUSWYBIKRAF3SC5B2U9YW3OCE1JRVE';
-const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
-
 let contacts = []
 let letters = []
 
+function redirectToContacts() {
+    document.getElementById('addcontact').classList.add('d-none');
+    document.getElementById('addcontact').classList.remove('bg-gray');
+    loadContacts();
+    displayContacts()
+}
+
+async function init2() {
+    loadAccounts();
+    loadContacts();
+}
+
+/**
+ * this function is used to log in the person. it checks if the email and password exists.
+ *  If the email and password are valid. the user gets logged in!
+ */
+async function AddContact() {
+    let email = document.getElementById('input-email');
+    let name = document.getElementById('input-name');
+    let phone = document.getElementById('input-phone');
+    let account = accounts.find(a => a.email == email.value && a.name == name.value);
+    if (account) {
+        console.log('Account gefunden');
+        let contact = {
+            'name': name.value,
+            'email': email.value,
+            'phone': '+' + phone.value,
+        };
+        contacts.push(contact)
+        await setItem('contacts', JSON.stringify(contacts));
+    }
+    clearLoginInputs();
+}
+
+/**
+ * this function is used to clear the Input fields from the Sign up page
+ */
+function clearLoginInputs() {
+    document.getElementById('input-email').value = '';
+    document.getElementById('input-name').value = '';
+    document.getElementById('input-phone').value = '';
+}
+
+//
 async function load() {
     await loadContacts();
+    loadAccounts();
     collectLetters();
     displayContacts();
 }
 
-function addContact() {
-    location.href = "addcontact.html";
+function openAddContact() {
+    document.getElementById('addcontact').classList.remove('d-none');
+    document.getElementById('addcontact').classList.add('bg-gray');
 }
 
 function deleteContact(index) {
