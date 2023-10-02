@@ -35,6 +35,10 @@ textarea {
   font-size: 24px;
 }
 
+ul {
+  list-style: none;
+}
+
 /* left side */
 
 .addTaskHeader {
@@ -261,7 +265,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin: 0 0 30px 0;
 }
 
-li {
+.addsubtask-list-element {
   display: flex;
   width: 440px;
   height: 32px;
@@ -270,7 +274,7 @@ li {
   align-items: center;
 }
 
-li:hover {
+.addsubtask-list-element:hover {
   background-color: #eeeeee;
   padding: 6px 16px 6px 16px;
   cursor: pointer;
@@ -285,6 +289,18 @@ li:hover {
 .edit-and-delete-img {
   height: 24px;
   width: 24px;
+}
+
+.editable-list-element {
+  display: flex;
+  border-radius: 0px;
+  background-color: white;
+  border-bottom: 1px solid#29ABE2;
+  width: 440px;
+  height: 32px;
+  padding: 6px 16px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .create-clear-button-container {
@@ -365,4 +381,8 @@ li:hover {
 
 .border-color:active {
   border-color: #29ABE2
+}
+
+.editing {
+  font-size: 300px;
 }
