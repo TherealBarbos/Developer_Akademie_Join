@@ -1,17 +1,18 @@
 let contacts = []
 let letters = []
 
-function redirectToContacts() {
+function redirectEditContactToContacts() {
+    document.getElementById('editcontact').classList.add('d-none');
+    document.getElementById('editcontact').classList.remove('bg-gray');
+}
+
+function redirectAddContactToContacts() {
     document.getElementById('addcontact').classList.add('d-none');
     document.getElementById('addcontact').classList.remove('bg-gray');
     loadContacts();
     displayContacts()
 }
 
-async function init2() {
-    loadAccounts();
-    loadContacts();
-}
 
 /**
  * this function is used to log in the person. it checks if the email and password exists.
@@ -68,8 +69,9 @@ function setArray(key, array) {
 }
 
 function editContact(index) {
-    setArray('index', index);
-    location.href = 'editcontact.html';
+    document.getElementById('editcontact').classList.remove('d-none');
+    document.getElementById('editcontact').classList.add('bg-gray');
+    setContactValues(index);
 }
 
 function displayContactDetails(index) {
