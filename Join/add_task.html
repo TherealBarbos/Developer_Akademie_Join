@@ -63,7 +63,7 @@
 
     <!-- <form onsubmit="addTask()"> -->
     <div class="addTask">
-      <span class="addTaskHeader">Add Task</span>
+      <span contenteditable="true" class="addTaskHeader">Add Task</span>
 
       <div class="add-task-inputs">
         <div class="add-task-left">
@@ -107,7 +107,6 @@
             </div>
           </div>
 
-
           <div class="assigned-to-container gap-8">
             <span> Category </span>
             <select id="category" class="select-category border-radius-6 border-color custom-select">
@@ -126,21 +125,7 @@
             </button>
           </div>
 
-          <ul id="subtask-list">
-
-            <!-- <li class="addsubtask-list-element">
-              <div style="display: flex; align-items: center; gap: 8px;">
-                <img style="height: 6px; width:6px" src="assets/img/list_marker.png">
-                <span style="font-size: 19px;">Task</span>
-              </div>
-              <div class="edit-and-delete">
-                <img class="edit-and-delete-img" src="assets/img/edit.png">
-                <img src="assets/img/short_separating_line.png">
-                <img onclick="deleteSubtaskItem()" class="edit-and-delete-img" src="assets/img/delete.png">
-              </div>
-            </li> -->
-
-          </ul>
+          <ul id="subtask-list"></ul>
 
           <div class="create-clear-button-container">
             <button onclick="clearInputs()" id="clear-button">

@@ -59,6 +59,7 @@ function clearInputs() {
     document.getElementById('subtask-input').value = '';
     document.getElementById('subtask-list').innerHTML = '';
     SubtaskArray = [];
+    renderSubtaskContainer();
     revertBackToButton();
 }
 
@@ -175,32 +176,55 @@ function addNewSubtaskToList() { // this function pushes added subtasks into an 
     revertBackToButton();
 }
 
-function renderSubtaskContainer(){
+function renderSubtaskContainer() { // This function renders the list of subtasks. It is called when a Subtask is added or deleted.
     let subtaskContainer = document.getElementById('subtask-list');
     subtaskContainer.innerHTML = '';
     for (let i = 0; i < SubtaskArray.length; i++) {
         const addedTask = SubtaskArray[i];
         subtaskContainer.innerHTML +=
-            `<li class="addsubtask-list-element">
-              <div style="display: flex; align-items: center; gap: 8px;">
-                <img style="height: 6px; width:6px" src="assets/img/list_marker.png">
-                <span style="font-size: 19px;">${addedTask}</span>
-              </div>
-              <div class="edit-and-delete">
-                <img class="edit-and-delete-img" src="assets/img/edit.png">
-                <img src="assets/img/short_separating_line.png">
-                <img onclick="deleteSubtaskItem(${i})" class="edit-and-delete-img" src="assets/img/delete.png">
-              </div>
-        </li>`;
+            `<li onclick="editSubtaskItem(${i})" id="subtaskListItem{i}" class="addsubtask-list-element">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <img style="height: 6px; width: 6px" src="assets/img/list_marker.png">
+              <span onclick="editSubtaskItem(${i}, ${addedTask})" style="font-size: 19px;">${addedTask}</span>
+            </div>
+            <div class="edit-and-delete">
+              <img onclick="editSubtaskItem(${i})" class="edit-and-delete-img" src="assets/img/edit.png">
+              <img src="assets/img/short_separating_line.png">
+              <img onclick="deleteSubtaskItem(${i})" class="edit-and-delete-img delete" src="assets/img/delete.png">
+            </div>
+          </li>`;
     }
 }
 
+function editSubtaskItem(i, addedTask) {
+    const editableLI = document.createElement('li');
+    const staticLI = document.getElementById(`subtaskListItem{i}`);
+
+    editableLI.innerHTML = `
+        <li class="editable-list-element">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <img style="height: 6px; width: 6px" src="assets/img/list_marker.png">
+              <span contenteditable="true" style="font-size: 19px;">${addedTask}</span>
+            </div>
+            <div class="edit-and-delete">
+                <img onclick="deleteSubtaskItem(${i})" class="edit-and-delete-img delete" src="assets/img/delete.png">
+                <img src="assets/img/short_separating_line.png">
+                <img onclick="replaceEditedItem(${i})" class="edit-and-delete-img" src="assets/img/check.png">
+            </div>
+        </li>
+    `;
+
+    staticLI.replaceWith(editableLI);
+}
+
+function replaceEditedItem(i) {
+    // Aktivierung sitzt in subtaskitem()
+}
+
 function deleteSubtaskItem(i) {
-        SubtaskArray.splice(i, 1);
-        renderSubtaskContainer();
-    }
-
-
+    SubtaskArray.splice(i, 1);
+    renderSubtaskContainer();
+}
 
 function revertBackToButton() { // this function handles the deactivation of the subtask-input
     const input = document.getElementById('subtask');
