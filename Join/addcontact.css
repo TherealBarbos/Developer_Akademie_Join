@@ -210,13 +210,12 @@ h2 {
 .absolute {
     position: absolute;
     width: 1440px;
-
 }
 
 .bg-gray {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.432);
-    height: 100vh;
+    height: 1024pxgi;
     width: 100%;
     display: flex;
     justify-content: center;
