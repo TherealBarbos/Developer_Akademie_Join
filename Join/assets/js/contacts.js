@@ -22,6 +22,7 @@ async function AddContact() {
     let email = document.getElementById('input-email');
     let name = document.getElementById('input-name');
     let phone = document.getElementById('input-phone');
+
     let account = accounts.find(a => a.email == email.value && a.name == name.value);
     if (account) {
         console.log('Account gefunden');
@@ -29,6 +30,7 @@ async function AddContact() {
             'name': name.value,
             'email': email.value,
             'phone': '+' + phone.value,
+            'firstLetter': firstLetters(name.value),
         };
         contacts.push(contact)
         await setItem('contacts', JSON.stringify(contacts));
@@ -80,7 +82,7 @@ function displayContactDetails(index) {
     details.innerHTML = /*html*/`
     
     <div class="details-upper-part">
-      <div class="details-pfp">   </div>
+      <div class="details-pfp">${contacts[index]['firstLetter']}  </div>
       <div class="gap">
         <div class="details-name">${contacts[index]['name']}</div>
         <div class="edit-delete">
@@ -114,7 +116,7 @@ function displayContacts() {
 
     for (let i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
-        let letter = contact['name'].charAt(0).toUpperCase();
+        let letter = contact['firstLetter'];
         list.innerHTML += /*html*/`
           <div onclick="displayContactDetails(${i})" class="contact" id='${letter}'>
               <div class="pfp">${letter}</div>

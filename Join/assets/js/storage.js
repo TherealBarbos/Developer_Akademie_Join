@@ -6,6 +6,18 @@ async function init() {
     loadAccounts();
 }
 
+function firstLetters(str) {
+    let name = str;
+    let words = name.split(" ");
+    let firstWord = words[0];
+    let secondWord = words[1];
+
+    let firstLetter = firstWord.substring(0, 1).toUpperCase();
+    let secondLetter = secondWord.substring(0, 1).toUpperCase();
+
+    return firstLetter + secondLetter;
+}
+
 function compareNames(a, b) {
     let nameA = a.name.toUpperCase(); // Großbuchstaben für den Vergleich
     let nameB = b.name.toUpperCase(); // Großbuchstaben für den Vergleich
