@@ -4,8 +4,9 @@ const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 let allTasks = loadTasks();
 let SubtaskArray = [];
 let contacts = [];
+let letters = [];
 
-async function addTask() { // this function creates a JSON array that holds the title, description, etc. of the task you want to add
+async function addTask() { // this fills the JSON array "allTasks" which holds the title, description, etc. of the task you want to add and saves them in the remote storage
     const id = createID();
     const taskTitle = document.getElementById('task-title').value;
     const taskDescription = document.getElementById('task-description').value;
@@ -253,13 +254,27 @@ function revertBackToButton() { // this function handles the deactivation of the
     input.replaceWith(subtaskButton);
 }
 
+async function load() {
+    await loadContacts();
+    collectLetters();
+}
+
+function collectLetters() {
+    for (let i = 0; i < contacts.length; i++) {
+        let contact = contacts[i];
+        const FirstLetter = contact['name'].charAt(0).toUpperCase();
+        letters.push(FirstLetter);
+    }
+}
 
 // remote storage
 
-async function setItem(key, value) {
-    const payload = { key, value, token: STORAGE_TOKEN };
-    return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload) })
-        .then(res => res.json());
+async function loadContacts() {
+    try {
+        contacts = JSON.parse(await getItem('contacts'));
+    } catch (e) {
+        console.error('Loading error:', e);
+    }
 }
 
 async function loadTasks() {
@@ -268,6 +283,12 @@ async function loadTasks() {
     } catch (e) {
         console.error('loading error:', e);
     }
+}
+
+async function setItem(key, value) {
+    const payload = { key, value, token: STORAGE_TOKEN };
+    return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload) })
+        .then(res => res.json());
 }
 
 async function getItem(key) {
