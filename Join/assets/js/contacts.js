@@ -110,6 +110,8 @@ function displayContactDetails(index) {
 function displayContacts() {
     let list = document.getElementById('contact-list');
     list.innerHTML = '';
+    contacts.sort(compareNames);
+
     for (let i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
         let letter = contact['name'].charAt(0).toUpperCase();

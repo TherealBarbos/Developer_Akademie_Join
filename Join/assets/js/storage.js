@@ -6,6 +6,21 @@ async function init() {
     loadAccounts();
 }
 
+function compareNames(a, b) {
+    let nameA = a.name.toUpperCase(); // Großbuchstaben für den Vergleich
+    let nameB = b.name.toUpperCase(); // Großbuchstaben für den Vergleich
+
+    if (nameA < nameB) {
+        return -1;
+    }
+    if (nameA > nameB) {
+        return 1;
+    }
+    return 0;
+}
+
+//     accounts.sort(compareNames);
+
 async function loadAccounts() {
     try {
         accounts = JSON.parse(await getItem('accounts'));
