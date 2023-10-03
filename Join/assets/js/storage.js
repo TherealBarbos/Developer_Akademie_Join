@@ -6,6 +6,37 @@ async function init() {
     loadAccounts();
 }
 
+function firstLetters(str) {
+    let name = str;
+    let words = name.split(" ");
+    let firstWord = words[0];
+    let secondWord = words[1];
+    if (words > 0) {
+        let secondLetter = secondWord.substring(0, 1).toUpperCase();
+        let firstLetter = firstWord.substring(0, 1).toUpperCase();
+        return firstLetter + secondLetter;
+    } else {
+        let firstLetter = firstWord.substring(0, 1).toUpperCase();
+        return firstLetter;
+    }
+
+}
+
+function compareNames(a, b) {
+    let nameA = a.name.toUpperCase(); // Großbuchstaben für den Vergleich
+    let nameB = b.name.toUpperCase(); // Großbuchstaben für den Vergleich
+
+    if (nameA < nameB) {
+        return -1;
+    }
+    if (nameA > nameB) {
+        return 1;
+    }
+    return 0;
+}
+
+//     accounts.sort(compareNames);
+
 async function loadAccounts() {
     try {
         accounts = JSON.parse(await getItem('accounts'));

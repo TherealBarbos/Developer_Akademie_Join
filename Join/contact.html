@@ -9,7 +9,10 @@
   <link rel="stylesheet" href="assets/css/basement.css">
   <link rel="icon" type="image/x-icon" href="assets/img/logo_favicon.ico" />
   <link rel="stylesheet" href="contact.css">
-  <script src="js/contacts.js"></script>
+  <link rel="stylesheet" href="addcontact.css">
+  <script src="assets/js/contacts.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/editcontact.js"></script>
   <title>Contacts</title>
 </head>
 
@@ -56,7 +59,7 @@
     </div>
   </div>
   <div class="add-btn-bg">
-    <button onclick="addContact()" class="create-btn">
+    <button onclick="openAddContact()" class="contact-create-btn">
       Add new contact
       <img class="add-person" src="assets/img/person_add.png" alt="person-add">
     </button>
@@ -73,6 +76,79 @@
 
   <div class="details" id="details">
 
+  </div>
+
+  <div id="addcontact" class="d-none">
+    <div class="page">
+      <div class="add-c-left-part">
+        <div class="left-part-content">
+          <img class="logo gap" src="assets/img/logo_white.png" alt="logo">
+          <h1 class="gap">Add contact</h1>
+          <h2 class="gap">Task are better with a team!</h2>
+          <img class="vector gap" src="assets/img/Vector 5.svg" alt="vector">
+        </div>
+      </div>
+
+      <div class="right-part">
+        <div>
+          <img onclick="redirectAddContactToContacts()" src="assets/img/close.svg" alt="x">
+        </div>
+        <div class="rightpart-middle">
+          <div class="img-person-bg">
+            <img class="img-person" src="assets/img/person.png" alt="person">
+          </div>
+          <div class="input-fields">
+            <input class="input" id="input-name" type="text" placeholder="Name">
+            <input class="input" id="input-email" type="text" placeholder="Email">
+            <input class="input" id="input-phone" type="text" placeholder="Phone">
+          </div>
+        </div>
+        <div class="buttons">
+          <button onclick="redirectAddContactToContacts()" class="cancel-btn">
+            <span>Cancel <img src="assets/img/x.svg" alt="x"></span>
+          </button>
+          <button onclick="AddContact()" class="create-btn">
+            <span>Create Contact <img src="assets/img/check.svg" alt="check"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="editcontact" class="d-none">
+    <div class="page">
+      <div class="add-c-left-part">
+        <div class="left-part-content">
+          <img class="logo gap" src="assets/img/logo_white.png" alt="logo">
+          <h1 class="gap">Edit contact</h1>
+          <img class="vector gap" src="assets/img/Vector 5.svg" alt="vector">
+        </div>
+      </div>
+
+      <div class="right-part">
+        <div>
+          <img onclick="redirectEditContactToContacts()" src="assets/img/close.svg" alt="x">
+        </div>
+        <div class="rightpart-middle">
+          <div class="img-person-bg">
+            <img class="img-person" src="assets/img/person.png" alt="person">
+          </div>
+          <div class="input-fields">
+            <input class="input" id="edit-input-name" type="text" placeholder="Name">
+            <input class="input" id="edit-input-email" type="text" placeholder="Email">
+            <input class="input" id="edit-input-phone" type="text" placeholder="Phone">
+          </div>
+        </div>
+        <div class="edit-buttons">
+          <button onclick="redirectEditContactToContacts()" class="cancel-btn">
+            <span>Delete <img src="assets/img/x.svg" alt="x"></span>
+          </button>
+          <button id="saveContactValue" class="save-btn">
+            <span>Save <img src="assets/img/check.svg" alt="check"></span>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 

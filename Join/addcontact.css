@@ -105,6 +105,24 @@ h2 {
     background-position: 400px 22px;
 }
 
+#edit-input-email {
+    background-image: url(assets/img/mail.png);
+    background-repeat: no-repeat;
+    background-position: 400px 22px;
+}
+
+#edit-input-name {
+    background-image: url(assets/img/person.svg);
+    background-repeat: no-repeat;
+    background-position: 400px 22px;
+}
+
+#edit-input-phone {
+    background-image: url(assets/img/call.svg);
+    background-repeat: no-repeat;
+    background-position: 400px 22px;
+}
+
 .input-fields {
     display: flex;
     flex-direction: column;
@@ -183,4 +201,23 @@ h2 {
     justify-content: center;
     gap: 24px;
     padding-right: 178px;
+}
+
+.d-none {
+    display: none;
+}
+
+.absolute {
+    position: absolute;
+    width: 1440px;
+}
+
+.bg-gray {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.432);
+    height: 1024px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

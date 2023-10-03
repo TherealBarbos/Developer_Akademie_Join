@@ -1,18 +1,63 @@
-//--local storage / sign up // 
-const STORAGE_TOKEN = '4AVD74O6ONTUSWYBIKRAF3SC5B2U9YW3OCE1JRVE';
-const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
-
 let contacts = []
 let letters = []
 
+function redirectEditContactToContacts() {
+    document.getElementById('editcontact').classList.add('d-none');
+    document.getElementById('editcontact').classList.remove('bg-gray');
+}
+
+function redirectAddContactToContacts() {
+    document.getElementById('addcontact').classList.add('d-none');
+    document.getElementById('addcontact').classList.remove('bg-gray');
+    loadContacts();
+    displayContacts()
+}
+
+
+/**
+ * this function is used to log in the person. it checks if the email and password exists.
+ *  If the email and password are valid. the user gets logged in!
+ */
+async function AddContact() {
+    let email = document.getElementById('input-email');
+    let name = document.getElementById('input-name');
+    let phone = document.getElementById('input-phone');
+
+    let account = accounts.find(a => a.email == email.value && a.name == name.value);
+    if (account) {
+        console.log('Account gefunden');
+        let contact = {
+            'name': name.value,
+            'email': email.value,
+            'phone': '+' + phone.value,
+            'firstLetter': firstLetters(name.value),
+        };
+        contacts.push(contact)
+        await setItem('contacts', JSON.stringify(contacts));
+    }
+    clearLoginInputs();
+}
+
+/**
+ * this function is used to clear the Input fields from the Sign up page
+ */
+function clearLoginInputs() {
+    document.getElementById('input-email').value = '';
+    document.getElementById('input-name').value = '';
+    document.getElementById('input-phone').value = '';
+}
+
+//
 async function load() {
     await loadContacts();
+    loadAccounts();
     collectLetters();
     displayContacts();
 }
 
-function addContact() {
-    location.href = "addcontact.html";
+function openAddContact() {
+    document.getElementById('addcontact').classList.remove('d-none');
+    document.getElementById('addcontact').classList.add('bg-gray');
 }
 
 function deleteContact(index) {
@@ -26,8 +71,9 @@ function setArray(key, array) {
 }
 
 function editContact(index) {
-    setArray('index', index);
-    location.href = 'editcontact.html';
+    document.getElementById('editcontact').classList.remove('d-none');
+    document.getElementById('editcontact').classList.add('bg-gray');
+    setContactValues(index);
 }
 
 function displayContactDetails(index) {
@@ -36,7 +82,7 @@ function displayContactDetails(index) {
     details.innerHTML = /*html*/`
     
     <div class="details-upper-part">
-      <div class="details-pfp">   </div>
+      <div class="details-pfp">${contacts[index]['firstLetter']}  </div>
       <div class="gap">
         <div class="details-name">${contacts[index]['name']}</div>
         <div class="edit-delete">
@@ -66,9 +112,11 @@ function displayContactDetails(index) {
 function displayContacts() {
     let list = document.getElementById('contact-list');
     list.innerHTML = '';
+    contacts.sort(compareNames);
+
     for (let i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
-        let letter = contact['name'].charAt(0).toUpperCase();
+        let letter = contact['firstLetter'];
         list.innerHTML += /*html*/`
           <div onclick="displayContactDetails(${i})" class="contact" id='${letter}'>
               <div class="pfp">${letter}</div>
