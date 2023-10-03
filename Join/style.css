@@ -130,6 +130,21 @@ body {
   font-weight: bold;
 }
 
+.login-btn:hover {
+  height: 40px;
+  width: 80px;
+  background-color: #29ABE2;
+  color: #FFF;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0px 4px 4px 0px #00000040;
+}
+
 .login-window {
   height: 500px;
   width: 650px;
@@ -171,6 +186,11 @@ body {
   font-size: 16px;
 }
 
+.login-input:focus {
+  outline: none !important;
+  border-color: #29ABE2 !important;
+}
+
 #input-email {
   background-image: url(assets/img/mail.png);
   background-repeat: no-repeat;
@@ -179,11 +199,6 @@ body {
 
 #input-email::placeholder {
   color: rgb(215, 215, 215);
-}
-
-#input-email:focus {
-  outline: none !important;
-  border-color: rgb(215, 215, 215);
 }
 
 #input-password {
@@ -196,10 +211,6 @@ body {
   color: rgb(215, 215, 215);
 }
 
-#input-password:focus {
-  outline: none !important;
-  border-color: rgb(215, 215, 215);
-}
 
 #input-confirm-password {
   background-image: url(assets/img/lock.png);
@@ -211,10 +222,6 @@ body {
   color: rgb(215, 215, 215);
 }
 
-#input-confirm-password:focus {
-  outline: none !important;
-  border-color: rgb(215, 215, 215);
-}
 
 #input-name {
   background-image: url(assets/img/person.svg);
@@ -245,6 +252,21 @@ body {
   background-color: white;
   font-size: 16px;
   font-weight: bold;
+}
+
+.login-btn-guest:hover {
+  height: 38px;
+  width: 130px;
+  border-radius: 8px;
+  color: #29ABE2;
+  border: solid 2px #29ABE2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0px 4px 4px 0px #00000040;
 }
 
 .login-window-buttons {
@@ -302,6 +324,21 @@ body {
   align-items: center;
   font-size: 16px;
   font-weight: bold;
+}
+
+.signup-btn:hover {
+  height: 40px;
+  width: 100px;
+  background-color: #29ABE2;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0px 4px 4px 0px #00000040;
 }
 
 .signup-checkbox {

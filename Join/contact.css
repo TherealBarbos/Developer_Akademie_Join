@@ -145,6 +145,11 @@
     gap: 16px;
 }
 
+.flex:hover {
+    color: #29ABE2;
+    font-weight: 700;
+}
+
 .details-name {
     font-size: 47px;
     font-weight: 500;
