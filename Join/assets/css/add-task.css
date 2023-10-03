@@ -281,6 +281,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-radius: 16px;
 }
 
+.input-edit-subtask {
+  font-size: 19px;
+  border: unset;
+  outline: none;
+  background: none;
+}
+
 .edit-and-delete {
   gap: 2px;
   margin-right: 16px;
@@ -289,6 +296,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .edit-and-delete-img {
   height: 24px;
   width: 24px;
+}
+
+.row-reverse {
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .editable-list-element {

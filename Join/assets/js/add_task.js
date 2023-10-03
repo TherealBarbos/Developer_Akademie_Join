@@ -3,6 +3,7 @@ const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
 let allTasks = loadTasks();
 let SubtaskArray = [];
+let contacts = [];
 
 async function addTask() { // this function creates a JSON array that holds the title, description, etc. of the task you want to add
     const id = createID();
@@ -58,8 +59,6 @@ function clearInputs() {
     document.getElementById('category').value = '';
     document.getElementById('subtask-input').value = '';
     document.getElementById('subtask-list').innerHTML = '';
-    SubtaskArray = [];
-    renderSubtaskContainer();
     revertBackToButton();
 }
 
@@ -96,8 +95,6 @@ function getSelectedPriorityImageSource() {
 function urgentButton() { //this function handles the clicking/unclicking of the urgent button
     let img = document.getElementById('urgent-img');
     const urgentButton = document.getElementById('urgent');
-    const mediumButton = document.getElementById('medium');
-    const lowButton = document.getElementById('low');
 
     if (!urgentButton.classList.contains('urgent')) {
         urgentButton.classList.add('urgent');
@@ -107,15 +104,15 @@ function urgentButton() { //this function handles the clicking/unclicking of the
         img.src = 'assets/img/urgent_no_bg.png';
     }
 
-    mediumButton.classList.remove('medium');
-    lowButton.classList.remove('low');
+    document.getElementById('medium-img').src = 'assets/img/medium_no_bg.png';
+    document.getElementById('low-img').src = 'assets/img/low_no_bg.png';
+    document.getElementById('medium').classList.remove('medium');
+    document.getElementById('low').classList.remove('low');
 }
 
 function mediumButton() { //this function handles the clicking/unclicking of the medium button
     let img = document.getElementById('medium-img');
-    const urgentButton = document.getElementById('urgent');
     const mediumButton = document.getElementById('medium');
-    const lowButton = document.getElementById('low');
 
     if (!mediumButton.classList.contains('medium')) {
         mediumButton.classList.add('medium');
@@ -125,14 +122,14 @@ function mediumButton() { //this function handles the clicking/unclicking of the
         img.src = 'assets/img/medium_no_bg.png';
     }
 
-    urgentButton.classList.remove('urgent');
-    lowButton.classList.remove('low');
+    document.getElementById('urgent-img').src = 'assets/img/urgent_no_bg.png';
+    document.getElementById('low-img').src = 'assets/img/low_no_bg.png';
+    document.getElementById('urgent').classList.remove('urgent');
+    document.getElementById('low').classList.remove('low');
 }
 
 function lowButton() { //this function handles the clicking/unclicking of the low button
     let img = document.getElementById('low-img');
-    const urgentButton = document.getElementById('urgent');
-    const mediumButton = document.getElementById('medium');
     const lowButton = document.getElementById('low');
 
     if (!lowButton.classList.contains('low')) {
@@ -143,8 +140,10 @@ function lowButton() { //this function handles the clicking/unclicking of the lo
         img.src = 'assets/img/low_no_bg.png';
     }
 
-    urgentButton.classList.remove('urgent');
-    mediumButton.classList.remove('medium');
+    document.getElementById('urgent-img').src = 'assets/img/urgent_no_bg.png';
+    document.getElementById('medium-img').src = 'assets/img/medium_no_bg.png';
+    document.getElementById('urgent').classList.remove('urgent');
+    document.getElementById('medium').classList.remove('medium');
 }
 
 // Subtask-Section
@@ -182,44 +181,58 @@ function renderSubtaskContainer() { // This function renders the list of subtask
     for (let i = 0; i < SubtaskArray.length; i++) {
         const addedTask = SubtaskArray[i];
         subtaskContainer.innerHTML +=
-            `<li onclick="editSubtaskItem(${i})" id="subtaskListItem{i}" class="addsubtask-list-element">
+            `<li onclick="editSubtaskItem(${i})" id="subtaskListItem${i}" class="addsubtask-list-element">
             <div style="display: flex; align-items: center; gap: 8px;">
               <img style="height: 6px; width: 6px" src="assets/img/list_marker.png">
-              <span onclick="editSubtaskItem(${i}, ${addedTask})" style="font-size: 19px;">${addedTask}</span>
+              <input readonly id="readonly-Input${i}" value="${addedTask}" class="input-edit-subtask"></input>
             </div>
-            <div class="edit-and-delete">
-              <img onclick="editSubtaskItem(${i})" class="edit-and-delete-img" src="assets/img/edit.png">
+            <div id="edit-and-delete${i}" class="edit-and-delete">
+              <img id="edit${i}" onclick="editSubtaskItem(${i})" class="edit-and-delete-img" src="assets/img/edit.png">
               <img src="assets/img/short_separating_line.png">
-              <img onclick="deleteSubtaskItem(${i})" class="edit-and-delete-img delete" src="assets/img/delete.png">
+              <img id="delete${i}" onclick="deleteSubtaskItem(${i})" class="edit-and-delete-img delete" src="assets/img/delete.png">
             </div>
           </li>`;
     }
 }
 
-function editSubtaskItem(i, addedTask) {
-    const editableLI = document.createElement('li');
-    const staticLI = document.getElementById(`subtaskListItem{i}`);
+function editSubtaskItem(i) {
+    const editIcon = document.getElementById(`edit${i}`);
+    const acceptChangesIcon = document.createElement('img');
+    editIcon.replaceWith(acceptChangesIcon);
+    acceptChangesIcon.src = 'assets/img/check.png';
+    acceptChangesIcon.id = `edit${i}`;
+    acceptChangesIcon.onclick = () => acceptChanges(i);
 
-    editableLI.innerHTML = `
-        <li class="editable-list-element">
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <img style="height: 6px; width: 6px" src="assets/img/list_marker.png">
-              <span contenteditable="true" style="font-size: 19px;">${addedTask}</span>
-            </div>
-            <div class="edit-and-delete">
-                <img onclick="deleteSubtaskItem(${i})" class="edit-and-delete-img delete" src="assets/img/delete.png">
-                <img src="assets/img/short_separating_line.png">
-                <img onclick="replaceEditedItem(${i})" class="edit-and-delete-img" src="assets/img/check.png">
-            </div>
-        </li>
-    `;
+    const listItem = document.getElementById(`subtaskListItem${i}`);
+    listItem.classList.add('editable-list-element');
+    listItem.classList.remove('addsubtask-list-element');
+    document.getElementById(`edit-and-delete${i}`).classList.add('row-reverse');
 
-    staticLI.replaceWith(editableLI);
+    const input = document.getElementById(`readonly-Input${i}`);
+    input.removeAttribute('readonly');
+    input.focus();
+    input.selectionStart = input.selectionEnd = input.value.length;
 }
 
-function replaceEditedItem(i) {
-    // Aktivierung sitzt in subtaskitem()
+function acceptChanges(i) { // this function replaces the old subtask with the edited one in the SubtaskArray and calls the function to revert the list item
+    let replacingElement = document.getElementById(`readonly-Input${i}`).value;
+    SubtaskArray.splice(i, 1, replacingElement);
+    renderSubtaskContainer();
+    console.log('test')
 }
+
+// function revertListItem() { //this function reverts the editable list item to a non-editable list item
+//     const listItem = document.getElementById(`subtaskListItem${i}`);
+//     listItem.classList.remove('editable-list-element');
+//     listItem.classList.add('addsubtask-list-element');
+//     document.getElementById(`edit-and-delete${i}`).classList.remove('row-reverse');
+
+//     const editIcon = document.getElementById(`edit${i}`);
+//     const acceptChangesIcon = document.createElement('img');
+//     editIcon.replaceWith(acceptChangesIcon);
+//     acceptChangesIcon.src = 'assets/img/check.png';
+//     acceptChangesIcon.onclick = () => acceptChanges(i);
+// }
 
 function deleteSubtaskItem(i) {
     SubtaskArray.splice(i, 1);
