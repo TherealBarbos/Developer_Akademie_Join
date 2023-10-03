@@ -1,12 +1,25 @@
 let accounts = [];
+
+function firstLetters(str) {
+    let name = str;
+    let words = name.split(" ");
+    let firstWord = words[0];
+    let secondWord = words[1];
+
+    let firstLetter = firstWord.substring(0, 1).toUpperCase();
+    let secondLetter = secondWord.substring(0, 1).toUpperCase();
+
+    return firstLetter + secondLetter;
+}
+
 /**
  * this function is used to save the account information on the signup page
  */
 async function signUp() {
-    let name = document.getElementById('input-name').value
-    let email = document.getElementById('input-email').value
-    let password = document.getElementById('input-password').value
-    let confirmPassword = document.getElementById('input-confirm-password').value
+    let name = document.getElementById('input-name').value;
+    let email = document.getElementById('input-email').value;
+    let password = document.getElementById('input-password').value;
+    let confirmPassword = document.getElementById('input-confirm-password').value;
     let createdAt = new Date().getTime();
 
     if (confirmPassword == password && password > 0) {
@@ -15,6 +28,7 @@ async function signUp() {
             'email': email,
             'password': password,
             'createdAt': createdAt,
+            'firstLetter': firstLetters(name),
         };
         accounts.push(account);
         await setItem('accounts', JSON.stringify(accounts));
