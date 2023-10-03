@@ -11,11 +11,15 @@ function firstLetters(str) {
     let words = name.split(" ");
     let firstWord = words[0];
     let secondWord = words[1];
+    if (words > 0) {
+        let secondLetter = secondWord.substring(0, 1).toUpperCase();
+        let firstLetter = firstWord.substring(0, 1).toUpperCase();
+        return firstLetter + secondLetter;
+    } else {
+        let firstLetter = firstWord.substring(0, 1).toUpperCase();
+        return firstLetter;
+    }
 
-    let firstLetter = firstWord.substring(0, 1).toUpperCase();
-    let secondLetter = secondWord.substring(0, 1).toUpperCase();
-
-    return firstLetter + secondLetter;
 }
 
 function compareNames(a, b) {
