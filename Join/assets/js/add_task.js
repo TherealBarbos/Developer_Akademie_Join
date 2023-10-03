@@ -38,7 +38,6 @@ async function addTask() { // this fills the JSON array "allTasks" which holds t
     allTasks.push(task);
     await setItem('allTasks', JSON.stringify(allTasks));
     clearInputs();
-
 }
 
 function createID() {
@@ -62,6 +61,20 @@ function clearInputs() {
     document.getElementById('subtask-list').innerHTML = '';
     revertBackToButton();
 }
+
+// Contact Section
+
+function populateSelect() {
+    const selectElement = document.getElementById("assignedName");
+
+    for (let i = 0; i < contacts.length; i++) {
+        const option = document.createElement("option");
+        
+        option.text = `(${letters[i]}) ${contacts[i]['name']} `;
+        selectElement.appendChild(option);
+    }
+}
+
 
 // Priority Section
 
@@ -257,6 +270,7 @@ function revertBackToButton() { // this function handles the deactivation of the
 async function load() {
     await loadContacts();
     collectLetters();
+    populateSelect();
 }
 
 function collectLetters() {
