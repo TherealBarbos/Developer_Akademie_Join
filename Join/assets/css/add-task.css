@@ -49,7 +49,8 @@ ul {
   word-wrap: break-word;
 }
 
-.add-task-left {
+.add-task-left,
+.add-task-right {
   width: 440px;
 }
 
@@ -114,6 +115,18 @@ ul {
 .assignedNameLI {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.assignedNameLI-toggled{
+  background: #2A3647;
+  color: white;
+}
+
+.name-and-initials {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .assigned-initials {
@@ -124,6 +137,7 @@ ul {
   height: 42px;
   width: 42px;
   background: #6E52FF;
+  color: white;
 }
 
 .select-category {
@@ -183,6 +197,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background-color: white;
   display: flex;
   border: unset;
+  width: 136px;
+  height: 56px;
   gap: 10px;
   justify-content: center;
   align-items: center;
@@ -227,7 +243,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: #d1d1d1;
   background-color: #FFF;
   font-size: 24px;
-  height: 48px;
+  height: 47px;
   width: 440px;
   margin-bottom: 20px;
   border: 1px solid #29ABE2;
@@ -298,6 +314,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   padding: 6px 16px;
   justify-content: space-between;
   align-items: center;
+  margin-left: -42px;
+  margin-top: -6px;
 }
 
 .addsubtask-list-element:hover {

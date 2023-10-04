@@ -5,6 +5,7 @@ let allTasks = loadTasks();
 let SubtaskArray = [];
 let contacts = [];
 let letters = [];
+let assignedToTask = [];
 
 async function addTask() { // this fills the JSON array "allTasks" which holds the title, description, etc. of the task you want to add and saves them in the remote storage
     const id = createID();
@@ -17,10 +18,6 @@ async function addTask() { // this fills the JSON array "allTasks" which holds t
     const prioritySource = getSelectedPriorityImageSource();
     const category = document.getElementById('category').value;
     const subtask = SubtaskArray;
-
-    console.log('task-title', taskTitle);
-    console.log('task-description', taskDescription);
-    console.log('dueDate', dueDate);
 
     let task = {
         'id': id,
@@ -57,32 +54,64 @@ function clearInputs() {
     document.getElementById('low').classList.remove('low');
     document.getElementById('low-img').src = 'assets/img/low_no_bg.png';
     document.getElementById('category').value = '';
-    document.getElementById('subtask-input').value = '';
     document.getElementById('subtask-list').innerHTML = '';
     SubtaskArray = [];
     renderSubtaskContainer;
-    revertBackToButton();
+    const subtaskinput = document.getElementById('subtask-input');
+    if (subtaskinput) {
+        subtask.value = '';
+        revertBackToButton();
+    }
 }
 
 // Contact Section
 
-function createSelect() {
+function loadAssignableNames() {
     const selectElement = document.getElementById("assignedName");
-    selectElement.classList.remove('d-none')
-
     for (let i = 0; i < contacts.length; i++) {
         const initial = letters[i];
         const name = contacts[i]['name'];
         selectElement.innerHTML += `
-        <li class="assignedNameLI">
-            <div class="assigned-initials">${initial}</div>
-            <span class="assigned-name">${name}
+        <li onclick="toggleName(${i})" id="toggle-name${i}" class="assignedNameLI">
+            <div class="name-and-initials">
+                <div class="assigned-initials">${initial}</div>
+                <span class="assigned-name">${name}</span>
+            </div>
+            <div>
+                <img id="checkbox${i}" src="assets/img/checkbox-unchecked.png">
+            </div>
         </li>`;
     }
 }
 
+function toggleSelect() { // this function opens and closes the list of assignable names in your contacts
+    document.getElementById('assignedName').classList.toggle('d-none');
+}
 
-// Priority Section
+function toggleName(i) {
+    let li = document.getElementById(`toggle-name${i}`);
+    let checkbox = document.getElementById(`checkbox${i}`);
+
+    li.classList.toggle('assignedNameLI-toggled');
+
+    if (checkbox.src.endsWith('checkbox-unchecked.png')) {
+        checkbox.src = 'assets/img/checkbox-checked.png';
+    } else {
+        checkbox.src = 'assets/img/checkbox-unchecked.png';
+    }
+    addToAssignedArray(i, li);
+}
+
+function addToAssignedArray(i, li) {
+    const name = contacts[i]['name'];
+
+    const indexName = assignedToTask.indexOf(name);
+
+    if (li.classList.contains('assignedNameLI-toggled')) {
+        assignedToTas.push(name);
+    } else {assignedToTas.splice(indexName, 1)}
+    console.log(indexName);
+}
 
 function getSelectedPriority() {
     const urgentButton = document.getElementById('urgent');
@@ -238,21 +267,7 @@ function acceptChanges(i) { // this function replaces the old subtask with the e
     let replacingElement = document.getElementById(`readonly-Input${i}`).value;
     SubtaskArray.splice(i, 1, replacingElement);
     renderSubtaskContainer();
-    console.log('test')
 }
-
-// function revertListItem() { //this function reverts the editable list item to a non-editable list item
-//     const listItem = document.getElementById(`subtaskListItem${i}`);
-//     listItem.classList.remove('editable-list-element');
-//     listItem.classList.add('addsubtask-list-element');
-//     document.getElementById(`edit-and-delete${i}`).classList.remove('row-reverse');
-
-//     const editIcon = document.getElementById(`edit${i}`);
-//     const acceptChangesIcon = document.createElement('img');
-//     editIcon.replaceWith(acceptChangesIcon);
-//     acceptChangesIcon.src = 'assets/img/check.png';
-//     acceptChangesIcon.onclick = () => acceptChanges(i);
-// }
 
 function deleteSubtaskItem(i) {
     SubtaskArray.splice(i, 1);
@@ -269,13 +284,32 @@ function revertBackToButton() { // this function handles the deactivation of the
             <img src="assets/img/addtask.png" class="plus-sign" id="plus-sign">
         </button>
     `;
-    
+
     input.replaceWith(subtaskButton);
 }
 
 async function load() {
     await loadContacts();
     collectLetters();
+    loadAssignableNames();
+}
+
+function loadAssignableNames() {
+    const selectElement = document.getElementById("assignedName");
+    for (let i = 0; i < contacts.length; i++) {
+        const initial = letters[i];
+        const name = contacts[i]['name'];
+        selectElement.innerHTML += `
+        <li onclick="toggleName(${i})" id="toggle-name${i}" class="assignedNameLI">
+            <div class="name-and-initials">
+                <div class="assigned-initials">${initial}</div>
+                <span class="assigned-name">${name}</span>
+            </div>
+            <div>
+                <img id="checkbox${i}" src="assets/img/checkbox-unchecked.png">
+            </div>
+        </li>`;
+    }
 }
 
 function collectLetters() {
