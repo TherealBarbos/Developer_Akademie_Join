@@ -79,12 +79,10 @@
 
           <div class="assigned-to-container gap-8">
             <span> Assigned to </span>
-            <select id="assignedName" class="border-radius-6 border-color" name="Select contacts to assign to">
-              <option value="" disabled selected hidden>Select contacts to assign</option>
-            </select>
+            <input onclick="createSelect()" class="border-radius-6 border-color assignedNameSelector" readonly value="Select contacts to assign to"></input>
+            <ul class="d-none" id="assignedName"></ul>
           </div>
         </div>
-
         <img src="assets/img/lineGray.png" alt="grey-separation-line">
 
         <div class="add-task-right">

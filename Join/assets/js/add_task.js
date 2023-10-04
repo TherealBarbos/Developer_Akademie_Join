@@ -28,7 +28,7 @@ async function addTask() { // this fills the JSON array "allTasks" which holds t
         'title': taskTitle,
         'description': taskDescription,
         'assignedName': assignedName,
-        'dueDate': dueDate, // dueDate represents Unix timestamp. Needs to be re-converted later?
+        'dueDate': dueDate, // dueDate hat Unix timestamp. Muss später noch geändert werden?
         'priority': priority,
         'priorityImageSource': prioritySource,
         'category': category,
@@ -59,19 +59,25 @@ function clearInputs() {
     document.getElementById('category').value = '';
     document.getElementById('subtask-input').value = '';
     document.getElementById('subtask-list').innerHTML = '';
+    SubtaskArray = [];
+    renderSubtaskContainer;
     revertBackToButton();
 }
 
 // Contact Section
 
-function populateSelect() {
+function createSelect() {
     const selectElement = document.getElementById("assignedName");
+    selectElement.classList.remove('d-none')
 
     for (let i = 0; i < contacts.length; i++) {
-        const option = document.createElement("option");
-        
-        option.text = `(${letters[i]}) ${contacts[i]['name']} `;
-        selectElement.appendChild(option);
+        const initial = letters[i];
+        const name = contacts[i]['name'];
+        selectElement.innerHTML += `
+        <li class="assignedNameLI">
+            <div class="assigned-initials">${initial}</div>
+            <span class="assigned-name">${name}
+        </li>`;
     }
 }
 
@@ -195,10 +201,10 @@ function renderSubtaskContainer() { // This function renders the list of subtask
     for (let i = 0; i < SubtaskArray.length; i++) {
         const addedTask = SubtaskArray[i];
         subtaskContainer.innerHTML +=
-            `<li onclick="editSubtaskItem(${i})" id="subtaskListItem${i}" class="addsubtask-list-element">
+            `<li id="subtaskListItem${i}" class="addsubtask-list-element">
             <div style="display: flex; align-items: center; gap: 8px;">
               <img style="height: 6px; width: 6px" src="assets/img/list_marker.png">
-              <input readonly id="readonly-Input${i}" value="${addedTask}" class="input-edit-subtask"></input>
+              <input onclick="editSubtaskItem(${i})" readonly id="readonly-Input${i}" value="${addedTask}" class="input-edit-subtask"></input>
             </div>
             <div id="edit-and-delete${i}" class="edit-and-delete">
               <img id="edit${i}" onclick="editSubtaskItem(${i})" class="edit-and-delete-img" src="assets/img/edit.png">
@@ -263,14 +269,13 @@ function revertBackToButton() { // this function handles the deactivation of the
             <img src="assets/img/addtask.png" class="plus-sign" id="plus-sign">
         </button>
     `;
-
+    
     input.replaceWith(subtaskButton);
 }
 
 async function load() {
     await loadContacts();
     collectLetters();
-    populateSelect();
 }
 
 function collectLetters() {

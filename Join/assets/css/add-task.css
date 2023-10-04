@@ -93,11 +93,37 @@ ul {
   margin-top: 32px;
 }
 
-#assignedName {
+.assignedNameSelector {
   height: 48px;
   font-size: 24px;
   color: #D1D1D1;
   padding-left: 16px;
+  margin-bottom: 0;
+}
+
+#assignedName {
+  background-color: white;
+  border-radius: 12px;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 7px 16px;
+}
+
+.assignedNameLI {
+  display: flex;
+  justify-content: space-between;
+}
+
+.assigned-initials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 45px;
+  height: 42px;
+  width: 42px;
+  background: #6E52FF;
 }
 
 .select-category {
@@ -286,6 +312,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border: unset;
   outline: none;
   background: none;
+  padding: 10px 60px 10px 0;
 }
 
 .edit-and-delete {
@@ -397,4 +424,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .editing {
   font-size: 300px;
+}
+
+.d-none {
+  display: none !important;
 }
