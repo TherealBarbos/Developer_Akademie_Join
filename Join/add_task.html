@@ -79,8 +79,15 @@
 
           <div class="assigned-to-container gap-8">
             <span> Assigned to </span>
-            <input onclick="toggleSelect()" class="border-radius-6 border-color assignedNameSelector" readonly value="Select contacts to assign to"></input>
-            <ul class="d-none" id="assignedName"></ul>
+            <input onclick="toggleSelect()" onkeyup="filterNames()" id="filterNames"
+              class="border-radius-6 border-color assignedNameSelector" placeholder="Select contacts to assign to">
+            <div class="d-none" id="assignedNameContainer">
+              <ul id="assignedName"></ul>
+              <button class="contact-create-btn">
+                Add new contact
+                <img class="add-person" src="assets/img/person_add.png" alt="person-add">
+              </button>
+            </div>
           </div>
         </div>
         <img src="assets/img/lineGray.png" alt="grey-separation-line">
@@ -147,7 +154,7 @@
     <!-- </form> -->
 
 
-  </div> <!-- id="content" -->
+  </div>
 
 </body>
 
