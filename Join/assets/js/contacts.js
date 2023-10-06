@@ -4,6 +4,9 @@ let letters = []
 function redirectEditContactToContacts() {
     document.getElementById('editcontact').classList.add('d-none');
     document.getElementById('editcontact').classList.remove('bg-gray');
+    loadContacts();
+    displayContacts();
+    document.getElementById('details').innerHTML = '';
 }
 
 function redirectAddContactToContacts() {
@@ -11,7 +14,7 @@ function redirectAddContactToContacts() {
     document.getElementById('addcontact').classList.remove('bg-gray');
     loadContacts();
     displayContacts();
-    document.getElementById('details') = '';
+    document.getElementById('details').innerHTML = '';
 }
 
 
@@ -66,7 +69,7 @@ function deleteContact(index) {
     contacts.splice(index, 1);
     setItem('contacts', contacts);
     load();
-    document.getElementById('details') = '';
+    document.getElementById('details').innerHTML = '';
 }
 
 function setArray(key, array) {
