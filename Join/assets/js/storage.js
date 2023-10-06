@@ -6,12 +6,20 @@ async function init() {
     loadAccounts();
 }
 
+function idLetter(str) {
+    let name = str;
+    let words = name.split(" ");
+    let firstWord = words[0];
+    let firstLetter = firstWord.substring(0, 1).toUpperCase();
+    return firstLetter;
+}
+
 function firstLetters(str) {
     let name = str;
     let words = name.split(" ");
     let firstWord = words[0];
     let secondWord = words[1];
-    if (words > 0) {
+    if (words.lenth > 0) {
         let secondLetter = secondWord.substring(0, 1).toUpperCase();
         let firstLetter = firstWord.substring(0, 1).toUpperCase();
         return firstLetter + secondLetter;

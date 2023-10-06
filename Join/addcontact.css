@@ -84,7 +84,7 @@ h2 {
 
 .input:focus {
     outline: none !important;
-    border-color:#29ABE2 !important; 
+    border-color: #29ABE2 !important;
 }
 
 #input-email {
@@ -275,4 +275,21 @@ h2 {
     justify-content: center;
     gap: 14px;
     box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.list-letter {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 0;
+    padding-left: 95px;
+    padding-bottom: 20px;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.line {
+    background-color: #D1D1D1;
+    height: 1px;
+    max-width: 100%;
+    margin: 0px 50px;
 }
