@@ -10,13 +10,16 @@
   
   .textFieldBig {
     display: flex;
-    width: 1014px;
+    max-width: 1024px;
+
     height: 713px;
     margin: 311px 98px 0px 328px;
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
     overflow-y: scroll;
+    
+    
   }
   .textFieldBig::-webkit-scrollbar {
     display: none;

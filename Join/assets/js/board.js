@@ -140,6 +140,7 @@ function generateAwaitFeedbackCard(todo) {
   </div>`;
 }
 
+
 function allowDrop(ev) {
   ev.preventDefault();
 }
@@ -147,6 +148,7 @@ function allowDrop(ev) {
 function moveTo(state) {
   todos[currentDraggedElement]["state"] = state;
   updateHTML();
+  setItem('allTasks', JSON.stringify(todos));
   unhighlight(state);
 }
 
@@ -175,4 +177,10 @@ async function getItem(key) {
           return res.data.value;
       } throw `Could not find data with key "${key}".`;
   });
+}
+
+async function setItem(key, value) {
+  const payload = { key, value, token: STORAGE_TOKEN };
+  return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload) })
+      .then(res => res.json());
 }
