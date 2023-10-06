@@ -62,8 +62,20 @@ function clearInputs() {
         subtask.value = '';
         revertBackToButton();
     };
+    revertContactSelect();
+}
+
+function revertContactSelect() {
     toggleSelect();
     assignedToTask = [];
+    const checkboxes = document.getElementsByClassName('checkbox');
+    for (let i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].src = 'assets/img/checkbox-unchecked.png';
+    }
+    const assignedNameLIs = document.getElementsByClassName('assignedNameLI');
+    for (let i = 0; i < assignedNameLIs.length; i++) {
+        assignedNameLIs[i].classList.remove('assignedNameLI-toggled');
+    }
 }
 
 // Contact Section
@@ -75,7 +87,7 @@ function toggleSelect() { // this function opens and closes the list of assignab
 function loadAssignableNames() { // this function loads the assignable contacts
     const selectElement = document.getElementById("assignedName");
     for (let i = 0; i < contacts.length; i++) {
-        const initial = letters[i];
+        const initial = contacts[i]['firstLetter'];
         const name = contacts[i]['name'];
         selectElement.innerHTML += `
             <li onclick="toggleName(${i})" id="toggle-name${i}" class="assignedNameLI">
@@ -84,7 +96,7 @@ function loadAssignableNames() { // this function loads the assignable contacts
                     <span class="assigned-name">${name}</span>
                 </div>
                 <div>
-                    <img id="checkbox${i}" src="assets/img/checkbox-unchecked.png">
+                    <img class="checkbox" id="checkbox${i}" src="assets/img/checkbox-unchecked.png">
                 </div>
             </li>`;
     }
@@ -124,12 +136,11 @@ function toggleName(i) {
 function addToAssignedArray(i, li) { // this function assignes/splices contacts to/from the assignedToTaskArray
     const name = contacts[i]['name'];
 
-    const indexName = assignedToTask.indexOf(name);
+    const index = assignedToTask.indexOf(name);
 
     if (li.classList.contains('assignedNameLI-toggled')) {
         assignedToTask.push(name);
-    } else {assignedToTask.splice(indexName, 1)}
-    console.log(indexName);
+    } else { assignedToTask.splice(index, 1) }
 }
 
 // priority section
@@ -313,24 +324,6 @@ async function load() {
     await loadContacts();
     collectLetters();
     loadAssignableNames();
-}
-
-function loadAssignableNames() {
-    const selectElement = document.getElementById("assignedName");
-    for (let i = 0; i < contacts.length; i++) {
-        const initial = letters[i];
-        const name = contacts[i]['name'];
-        selectElement.innerHTML += `
-        <li onclick="toggleName(${i})" id="toggle-name${i}" class="assignedNameLI">
-            <div class="name-and-initials">
-                <div class="assigned-initials">${initial}</div>
-                <span class="assigned-name">${name}</span>
-            </div>
-            <div>
-                <img id="checkbox${i}" src="assets/img/checkbox-unchecked.png">
-            </div>
-        </li>`;
-    }
 }
 
 function collectLetters() {
