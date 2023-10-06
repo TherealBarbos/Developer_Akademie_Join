@@ -18,6 +18,7 @@ async function signUp() {
             'createdAt': createdAt,
             'firstLetter': firstLetters(name),
             'id': idLetter(name),
+            'colorId': randomColor(),
         };
         accounts.push(account);
         await setItem('accounts', JSON.stringify(accounts));

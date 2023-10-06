@@ -6,6 +6,11 @@ async function init() {
     loadAccounts();
 }
 
+function randomColor() {
+    let id = parseInt(Math.random() * 15);
+    return id
+}
+
 function idLetter(str) {
     let name = str;
     let words = name.split(" ");

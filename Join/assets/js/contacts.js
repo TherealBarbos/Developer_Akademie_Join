@@ -36,6 +36,7 @@ async function AddContact() {
             'phone': '+' + phone.value,
             'firstLetter': firstLetters(name.value),
             'id': idLetter(name.value),
+            'colorId': account['colorId'],
         };
         contacts.push(contact)
         await setItem('contacts', JSON.stringify(contacts));
@@ -88,7 +89,7 @@ function displayContactDetails(index) {
     details.innerHTML = /*html*/`
     
     <div class="details-upper-part">
-      <div class="details-pfp">${contacts[index]['firstLetter']}  </div>
+      <div class="details-pfp color${contacts[index]['colorId']}">${contacts[index]['firstLetter']}  </div>
       <div class="gap">
         <div class="details-name">${contacts[index]['name']}</div>
         <div class="edit-delete">
@@ -133,7 +134,7 @@ function displayContacts() {
                     <div class="line"> </div>
                     <div id="${contact_id}">
                                  <div onclick="displayContactDetails(${i})" class="contact">
-                           <div class="pfp">${letter}</div>
+                           <div class="pfp color${contact['colorId']}">${letter}</div>
                            <div class="contact-info column">
                              <div class="name-text" >${contact['name']}</div>
                              <div class="email-text">${contact['email']}</div>
@@ -145,7 +146,7 @@ function displayContacts() {
         } else {
             id.innerHTML += /*html*/`
           <div onclick="displayContactDetails(${i})" class="contact">
-              <div class="pfp">${letter}</div>
+              <div class="pfp  color${contact['colorId']}">${letter}</div>
               <div class="contact-info column">
                 <div class="name-text" >${contact['name']}</div>
                 <div class="email-text">${contact['email']}</div>
