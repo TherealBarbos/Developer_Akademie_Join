@@ -18,6 +18,9 @@
     gap: 24px;
     overflow-y: scroll;
   }
+  .textFieldBig::-webkit-scrollbar {
+    display: none;
+  }
   
   .return-arrow {
     position: absolute;
