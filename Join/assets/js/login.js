@@ -14,6 +14,10 @@ function login() {
     clearLoginInputs();
 }
 
+function guestLogin() {
+    redirectToSummary();
+}
+
 /**
  * this function is used to clear the Input fields from the Sign up page
  */
