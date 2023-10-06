@@ -186,6 +186,15 @@ body {
   font-size: 16px;
 }
 
+.red-input {
+  border-color: #FF203B !important;
+}
+
+.wrong-password {
+  color: #FF203B;
+  font-size: 13px;
+}
+
 .login-input:focus {
   outline: none !important;
   border-color: #29ABE2 !important;
@@ -211,6 +220,11 @@ body {
   color: rgb(215, 215, 215);
 }
 
+#input-password:focus {
+  background-image: url(assets/img/visibility.png);
+  background-repeat: no-repeat;
+  background-position: 288px 10px;
+}
 
 #input-confirm-password {
   background-image: url(assets/img/lock.png);
@@ -222,6 +236,11 @@ body {
   color: rgb(215, 215, 215);
 }
 
+#input-confirm-password:focus {
+  background-image: url(assets/img/visibility.png);
+  background-repeat: no-repeat;
+  background-position: 288px 10px;
+}
 
 #input-name {
   background-image: url(assets/img/person.svg);

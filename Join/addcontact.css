@@ -353,3 +353,8 @@ h2 {
 .color15 {
     background-color: #FFBB2B;
 }
+
+.editContactLetter {
+    color: white;
+    font-size: 40px;
+}
