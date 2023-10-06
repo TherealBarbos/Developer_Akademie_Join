@@ -17,6 +17,7 @@ async function signUp() {
             'password': password,
             'createdAt': createdAt,
             'firstLetter': firstLetters(name),
+            'id': idLetter(name),
         };
         accounts.push(account);
         await setItem('accounts', JSON.stringify(accounts));
