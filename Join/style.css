@@ -652,4 +652,9 @@ body {
     display: flex;
     padding-right: 40px;
   }
+
+  .vector {
+    width: 150px;
+    padding-top: 14px;
+  }
 }
