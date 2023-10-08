@@ -18,13 +18,15 @@ async function signUp() {
             'createdAt': createdAt,
             'firstLetter': firstLetters(name),
             'id': idLetter(name),
+            'colorId': randomColor(),
         };
         accounts.push(account);
         await setItem('accounts', JSON.stringify(accounts));
         redirectToLogin();
     }
     else {
-        alert('your Confirmed password is not equal to your password, or your forgot to type in your name');
+        document.getElementById('input-confirm-password').classList.add('red-input');
+        document.getElementById('wrong-password').classList.remove('d-none');
     }
     clearSignupInputs();
 }

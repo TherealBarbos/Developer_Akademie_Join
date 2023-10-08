@@ -36,6 +36,7 @@ async function AddContact() {
             'phone': '+' + phone.value,
             'firstLetter': firstLetters(name.value),
             'id': idLetter(name.value),
+            'colorId': account['colorId'],
         };
         contacts.push(contact)
         await setItem('contacts', JSON.stringify(contacts));
@@ -80,6 +81,9 @@ function editContact(index) {
     document.getElementById('editcontact').classList.remove('d-none');
     document.getElementById('editcontact').classList.add('bg-gray');
     setContactValues(index);
+    document.getElementById('EditContactFirstLettersColor').classList.add(`color${contacts[index]['colorId']}`);
+    document.getElementById('EditContactFirstLettersColor').classList.add('editContactLetter');
+    document.getElementById('EditContactFirstLettersColor').innerHTML = `${contacts[index]['firstLetter']}`;
 }
 
 function displayContactDetails(index) {
@@ -88,7 +92,7 @@ function displayContactDetails(index) {
     details.innerHTML = /*html*/`
     
     <div class="details-upper-part">
-      <div class="details-pfp">${contacts[index]['firstLetter']}  </div>
+      <div class="details-pfp color${contacts[index]['colorId']}">${contacts[index]['firstLetter']}  </div>
       <div class="gap">
         <div class="details-name">${contacts[index]['name']}</div>
         <div class="edit-delete">
@@ -132,8 +136,8 @@ function displayContacts() {
                     <span class="list-letter">${contact_id}</span>
                     <div class="line"> </div>
                     <div id="${contact_id}">
-                                 <div onclick="displayContactDetails(${i})" class="contact" id='${contact_id}'>
-                           <div class="pfp">${letter}</div>
+                                 <div onclick="displayContactDetails(${i})" class="contact">
+                           <div class="pfp color${contact['colorId']}">${letter}</div>
                            <div class="contact-info column">
                              <div class="name-text" >${contact['name']}</div>
                              <div class="email-text">${contact['email']}</div>
@@ -144,8 +148,8 @@ function displayContacts() {
             `;
         } else {
             id.innerHTML += /*html*/`
-          <div onclick="displayContactDetails(${i})" class="contact" id='${contact_id}'>
-              <div class="pfp">${letter}</div>
+          <div onclick="displayContactDetails(${i})" class="contact">
+              <div class="pfp  color${contact['colorId']}">${letter}</div>
               <div class="contact-info column">
                 <div class="name-text" >${contact['name']}</div>
                 <div class="email-text">${contact['email']}</div>

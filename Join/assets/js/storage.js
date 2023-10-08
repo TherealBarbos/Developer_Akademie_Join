@@ -6,6 +6,11 @@ async function init() {
     loadAccounts();
 }
 
+function randomColor() {
+    let id = parseInt(Math.random() * 15);
+    return id
+}
+
 function idLetter(str) {
     let name = str;
     let words = name.split(" ");
@@ -19,7 +24,7 @@ function firstLetters(str) {
     let words = name.split(" ");
     let firstWord = words[0];
     let secondWord = words[1];
-    if (words.lenth > 0) {
+    if (words.length > 0) {
         let secondLetter = secondWord.substring(0, 1).toUpperCase();
         let firstLetter = firstWord.substring(0, 1).toUpperCase();
         return firstLetter + secondLetter;

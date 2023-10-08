@@ -25,26 +25,34 @@
         </div>
     </div>
     <div class="login-page-2">
-        <div class="login-window">
-            <div>
-                <span class="login-text  underline">Log in</span>
-            </div>
-            <div class="login-window-inputs">
-                <input placeholder="Email" id="input-email" type="text" class="login-input">
-                <input placeholder="Password" id="input-password" type="text" class="login-input">
-                <div class="login-checkbox">
-                    <input type="checkbox">
-                    <span>
-                        Remember me
-                    </span>
+        <form onsubmit="login(); return false">
+            <div class="login-window">
+                <div class="column2">
+                    <span class="login-text">Log in</span>
+                    <img class="vector" src="assets/img/Vector 5.svg" alt="">
+                </div>
+                <div class="login-window-inputs">
+                    <input required placeholder="Email" id="input-email" type="text" class="login-input">
+                    <input required placeholder="Password" id="input-password" type="text" class="login-input">
+                    <div class="login-checkbox">
+                        <input required type="checkbox">
+                        <span>
+                            Remember me
+                        </span>
+                    </div>
+                </div>
+                <div class="login-window-buttons">
+                    <button type="submit" class="login-btn">Log in</button>
+                    <button onclick="guestLogin()" class="login-btn-guest">Guest Log in</button>
                 </div>
             </div>
-            <div class="login-window-buttons">
-                <button class="login-btn" onclick="login()">Log in</button>
-                <button class="login-btn-guest">Guest Log in</button>
-            </div>
-        </div>
+        </form> 
 
+        <div class="login-signup-upper-part2">
+            <span>Not a Join user?</span>
+            <button onclick="redirectToSignUp()" class="login-btn">Sign up</button>
+        </div>
+        
         <div class="login-legalnotice">
             <a href="privacy-policy.html" target="_blank" class="legal-notice-private-policy">Private Policy</a>
             <a href="legal-notice.html" target="_blank" class="legal-notice-private-policy">Legal notice</a>
