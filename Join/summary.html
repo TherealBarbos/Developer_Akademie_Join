@@ -1,136 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/x-icon" href="assets/img/logo_favicon.ico" />
 
-    <script src="script.js"></script>
-    <script src="assets/js/summary.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="assets/img/logo_favicon.ico" />
 
-    <title>Summary</title>
-  </head>
-  <body onload="">
-    <div class="header">
-      <div class="headerText">Kanban Project Management Tool</div>
-      <div class="headerMenu">
-        <a href="help.html" class="Help">
-          <img src="assets/img/help.png" alt="Hilfe" />
-        </a>
-        <a href="user.html" class="User">
-          <img src="assets/img/BSP.png" alt="Hilfe" />
-        </a>
+  <script src="script.js"></script>
+  <script src="assets/js/summary.js"></script>
+
+  <title>Summary</title>
+</head>
+
+<body onload="includeHTML()">
+
+  <div w3-include-html="assets/templates/header.html"></div>
+
+  <div class="contentHeader">
+    <div class="contentHeaderTitle">Summary</div>
+    <img src="assets/img/lineBlue.png" alt="Line" class="contentHeaderIMG" />
+    <div class="contentHeaderText">Everything in a nutshell!</div>
+  </div>
+
+  <div class="contentWelcome">
+    <div class="contentWelcomeText">
+      Good morning,<br />
+      <span class="contentWelcomeTextName">Sofia Müller</span>
+    </div>
+  </div>
+  <div class="summary">
+
+    <div class="summaryTop">
+
+      <div class="summaryTopLeft">
+
+        <div class="summaryTopCount">
+          <img src="assets/img/to-do.png" alt="To-Do" class="summaryTopImg" />
+        </div>
+        <div class="summaryTopCount">
+          <div class="summaryBigNumber" id="yourTodos">1</div>
+          <div class="summaryBigText">To-Do</div>
+        </div>
+      </div>
+      <div class="summaryTopRight">
+
+        <div class="summaryTopCount">
+          <img src="assets/img/done.png" alt="To-Do" class="summaryTopImg" />
+        </div>
+        <div class="summaryTopCount">
+          <div class="summaryBigNumber" id="yourDone">1</div>
+          <div class="summaryBigText">Done</div>
+        </div>
       </div>
     </div>
-    <div class="left-side">
-      <div class="left-side-logo">
-        <img src="assets/img/logo_white.png" alt="logo" />
-      </div>
 
-      <div class="left-side-menu">
-        <a href="summary.html" class="left-side-menu-btn">
-          <img src="assets/img/summary.png" alt="" />
-          <p>Summary</p>
-        </a>
-        <a href="add_task.html" class="left-side-menu-btn">
-          <img src="assets/img/add_task.png" alt="" />
-          <p>Add Task</p>
-        </a>
-        <a href="board.html" class="left-side-menu-btn">
-          <img src="assets/img/board.png" alt="" />
-          <p>Board</p>
-        </a>
-        <a href="contact.html" class="left-side-menu-btn">
-          <img src="assets/img/contacts.png" alt="" />
-          <p>Contacts</p>
-        </a>
-      </div>
-
-      <div class="left-side-Policy">
-        <a href="privacy-policy.html" target="_blank">Privacy Policy</a>
-        <a href="legal-notice.html" target="_blank">Legal notice</a>
-      </div>
-    </div>
-    <div class="contentHeader">
-      <div class="contentHeaderTitle">Summary</div>
-      <img src="assets/img/lineBlue.png" alt="Line" class="contentHeaderIMG" />
-      <div class="contentHeaderText">Everything in a nutshell!</div>
-    </div>
-
-    <div class="contentWelcome">
-      <div class="contentWelcomeText">
-        Good morning,<br />
-        <span class="contentWelcomeTextName">Sofia Müller</span>
-      </div>
-    </div>
-    <div class="summary">
-
-      <div class="summaryTop">
-
-        <div class="summaryTopLeft">
-
-          <div class="summaryTopCount">
-            <img src="assets/img/to-do.png" alt="To-Do" class="summaryTopImg"/>
-          </div>
-          <div class="summaryTopCount">
-            <div class="summaryBigNumber" id="yourTodos">1</div>
-            <div class="summaryBigText">To-Do</div>
-          </div>
+    <div class="summaryMiddle">
+      <div class="summaryMiddlePriority">
+        <div class="summaryMiddlePriorityIMG">
+          <img src="assets/img/urgent-big.png" alt="Urgent" />
         </div>
-        <div class="summaryTopRight">
-
-          <div class="summaryTopCount">
-            <img src="assets/img/done.png" alt="To-Do" class="summaryTopImg"/>
-          </div>
-          <div class="summaryTopCount">
-            <div class="summaryBigNumber" id="yourDone">1</div>
-            <div class="summaryBigText">Done</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="summaryMiddle">
-        <div class="summaryMiddlePriority">
-          <div class="summaryMiddlePriorityIMG">
-            <img src="assets/img/urgent-big.png" alt="Urgent" />
-          </div>
-          <div class="summaryMiddlePriorityLevel">
-            <div class="summaryBigNumber">1</div>
-            <div class="summaryBigText">Urgent</div>
-          </div>
-        </div>
-        <img
-          src="assets/img/lineGray.png"
-          alt="Line"
-          class="summaryMiddlePriorityLine"
-        />
-        <div class="summaryMiddlePriorityDate">
-          <div class="summaryMiddlePriorityDateTextI">Oct. 16 ,2022</div>
-          <div class="summaryMiddlePriorityDateTextII">Upcomming Deadline</div>
-        </div>
-      </div>
-
-      <div class="summaryBottom">
-
-        <div class="summaryBottomCard">
-          <div class="summaryBigNumber">2</div>
-          <div class="summaryBigText">Your Projects</div>
-
-        </div>
-
-        <div class="summaryBottomCard">
-          <div class="summaryBigNumber" id="allYourTaks">2</div>
-          <div class="summaryBigText">Your Tasks</div>
-        </div>
-
-        <div class="summaryBottomCard">
+        <div class="summaryMiddlePriorityLevel">
           <div class="summaryBigNumber">1</div>
-          <div class="summaryBigText">Your Boards</div>
-
+          <div class="summaryBigText">Urgent</div>
         </div>
-
+      </div>
+      <img src="assets/img/lineGray.png" alt="Line" class="summaryMiddlePriorityLine" />
+      <div class="summaryMiddlePriorityDate">
+        <div class="summaryMiddlePriorityDateTextI">Oct. 16 ,2022</div>
+        <div class="summaryMiddlePriorityDateTextII">Upcomming Deadline</div>
       </div>
     </div>
-  </body>
+
+    <div class="summaryBottom">
+
+      <div class="summaryBottomCard">
+        <div class="summaryBigNumber">2</div>
+        <div class="summaryBigText">Your Projects</div>
+
+      </div>
+
+      <div class="summaryBottomCard">
+        <div class="summaryBigNumber" id="allYourTaks">2</div>
+        <div class="summaryBigText">Your Tasks</div>
+      </div>
+
+      <div class="summaryBottomCard">
+        <div class="summaryBigNumber">1</div>
+        <div class="summaryBigText">Your Boards</div>
+
+      </div>
+
+    </div>
+  </div>
+</body>
+
 </html>

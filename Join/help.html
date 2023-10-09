@@ -1,145 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="fonts.css" />
-    <link rel="stylesheet" href="assets/css/help-pp-ln.css">
-    <link rel="stylesheet" href="assets/css/basement.css">
-    <link rel="icon" type="image/x-icon" href="assets/img/logo_favicon.ico" />
 
-    <title>Help</title>
-  </head>
-  <body onload="">
-    <div class="header">
-      <div class="headerText">Kanban Project Management Tool</div>
-      <div class="headerMenu">
-        <a href="help.html" class="Help">
-          <img src="assets/img/help.png" alt="Hilfe" />
-        </a>
-        <a href="user.html" class="User">
-          <img src="assets/img/BSP.png" alt="Hilfe" />
-        </a>
-      </div>
-    </div>
-    <div class="left-side">
-      <div class="left-side-logo">
-        <a href="summary.html">
-          <img src="assets/img/logo_white.png" alt="logo" />
-        </a>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="fonts.css" />
+  <link rel="stylesheet" href="assets/css/help-pp-ln.css">
+  <link rel="stylesheet" href="assets/css/basement.css">
+  <link rel="icon" type="image/x-icon" href="assets/img/logo_favicon.ico" />
 
-      <div class="left-side-menu">
-        <a href="summary.html" class="left-side-menu-btn">
-          <img src="assets/img/summary.png" alt="" />
-          <p>Summary</p>
-        </a>
-        <a href="add_task.html" class="left-side-menu-btn">
-          <img src="assets/img/add_task.png" alt="" />
-          <p>Add Task</p>
-        </a>
-        <a href="board.html" class="left-side-menu-btn">
-          <img src="assets/img/board.png" alt="" />
-          <p>Board</p>
-        </a>
-        <a href="contact.html" class="left-side-menu-btn">
-          <img src="assets/img/contacts.png" alt="" />
-          <p>Contacts</p>
-        </a>
-      </div>
-      <div class="left-side-Policy">
-        <a href="privacy-policy.html" target="_blank">Privacy Policy</a>
-        <a href="legal-notice.html" target="_blank">Legal notice</a>
-      </div>
+  <script src="script.js"></script>
+  <title>Help</title>
+</head>
+
+<body onload="includeHTML()">
+
+  <div w3-include-html="assets/templates/header.html"></div>
+
+  <div class="contentHeader">
+    <div class="contentHeaderTitle">Help</div>
+  </div>
+  <div class="return-arrow">
+    <a href="summary.html">
+      <img src="assets/img/arrow-left-line.svg" alt="Back" />
+    </a>
+  </div>
+  <div class="textFieldBig">
+    <div class="textNormal">
+      Welcome to the help page for Join, your guide to using our kanban
+      project management tool. Here, we'll provide an overview of what Join
+      is, how it can benefit you, and how to use it.
     </div>
-    <div class="contentHeader">
-      <div class="contentHeaderTitle">Help</div>
+    <div class="textBig">What is Join?</div>
+    <div class="textNormal">
+      Join is a kanban-based project management tool designed and built by a
+      group of dedicated students as part of their web development bootcamp at
+      the Developer Akademie. Kanban, a Japanese term meaning "billboard", is
+      a highly effective method to visualize work, limit work-in-progress, and
+      maximize efficiency (or flow). Join leverages the principles of kanban
+      to help users manage their tasks and projects in an intuitive, visual
+      interface. It is important to note that Join is designed as an
+      educational exercise and is not intended for extensive business usage.
+      While we strive to ensure the best possible user experience, we cannot
+      guarantee consistent availability, reliability, accuracy, or other
+      aspects of quality regarding Join.
     </div>
-    <div class="return-arrow">
-      <a href="summary.html">
-        <img src="assets/img/arrow-left-line.svg" alt="Back" />
-      </a>
-    </div>
-    <div class="textFieldBig">
+    <div class="textBig">How to use it</div>
+
+    <div class="textEnumeration">
       <div class="textNormal">
-        Welcome to the help page for Join, your guide to using our kanban
-        project management tool. Here, we'll provide an overview of what Join
-        is, how it can benefit you, and how to use it.
+        Here is a step-by-step guide on how to use Join:
       </div>
-      <div class="textBig">What is Join?</div>
-      <div class="textNormal">
-        Join is a kanban-based project management tool designed and built by a
-        group of dedicated students as part of their web development bootcamp at
-        the Developer Akademie. Kanban, a Japanese term meaning "billboard", is
-        a highly effective method to visualize work, limit work-in-progress, and
-        maximize efficiency (or flow). Join leverages the principles of kanban
-        to help users manage their tasks and projects in an intuitive, visual
-        interface. It is important to note that Join is designed as an
-        educational exercise and is not intended for extensive business usage.
-        While we strive to ensure the best possible user experience, we cannot
-        guarantee consistent availability, reliability, accuracy, or other
-        aspects of quality regarding Join.
-      </div>
-      <div class="textBig">How to use it</div>
-
-      <div class="textEnumeration">
+      <div class="helpList">
+        <div class="helpListNumber">1.</div>
         <div class="textNormal">
-          Here is a step-by-step guide on how to use Join:
+          <p>Exploring the Board</p>
+          When you log in to Join, you'll find a default board. This board
+          represents your project and contains four default lists: "To Do",
+          "In Progress", “Await feedback” and "Done".
         </div>
-        <div class="helpList">
-          <div class="helpListNumber">1.</div>
-          <div class="textNormal">
-            <p>Exploring the Board</p>
-            When you log in to Join, you'll find a default board. This board
-            represents your project and contains four default lists: "To Do",
-            "In Progress", “Await feedback” and "Done".
-          </div>
+      </div>
+      <div class="helpList">
+        <div class="helpListNumber">2.</div>
+        <div class="textNormal">
+          <p>Creating Contacts</p>
+          In Join, you can add contacts to collaborate on your projects. Go to
+          the "Contacts" section, click on "New contact", and fill in the
+          required information. Once added, these contacts can be assigned
+          tasks and they can interact with the tasks on the board.
         </div>
-        <div class="helpList">
-          <div class="helpListNumber">2.</div>
-          <div class="textNormal">
-            <p>Creating Contacts</p>
-            In Join, you can add contacts to collaborate on your projects. Go to
-            the "Contacts" section, click on "New contact", and fill in the
-            required information. Once added, these contacts can be assigned
-            tasks and they can interact with the tasks on the board.
-          </div>
+      </div>
+      <div class="helpList">
+        <div class="helpListNumber">3.</div>
+        <div class="textNormal">
+          <p>Adding Cards</p>
+          Now that you've added your contacts, you can start adding cards.
+          Cards represent individual tasks. Click the "+" button under the
+          appropriate list to create a new card. Fill in the task details in
+          the card, like task name, description, due date, assignees, etc.
         </div>
-        <div class="helpList">
-          <div class="helpListNumber">3.</div>
-          <div class="textNormal">
-            <p>Adding Cards</p>
-            Now that you've added your contacts, you can start adding cards.
-            Cards represent individual tasks. Click the "+" button under the
-            appropriate list to create a new card. Fill in the task details in
-            the card, like task name, description, due date, assignees, etc.
-          </div>
+      </div>
+      <div class="helpList">
+        <div class="helpListNumber">4.</div>
+        <div class="textNormal">
+          <p>Moving Cards</p>
+          As the task moves from one stage to another, you can reflect that on
+          the board by dragging and dropping the card from one list to
+          another.
         </div>
-        <div class="helpList">
-          <div class="helpListNumber">4.</div>
-          <div class="textNormal">
-            <p>Moving Cards</p>
-            As the task moves from one stage to another, you can reflect that on
-            the board by dragging and dropping the card from one list to
-            another.
-          </div>
-        </div>
-        <div class="helpList">
-          <div class="helpListNumber">5.</div>
-          <div class="textNormal">
-            <p>Deleting Cards</p>
-            Once a task is completed, you can either move it to the "Done" list
-            or delete it. Deleting a card will permanently remove it from the
-            board. Please exercise caution when deleting cards, as this action
-            is irreversible. Remember that using Join effectively requires
-            consistent updates from you and your team to ensure the board
-            reflects the current state of your project. Have more questions
-            about Join? Feel free to contact us at [Your Contact Email]. We're
-            here to help you!
-          </div>
+      </div>
+      <div class="helpList">
+        <div class="helpListNumber">5.</div>
+        <div class="textNormal">
+          <p>Deleting Cards</p>
+          Once a task is completed, you can either move it to the "Done" list
+          or delete it. Deleting a card will permanently remove it from the
+          board. Please exercise caution when deleting cards, as this action
+          is irreversible. Remember that using Join effectively requires
+          consistent updates from you and your team to ensure the board
+          reflects the current state of your project. Have more questions
+          about Join? Feel free to contact us at [Your Contact Email]. We're
+          here to help you!
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

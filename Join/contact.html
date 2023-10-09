@@ -13,51 +13,14 @@
   <script src="assets/js/contacts.js"></script>
   <script src="assets/js/storage.js"></script>
   <script src="assets/js/editcontact.js"></script>
+  <script src="script.js"></script>
   <title>Contacts</title>
 </head>
 
-<body onload="load()">
-  <div class="header">
-    <div class="headerText">Kanban Project Management Tool</div>
-    <div class="headerMenu">
-      <a href="help.html" class="Help">
-        <img src="assets/img/help.png" alt="Hilfe" />
-      </a>
-      <a href="user.html" class="User">
-        <img src="assets/img/BSP.png" alt="Hilfe" />
-      </a>
-    </div>
-  </div>
-  <div class="left-side">
-    <div class="left-side-logo">
-      <a href="summary.html">
-        <img src="assets/img/logo_white.png" alt="logo" />
-      </a>
-    </div>
+<body onload="includeHTML(), load()">
 
-    <div class="left-side-menu">
-      <a href="summary.html" class="left-side-menu-btn">
-        <img src="assets/img/summary.png" alt="" />
-        <p>Summary</p>
-      </a>
-      <a href="add_task.html" class="left-side-menu-btn">
-        <img src="assets/img/add_task.png" alt="" />
-        <p>Add Task</p>
-      </a>
-      <a href="board.html" class="left-side-menu-btn">
-        <img src="assets/img/board.png" alt="" />
-        <p>Board</p>
-      </a>
-      <a href="contact.html" class="left-side-menu-btn">
-        <img src="assets/img/contacts.png" alt="" />
-        <p>Contacts</p>
-      </a>
-    </div>
-    <div class="left-side-Policy">
-      <a href="privacy-policy.html" target="_blank">Privacy Policy</a>
-      <a href="legal-notice.html" target="_blank">Legal notice</a>
-    </div>
-  </div>
+  <div w3-include-html="assets/templates/header.html"></div>
+
   <div class="add-btn-bg">
     <button onclick="openAddContact()" class="contact-create-btn">
       Add new contact
