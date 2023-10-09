@@ -25,13 +25,20 @@
 @import url("assets/css/overall.css");
 
 :root {
-  --primary-color: #000; /*schwartz*/
-  --secondary-color:#2A3647;/*das Haupt Blau/Grau*/
-  --tertiary-color: #a8a8a8;/*leichtes Grau (placeholder Text usw)*/
-  --join-color: #29ABE2;/*Das Join Blau*/
-  --background-color: #FFF;/*element Hintergrund*/
-  --menu-color: #42526E; /*Das heller Grau*/
-  --border-shadow: rgba(0, 0, 0, 0.08); /* border */
+  --primary-color: #000;
+  /*schwartz*/
+  --secondary-color: #2A3647;
+  /*das Haupt Blau/Grau*/
+  --tertiary-color: #a8a8a8;
+  /*leichtes Grau (placeholder Text usw)*/
+  --join-color: #29ABE2;
+  /*Das Join Blau*/
+  --background-color: #FFF;
+  /*element Hintergrund*/
+  --menu-color: #42526E;
+  /*Das heller Grau*/
+  --border-shadow: rgba(0, 0, 0, 0.08);
+  /* border */
 }
 
 
@@ -113,6 +120,7 @@ body {
   height: 120px;
   width: 100px;
   padding-left: 77px;
+  padding-top: 30px;
 }
 
 .login-logo-upper-part {
@@ -319,7 +327,6 @@ body {
   display: flex;
   justify-content: space-between;
   padding-left: 30px;
-  padding-top: 80px;
 }
 
 .signup-page {
