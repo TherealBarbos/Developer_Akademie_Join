@@ -4,14 +4,12 @@ const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 let allTasks = loadTasks();
 let SubtaskArray = [];
 let contacts = [];
-let letters = [];
 let assignedToTask = [];
+let assignedInitial = [];
 
 async function addTask() { // this fills the JSON array "allTasks" which holds the title, description, etc. of the task you want to add and saves them in the remote storage
-    const id = createID();
     const taskTitle = document.getElementById('task-title').value;
     const taskDescription = document.getElementById('task-description').value;
-    const assignedName = assignedToTask;
     const dueDateStr = document.getElementById('dueDate').value;
     const dueDate = new Date(dueDateStr).getTime();
     const priority = getSelectedPriority();
@@ -20,11 +18,12 @@ async function addTask() { // this fills the JSON array "allTasks" which holds t
     const subtask = SubtaskArray;
 
     let task = {
-        'id': id,
+        'id':  createID(),
         'state': 'toDo',
         'title': taskTitle,
         'description': taskDescription,
-        'assignedName': assignedName,
+        'assignedName': assignedToTask,
+        'assignedInitial': assignedInitial,
         'dueDate': dueDate, // dueDate hat Unix timestamp. Muss später noch geändert werden?
         'priority': priority,
         'priorityImageSource': prioritySource,
@@ -66,7 +65,7 @@ function clearInputs() {
 }
 
 function revertContactSelect() {
-    toggleSelect();
+    document.getElementById('assignedNameContainer').classList.add('d-none');
     assignedToTask = [];
     const checkboxes = document.getElementsByClassName('checkbox');
     for (let i = 0; i < checkboxes.length; i++) {
@@ -92,8 +91,8 @@ function loadAssignableNames() { // this function loads the assignable contacts
         selectElement.innerHTML += `
             <li onclick="toggleName(${i})" id="toggle-name${i}" class="assignedNameLI">
                 <div class="name-and-initials">
-                    <div class="assigned-initials">${initial}</div>
-                    <span class="assigned-name">${name}</span>
+                    <div id="to-display${i}" class="assigned-initials color${i + 1}">${initial}</div>
+                    <span>${name}</span>
                 </div>
                 <div>
                     <img class="checkbox" id="checkbox${i}" src="assets/img/checkbox-unchecked.png">
@@ -107,7 +106,6 @@ function filterNames() {
     const filter = input.value.toUpperCase();
     const li = document.getElementsByClassName('assignedNameLI');
 
-    // Loop through all list items and hide those that don't match the search query
     for (let i = 0; i < li.length; i++) {
         const txtValue = li[i].querySelector(".assigned-name").textContent || li[i].querySelector(".assigned-name").innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -117,7 +115,6 @@ function filterNames() {
         }
     }
 }
-
 
 function toggleName(i) {
     let li = document.getElementById(`toggle-name${i}`);
@@ -130,18 +127,39 @@ function toggleName(i) {
     } else {
         checkbox.src = 'assets/img/checkbox-unchecked.png';
     }
-    addToAssignedArray(i, li);
+    manipulateAssignedArray(i, li);
 }
 
-function addToAssignedArray(i, li) { // this function assignes/splices contacts to/from the assignedToTaskArray
+function manipulateAssignedArray(i, li) { // this function assignes/splices contacts to/from the assignedToTaskArray
     const name = contacts[i]['name'];
-
     const index = assignedToTask.indexOf(name);
 
     if (li.classList.contains('assignedNameLI-toggled')) {
         assignedToTask.push(name);
     } else { assignedToTask.splice(index, 1) }
+    manipulateAssignedInitials(i);
 }
+
+function manipulateAssignedInitials(i) {
+    const toBeAssigned = contacts[i]['firstLetter'];
+    const index = assignedInitial.indexOf(toBeAssigned);
+    let checkbox = document.getElementById(`checkbox${i}`);
+    let container = document.getElementById('initials-display');
+
+    if (checkbox.src.endsWith('checkbox-checked.png')) {
+        assignedInitial.push(toBeAssigned);
+    } else {
+        if (index !== -1) {
+            assignedInitial.splice(index, 1);
+        }
+    }
+    container.innerHTML = '';
+    for (let j = 0; j < assignedInitial.length; j++) {
+        const displayedInitial = assignedInitial[j];
+        container.innerHTML += `<span class="assigned-initials color${j + 1}">${displayedInitial}</span>`;
+    }
+}
+
 
 // priority section
 
@@ -322,16 +340,7 @@ function revertBackToButton() { // this function handles the deactivation of the
 
 async function load() {
     await loadContacts();
-    collectLetters();
     loadAssignableNames();
-}
-
-function collectLetters() {
-    for (let i = 0; i < contacts.length; i++) {
-        let contact = contacts[i];
-        const FirstLetter = contact['name'].charAt(0).toUpperCase();
-        letters.push(FirstLetter);
-    }
 }
 
 // remote storage
