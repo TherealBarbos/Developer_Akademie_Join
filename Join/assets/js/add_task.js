@@ -276,7 +276,7 @@ function renderSubtaskContainer() { // This function renders the list of subtask
     }
 }
 
-function editSubtaskItem(i) {
+function editSubtaskItem(i) { // this function allows the user to edit the text in a subtask
     const editIcon = document.getElementById(`edit${i}`);
     const acceptChangesIcon = document.createElement('img');
     editIcon.replaceWith(acceptChangesIcon);
