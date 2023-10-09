@@ -31,7 +31,7 @@
   gap: 10px;
   border-radius: 10px;
   border: 1px solid var(--icon, #a8a8a8);
-  background: #fff;
+  background: var(--background-color);
 }
 
 .inputSearch::before,
@@ -65,17 +65,17 @@
   align-items: center;
   gap: 4px;
   border-radius: 10px;
-  border: 1px solid #2a3647;
-  background: #2a3647;
+  border: 1px solid var(--secondary-color);
+  background: var(--secondary-color);
 }
 .addTaskButton a {
-  color: #fff;
+  color: var(--background-color);
   text-decoration: none;
 }
 .addTaskButton:hover {
   border-radius: 10px;
-  background: var(--Ligth-blue, #29abe2);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background: var(--Ligth-blue, var(--join-color));
+  box-shadow: 0px 4px 4px 0px var(--border-shadow);
 }
 
 .boardTitel {
@@ -95,7 +95,7 @@
   flex-shrink: 0;
 }
 .boardTitelBoxText {
-  color: #42526e;
+  color: var(--menu-color);
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -120,7 +120,7 @@
 }
 .drag-over {
   border-radius: 24px;
-  border: 1px dashed var(--icon, #a8a8a8);
+  border: 1px dashed var(--tertiary-color);
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
 }
 .card {
@@ -131,8 +131,8 @@
   align-items: center;
   gap: 10px;
   border-radius: 24px;
-  background: var(--white, #fff);
-  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
+  background: var(--background-color);
+  box-shadow: 0px 0px 10px 3px var(--border-shadow);
 }
 .cardDragging {
   transform: rotate(5deg);
@@ -151,7 +151,7 @@
   gap: 10px;
   border-radius: 8px;
   background: #0038ff;
-  color: #fff;
+  color: var(--background-color);
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -166,14 +166,14 @@
   border-radius: 10px;
 }
 .cardTextI {
-  color: #2a3647;
+  color: var(--secondary-color);
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
 }
 .cardTextII {
-  color: #a8a8a8;
+  color: var(--tertiary-color);
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -197,7 +197,7 @@
   background: #f4f4f4;
 }
 .cardProgressText {
-  color: #000000;
+  color: var(--primary-color);
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -222,7 +222,7 @@
   align-items: center;
   gap: 10px;
   border-radius: 45px;
-  background: #fff;
+  background: var(--background-color);
 }
 .cardContactsPrio {
   display: flex;

@@ -8,8 +8,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 64px 0px;
-    width: 232px;
-    height: 896px;
+    min-width: 15rem;
+    max-height: 100vh;
     gap: 20px;
   }
   
@@ -110,16 +110,6 @@
     margin-right: 40px;
   }
   
-  .contentHeader {
-    position: absolute;
-    left: 320px;
-    top: 160px;
-    align-items: center;
-    justify-content: space-between;
-    height: 73px;
-    gap: 30px;
-    width: 100vh;
-  }
   
   .contentHeaderTitle {
     font-size: 61px;

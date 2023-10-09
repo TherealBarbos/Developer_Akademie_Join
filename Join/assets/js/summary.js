@@ -1,6 +1,13 @@
 let tasks = [];
 
 
+function summaryinit(){
+
+  includeHTML();
+  
+  loadTasks();
+}
+
 // Funktion zum Filtern von Tasks mit Status "todo"
 function filterTasksByStatus(tasks, state) {
     return tasks.filter(task => task.state === toDo);

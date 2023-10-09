@@ -1,8 +1,6 @@
+
 .textField {
     display: flex;
-    width: 1014px;
-    height: 713px;
-    margin: 311px 98px 0px 328px;
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
@@ -10,34 +8,23 @@
   
   .textFieldBig {
     display: flex;
-    max-width: 1024px;
-
-    height: 713px;
-    margin: 311px 98px 0px 328px;
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
     overflow-y: scroll;
-    
-    
+    max-height: 100%;    
   }
   .textFieldBig::-webkit-scrollbar {
     display: none;
   }
   
   .return-arrow {
-    position: absolute;
-    left: 1307px;
-    top: 225px;
     display: flex;
-    width: 32px;
-    height: 32px;
-    flex-shrink: 0;
+    justify-content: flex-end;
+    cursor: pointer;
+    align-items: center;
   }
   
-  .click {
-    cursor: pointer;
-  }
   
   .textNormal {
     align-self: stretch;

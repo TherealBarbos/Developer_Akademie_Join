@@ -1,176 +1,190 @@
+.summaryHead {
 
-.contentWelcome {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 3px;
-    margin: 548px 87px 341px 968px;
-  }
-  
-  .contentWelcomeText {
-    color: #2a3647;
-    font-size: 47px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 120%;
-  }
-  
-  .contentWelcomeTextName {
-    color: #29abe2;
-    font-size: 64px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 120%;
-  }
-  
-  .summary {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    margin: 355px 552px 127px 328px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 28px;
-  }
-  
-  .summaryTop {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 28px;
-  }
-  
-  .summaryTopImg {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .summaryTopLeft {
-    display: flex;
-    width: 264px;
-    height: 168px;
-    justify-content: center;
-    align-items: center;
-    gap: 18px;
-    flex-shrink: 0;
-    border-radius: 30px;
-    background-color: white;
-  }
-  
-  .summaryTopRight {
-    display: flex;
-    width: 264px;
-    height: 168px;
-    justify-content: center;
-    align-items: center;
-    gap: 18px;
-    flex-shrink: 0;
-    border-radius: 30px;
-    background-color: white;
-  }
-  
-  .summaryTopCount {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .summaryBigNumber {
-    color: #000000;
-    text-align: center;
-    font-size: 64px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 120%;
-  }
-  
-  .summaryBigText {
-    color: #2a3647;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
-  }
-  
-  .summaryMiddle {
-    display: flex;
-    width: 560px;
-    height: 168px;
-    justify-content: center;
-    align-items: center;
-    gap: 61px;
-    border-radius: 30px;
-    background-color: white;
-  }
-  
-  .summaryMiddlePriority {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 18px;
-  }
-  
-  .summaryMiddlePriorityLevel {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 13px;
-  }
-  
-  .summaryMiddlePriorityDate {
-    color: #2a3647;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 13px;
-  }
-  
-  .summaryMiddlePriorityDateTextI {
-    font-size: 21px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 120%;
-  }
-  
-  .summaryMiddlePriorityDateTextII {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
-  }
-  
-  .summaryBottom {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 28px;
-  }
-  
-  .summaryBottomCard {
-    display: flex;
-    width: 168px;
-    height: 168px;
-    padding: 25px 0px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 13px;
-    flex-shrink: 0;
-    border-radius: 30px;
-    background-color: white;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
-  }
-  
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.summaryTitel {
+  font-size: 61px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+.summaryText {
+  color: var(--secondary-color);
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.summaryWelcome {
+
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+
+}
+
+.summaryWelcomeText {
+  color: var(--secondary-color);
+  font-size: 47px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+.summaryWelcomeTextName {
+  color: var(--join-color);
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+.summaryboard {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 28px;
+}
+
+.summaryTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+}
+
+.summaryTopImg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.summaryTopLeft {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background-color: var(--background-color);
+}
+
+.summaryTopRight {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background-color: var(--background-color);
+}
+
+.summaryTopCount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.summaryBigNumber {
+  color: var(--background-color);
+  text-align: center;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+}
+
+.summaryBigText {
+  color: #2a3647;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.summaryMiddle {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  gap: 61px;
+  border-radius: 30px;
+  background-color: var(--background-color);
+}
+
+.summaryMiddlePriority {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 18px;
+}
+
+.summaryMiddlePriorityLevel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 13px;
+}
+
+.summaryMiddlePriorityDate {
+  color: var(--secondary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 13px;
+}
+
+.summaryMiddlePriorityDateTextI {
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+.summaryMiddlePriorityDateTextII {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.summaryBottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+}
+
+.summaryBottomCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background-color: var(--background-color);
+  box-shadow: 0px 0px 4px 0px var(--border-shadow);
+}
