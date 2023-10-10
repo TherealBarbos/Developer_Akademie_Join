@@ -2,7 +2,6 @@ let todos = [];
 
 let currentDraggedElement;
 
-
 // Load and disply CARDS
 
 function updateHTML() {
@@ -53,7 +52,7 @@ function startDregging(id) {
 }
 
 function generateTodoCard(todo) {
-  return  `<div class="card" draggable="true" ondragstart="startDregging(${todo.id})">
+  return `<div class="card" draggable="true" ondragstart="startDregging(${todo.id})" onclick="showOverlay('${todo.id}')">
     <div class="cardFrame">
       <div class="cardLable">${todo.category}</div>
       <div class="cardTextbox">
@@ -152,7 +151,7 @@ function allowDrop(ev) {
 function moveTo(state) {
   todos[currentDraggedElement]["state"] = state;
   updateHTML();
-  setItem('allTasks', JSON.stringify(todos));
+  setItem("allTasks", JSON.stringify(todos));
   unhighlight(state);
 }
 
@@ -167,44 +166,51 @@ function unhighlight(id) {
 // Overlay add Task
 
 function showOverlay(todo) {
-  const container = document.getElementById('taskoverlay');
-  container.innerHTML = `
-  <section>
-    <span>${todo.category}</span>
-  
-  
-  
-  
-  
-  </section>
-  `;
+  let overlay = document.getElementById("taskoverlay");
+  overlay.innerHTML = renderTask(todo);
+  document.getElementsById("boardHeader").classList.add("blurout");
+  document.getElementById("board").classList.add("blurout");
+  taskoverlay.classList.remove("d-none");
 }
 
-
+function renderTask(todo) {
+  return `
+  <div class="overlay">
+  <div class="overlayHeader">
+    <div class="overlayHeaderTitle">${todo.title}</div>
+    <div class="overlayHeaderClose" onclick="closeOverlay()"></div>
+  </div>^^
+`;
+}
 
 // remote storage
 
 async function loadTasks() {
   try {
-      todos = JSON.parse(await getItem('allTasks'));
-      console.log(todos)
-  } catch(e) {
-      console.error('loading error:', e);
+    todos = JSON.parse(await getItem("allTasks"));
+    console.log(todos);
+  } catch (e) {
+    console.error("loading error:", e);
   }
   updateHTML();
 }
 
 async function getItem(key) {
   const url = `${STORAGE_URL}?key=${key}&token=4AVD74O6ONTUSWYBIKRAF3SC5B2U9YW3OCE1JRVE`;
-  return fetch(url).then(res => res.json()).then(res => {
+  return fetch(url)
+    .then((res) => res.json())
+    .then((res) => {
       if (res.data) {
-          return res.data.value;
-      } throw `Could not find data with key "${key}".`;
-  });
+        return res.data.value;
+      }
+      throw `Could not find data with key "${key}".`;
+    });
 }
 
 async function setItem(key, value) {
   const payload = { key, value, token: STORAGE_TOKEN };
-  return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload) })
-      .then(res => res.json());
+  return fetch(STORAGE_URL, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  }).then((res) => res.json());
 }

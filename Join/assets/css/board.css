@@ -1,13 +1,17 @@
 .taskoverlay {
   height: 800px;
   width: 400px;
-  position: absolute;
-  background: white;
-  left: 0;
+  background: rgb(216, 117, 117);
+  z-index: 2;
+}
+
+.blurout {
+  opacity: 0.5;
+  filter: blur(8px);
 }
 
 .board {
-margin-top: 10rem;
+  margin-top: 10rem;
   display: flex;
   gap: 26px;
   flex-shrink: 0;
@@ -19,8 +23,6 @@ margin-top: 10rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-
 }
 .boardNav {
   display: flex;
@@ -120,9 +122,9 @@ margin-top: 10rem;
 .drag {
   display: flex;
   flex-direction: column;
-  width: 244px;
+  width: 20%;
   gap: 24px;
-  flex-shrink: 0;
+
 }
 .drag-over {
   border-radius: 24px;
