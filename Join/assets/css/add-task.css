@@ -38,9 +38,8 @@ textarea {
 }
 
 .addTask {
-  position: absolute;
-  margin: 20vh 0 0 328px;
-  font-size: 20px;
+
+  font-size: 24px;
 }
 
 ul {
