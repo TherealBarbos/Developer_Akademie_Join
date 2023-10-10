@@ -20,9 +20,17 @@
 /* new css in assets*/
 @import url("assets/css/help-pp-ln.css");
 
-/* Overall Responieve disigne */
+/* Overall Responieve designe */
 /* new css in assets*/
 @import url("assets/css/overall.css");
+
+/* mobile Responieve designe */
+/* new css in assets*/
+@import url("assets/css/responsive.css");
+
+
+
+
 
 :root {
   --primary-color: #000;
