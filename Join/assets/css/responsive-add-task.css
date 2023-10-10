@@ -1,0 +1,35 @@
+@media (max-height: 920px) {
+    .addTask {
+        margin: 16vh 0 0 328px;
+    }
+
+    #assignedNameContainer {
+        height: 210px;
+    }
+}
+
+@media (max-height: 800px) {
+    input {
+        height: 36px !important;
+    };
+
+    select {
+        height: 36px !important;
+    }
+
+    .prio-button {
+        height: 38px;
+    }
+
+    .enter-title-container {
+        margin-top: 10px;
+    }
+
+    .description-textarea {
+        height: 70px;
+    }
+
+    .assigned-to-container {
+        margin-top: 8px;
+    }
+}

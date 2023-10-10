@@ -65,7 +65,9 @@ function clearInputs() {
 }
 
 function revertContactSelect() {
+    document.getElementById('initials-display').innerHTML = '';
     document.getElementById('assignedNameContainer').classList.add('d-none');
+    assignedInitial = [];
     assignedToTask = [];
     const checkboxes = document.getElementsByClassName('checkbox');
     for (let i = 0; i < checkboxes.length; i++) {
@@ -81,6 +83,12 @@ function revertContactSelect() {
 
 function toggleSelect() { // this function opens and closes the list of assignable names in the user's contacts
     document.getElementById('assignedNameContainer').classList.toggle('d-none');
+}
+
+function hideContactSelect(event) {
+    if (event.target.id !== "filterNames" && event.target.id !== "assignedName" && !event.target.classList.contains('assignedNameLI') && !event.target.classList.contains('assignedNameLI-toggled') && !event.target.classList.contains('checkbox')) {
+        document.getElementById("assignedNameContainer").classList.add("d-none");
+    }
 }
 
 function loadAssignableNames() { // this function loads the assignable contacts
@@ -375,3 +383,5 @@ async function getItem(key) {
         } throw `Could not find data with key "${key}".`;
     });
 }
+
+document.addEventListener("click", hideContactSelect);

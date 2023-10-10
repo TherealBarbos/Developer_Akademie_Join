@@ -8,6 +8,10 @@ a {
   text-decoration: none;
 }
 
+img:hover {
+  cursor: pointer;
+}
+
 select {
   appearance: none;
   -webkit-appearance: none;
@@ -36,7 +40,7 @@ textarea {
 .addTask {
   position: absolute;
   margin: 20vh 0 0 328px;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 ul {
@@ -72,7 +76,7 @@ ul {
 
 #task-title {
   height: 48px;
-  font-size: 24px;
+  font-size: 20px;
   padding-left: 16px;
 }
 
@@ -83,25 +87,25 @@ ul {
 .enter-description-container {
   display: flex;
   flex-direction: column;
-  margin-top: 16px;
+  margin-top: 8px;
 }
 
 .description-textarea {
   height: 100px;
   font-family: "Inter";
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .assigned-to-container {
   display: flex;
   flex-direction: column;
-  margin-top: 32px;
+  margin-top: 16px;
   overflow-y: auto;
 }
 
 .assignedNameSelector {
   height: 48px;
-  font-size: 24px;
+  font-size: 20px;
   padding-left: 16px;
   margin-bottom: 0;
   z-index: 1;
@@ -112,7 +116,7 @@ ul {
 }
 
 #assignedNameContainer {
-  height: 285px;
+  height: 262px;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
   margin-top: -26px;
@@ -133,15 +137,18 @@ ul {
   padding: 0;
 }
 
-#assignedName::-webkit-scrollbar {
+#assignedName::-webkit-scrollbar,
+#subtask-input::-webkit-scrollbar {
   width: 10px;
 }
 
-#assignedName::-webkit-scrollbar-track {
+#assignedName::-webkit-scrollbar-track,
+#subtask-input::-webkit-scrollbar {
   background: white;
 }
 
-#assignedName::-webkit-scrollbar-thumb {
+#assignedName::-webkit-scrollbar-thumb,
+#subtask-input::-webkit-scrollbar {
   background: #A8A8A8;
   border-radius: 8px;
 }
@@ -150,7 +157,7 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2px 16px;
+  padding: 4px 16px;
   border-radius: 10px;
 }
 
@@ -162,12 +169,12 @@ ul {
 .assignedNameLI-toggled {
   background: #2A3647;
   color: white;
-  padding: 7px 16px;
+  padding: 4px 16px;
   border-radius: 10px;
 }
 
 .contact-create-btn {
-  height: 56px;
+  height: 46px;
   width: 408px;
   background-color: #2a3647;
   color: white;
@@ -178,7 +185,9 @@ ul {
   font-weight: 700;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 14px;
+  margin-bottom: 2px;
 }
 
 .contact-create-btn:hover {
@@ -214,7 +223,7 @@ ul {
 .select-category {
   padding: 8px 8px 8px 16px;
   height: 48px;
-  font-size: 24px;
+  font-size: 20px;
   color: #D1D1D1;
 }
 
@@ -230,14 +239,14 @@ ul {
 .enter-date {
   display: flex;
   flex-direction: column;
-  font-size: 24px;
+  font-size: 20px;
   margin-top: 20px;
 }
 
 #dueDate {
   height: 40px;
   font-family: "Inter";
-  font-size: 24px;
+  font-size: 20px;
   display: flex;
   flex-direction: row;
   padding: 0 16px 0 16px;
@@ -254,7 +263,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .priority {
   display: flex;
   flex-direction: column;
-  font-size: 24px;
+  font-size: 20px;
   margin-top: 16px;
 }
 
@@ -274,7 +283,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   justify-content: center;
   align-items: center;
   padding: 8px 16px 8px 16px;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .prio-button:hover {
@@ -313,9 +322,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   justify-content: space-between;
   color: #d1d1d1;
   background-color: #FFF;
-  font-size: 24px;
+  font-size: 20px;
   height: 48px;
-  width: 440px;
+  width: 435px;
   margin-bottom: 20px;
   border: 1px solid #29ABE2;
 }
@@ -328,7 +337,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background-color: #FFF;
   height: 48px;
   width: 440px;
-  font-size: 24px;
+  font-size: 20px;
   margin-bottom: 20px;
   border: 1px solid #D1D1D1;
 }
@@ -365,7 +374,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .subtask-input {
-  font-size: 24px;
+  font-size: 20px;
   border: unset;
   padding-left: 16px;
 }
@@ -376,6 +385,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 #subtask-list {
   margin: -12px 0 8px 0;
+  width: 450px;
 }
 
 .addsubtask-list-element {
@@ -429,6 +439,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   padding: 6px 16px;
   justify-content: space-between;
   align-items: center;
+  margin-left: -42px;
 }
 
 .create-clear-button-container {
