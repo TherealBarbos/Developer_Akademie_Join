@@ -168,7 +168,7 @@ function unhighlight(id) {
 function showOverlay(todo) {
   let overlay = document.getElementById("taskoverlay");
   overlay.innerHTML = renderTask(todo);
-  document.getElementsById("boardHeader").classList.add("blurout");
+  document.getElementById("boardHeader").classList.add("blurout");
   document.getElementById("board").classList.add("blurout");
   taskoverlay.classList.remove("d-none");
 }
@@ -179,9 +179,17 @@ function renderTask(todo) {
   <div class="overlayHeader">
     <div class="overlayHeaderTitle">${todo.title}</div>
     <div class="overlayHeaderClose" onclick="closeOverlay()"></div>
-  </div>^^
+  </div>
+  <div onclick="closeOverlay()">Close</div>
 `;
 }
+
+function closeOverlay(todo) {
+  document.getElementById("boardHeader").classList.remove("blurout");
+  document.getElementById("board").classList.remove("blurout");
+  taskoverlay.classList.add("d-none");
+}
+
 
 // remote storage
 

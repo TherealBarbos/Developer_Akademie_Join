@@ -20,7 +20,7 @@
 
   <div class="taskoverlay d-none" id="taskoverlay"> </div>
 
-  <div class="boardHeader">
+  <div class="boardHeader" id="boardHeader">
     <div class="contentHeader">
       <div class="boardTest">
 
@@ -76,7 +76,7 @@
       </div>
     </div>
   </div>
-  <div class="board">
+  <div class="board" id="board">
     <div class="drag" id="toDo" ondrop="moveTo('toDo')" ondragleave="unhighlight('toDo')"
       ondragover="allowDrop(event); highlight('toDo')">
       <!-- Bereich 'toDo' -->
