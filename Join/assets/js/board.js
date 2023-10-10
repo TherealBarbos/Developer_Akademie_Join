@@ -99,9 +99,9 @@ function generateDoneCard(todo) {
   </div>`;
 }
 function generateInProgressCard(todo) {
-  return ` <div class="card" draggable="true" ondragstart="startDregging('${todo.id}')">
+  return `<div class="card" draggable="true" ondragstart="startDregging('${todo.id}')">
     <div class="cardFrame">
-      <div class="cardLable">${todo.category}</div>
+      <div onclick="showOverlay(${todo})" class="cardLable">${todo.category}</div>
       <div class="cardTextbox">
         <div class="cardTextI">${todo.title}</div>
         <div class="cardTextII">${todo.description}</div>
@@ -122,7 +122,7 @@ function generateInProgressCard(todo) {
   </div>`;
 }
 function generateAwaitFeedbackCard(todo) {
-  return ` <div class="card" draggable="true" ondragstart="startDregging('${todo.id}')">
+  return `<onclick="showOverlay(${todo})" div class="card" draggable="true" ondragstart="startDregging('${todo.id}')">
     <div class="cardFrame">
       <div class="cardLable">${todo.category}</div>
       <div class="cardTextbox">
@@ -165,6 +165,24 @@ function unhighlight(id) {
 }
 
 // Overlay add Task
+
+function showOverlay(todo) {
+  const container = document.getElementById('taskoverlay');
+  container.innerHTML = `
+  <section>
+    <span>${todo.category}</span>
+  
+  
+  
+  
+  
+  </section>
+  `;
+}
+
+
+
+// remote storage
 
 async function loadTasks() {
   try {

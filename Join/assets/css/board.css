@@ -1,5 +1,9 @@
-.taskoverlay{
-  
+.taskoverlay {
+  height: 800px;
+  width: 400px;
+  position: absolute;
+  background: white;
+  left: 0;
 }
 
 .board {
