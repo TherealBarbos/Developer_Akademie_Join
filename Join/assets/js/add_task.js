@@ -85,11 +85,11 @@ function toggleSelect() { // this function opens and closes the list of assignab
     document.getElementById('assignedNameContainer').classList.toggle('d-none');
 }
 
-function hideContactSelect(event) {
-    if (event.target.id !== "filterNames" && event.target.id !== "assignedName" && !event.target.classList.contains('assignedNameLI') && !event.target.classList.contains('assignedNameLI-toggled') && !event.target.classList.contains('checkbox')) {
-        document.getElementById("assignedNameContainer").classList.add("d-none");
-    }
-}
+// function hideContactSelect(event) {
+//     if (event.target.id !== "filterNames" && event.target.id !== "assignedName" && !event.target.classList.contains('assignedNameLI') && !event.target.classList.contains('assignedNameLI-toggled') && !event.target.classList.contains('checkbox')) {
+//         document.getElementById("assignedNameContainer").classList.add("d-none");
+//     }
+// }
 
 function loadAssignableNames() { // this function loads the assignable contacts
     const selectElement = document.getElementById("assignedName");

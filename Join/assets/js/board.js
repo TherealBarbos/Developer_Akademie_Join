@@ -52,7 +52,7 @@ function startDregging(id) {
 }
 
 function generateTodoCard(todo) {
-  return `<div class="card" draggable="true" ondragstart="startDregging(${todo.id})" onclick="showOverlay('${todo.id}')">
+  return `<div class="card" draggable="true" ondragstart="startDregging(${todo.id})" onclick="showOverlay('${todo}')">
     <div class="cardFrame">
       <div class="cardLable">${todo.category}</div>
       <div class="cardTextbox">
@@ -170,15 +170,29 @@ function showOverlay(todo) {
   overlay.innerHTML = renderTask(todo);
   document.getElementById("boardHeader").classList.add("blurout");
   document.getElementById("board").classList.add("blurout");
+  document.getElementById("overlay").classList.add("overlayposition");
   taskoverlay.classList.remove("d-none");
 }
 
 function renderTask(todo) {
+  console.log(todo);
   return `
   <div class="overlay">
-  <div class="overlayHeader">
-    <div class="overlayHeaderTitle">${todo.title}</div>
-    <div class="overlayHeaderClose" onclick="closeOverlay()"></div>
+    <div class="overlayHeader">
+      <div class="overlayHeaderCategory">${todo.category}</div>
+      <div class="overlayHeaderTitle">${todo.title}</div>
+      <div class="overlayHeaderText">${todo.description}</div>
+      <div class="overlayHeaderText">${todo.dueDate}</div>
+      <div class="overlayHeaderText">${todo.priority}</div>
+      <div class="overlayHeaderAssigned">${todo.assignedName}</div>
+      <div class="overlayHeaderSubtasks">${todo.subtasks}</div>
+      <div class="overlayHeadercontrolls">
+        <div class="overlayHeadercontrollsDelete"></div>
+        <div class="overlayHeadercontrollsEdit"></div>    
+
+
+
+    </div>
   </div>
   <div onclick="closeOverlay()">Close</div>
 `;
@@ -187,6 +201,7 @@ function renderTask(todo) {
 function closeOverlay(todo) {
   document.getElementById("boardHeader").classList.remove("blurout");
   document.getElementById("board").classList.remove("blurout");
+  document.getElementById("overlay").classList.remove("overlayposition");
   taskoverlay.classList.add("d-none");
 }
 

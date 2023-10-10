@@ -1,20 +1,28 @@
 .taskoverlay {
-  height: 800px;
-  width: 400px;
-  background: rgb(216, 117, 117);
-  z-index: 2;
+  position: absolute;
+  padding: 2rem;
+  min-height: 20rem;
+  width: 20rem;
+  background: var(--background-color);
+  box-shadow: 0px 0px 10px 3px var(--border-shadow);
+  border-radius: 2rem;
+  z-index: 999;
+
 }
 
+.overlayposition {
+  display: flex;
+  justify-content: center;
+}
 .blurout {
   opacity: 0.5;
   filter: blur(8px);
 }
 
 .board {
-  margin-top: 10rem;
+  margin-top: 1rem;
   display: flex;
-  gap: 26px;
-  flex-shrink: 0;
+  gap: 2rem;
   justify-content: space-between;
 
   overflow: hidden;
@@ -87,44 +95,39 @@
 }
 
 .boardTitel {
-  position: absolute;
-  left: 320px;
-  top: 300px;
   display: flex;
   justify-content: space-between;
+  margin-top: 3rem;
 
-  gap: 26px;
 }
 .boardTitelBox {
   display: flex;
-  width: 244px;
   justify-content: space-between;
-  align-items: center;
-  flex-shrink: 0;
 }
+
 .boardTitelBoxText {
   color: var(--menu-color);
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
+
 }
 .boardTitelBoxButton {
   display: flex;
-  width: 24px;
-  height: 24px;
-  padding: 3px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
+}
+.boardDrag {
+  display: flex;
+  flex-direction: column;
 }
 .drag {
   display: flex;
   flex-direction: column;
-  width: 20%;
+  min-height: 35rem ;
+  min-width: 5rem;
   gap: 24px;
-
 }
 .drag-over {
   border-radius: 24px;
