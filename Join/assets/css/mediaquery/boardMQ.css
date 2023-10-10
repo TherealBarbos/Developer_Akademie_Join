@@ -1,0 +1,14 @@
+@media (max-width: 650px) {
+  .boardTest {
+    flex-direction: column;
+  }
+  .addTaskButton a {
+    display: none;
+  }
+  .board{
+    flex-direction: column;
+  }
+  .drag{
+    min-height: 20rem;
+  }
+}

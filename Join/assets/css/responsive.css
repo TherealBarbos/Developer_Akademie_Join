@@ -2,11 +2,9 @@
 /* new css in assets*/
 @import url("../css/mediaquery/basementMQ.css");
 
-
 /* Summary */
 /* new css in assets*/
 @import url("../css/mediaquery/summaryMQ.css");
-
 
 /* Board */
 /* new css in assets*/
@@ -16,3 +14,6 @@
 /* new css in assets*/
 @import url("../css/mediaquery/overallMQ.css");
 
+/* Overall */
+/* new css in assets*/
+@import url("../css/mediaquery/overlayMQ.css");

@@ -6,9 +6,13 @@
     bottom: 0;
     top: auto;
     flex-direction: row;
-    max-height: 10%;
+    max-height: 8rem;
     min-width: none;
     max-width: max-content;
+    padding: 1.5rem 2rem 1.5rem 2rem;
+  }
+  .left-side-Order{
+    flex-direction: row;
   }
   .left-side-logo {
     display: none;
@@ -18,29 +22,40 @@
   }
   .left-side-menu {
     flex-direction: row;
+    justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
   }
 
   .left-side-menu-btn {
     flex-direction: column;
     padding-left: 0;
-    gap: 0.2rem;
+    gap: 1rem;
   }
 
   .left-side-menu-btn p {
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-style: normal;
     font-weight: 400;
     margin: 0;
+
+  }
+  .left-side-menu-btn img {
+    min-width: 2.5rem;
+    min-height: 2.5rem;
   }
   .header {
     padding: 1.5rem 2rem 1.5rem 2rem;
+    max-height: 8rem;
+    min-width: 45rem;
+    max-width: max-content;
   }
   .headerLogo {
     display: flex;
-
   }
+
+
+  
   .help,
   .headerText {
     display: none;
