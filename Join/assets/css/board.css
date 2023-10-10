@@ -1,12 +1,10 @@
 .board {
-  position: absolute;
-  top: 350px;
-  left: 320px;
+margin-top: 10rem;
   display: flex;
   gap: 26px;
   flex-shrink: 0;
   justify-content: space-between;
-  height: 100vh;
+
   overflow: hidden;
 }
 .boardTest {
