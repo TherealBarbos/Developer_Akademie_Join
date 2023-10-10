@@ -2,6 +2,9 @@ let todos = [];
 
 let currentDraggedElement;
 
+
+// Load and disply CARDS
+
 function updateHTML() {
   let toDo = todos.filter((t) => t["state"] == "toDo");
 
@@ -42,6 +45,8 @@ function updateHTML() {
   }
 }
 
+// Drang functuality
+
 function startDregging(id) {
   currentDraggedElement = id;
   document.getElementById(id).classList.add("cardDragging");
@@ -57,7 +62,7 @@ function generateTodoCard(todo) {
       </div>
       <div class="cardProgress">
         <div class="cardProgressbar">${todo.progressbar}</div>
-        <div class="cardProgressText">${todo.progress}s</div>
+        <div class="cardProgressText">${todo.subtasks}/${todo.subtasks.length} Subtasks</div>
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
@@ -140,7 +145,6 @@ function generateAwaitFeedbackCard(todo) {
   </div>`;
 }
 
-
 function allowDrop(ev) {
   ev.preventDefault();
 }
@@ -159,6 +163,8 @@ function highlight(id) {
 function unhighlight(id) {
   document.getElementById(id).classList.remove("drag-over");
 }
+
+// Overlay add Task
 
 async function loadTasks() {
   try {

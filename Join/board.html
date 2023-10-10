@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="assets/img/logo_favicon.ico" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/x-icon" href="assets/img/logo_favicon.ico" />
+    <script src="assets/js/add_task.js"></script>
+    <script src="assets/js/board.js"></script>
+    <script src="script.js"></script>
 
-  <script src="assets/js/add_task.js"></script>
-  <script src="assets/js/board.js"></script>
-  <script src="script.js"></script>
+    <title>Board</title>
+  </head>
 
-  <title>Board</title>
-</head>
-
-<body onload="includeHTML(), loadTasks()">
-
-  <div w3-include-html="assets/templates/header.html"></div>
+  <body onload="includeHTML(), loadTasks()">
+    <div w3-include-html="assets/templates/header.html"></div>
 
   <div class="contendOverall">
 
@@ -84,22 +82,36 @@
       <!-- Bereich 'toDo' -->
     </div>
 
-    <div class="drag" id="inProgress" ondrop="moveTo('inProgress')" ondragleave="unhighlight('inProgress')"
-      ondragover="allowDrop(event); highlight('inProgress')">
-      <!-- Bereich 'inProgress' -->
-    </div>
+        <div
+          class="drag"
+          id="inProgress"
+          ondrop="moveTo('inProgress')"
+          ondragleave="unhighlight('inProgress')"
+          ondragover="allowDrop(event); highlight('inProgress')"
+        >
+          <!-- Bereich 'inProgress' -->
+        </div>
 
-    <div class="drag" id="awaitFeedback" ondrop="moveTo('awaitFeedback')" ondragleave="unhighlight('awaitFeedback')"
-      ondragover="allowDrop(event); highlight('awaitFeedback')">
-      <!-- Bereich 'awaitFeedback' -->
-    </div>
+        <div
+          class="drag"
+          id="awaitFeedback"
+          ondrop="moveTo('awaitFeedback')"
+          ondragleave="unhighlight('awaitFeedback')"
+          ondragover="allowDrop(event); highlight('awaitFeedback')"
+        >
+          <!-- Bereich 'awaitFeedback' -->
+        </div>
 
-    <div class="drag" id="done" ondrop="moveTo('done')" ondragleave="unhighlight('done')"
-      ondragover="allowDrop(event); highlight('done')">
-      <!-- Bereich 'done' -->
+        <div
+          class="drag"
+          id="done"
+          ondrop="moveTo('done')"
+          ondragleave="unhighlight('done')"
+          ondragover="allowDrop(event); highlight('done')"
+        >
+          <!-- Bereich 'done' -->
+        </div>
+      </div>
     </div>
-  </div>
-  </div>
-</body>
-
+  </body>
 </html>
