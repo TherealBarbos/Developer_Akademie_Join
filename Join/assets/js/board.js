@@ -52,8 +52,10 @@ function startDregging(id) {
 }
 
 function generateTodoCard(todo) {
-  return `<div class="card" draggable="true" ondragstart="startDregging(${todo.id})" onclick="showOverlay('${todo}')">
-    <div class="cardFrame">
+  return `<div class="card" draggable="true" ondragstart="startDregging(${
+    todo.id
+  })" onclick="showOverlay(${JSON.stringify(todo)})"> 
+     <div class="cardFrame">
       <div class="cardLable">${todo.category}</div>
       <div class="cardTextbox">
         <div class="cardTextI">${todo.title}</div>
@@ -61,37 +63,18 @@ function generateTodoCard(todo) {
       </div>
       <div class="cardProgress">
         <div class="cardProgressbar">${todo.progressbar}</div>
-        <div class="cardProgressText">${todo.subtasks}/${todo.subtasks.length} Subtasks</div>
+        <div class="cardProgressText">${todo.subtasks}/${
+    todo.subtasks.length
+  } Subtasks</div>
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
           <img src="${todo.assignedName}" alt="" class="cardContactsBadgeImg" />
         </div>
         <div class="cardContactsPrio">
-          <img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" />
-        </div>
-      </div>
-    </div>
-  </div>`;
-}
-function generateDoneCard(todo) {
-  return ` <div class="card" draggable="true" ondragstart="startDregging('${todo.id}')">
-    <div class="cardFrame">
-      <div class="cardLable">${todo.category}</div>
-      <div class="cardTextbox">
-        <div class="cardTextI">${todo.title}</div>
-        <div class="cardTextII">${todo.description}</div>
-      </div>
-      <div class="cardProgress">
-        <div class="cardProgressbar">${todo.progressbar}</div>
-        <div class="cardProgressText">${todo.progress}s</div>
-      </div>
-      <div class="cardContacts">
-        <div class="cardContactsBadge">
-          <img src="${todo.assignedName}" alt="" class="cardContactsBadgeImg" />
-        </div>
-        <div class="cardContactsPrio">
-          <img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" />
+          <img src="${
+            todo.priorityImageSource
+          }" alt="" class="cardContactsPrioImg" />
         </div>
       </div>
     </div>
@@ -143,6 +126,29 @@ function generateAwaitFeedbackCard(todo) {
     </div>
   </div>`;
 }
+function generateDoneCard(todo) {
+  return ` <div class="card" draggable="true" ondragstart="startDregging('${todo.id}')">
+    <div class="cardFrame">
+      <div class="cardLable">${todo.category}</div>
+      <div class="cardTextbox">
+        <div class="cardTextI">${todo.title}</div>
+        <div class="cardTextII">${todo.description}</div>
+      </div>
+      <div class="cardProgress">
+        <div class="cardProgressbar">${todo.progressbar}</div>
+        <div class="cardProgressText">${todo.progress}s</div>
+      </div>
+      <div class="cardContacts">
+        <div class="cardContactsBadge">
+          <img src="${todo.assignedName}" alt="" class="cardContactsBadgeImg" />
+        </div>
+        <div class="cardContactsPrio">
+          <img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" />
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
 
 function allowDrop(ev) {
   ev.preventDefault();
@@ -165,7 +171,8 @@ function unhighlight(id) {
 
 // Overlay add Task
 
-function showOverlay(todo) {
+function showOverlay(todoJson) {
+  let todo = JSON.parse(todoJson); // Hier wird der JSON-String wieder in ein Objekt umgewandelt
   let overlay = document.getElementById("taskoverlay");
   overlay.innerHTML = renderTask(todo);
   document.getElementById("boardHeader").classList.add("blurout");
@@ -204,7 +211,6 @@ function closeOverlay(todo) {
   document.getElementById("overlay").classList.remove("overlayposition");
   taskoverlay.classList.add("d-none");
 }
-
 
 // remote storage
 
