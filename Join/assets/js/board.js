@@ -54,7 +54,7 @@ function startDregging(id) {
 function generateTodoCard(todo) {
   return `<div class="card" draggable="true" ondragstart="startDregging(${
     todo.id
-  })" onclick="showOverlay(${JSON.stringify(todo)})"> 
+  })" onclick="showOverlay(${todo.id})"> 
      <div class="cardFrame">
       <div class="cardLable">${todo.category}</div>
       <div class="cardTextbox">
