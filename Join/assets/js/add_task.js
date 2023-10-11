@@ -47,11 +47,11 @@ function clearInputs() {
     document.getElementById('assignedName').value = '';
     document.getElementById('dueDate').value = '';
     document.getElementById('urgent').classList.remove('urgent');
-    document.getElementById('urgent-img').src = 'assets/img/urgent_no_bg.png';
+    document.getElementById('urgent-img').src = '../img/urgent_no_bg.png';
     document.getElementById('medium').classList.remove('medium');
-    document.getElementById('medium-img').src = 'assets/img/medium_no_bg.png';
+    document.getElementById('medium-img').src = '../img/medium_no_bg.png';
     document.getElementById('low').classList.remove('low');
-    document.getElementById('low-img').src = 'assets/img/low_no_bg.png';
+    document.getElementById('low-img').src = '../img/low_no_bg.png';
     document.getElementById('category').value = '';
     document.getElementById('subtask-list').innerHTML = '';
     SubtaskArray = [];
@@ -71,7 +71,7 @@ function revertContactSelect() {
     assignedToTask = [];
     const checkboxes = document.getElementsByClassName('checkbox');
     for (let i = 0; i < checkboxes.length; i++) {
-        checkboxes[i].src = 'assets/img/checkbox-unchecked.png';
+        checkboxes[i].src = '../img/checkbox-unchecked.png';
     }
     const assignedNameLIs = document.getElementsByClassName('assignedNameLI');
     for (let i = 0; i < assignedNameLIs.length; i++) {
@@ -103,7 +103,7 @@ function loadAssignableNames() { // this function loads the assignable contacts
                     <span>${name}</span>
                 </div>
                 <div>
-                    <img class="checkbox" id="checkbox${i}" src="assets/img/checkbox-unchecked.png">
+                    <img class="checkbox" id="checkbox${i}" src="../img/checkbox-unchecked.png">
                 </div>
             </li>`;
     }
@@ -131,9 +131,9 @@ function toggleName(i) {
     li.classList.toggle('assignedNameLI-toggled');
 
     if (checkbox.src.endsWith('checkbox-unchecked.png')) {
-        checkbox.src = 'assets/img/checkbox-checked.png';
+        checkbox.src = '../img/checkbox-checked.png';
     } else {
-        checkbox.src = 'assets/img/checkbox-unchecked.png';
+        checkbox.src = '../img/checkbox-unchecked.png';
     }
     manipulateAssignedArray(i, li);
 }
@@ -191,11 +191,11 @@ function getSelectedPriorityImageSource() {
     const lowButton = document.getElementById('low');
 
     if (urgentButton.classList.contains('urgent')) {
-        return 'assets/img/urgent.png';
+        return '../img/urgent.png';
     } else if (mediumButton.classList.contains('medium')) {
-        return 'assets/img/medium.png';
+        return '../img/medium.png';
     } else if (lowButton.classList.contains('low')) {
-        return 'assets/img/low.png';
+        return '../img/low.png';
     }
 }
 
@@ -205,14 +205,14 @@ function urgentButton() { //this function handles the clicking/unclicking of the
 
     if (!urgentButton.classList.contains('urgent')) {
         urgentButton.classList.add('urgent');
-        img.src = 'assets/img/urgent.png';
+        img.src = '../img/urgent.png';
     } else {
         urgentButton.classList.remove('urgent');
-        img.src = 'assets/img/urgent_no_bg.png';
+        img.src = '../img/urgent_no_bg.png';
     }
 
-    document.getElementById('medium-img').src = 'assets/img/medium_no_bg.png';
-    document.getElementById('low-img').src = 'assets/img/low_no_bg.png';
+    document.getElementById('medium-img').src = '../img/medium_no_bg.png';
+    document.getElementById('low-img').src = '../img/low_no_bg.png';
     document.getElementById('medium').classList.remove('medium');
     document.getElementById('low').classList.remove('low');
 }
@@ -223,14 +223,14 @@ function mediumButton() { //this function handles the clicking/unclicking of the
 
     if (!mediumButton.classList.contains('medium')) {
         mediumButton.classList.add('medium');
-        img.src = 'assets/img/medium.png';
+        img.src = '../img/medium.png';
     } else {
         mediumButton.classList.remove('medium');
-        img.src = 'assets/img/medium_no_bg.png';
+        img.src = '../img/medium_no_bg.png';
     }
 
-    document.getElementById('urgent-img').src = 'assets/img/urgent_no_bg.png';
-    document.getElementById('low-img').src = 'assets/img/low_no_bg.png';
+    document.getElementById('urgent-img').src = '../img/urgent_no_bg.png';
+    document.getElementById('low-img').src = '../img/low_no_bg.png';
     document.getElementById('urgent').classList.remove('urgent');
     document.getElementById('low').classList.remove('low');
 }
@@ -241,14 +241,14 @@ function lowButton() { //this function handles the clicking/unclicking of the lo
 
     if (!lowButton.classList.contains('low')) {
         lowButton.classList.add('low');
-        img.src = 'assets/img/low.png';
+        img.src = '../img/low.png';
     } else {
         lowButton.classList.remove('low')
-        img.src = 'assets/img/low_no_bg.png';
+        img.src = '../img/low_no_bg.png';
     }
 
-    document.getElementById('urgent-img').src = 'assets/img/urgent_no_bg.png';
-    document.getElementById('medium-img').src = 'assets/img/medium_no_bg.png';
+    document.getElementById('urgent-img').src = '../img/urgent_no_bg.png';
+    document.getElementById('medium-img').src = '../img/medium_no_bg.png';
     document.getElementById('urgent').classList.remove('urgent');
     document.getElementById('medium').classList.remove('medium');
 }
@@ -265,8 +265,8 @@ function transformIntoInput() { //this function activates the input field to add
     <div id="subtask" class="subtask-button border-radius-6">
         <input required id="subtask-input" class="subtask-input" placeholder="Contact Form">
         <div>
-            <img onclick="revertBackToButton()" class="exit" id="exit" src="assets/img/cancel.png">
-            <img onclick="addNewSubtaskToList()" class="tick" id="tick" src="assets/img/check.png">
+            <img onclick="revertBackToButton()" class="exit" id="exit" src="../img/cancel.png">
+            <img onclick="addNewSubtaskToList()" class="tick" id="tick" src="../img/check.png">
         </div>
     </div>
     </form>`;
@@ -290,13 +290,13 @@ function renderSubtaskContainer() { // This function renders the list of subtask
         subtaskContainer.innerHTML +=
             `<li id="subtaskListItem${i}" class="addsubtask-list-element">
             <div style="display: flex; align-items: center; gap: 8px;">
-              <img style="height: 6px; width: 6px" src="assets/img/list_marker.png">
+              <img style="height: 6px; width: 6px" src="../img/list_marker.png">
               <input onclick="editSubtaskItem(${i})" readonly id="readonly-Input${i}" value="${addedTask}" class="input-edit-subtask"></input>
             </div>
             <div id="edit-and-delete${i}" class="edit-and-delete">
-              <img id="edit${i}" onclick="editSubtaskItem(${i})" class="edit-and-delete-img" src="assets/img/edit.png">
-              <img src="assets/img/short_separating_line.png">
-              <img id="delete${i}" onclick="deleteSubtaskItem(${i})" class="edit-and-delete-img delete" src="assets/img/delete.png">
+              <img id="edit${i}" onclick="editSubtaskItem(${i})" class="edit-and-delete-img" src="../img/edit.png">
+              <img src="../img/short_separating_line.png">
+              <img id="delete${i}" onclick="deleteSubtaskItem(${i})" class="edit-and-delete-img delete" src="../img/delete.png">
             </div>
           </li>`;
     }
@@ -306,7 +306,7 @@ function editSubtaskItem(i) { // this function allows the user to edit the text 
     const editIcon = document.getElementById(`edit${i}`);
     const acceptChangesIcon = document.createElement('img');
     editIcon.replaceWith(acceptChangesIcon);
-    acceptChangesIcon.src = 'assets/img/check.png';
+    acceptChangesIcon.src = '../img/check.png';
     acceptChangesIcon.id = `edit${i}`;
     acceptChangesIcon.onclick = () => acceptChanges(i);
 
@@ -339,7 +339,7 @@ function revertBackToButton() { // this function handles the deactivation of the
     subtaskButton.innerHTML = `
         <button class="subtask-button-inactive border-radius-6" onclick="transformIntoInput()" id="add-subtask-button">
             <span> Add new subtask </span>
-            <img src="assets/img/addtask.png" class="plus-sign" id="plus-sign">
+            <img src="../img/addtask.png" class="plus-sign" id="plus-sign">
         </button>
     `;
 
