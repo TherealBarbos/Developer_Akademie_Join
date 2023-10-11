@@ -86,7 +86,7 @@ function toggleSelect() { // this function opens and closes the list of assignab
 }
 
 // function hideContactSelect(event) {
-//     if (event.target.id !== "filterNames" && event.target.id !== "assignedName" && !event.target.classList.contains('assignedNameLI') && !event.target.classList.contains('assignedNameLI-toggled') && !event.target.classList.contains('checkbox')) {
+//     if (event.target.id !== "filterNames" && event.target.id !== "assignedName" && !event.target.classList.contains('assignedNameLI') && !event.target.classList.contains('assignedNameLI-toggled') && !event.target.classList.contains('checkbox') && event.target.id !== 'board-body' && !event.target.classList.contains('class')) {
 //         document.getElementById("assignedNameContainer").classList.add("d-none");
 //     }
 // }
@@ -384,4 +384,4 @@ async function getItem(key) {
     });
 }
 
-document.addEventListener("click", hideContactSelect);
+// document.addEventListener("click", hideContactSelect);
