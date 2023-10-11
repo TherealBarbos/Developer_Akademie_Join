@@ -11,7 +11,7 @@ function updateHTML() {
 
   for (let index = 0; index < toDo.length; index++) {
     const element = toDo[index];
-    document.getElementById("toDo").innerHTML += generateTodoCard(element);
+    document.getElementById("toDo").innerHTML += generateTodoCard(element, index);
   }
 
   let inProgress = todos.filter((t) => t["state"] == "inProgress");
@@ -21,7 +21,7 @@ function updateHTML() {
   for (let index = 0; index < inProgress.length; index++) {
     const element = inProgress[index];
     document.getElementById("inProgress").innerHTML +=
-      generateInProgressCard(element);
+      generateInProgressCard(element, index);
   }
 
   let done = todos.filter((t) => t["state"] == "done");
@@ -30,7 +30,7 @@ function updateHTML() {
 
   for (let index = 0; index < done.length; index++) {
     const element = done[index];
-    document.getElementById("done").innerHTML += generateDoneCard(element);
+    document.getElementById("done").innerHTML += generateDoneCard(element, index);
   }
 
   let awaitFeedback = todos.filter((t) => t["state"] == "awaitFeedback");
@@ -40,7 +40,7 @@ function updateHTML() {
   for (let index = 0; index < awaitFeedback.length; index++) {
     const element = awaitFeedback[index];
     document.getElementById("awaitFeedback").innerHTML +=
-      generateAwaitFeedbackCard(element);
+      generateAwaitFeedbackCard(element, index);
   }
 }
 
@@ -51,10 +51,10 @@ function startDregging(id) {
   document.getElementById(id).classList.add("cardDragging");
 }
 
-function generateTodoCard(todo) {
+function generateTodoCard(todo, todoIndex) {
   return `<div class="card" draggable="true" ondragstart="startDregging(${
     todo.id
-  })" onclick="showOverlay(${todo.id})"> 
+  })" onclick="showOverlay(${todoIndex})"> 
      <div class="cardFrame">
       <div class="cardLable">${todo.category}</div>
       <div class="cardTextbox">
@@ -171,8 +171,8 @@ function unhighlight(id) {
 
 // Overlay add Task
 
-function showOverlay(todoJson) {
-  let todo = JSON.parse(todoJson); // Hier wird der JSON-String wieder in ein Objekt umgewandelt
+function showOverlay(todoIndex) {
+  let todo = todos[todoIndex]
   let overlay = document.getElementById("taskoverlay");
   overlay.innerHTML = renderTask(todo);
   document.getElementById("boardHeader").classList.add("blurout");
