@@ -6,6 +6,10 @@
 /* new css in assets*/
 @import url("../css/mediaquery/summaryMQ.css");
 
+/* add Task */
+/* new css in assets*/
+/* @import url("../css/mediaquery/responsive-add-task.css"); */
+
 /* Board */
 /* new css in assets*/
 @import url("../css/mediaquery/boardMQ.css");
@@ -14,14 +18,14 @@
 /* new css in assets*/
 @import url("../css/mediaquery/overallMQ.css");
 
-/* Overall */
+/* Overlay */
 /* new css in assets*/
 @import url("../css/mediaquery/overlayMQ.css");
 
-/* Overall */
+/* addcontact */
 /* new css in assets*/
 @import url("../css/mediaquery/addcontactMQ.css");
 
-/* Overall */
+/* style */
 /* new css in assets*/
 @import url("../css/mediaquery/styleMQ.css");

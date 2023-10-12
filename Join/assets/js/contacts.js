@@ -97,11 +97,11 @@ function displayContactDetails(index) {
         <div class="details-name">${contacts[index]['name']}</div>
         <div class="edit-delete">
           <div onclick="editContact(${index})" class="flex">
-            <img src="assets/img/edit.png" alt="edit">
+            <img src="../img/edit.png" alt="edit">
             <div>Edit</div>
           </div>
           <div onclick="deleteContact(${index})" class="flex">
-            <img src="assets/img/delete.png" alt="delete">
+            <img src="../img/delete.png" alt="delete">
             <div>Delete</div>
           </div>
         </div>

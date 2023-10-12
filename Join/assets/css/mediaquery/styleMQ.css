@@ -5,15 +5,15 @@
       align-items: center;
       width: 100vw;
       height: 100vh;
-      background-color: #2A3647;
+      background-color: #2A3647 !important;
     }
   
     .page1-img1 {
-      display: none;
+      display: none !important;
     }
   
     .page1-img2 {
-      display: block;
+      display: block !important;
     }
   }
   
