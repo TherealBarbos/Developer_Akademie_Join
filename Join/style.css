@@ -29,6 +29,10 @@
 /* new css in assets*/
 @import url("assets/css/board.css");
 
+/* Board Overlay */
+/* new css in assets*/
+@import url("assets/css/boardoverlay.css");
+
 /* Help + Privacy Policy + Legal notice */
 /* new css in assets*/
 @import url("assets/css/help-pp-ln.css");
@@ -68,6 +72,13 @@ body {
 .d-none {
   display: none;
 }
+
+.blurout {
+  opacity: 0.5;
+  filter: blur(8px);
+}
+
+/* Contact colors */
 
 .color1 {
   background-color: #FF7A00;
