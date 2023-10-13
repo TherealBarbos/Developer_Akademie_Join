@@ -74,7 +74,7 @@ function unhighlight(id) {
   document.getElementById(id).classList.remove("drag-over");
 }
 
-// Overlay add Task
+// Overlay Task
 
 function showOverlay(todoIndex) {
   let todo = todos[todoIndex];
@@ -85,6 +85,8 @@ function showOverlay(todoIndex) {
   document.getElementById("overlay").classList.add("overlayposition");
   taskoverlay.classList.remove("d-none");
 }
+
+// Task Overlay erzeugen
 
 function renderTask(todo) {
 const unixTimestamp = todo.dueDate;

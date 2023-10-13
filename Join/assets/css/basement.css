@@ -9,24 +9,25 @@
   align-items: center;
   min-width: 15rem;
   height: 100%;
-  gap: 10rem;
+}
+.left-side-content {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
 }
 
 .left-side-logo {
+padding-top: 64px;
   display: flex;
-  width: 232px;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  flex-shrink: 0;
-  padding-top: 3rem;
+
+  justify-content: center;
 }
 
 .left-side-Order {
-  justify-content: space-between;
+  justify-content: flex-end;
   display: flex;
+  flex: auto;
   flex-direction: column;
-  height: inherit;
 }
 
 .left-side-menu {
@@ -62,11 +63,11 @@
 
 .left-side-Policy {
   display: flex;
-  padding-bottom: 3rem;
-  padding-left: 2rem;
+  flex: auto;
+  padding-bottom: 64px;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: flex-start;
+  align-items: center;
   gap: 4px;
   align-self: stretch;
 }
