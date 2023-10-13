@@ -4,6 +4,16 @@ select:hover {
   cursor: pointer;
 }
 
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 a {
   text-decoration: none;
 }
@@ -38,8 +48,8 @@ textarea {
 }
 
 .addTask {
-
   font-size: 24px;
+  max-width: 880px;
 }
 
 ul {
@@ -192,6 +202,8 @@ ul {
 .contact-create-btn:hover {
   background-color: #29ABE2;
   box-shadow: 0px 4px 4px 0px #00000040;
+  width: 408px;
+  height: 46px;
 }
 
 .assignedNameLI-toggled:hover {
@@ -217,6 +229,7 @@ ul {
 #initials-display {
   display: flex;
   margin-top: 8px;
+  margin-bottom: 30px;
 }
 
 .select-category {
@@ -276,7 +289,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background-color: white;
   display: flex;
   border: unset;
-  width: 136px;
+  width: 33%;
   height: 56px;
   gap: 10px;
   justify-content: center;
@@ -323,8 +336,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background-color: #FFF;
   font-size: 20px;
   height: 48px;
-  width: 435px;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
   border: 1px solid #29ABE2;
 }
 
@@ -337,7 +349,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 48px;
   width: 440px;
   font-size: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
   border: 1px solid #D1D1D1;
 }
 
@@ -445,6 +457,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: flex;
   justify-content: end;
   gap: 16px;
+  margin-bottom: 30px;
 }
 
 #clear-button {
@@ -527,4 +540,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .d-none {
   display: none !important;
+}
+
+h2 {
+  font-size: 24px;
 }
