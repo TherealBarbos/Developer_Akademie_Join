@@ -4,6 +4,11 @@
         width: 440px;
     }
 
+    .contact-create-btn:hover,
+    .contact-create-btn {
+        width: 300px;
+    }
+
     .addTask {
         display: flex;
         flex-direction: column;
