@@ -1,13 +1,11 @@
 let todos = [];
 
-
-async function summaryinit(){
+async function summaryinit() {
   includeHTML();
   await loadTasks();
   updatesummary();
 
   // countTasksByStatus();
-
 }
 // Laden des Remote-Storage
 
@@ -23,19 +21,57 @@ async function loadTasks() {
 // Definieres des Status und Ausgabe der jeweiligen länge
 
 function updatesummary() {
+  const toDoCount = countTasksByStatus(todos, "toDo");
+  document.getElementById("pTodo").innerHTML = `${toDoCount}`;
 
-  const toDoCount = countTasksByStatus(todos, 'toDo');
-  document.getElementById('pTodo').innerHTML = `${toDoCount}`;
+  const doneCount = countTasksByStatus(todos, "done");
+  document.getElementById("pDone").innerHTML = `${doneCount}`;
 
-  const doneCount = countTasksByStatus(todos, 'done');
-  document.getElementById('pDone').innerHTML = `${doneCount}`;
+  const prioCount = countTasksByPrio(todos, "urgent");
+  document.getElementById("prioNum").innerHTML = `${prioCount}`;
+  
+  //gibt die nächste Prio Taskabage aus
+  sortTasks(todos);
 }
 
 // Funktion zum Filtern der Tasks nach Status und ausgabe der Anzahl
 function countTasksByStatus(todos, state) {
-  return todos.filter(todo => todo.state === state).length;
+  return todos.filter((todo) => todo.state === state).length;
 }
 
+function countTasksByPrio(todos, priority) {
+  return todos.filter((todo) => todo.priority === priority).length;
+}
+
+// Formatiert das Datum in die gewünschte Form
+
+function formatDate(date) {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return date.toLocaleDateString(undefined, options);
+}
+
+// Sortiere 'todos'nach den Fälligkeitsdaten
+
+function sortTasks(todos) {
+  // Konvertiere Unix-Timestamps in Datumsobjekte
+  todos.forEach(task => {
+    task.dueDate = new Date(task.dueDate);
+  });
+
+  // Sortiere 'todos' nach den Fälligkeitsdaten
+  todos.sort((a, b) => a.dueDate - b.dueDate);
+
+  // Finde das nächste Fälligkeitsdatum
+  const nextDueDate =
+    todos.length > 0 ? new Date(todos[0].dueDate) : null;
+
+  if (nextDueDate) {
+    const formattedDate = formatDate(nextDueDate);
+    document.getElementById("prioDate").innerHTML = formattedDate;
+  } else {
+    document.getElementById("prioDate").innerHTML = "Keine ausstehenden Aufgaben";
+  }
+}
 
 // STORAGE_TOKEN Laden inc der Daten
 
