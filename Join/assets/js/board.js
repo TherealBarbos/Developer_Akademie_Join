@@ -20,7 +20,7 @@ function showTaskListByState(state){
   for (let index = 0; index < filteredTasksByState.length; index++) {
     const element = filteredTasksByState[index];
     document.getElementById(state).innerHTML +=
-      generateTaskCard(element, index);
+      generateTaskCard(element);
   }
 }
 
@@ -31,8 +31,8 @@ function startDregging(id) {
   document.getElementById(id).classList.add("cardDragging");
 }
 
-function generateTaskCard(task, taskIndex) {
-  return ` <div class="card" draggable="true" ondragstart="startDregging('${task.id}')" onclick="showOverlay(${taskIndex})">
+function generateTaskCard(task) {
+  return ` <div class="card" draggable="true" ondragstart="startDregging('${task.id}')" onclick="showOverlay(${task.id})">
     <div class="cardFrame">
       <div class="cardLable">${task.category}</div>
       <div class="cardTextbox">
