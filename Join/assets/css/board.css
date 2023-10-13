@@ -1,10 +1,8 @@
 .board {
   margin-top: 1rem;
   display: flex;
-  gap: 2rem;
-  justify-content: space-between;
-
-  overflow: hidden;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 .boardTest {
   display: flex;
@@ -17,7 +15,11 @@
   align-items: center;
   gap: 32px;
 }
-
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
 .inputSearch {
   display: flex;
   max-width: 280px;
@@ -119,6 +121,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 35rem;
+  max-width: 15rem;
   gap: 10px;
   border-radius: 24px;
   background: var(--background-color);
