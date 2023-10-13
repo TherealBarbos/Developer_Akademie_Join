@@ -5,50 +5,21 @@ let currentDraggedElement;
 // Load and disply CARDS
 
 function updateHTML() {
-  let toDo = todos.filter((t) => t["state"] == "toDo");
+  showTaskListByState("toDo");
+  showTaskListByState("inProgress");
+  showTaskListByState("done");
+  showTaskListByState("awaitFeedback");
+}
 
-  document.getElementById("toDo").innerHTML = "";
+function showTaskListByState(state){
+  let filteredTasksByState = todos.filter((t) => t["state"] == state);
 
-  for (let index = 0; index < toDo.length; index++) {
-    const element = toDo[index];
-    document.getElementById("toDo").innerHTML += generateTodoCard(
-      element,
-      index
-    );
-  }
+  document.getElementById(state).innerHTML = "";
 
-  let inProgress = todos.filter((t) => t["state"] == "inProgress");
-
-  document.getElementById("inProgress").innerHTML = "";
-
-  for (let index = 0; index < inProgress.length; index++) {
-    const element = inProgress[index];
-    document.getElementById("inProgress").innerHTML += generateInProgressCard(
-      element,
-      index
-    );
-  }
-
-  let done = todos.filter((t) => t["state"] == "done");
-
-  document.getElementById("done").innerHTML = "";
-
-  for (let index = 0; index < done.length; index++) {
-    const element = done[index];
-    document.getElementById("done").innerHTML += generateDoneCard(
-      element,
-      index
-    );
-  }
-
-  let awaitFeedback = todos.filter((t) => t["state"] == "awaitFeedback");
-
-  document.getElementById("awaitFeedback").innerHTML = "";
-
-  for (let index = 0; index < awaitFeedback.length; index++) {
-    const element = awaitFeedback[index];
-    document.getElementById("awaitFeedback").innerHTML +=
-      generateAwaitFeedbackCard(element, index);
+  for (let index = 0; index < filteredTasksByState.length; index++) {
+    const element = filteredTasksByState[index];
+    document.getElementById(state).innerHTML +=
+      generateTaskCard(element, index);
   }
 }
 
@@ -59,93 +30,24 @@ function startDregging(id) {
   document.getElementById(id).classList.add("cardDragging");
 }
 
-function generateTodoCard(todo, todoIndex) {
-  return `<div class="card" draggable="true" ondragstart="startDregging(${todo.id})" onclick="showOverlay(${todoIndex})"> 
-     <div class="cardFrame">
-      <div class="cardLable">${todo.category}</div>
-      <div class="cardTextbox">
-        <div class="cardTextI">${todo.title}</div>
-        <div class="cardTextII">${todo.description}</div>
-      </div>
-      <div class="cardProgress">
-        <div class="cardProgressbar">${todo.progressbar}</div>
-        <div class="cardProgressText">${todo.subtasks}/${todo.subtasks.length} Subtasks</div>
-      </div>
-      <div class="cardContacts">
-        <div class="cardContactsBadge">
-          <img src="${todo.assignedName}" alt="" class="cardContactsBadgeImg" />
-        </div>
-        <div class="cardContactsPrio">
-          <img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" />
-        </div>
-      </div>
-    </div>
-  </div>`;
-}
-function generateInProgressCard(todo, todoIndex) {
-  return `<div class="card" draggable="true" ondragstart="startDregging('${todo.id}') onclick="showOverlay(${todoIndex})">
+function generateTaskCard(task, taskIndex) {
+  return ` <div class="card" draggable="true" ondragstart="startDregging('${task.id}')" onclick="showOverlay(${taskIndex})">
     <div class="cardFrame">
-      <div onclick="showOverlay(${todo})" class="cardLable">${todo.category}</div>
+      <div class="cardLable">${task.category}</div>
       <div class="cardTextbox">
-        <div class="cardTextI">${todo.title}</div>
-        <div class="cardTextII">${todo.description}</div>
+        <div class="cardTextI">${task.title}</div>
+        <div class="cardTextII">${task.description}</div>
       </div>
       <div class="cardProgress">
-        <div class="cardProgressbar">${todo.progressbar}</div>
-        <div class="cardProgressText">${todo.progress}s</div>
+        <div class="cardProgressbar">${task.progressbar}</div>
+        <div class="cardProgressText">${task.progress}s</div>
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
-          <img src="${todo.assignedName}" alt="" class="cardContactsBadgeImg" />
+          <img src="${task.assignedName}" alt="" class="cardContactsBadgeImg" />
         </div>
         <div class="cardContactsPrio">
-          <img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" />
-        </div>
-      </div>
-    </div>
-  </div>`;
-}
-function generateAwaitFeedbackCard(todo, todoIndex) {
-  return `<onclick="showOverlay(${todo})" div class="card" draggable="true" ondragstart="startDregging('${todo.id}') onclick="showOverlay(${todoIndex})">
-    <div class="cardFrame">
-      <div class="cardLable">${todo.category}</div>
-      <div class="cardTextbox">
-        <div class="cardTextI">${todo.title}</div>
-        <div class="cardTextII">${todo.description}</div>
-      </div>
-      <div class="cardProgress">
-        <div class="cardProgressbar">${todo.progressbar}</div>
-        <div class="cardProgressText">${todo.progress}s</div>
-      </div>
-      <div class="cardContacts">
-        <div class="cardContactsBadge">
-          <img src="${todo.assignedName}" alt="" class="cardContactsBadgeImg" />
-        </div>
-        <div class="cardContactsPrio">
-          <img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" />
-        </div>
-      </div>
-    </div>
-  </div>`;
-}
-function generateDoneCard(todo, todoIndex) {
-  return ` <div class="card" draggable="true" ondragstart="startDregging('${todo.id}') onclick="showOverlay(${todoIndex})">
-    <div class="cardFrame">
-      <div class="cardLable">${todo.category}</div>
-      <div class="cardTextbox">
-        <div class="cardTextI">${todo.title}</div>
-        <div class="cardTextII">${todo.description}</div>
-      </div>
-      <div class="cardProgress">
-        <div class="cardProgressbar">${todo.progressbar}</div>
-        <div class="cardProgressText">${todo.progress}s</div>
-      </div>
-      <div class="cardContacts">
-        <div class="cardContactsBadge">
-          <img src="${todo.assignedName}" alt="" class="cardContactsBadgeImg" />
-        </div>
-        <div class="cardContactsPrio">
-          <img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" />
+          <img src="${task.priorityImageSource}" alt="" class="cardContactsPrioImg" />
         </div>
       </div>
     </div>

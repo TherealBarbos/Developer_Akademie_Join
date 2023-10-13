@@ -1,26 +1,14 @@
 let todos = [];
 
 
-function summaryinit(){
+async function summaryinit(){
   includeHTML();
-
-  countTasksByStatus();
-
-}
-
-// Funktion zum Filtern der Tasks mit Status "toDo" nach Anzahl
-function countTasksByStatus(todos, state) {
-  return todos.filter(todo => todo.state === state).length;
-}
-
-async function updatesummary() {
-  // todos laden abwarten
   await loadTasks();
+  updatesummary();
 
-  const toDoCount = countTasksByStatus(todos, 'toDo'); // Pass the `todos` array
-  document.getElementById('yourTodos').innerHTML = `${toDoCount}`;
+  // countTasksByStatus();
+
 }
-
 // Laden des Remote-Storage
 
 async function loadTasks() {
@@ -30,7 +18,16 @@ async function loadTasks() {
   } catch (e) {
     console.error("loading error:", e);
   }
-  updatesummary();
+}
+
+function updatesummary() {
+  const toDoCount = countTasksByStatus(todos, 'toDo'); // Pass the `todos` array
+  document.getElementById('yourTodos').innerHTML = `${toDoCount}`;
+}
+
+// Funktion zum Filtern der Tasks mit Status "toDo" nach Anzahl
+function countTasksByStatus(todos, state) {
+  return todos.filter(todo => todo.state === state).length;
 }
 
 async function getItem(key) {
