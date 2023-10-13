@@ -20,15 +20,24 @@ async function loadTasks() {
   }
 }
 
+// Definieres des Status und Ausgabe der jeweiligen länge
+
 function updatesummary() {
-  const toDoCount = countTasksByStatus(todos, 'toDo'); // Pass the `todos` array
-  document.getElementById('yourTodos').innerHTML = `${toDoCount}`;
+
+  const toDoCount = countTasksByStatus(todos, 'toDo');
+  document.getElementById('pTodo').innerHTML = `${toDoCount}`;
+
+  const doneCount = countTasksByStatus(todos, 'done');
+  document.getElementById('pDone').innerHTML = `${doneCount}`;
 }
 
-// Funktion zum Filtern der Tasks mit Status "toDo" nach Anzahl
+// Funktion zum Filtern der Tasks nach Status und ausgabe der Anzahl
 function countTasksByStatus(todos, state) {
   return todos.filter(todo => todo.state === state).length;
 }
+
+
+// STORAGE_TOKEN Laden inc der Daten
 
 async function getItem(key) {
   const url = `${STORAGE_URL}?key=${key}&token=4AVD74O6ONTUSWYBIKRAF3SC5B2U9YW3OCE1JRVE`;
