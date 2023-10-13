@@ -68,7 +68,7 @@ ul {
 
 .add-task-left,
 .add-task-right {
-  max-width: 440px;
+  width: 440px;
 }
 
 .add-task-inputs {
@@ -229,6 +229,7 @@ ul {
 #initials-display {
   display: flex;
   margin-top: 8px;
+  margin-bottom: 30px;
 }
 
 .select-category {
@@ -335,7 +336,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background-color: #FFF;
   font-size: 20px;
   height: 48px;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
   border: 1px solid #29ABE2;
 }
 
@@ -348,7 +349,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 48px;
   width: 440px;
   font-size: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
   border: 1px solid #D1D1D1;
 }
 
@@ -456,6 +457,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: flex;
   justify-content: end;
   gap: 16px;
+  margin-bottom: 30px;
 }
 
 #clear-button {
