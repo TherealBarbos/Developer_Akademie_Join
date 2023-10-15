@@ -236,6 +236,16 @@
     border-radius: 50px;
 }
 
+.btn-mobile-display-addcontact {
+    height: 48px;
+    width: 48px;
+    position: absolute;
+    bottom: -250px;
+    right: 24px;
+    background-color: #2A3647;
+    border-radius: 50px;
+}
+
 .btn-mobile-edit-delete {
     width: 100px;
     height: 100px;
@@ -311,6 +321,19 @@
         position: absolute;
         bottom: -250px;
         right: 24px;
+        background-color: #2A3647;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-mobile-display-addcontact {
+        height: 48px;
+        width: 48px;
+        position: absolute;
+        bottom: 70px;
+        right: 8px;
         background-color: #2A3647;
         border-radius: 50px;
         display: flex;

@@ -161,7 +161,7 @@ function displayContactDetails(index) {
     </div>
 
     <div onclick="displayEditDeleteContact()" class="btn-mobile-display-edit-delete disappear-until-mobile">
-      <img src="../img/more_vert.png" alt="arrow">
+      <img src="../img/more_vert.png" alt="dots">
     </div>
 `
 }
@@ -205,6 +205,12 @@ function displayContacts() {
         `;
         }
     }
+
+    list.innerHTML += /*html*/`
+     <div onclick="openAddContact()" class="btn-mobile-display-addcontact disappear-until-mobile">
+        <img src="../img/person_add.png" alt="person-add">
+    </div>
+    `
 }
 
 function collectLetters() {
