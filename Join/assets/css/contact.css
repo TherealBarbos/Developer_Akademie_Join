@@ -237,13 +237,9 @@
 }
 
 .btn-mobile-display-addcontact {
-    height: 48px;
-    width: 48px;
-    position: absolute;
-    bottom: -250px;
-    right: 24px;
-    background-color: #2A3647;
-    border-radius: 50px;
+
+    position: fixed;
+
 }
 
 .btn-mobile-edit-delete {
@@ -331,8 +327,8 @@
     .btn-mobile-display-addcontact {
         height: 48px;
         width: 48px;
-        position: absolute;
-        bottom: 70px;
+        position: fixed;
+        bottom: 17%;
         right: 8px;
         background-color: #2A3647;
         border-radius: 50px;
