@@ -39,10 +39,10 @@ function redirectAddContactToContacts() {
  * this function is used to log in the person. it checks if the email and password exists.
  *  If the email and password are valid. the user gets logged in!
  */
-async function AddContact() {
-    let email = document.getElementById('input-email');
-    let name = document.getElementById('input-name');
-    let phone = document.getElementById('input-phone');
+async function addContact() {
+    let email = document.getElementById('input-email-addcontact');
+    let name = document.getElementById('input-name-addcontact');
+    let phone = document.getElementById('input-phone-addcontact');
 
     let account = accounts.find(a => a.email == email.value && a.name == name.value);
     if (account) {
