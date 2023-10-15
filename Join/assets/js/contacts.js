@@ -1,6 +1,18 @@
 let contacts = []
 let letters = []
 
+function displayEditDeleteContact() {
+    document.getElementById('btn-display-edit-delete').classList.remove('btn-mobile-d-none');
+}
+
+function returnToContactList() {
+    let details = document.getElementById('details');
+    let contactlist = document.getElementById('contact-list');
+    contactlist.classList.remove('disappear-after-query');
+    details.classList.add('disappear-after-query');
+    document.getElementById('details').innerHTML = '';
+}
+
 function redirectEditContactToContacts() {
     document.getElementById('editcontact').classList.add('d-none');
     document.getElementById('editcontact').classList.remove('bg-gray');
@@ -130,6 +142,15 @@ function displayContactDetails(index) {
         <div class="details-email">${contacts[index]['email']}</div>
         <div class="details-mini-headline">Phone</div>
         <div>${contacts[index]['phone']}</div>
+    </div>
+
+    <img onclick="returnToContactList()" class="disappear-until-mobile btn-mobile-backtocontactlist" src="../img/arrow-left-line.svg" alt="arrow">
+
+    <div id="btn-display-edit-delete" class="disappear-until-mobile btn-mobile-edit-delete btn-mobile-d-none">
+    </div>
+
+    <div onclick="displayEditDeleteContact()" class="btn-mobile-display-edit-delete disappear-until-mobile">
+      <img src="../img/more_vert.png" alt="arrow">
     </div>
 `
 }
