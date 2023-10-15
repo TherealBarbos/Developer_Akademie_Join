@@ -2,12 +2,16 @@
     position: fixed;
     left: 240px;
     top: 209px;
-    height: 813px;
+    height: 723px;
     width: 450px;
     background: white;
     overflow-y: auto;
     overflow-x: hidden;
     box-shadow: 4px 4px 6px 0px #00000014;
+}
+
+.disappear-after-query {
+    display: block;
 }
 
 .contact-create-btn {
@@ -204,4 +208,22 @@
     font-size: 16px;
     font-weight: 400;
     margin-bottom: 12px;
+}
+
+@media (max-width: 1330px) {
+    .disappear-after-query {
+        display: none;
+    }
+
+    .contact-list {
+        position: fixed;
+        left: 240px;
+        top: 10%;
+        height: 90%;
+        width: calc(100% - 15rem);
+        background: white;
+        overflow-y: auto;
+        overflow-x: hidden;
+        box-shadow: 4px 4px 6px 0px #00000014;
+    }
 }
