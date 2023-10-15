@@ -249,7 +249,7 @@
     border-bottom-right-radius: 0px;
     position: absolute;
     bottom: -175px;
-    right: 24px;
+    right: 36px;
     background-color: white;
     box-shadow: 0px 4px 4px 0px #00000040;
 }
@@ -316,7 +316,7 @@
         width: 48px;
         position: absolute;
         bottom: -250px;
-        right: 24px;
+        right: 36px;
         background-color: #2A3647;
         border-radius: 50px;
         display: flex;
@@ -329,7 +329,7 @@
         width: 48px;
         position: fixed;
         bottom: 17%;
-        right: 8px;
+        right: 20px;
         background-color: #2A3647;
         border-radius: 50px;
         display: flex;
