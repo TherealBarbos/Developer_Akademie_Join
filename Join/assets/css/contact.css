@@ -213,17 +213,63 @@
 @media (max-width: 1330px) {
     .disappear-after-query {
         display: none;
+        pointer-events: none;
     }
 
     .contact-list {
         position: fixed;
         left: 240px;
-        top: 10%;
-        height: 90%;
+        top: 10.1%;
+        height: 89.9%;
         width: calc(100% - 15rem);
         background: white;
         overflow-y: auto;
         overflow-x: hidden;
         box-shadow: 4px 4px 6px 0px #00000014;
+    }
+
+    .details {
+        position: absolute;
+        top: 12%;
+        left: 17rem;
+        display: flex;
+        flex-direction: column;
+        width: 600px;
+        height: 365px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 650px) {
+    .disappear-after-query {
+        display: none;
+    }
+
+    .contact-list {
+        position: fixed;
+        left: 0;
+        top: 8.9rem;
+        height: calc(100% - 14.4rem);
+        width: 100%;
+        background: white;
+        overflow-y: auto;
+        overflow-x: hidden;
+        box-shadow: 4px 4px 6px 0px #00000014;
+    }
+
+    .details {
+        position: absolute;
+        top: 9.9rem;
+        left: 1rem;
+        display: flex;
+        flex-direction: column;
+        width: 600px;
+        height: 365px;
+        gap: 20px;
+    }
+
+    .details-name {
+        font-size: 27px;
+        font-weight: 500;
     }
 }

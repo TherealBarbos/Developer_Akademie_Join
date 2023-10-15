@@ -7,6 +7,11 @@ function redirectEditContactToContacts() {
     loadContacts();
     displayContacts();
     document.getElementById('details').innerHTML = '';
+
+    let details = document.getElementById('details');
+    let contactlist = document.getElementById('contact-list');
+    contactlist.classList.remove('disappear-after-query');
+    details.classList.add('disappear-after-query');
 }
 
 function redirectAddContactToContacts() {
@@ -69,6 +74,12 @@ function openAddContact() {
 function deleteContact(index) {
     contacts.splice(index, 1);
     setItem('contacts', contacts);
+
+    let details = document.getElementById('details');
+    let contactlist = document.getElementById('contact-list');
+    contactlist.classList.remove('disappear-after-query');
+    details.classList.add('disappear-after-query');
+
     load();
     document.getElementById('details').innerHTML = '';
 }
@@ -88,6 +99,10 @@ function editContact(index) {
 
 function displayContactDetails(index) {
     let details = document.getElementById('details');
+    let contactlist = document.getElementById('contact-list');
+    contactlist.classList.add('disappear-after-query');
+    details.classList.remove('disappear-after-query');
+
     details.innerHTML = '';
     details.innerHTML = /*html*/`
     
