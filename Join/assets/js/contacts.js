@@ -122,7 +122,7 @@ function displayContactDetails(index) {
       <div class="details-pfp color${contacts[index]['colorId']}">${contacts[index]['firstLetter']}  </div>
       <div class="gap">
         <div class="details-name">${contacts[index]['name']}</div>
-        <div class="edit-delete">
+        <div class="edit-delete disappear-after-smallest-query">
           <div onclick="editContact(${index})" class="flex">
             <img src="../img/edit.png" alt="edit">
             <div>Edit</div>
@@ -147,6 +147,17 @@ function displayContactDetails(index) {
     <img onclick="returnToContactList()" class="disappear-until-mobile btn-mobile-backtocontactlist" src="../img/arrow-left-line.svg" alt="arrow">
 
     <div id="btn-display-edit-delete" class="disappear-until-mobile btn-mobile-edit-delete btn-mobile-d-none">
+
+    <div class="mobile-edit-delete">
+          <div onclick="editContact(${index})" class="flex">
+            <img src="../img/edit.png" alt="edit">
+            <div>Edit</div>
+          </div>
+          <div onclick="deleteContact(${index})" class="flex">
+            <img src="../img/delete.png" alt="delete">
+            <div>Delete</div>
+          </div>
+        </div>
     </div>
 
     <div onclick="displayEditDeleteContact()" class="btn-mobile-display-edit-delete disappear-until-mobile">
