@@ -1,7 +1,7 @@
 .contact-list {
-    position: absolute;
-    left: 232px;
-    top: 210px;
+    position: fixed;
+    left: 240px;
+    top: 209px;
     height: 813px;
     width: 450px;
     background: white;
@@ -27,9 +27,9 @@
 
 .add-btn-bg {
     position: absolute;
-    left: 232px;
-    top: 100px;
-    padding: 27px 50px;
+    left: 240px;
+    top: 93px;
+    padding: 34px 21px;
     background-color: white;
     box-shadow: 4px 0px 6px 0px #00000014;
 }
