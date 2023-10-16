@@ -69,6 +69,12 @@ body {
   background: #f6f7f8;
 }
 
+@media (max-width: 850px) {
+  body {
+    padding-bottom: 100px;
+  }
+}
+
 .d-none {
   display: none;
 }

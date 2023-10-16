@@ -86,7 +86,7 @@ function toggleSelect() { // this function opens and closes the list of assignab
 }
 
 function hideContactSelect(event) {
-    if (event.target.id !== "filterNames" && event.target.id !== "assignedName" && !event.target.classList.contains('assignedNameLI') && !event.target.classList.contains('assignedNameLI-toggled') && !event.target.classList.contains('checkbox')) {
+    if (event.target.id !== "filterNames" && event.target.id !== "assignedName" && !event.target.classList.contains('assignedNameLI') && !event.target.classList.contains('assignedNameLI-toggled') && !event.target.classList.contains('checkbox') && !event.target.classList.contains('assigned-initials') && event.target.id !== "assigned-name-span") {
         document.getElementById("assignedNameContainer").classList.add("d-none");
     }
 }
@@ -100,7 +100,7 @@ function loadAssignableNames() { // this function loads the assignable contacts
             <li onclick="toggleName(${i})" id="toggle-name${i}" class="assignedNameLI">
                 <div class="name-and-initials">
                     <div id="to-display${i}" class="assigned-initials color${i + 1}">${initial}</div>
-                    <span>${name}</span>
+                    <span id="assigned-name-span">${name}</span>
                 </div>
                 <div>
                     <img class="checkbox" id="checkbox${i}" src="../img/checkbox-unchecked.png">
