@@ -74,7 +74,8 @@
   display: flex;
   padding: 38px 19px;
   width: 264px;
-  
+  stroke: var(--background-color);
+  fill: var(--background-color);
   justify-content: center;
   align-items: center;
   gap: 18px;
@@ -174,4 +175,14 @@
   border-radius: 30px;
   background-color: var(--background-color);
   box-shadow: 0px 0px 4px 0px var(--border-shadow);
+}
+
+.summaryTopcard:hover {
+  color: var(--background-color);
+  background-color: var(--secondary-color);
+}
+
+.summaryTopcard:hover div{
+  color: var(--background-color);
+  background-color: var(--secondary-color);
 }
