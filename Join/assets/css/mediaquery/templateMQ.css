@@ -47,8 +47,8 @@
   .header {
     padding: 1.5rem 2rem 1.5rem 2rem;
     max-height: 8rem;
-    min-width: 45rem;
-    max-width: max-content;
+    width: 100vw;
+    width: 100vw;
   }
   .headerLogo {
     display: flex;

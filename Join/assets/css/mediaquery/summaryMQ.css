@@ -77,16 +77,15 @@
     }
 
     .left-side {
+        box-sizing: border-box;
         position: fixed;
         justify-content: center;
         align-items: center;
         bottom: 0;
         top: auto;
-        flex-direction: row;
-        max-height: 2.5rem;
-        min-width: none;
-        max-width: max-content;
-        padding: 1.5rem 2rem 1.5rem 2rem;
+        height: 100px;
+        width: 100vw;
+        padding: 1.5rem 0 1.5rem 0;
     }
 
     .left-side-Order {
@@ -130,8 +129,7 @@
     .header {
         padding: 1.5rem 2rem 1.5rem 2rem;
         max-height: 8rem;
-        min-width: 45rem;
-        max-width: max-content;
+        width: 100vw;
     }
 
     .headerLogo {

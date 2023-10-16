@@ -37,7 +37,7 @@
 /* new css in assets*/
 @import url("assets/css/help-pp-ln.css");
 
-/* Overall Responieve designe */
+/* Overall responsive design */
 /* new css in assets*/
 @import url("assets/css/overall.css");
 
@@ -48,7 +48,7 @@
 
 :root {
   --primary-color: #000;
-  /*schwartz*/
+  /*schwarz*/
   --secondary-color: #2A3647;
   /*das Haupt Blau/Grau*/
   --tertiary-color: #a8a8a8;
