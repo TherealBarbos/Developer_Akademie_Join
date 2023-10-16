@@ -1,12 +1,29 @@
 let contacts = []
 let letters = []
 
+function displayEditDeleteContact() {
+    document.getElementById('btn-display-edit-delete').classList.remove('btn-mobile-d-none');
+}
+
+function returnToContactList() {
+    let details = document.getElementById('details');
+    let contactlist = document.getElementById('contact-list');
+    contactlist.classList.remove('disappear-after-query');
+    details.classList.add('disappear-after-query');
+    document.getElementById('details').innerHTML = '';
+}
+
 function redirectEditContactToContacts() {
     document.getElementById('editcontact').classList.add('d-none');
     document.getElementById('editcontact').classList.remove('bg-gray');
     loadContacts();
     displayContacts();
     document.getElementById('details').innerHTML = '';
+
+    let details = document.getElementById('details');
+    let contactlist = document.getElementById('contact-list');
+    contactlist.classList.remove('disappear-after-query');
+    details.classList.add('disappear-after-query');
 }
 
 function redirectAddContactToContacts() {
@@ -22,10 +39,10 @@ function redirectAddContactToContacts() {
  * this function is used to log in the person. it checks if the email and password exists.
  *  If the email and password are valid. the user gets logged in!
  */
-async function AddContact() {
-    let email = document.getElementById('input-email');
-    let name = document.getElementById('input-name');
-    let phone = document.getElementById('input-phone');
+async function addContact() {
+    let email = document.getElementById('input-email-addcontact');
+    let name = document.getElementById('input-name-addcontact');
+    let phone = document.getElementById('input-phone-addcontact');
 
     let account = accounts.find(a => a.email == email.value && a.name == name.value);
     if (account) {
@@ -69,6 +86,12 @@ function openAddContact() {
 function deleteContact(index) {
     contacts.splice(index, 1);
     setItem('contacts', contacts);
+
+    let details = document.getElementById('details');
+    let contactlist = document.getElementById('contact-list');
+    contactlist.classList.remove('disappear-after-query');
+    details.classList.add('disappear-after-query');
+
     load();
     document.getElementById('details').innerHTML = '';
 }
@@ -88,6 +111,10 @@ function editContact(index) {
 
 function displayContactDetails(index) {
     let details = document.getElementById('details');
+    let contactlist = document.getElementById('contact-list');
+    contactlist.classList.add('disappear-after-query');
+    details.classList.remove('disappear-after-query');
+
     details.innerHTML = '';
     details.innerHTML = /*html*/`
     
@@ -95,7 +122,7 @@ function displayContactDetails(index) {
       <div class="details-pfp color${contacts[index]['colorId']}">${contacts[index]['firstLetter']}  </div>
       <div class="gap">
         <div class="details-name">${contacts[index]['name']}</div>
-        <div class="edit-delete">
+        <div class="edit-delete disappear-after-smallest-query">
           <div onclick="editContact(${index})" class="flex">
             <img src="../img/edit.png" alt="edit">
             <div>Edit</div>
@@ -115,6 +142,26 @@ function displayContactDetails(index) {
         <div class="details-email">${contacts[index]['email']}</div>
         <div class="details-mini-headline">Phone</div>
         <div>${contacts[index]['phone']}</div>
+    </div>
+
+    <img onclick="returnToContactList()" class="disappear-until-mobile btn-mobile-backtocontactlist" src="../img/arrow-left-line.svg" alt="arrow">
+
+    <div id="btn-display-edit-delete" class="disappear-until-mobile btn-mobile-edit-delete btn-mobile-d-none">
+
+    <div class="mobile-edit-delete">
+          <div onclick="editContact(${index})" class="flex">
+            <img src="../img/edit.png" alt="edit">
+            <div>Edit</div>
+          </div>
+          <div onclick="deleteContact(${index})" class="flex">
+            <img src="../img/delete.png" alt="delete">
+            <div>Delete</div>
+          </div>
+        </div>
+    </div>
+
+    <div onclick="displayEditDeleteContact()" class="btn-mobile-display-edit-delete disappear-until-mobile">
+      <img src="../img/more_vert.png" alt="dots">
     </div>
 `
 }
@@ -158,6 +205,12 @@ function displayContacts() {
         `;
         }
     }
+
+    list.innerHTML += /*html*/`
+     <div onclick="openAddContact()" class="btn-mobile-display-addcontact disappear-until-mobile">
+        <img src="../img/person_add.png" alt="person-add">
+    </div>
+    `
 }
 
 function collectLetters() {
