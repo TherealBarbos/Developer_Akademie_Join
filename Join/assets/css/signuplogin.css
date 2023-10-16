@@ -130,7 +130,7 @@
   }
   
   #input-email {
-    background-image: url(../img/mail.png);
+    background-image: url(assets/img/mail.png);
     background-repeat: no-repeat;
     background-position: 290px 10px;
   }
@@ -140,7 +140,7 @@
   }
   
   #input-password {
-    background-image: url(../img/lock.png);
+    background-image: url(assets/img/lock.png);
     background-repeat: no-repeat;
     background-position: 290px 8px;
   }
@@ -150,13 +150,13 @@
   }
   
   #input-password:focus {
-    background-image: url(../img/visibility.png);
+    background-image: url(assets/img/visibility.png);
     background-repeat: no-repeat;
     background-position: 288px 10px;
   }
   
   #input-confirm-password {
-    background-image: url(../img/lock.png);
+    background-image: url(assets/img/lock.png);
     background-repeat: no-repeat;
     background-position: 290px 8px;
   }
@@ -166,13 +166,13 @@
   }
   
   #input-confirm-password:focus {
-    background-image: url(../img/visibility.png);
+    background-image: url(assets/img/visibility.png);
     background-repeat: no-repeat;
     background-position: 288px 10px;
   }
   
   #input-name {
-    background-image: url(../img/person.svg);
+    background-image: url(assets/img/person.svg);
     background-repeat: no-repeat;
     background-position: 292px 10px;
   }
@@ -361,7 +361,7 @@
     align-items: center;
   }
   
-  .vector-signup {
+  .vector {
     width: 150px;
   }
   

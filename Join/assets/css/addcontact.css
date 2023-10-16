@@ -86,38 +86,38 @@ h2 {
     border-color: #29ABE2 !important;
 }
 
-#input-email-addcontact {
-    background-image: url(../img/mail.png);
+#input-email {
+    background-image: url(assets/img/mail.png);
     background-repeat: no-repeat;
     background-position: 400px 22px;
 }
 
-#input-name-addcontact {
-    background-image: url(../img/person.svg);
+#input-name {
+    background-image: url(assets/img/person.svg);
     background-repeat: no-repeat;
     background-position: 400px 22px;
 }
 
-#input-phone-addcontact {
-    background-image: url(../img/call.svg);
+#input-phone {
+    background-image: url(assets/img/call.svg);
     background-repeat: no-repeat;
     background-position: 400px 22px;
 }
 
 #edit-input-email {
-    background-image: url(../img/mail.png);
+    background-image: url(assets/img/mail.png);
     background-repeat: no-repeat;
     background-position: 400px 22px;
 }
 
 #edit-input-name {
-    background-image: url(../img/person.svg);
+    background-image: url(assets/img/person.svg);
     background-repeat: no-repeat;
     background-position: 400px 22px;
 }
 
 #edit-input-phone {
-    background-image: url(../img/call.svg);
+    background-image: url(assets/img/call.svg);
     background-repeat: no-repeat;
     background-position: 400px 22px;
 }

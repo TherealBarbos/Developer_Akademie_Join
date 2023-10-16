@@ -21,7 +21,7 @@
 
   <div w3-include-html="../templates/header.html"></div>
 
-  <div class="add-btn-bg disappear-after-query">
+  <div class="add-btn-bg">
     <button onclick="openAddContact()" class="contact-create-btn">
       Add new contact
       <img class="add-person" src="../img/person_add.png" alt="person-add">
@@ -29,16 +29,15 @@
   </div>
 
   <div class="contact-list" id="contact-list">
-
   </div>
 
-  <div class="text disappear-after-query" id="better-with-team">
+  <div class="text">
     <div class="text-contacts">Contacts</div>
     <img src="../img/Vector-contact.svg" alt="vector">
     <div class="text-team">better with a team</div>
   </div>
 
-  <div class="disappear-after-query details" id="details">
+  <div class="details" id="details">
 
   </div>
 
@@ -63,16 +62,16 @@
             <img class="img-person" src="../img/person.png" alt="person">
           </div>
           <div class="input-fields">
-            <input class="input" id="input-name-addcontact" type="text" placeholder="Name">
-            <input class="input" id="input-email-addcontact" type="text" placeholder="Email">
-            <input class="input" id="input-phone-addcontact" type="text" placeholder="Phone">
+            <input class="input" id="input-name" type="text" placeholder="Name">
+            <input class="input" id="input-email" type="text" placeholder="Email">
+            <input class="input" id="input-phone" type="text" placeholder="Phone">
           </div>
         </div>
         <div class="buttons">
           <button onclick="redirectAddContactToContacts()" class="cancel-btn">
             <span>Cancel <img src="../img/x.svg" alt="x"></span>
           </button>
-          <button onclick="addContact()" class="create-btn">
+          <button onclick="AddContact()" class="create-btn">
             <span>Create Contact <img src="../img/check.svg" alt="check"></span>
           </button>
         </div>
@@ -110,7 +109,7 @@
             <span>Delete <img src="../img/x.svg" alt="x"></span>
           </button>
           <button id="saveContactValue" class="save-btn">
-            <span>Save <img src="../img/check.svg" alt="save"></span>
+            <span>Save <img src="../img/check.svg" alt="check"></span>
           </button>
         </div>
       </div>
