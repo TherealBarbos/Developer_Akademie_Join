@@ -123,37 +123,37 @@
     }
   
     #input-email {
-      background-image: url(assets/img/mail.png);
+      background-image: url(../../img/mail.png);
       background-repeat: no-repeat;
       background-position: 65vw 10px;
     }
   
     #input-password {
-      background-image: url(assets/img/lock.png);
+      background-image: url(../../img/lock.png);
       background-repeat: no-repeat;
       background-position: 65vw 8px;
     }
   
     #input-name {
-      background-image: url(assets/img/person.svg);
+      background-image: url(../../img/person.svg);
       background-repeat: no-repeat;
       background-position: 65vw 10px;
     }
   
     #input-confirm-password {
-      background-image: url(assets/img/lock.png);
+      background-image: url(../../img/lock.png);
       background-repeat: no-repeat;
       background-position: 65vw 8px;
     }
   
     #input-password:focus {
-      background-image: url(assets/img/visibility.png);
+      background-image: url(../../img/visibility.png);
       background-repeat: no-repeat;
       background-position: 65vw 10px;
     }
   
     #input-confirm-password:focus {
-      background-image: url(assets/img/visibility.png);
+      background-image: url(../../img/visibility.png);
       background-repeat: no-repeat;
       background-position: 65vw 10px;
     }
