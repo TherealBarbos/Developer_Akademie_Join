@@ -20,19 +20,19 @@ function showTaskListByState(state){
   for (let index = 0; index < filteredTasksByState.length; index++) {
     const element = filteredTasksByState[index];
     document.getElementById(state).innerHTML +=
-      generateTaskCard(element);
+      generateTaskCard(element, index);
   }
 }
 
 // Drang functuality
 
-function startDregging(id) {
-  currentDraggedElement = id;
-  document.getElementById(id).classList.add("cardDragging");
+function startDregging(index) {
+  currentDraggedElement = index;
+  document.getElementById(index).classList.add("cardDragging");
 }
 
-function generateTaskCard(task) {
-  return ` <div class="card" draggable="true" ondragstart="startDregging('${task.id}')" onclick="showOverlay(${task.id})">
+function generateTaskCard(task, index) {
+  return ` <div class="card" draggable="true" ondragstart="startDregging('${index}')" onclick="showOverlay(${index})">
     <div class="cardFrame">
       <div class="cardLable">${task.category}</div>
       <div class="cardTextbox">
@@ -66,12 +66,12 @@ function moveTo(state) {
   unhighlight(state);
 }
 
-function highlight(id) {
-  document.getElementById(id).classList.add("drag-over");
+function highlight(index) {
+  document.getElementById(index).classList.add("drag-over");
 }
 
-function unhighlight(id) {
-  document.getElementById(id).classList.remove("drag-over");
+function unhighlight(index) {
+  document.getElementById(index).classList.remove("drag-over");
 }
 
 // Overlay Task
@@ -99,7 +99,7 @@ const dateString = date.toLocaleDateString('en-US', options);
   <div class="bOverlayCategory">${todo.category}
   <div onclick="closeOverlay()">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <mask id="mask0_93030_4211" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24"
+          <mask index="mask0_93030_4211" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24"
               height="24">
               <rect width="24" height="24" fill="#D9D9D9" />
           </mask>
@@ -126,7 +126,7 @@ const dateString = date.toLocaleDateString('en-US', options);
 <div class="bOverlaycontrolls">
   <div class="bOverlaycontrollsbutton">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <mask id="mask0_93030_4270" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24"
+          <mask index="mask0_93030_4270" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24"
               height="24">
               <rect width="24" height="24" fill="#D9D9D9" />
           </mask>
@@ -136,11 +136,11 @@ const dateString = date.toLocaleDateString('en-US', options);
                   fill="#2A3647" />
           </g>
       </svg>
-      <div class="bOverlaycontrollsText">Delete</div>
+      <div class="bOverlaycontrollsText" onclick="deleteTask()">Delete</div>
   </div>
   <div class="bOverlaycontrollsbutton">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <mask id="mask0_93030_4276" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24"
+          <mask index="mask0_93030_4276" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24"
               height="24">
               <rect width="24" height="24" fill="#D9D9D9" />
           </mask>
@@ -161,7 +161,16 @@ function closeOverlay(todo) {
   document.getElementById("overlay").classList.remove("overlayposition");
   taskoverlay.classList.add("d-none");
 }
+// Overlay Task Edit
 
+// Overla< Task Delete
+function deleteTask() {
+  todos.splice(currentDraggedElement, 1);
+  setItem("allTasks", JSON.stringify(todos));
+  updateHTML();
+  closeOverlay();
+}
+// Overlay Schließen
 // remote storage
 
 async function loadTasks() {
