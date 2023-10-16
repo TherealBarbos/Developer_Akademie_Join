@@ -4,27 +4,22 @@
     justify-content: center;
     align-items: center;
     bottom: 0;
-    left: 0;
-    right: 0;
     top: auto;
     flex-direction: row;
     max-height: 2.5rem;
+    min-width: none;
     max-width: max-content;
     padding: 1.5rem 2rem 1.5rem 2rem;
   }
-
-  .left-side-Order {
+  .left-side-Order{
     flex-direction: row;
   }
-
   .left-side-logo {
     display: none;
   }
-
   .left-side-Policy {
     display: none;
   }
-
   .left-side-menu {
     flex-direction: row;
     justify-content: center;
@@ -45,23 +40,20 @@
     margin: 0;
 
   }
-
   .left-side-menu-btn img {
     min-width: 2.5rem;
     min-height: 2.5rem;
   }
-
   .header {
     padding: 1.5rem 2rem 1.5rem 2rem;
     max-height: 8rem;
     min-width: 45rem;
     max-width: max-content;
   }
-
   .headerLogo {
     display: flex;
   }
-
+ 
   .help,
   .headerText {
     display: none;

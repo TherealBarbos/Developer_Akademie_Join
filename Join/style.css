@@ -4,9 +4,9 @@
 /* new css in assets*/
 @import url("assets/css/fonts.css");
 
-/* Basement Left+Header+Headline */
+/* template (header+leftside*/
 /* new css in assets*/
-@import url("assets/css/basement.css");
+@import url("assets/css/template.css");
 
 /* Signup/Login PAGE */
 /* new css in assets*/

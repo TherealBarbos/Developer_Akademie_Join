@@ -108,23 +108,3 @@ padding-top: 64px;
 .headerLogo {
   display: none;
 }
-
-.contentHeaderTitle {
-  font-size: 61px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 120%;
-}
-
-.contentHeaderIMG {
-  width: 3px;
-  height: 59px;
-}
-
-.contentHeaderText {
-  color: #2a3647;
-  font-size: 27px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-}
