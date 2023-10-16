@@ -1,10 +1,5 @@
-@media (max-width: 650px)  {
+@media (max-width: 820) {
     .contentOverall {
-        margin-left: 1rem;
-        margin-right: 1rem;
-        margin-top: 20vh;
-        width: 100%;
+        margin: 18vh 0 0 0;
     }
-
-
 }
