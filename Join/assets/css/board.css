@@ -2,6 +2,7 @@
   margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 .boardTest {
   display: flex;
@@ -13,6 +14,11 @@
   justify-content: flex-end;
   align-items: center;
   gap: 32px;
+}
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 .inputSearch {
   display: flex;
@@ -96,7 +102,6 @@
 .boardDrag {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
 }
 .drag {
   display: flex;
