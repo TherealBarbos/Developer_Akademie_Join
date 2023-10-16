@@ -83,8 +83,8 @@
   flex-shrink: 0;
   border-radius: 30px;
   background-color: var(--background-color);
+  cursor: pointer;
 }
-
 
 .summaryTopCount {
   display: flex;
@@ -118,6 +118,7 @@
   gap: 15%;
   border-radius: 30px;
   background-color: var(--background-color);
+  cursor: pointer;
 }
 
 .summaryMiddlePriority {
@@ -168,7 +169,7 @@
 
 .summaryBottomCard {
   display: flex;
-  padding:5%;
+  padding: 5%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -176,6 +177,7 @@
   border-radius: 30px;
   background-color: var(--background-color);
   box-shadow: 0px 0px 4px 0px var(--border-shadow);
+  cursor: pointer;
 }
 
 .summaryTopcard:hover {
@@ -183,12 +185,13 @@
   background-color: var(--secondary-color);
   stroke: var(--secondary-color);
   fill: var(--secondary-color);
+  transform: scale(1.075);
 }
-.summaryTopcard:hover circle{
+.summaryTopcard:hover circle {
   fill: var(--background-color);
 }
 
-.summaryTopcard:hover div{
+.summaryTopcard:hover div {
   color: var(--background-color);
   background-color: var(--secondary-color);
 }
@@ -198,8 +201,9 @@
   background-color: var(--secondary-color);
   stroke: var(--secondary-color);
   fill: var(--secondary-color);
+  transform: scale(1.075);
 }
-.summaryMiddle:hover div{
+.summaryMiddle:hover div {
   color: var(--background-color);
   background-color: var(--secondary-color);
 }
@@ -208,8 +212,9 @@
   background-color: var(--secondary-color);
   stroke: var(--secondary-color);
   fill: var(--secondary-color);
+  transform: scale(1.075);
 }
-.summaryBottomCard:hover div{
+.summaryBottomCard:hover div {
   color: var(--background-color);
   background-color: var(--secondary-color);
 }
