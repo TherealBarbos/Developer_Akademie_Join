@@ -166,38 +166,38 @@
         padding-right: 0;
     }
 
-    #input-email {
-        background-image: url(assets/img/mail.png);
+    #input-email-addcontact {
+        background-image: url(../../img/mail.png);
         background-repeat: no-repeat;
         background-position: 73vw 14px;
     }
 
-    #input-name {
-        background-image: url(assets/img/person.svg);
+    #input-name-addcontact {
+        background-image: url(../../img/person.svg);
         background-repeat: no-repeat;
         background-position: 73vw 14px;
     }
 
-    #input-phone {
-        background-image: url(assets/img/call.svg);
+    #input-phone-addcontact {
+        background-image: url(../../img/call.svg);
         background-repeat: no-repeat;
         background-position: 73vw 14px;
     }
 
     #edit-input-email {
-        background-image: url(assets/img/mail.png);
+        background-image: url(../../img/mail.png);
         background-repeat: no-repeat;
         background-position: 73vw 18px;
     }
 
     #edit-input-name {
-        background-image: url(assets/img/person.svg);
+        background-image: url(../../img/person.svg);
         background-repeat: no-repeat;
         background-position: 73vw 18px;
     }
 
     #edit-input-phone {
-        background-image: url(assets/img/call.svg);
+        background-image: url(../../img/call.svg);
         background-repeat: no-repeat;
         background-position: 73vw 18px;
     }
