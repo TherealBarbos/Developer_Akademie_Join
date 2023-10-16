@@ -180,9 +180,35 @@
 .summaryTopcard:hover {
   color: var(--background-color);
   background-color: var(--secondary-color);
+  stroke: var(--secondary-color);
+  fill: var(--secondary-color);
+}
+.summaryTopcard:hover circle{
+  fill: var(--background-color);
 }
 
 .summaryTopcard:hover div{
+  color: var(--background-color);
+  background-color: var(--secondary-color);
+}
+
+.summaryMiddle:hover {
+  color: var(--background-color);
+  background-color: var(--secondary-color);
+  stroke: var(--secondary-color);
+  fill: var(--secondary-color);
+}
+.summaryMiddle:hover div{
+  color: var(--background-color);
+  background-color: var(--secondary-color);
+}
+.summaryBottomCard:hover {
+  color: var(--background-color);
+  background-color: var(--secondary-color);
+  stroke: var(--secondary-color);
+  fill: var(--secondary-color);
+}
+.summaryBottomCard:hover div{
   color: var(--background-color);
   background-color: var(--secondary-color);
 }
