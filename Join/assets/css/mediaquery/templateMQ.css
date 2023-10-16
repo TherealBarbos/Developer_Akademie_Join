@@ -53,9 +53,7 @@
   .headerLogo {
     display: flex;
   }
-
-
-  
+ 
   .help,
   .headerText {
     display: none;
