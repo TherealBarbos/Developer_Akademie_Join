@@ -76,56 +76,6 @@
         line-height: 120%;
     }
 
-    .left-side {
-        box-sizing: border-box;
-        position: fixed;
-        justify-content: center;
-        align-items: center;
-        bottom: 0;
-        top: auto;
-        height: 100px;
-        width: 100vw;
-        padding: 1.5rem 0 1.5rem 0;
-    }
-
-    .left-side-Order {
-        flex-direction: row;
-    }
-
-    .left-side-logo {
-        display: none;
-    }
-
-    .left-side-Policy {
-        display: none;
-    }
-
-    .left-side-menu {
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .left-side-menu-btn {
-        flex-direction: column;
-        padding-left: 0;
-        gap: 1rem;
-    }
-
-    .left-side-menu-btn p {
-        font-size: 1.7rem;
-        font-style: normal;
-        font-weight: 400;
-        margin: 0;
-
-    }
-
-    .left-side-menu-btn img {
-        min-width: 2.5rem;
-        min-height: 2.5rem;
-    }
-
     .header {
         padding: 1.5rem 2rem 1.5rem 2rem;
         max-height: 8rem;
