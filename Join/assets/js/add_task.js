@@ -8,6 +8,7 @@ let assignedToTask = [];
 let assignedInitial = [];
 
 async function addTask() { // this fills the JSON array "allTasks" which holds the title, description, etc. of the task you want to add and saves them in the remote storage
+    const uniqueID = new Date().getTime();
     const taskTitle = document.getElementById('task-title').value;
     const taskDescription = document.getElementById('task-description').value;
     const dueDateStr = document.getElementById('dueDate').value;
@@ -18,7 +19,7 @@ async function addTask() { // this fills the JSON array "allTasks" which holds t
     const subtask = SubtaskArray;
 
     let task = {
-        // 'id':  createID(),
+        'id': uniqueID,
         'state': 'toDo',
         'title': taskTitle,
         'description': taskDescription,
@@ -36,10 +37,7 @@ async function addTask() { // this fills the JSON array "allTasks" which holds t
     clearInputs();
 }
 
-// function createID() {
-//     const newID = allTasks.length;
-//     return newID;
-// }
+
 
 function clearInputs() {
     document.getElementById('task-title').value = '';

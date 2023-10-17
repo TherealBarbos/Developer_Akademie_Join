@@ -20,7 +20,7 @@ function showTaskListByState(state){
   for (let index = 0; index < filteredTasksByState.length; index++) {
     const element = filteredTasksByState[index];
     document.getElementById(state).innerHTML +=
-      generateTaskCard(element, index);
+      generateTaskCard(element);
   }
 }
 
@@ -28,11 +28,11 @@ function showTaskListByState(state){
 
 function startDregging(index) {
   currentDraggedElement = index;
-  document.getElementById(index).classList.add("cardDragging");
+  document.getElementById(`card-${index}`).classList.add("cardDragging");
 }
 
-function generateTaskCard(task, index) {
-  return ` <div class="card" draggable="true" ondragstart="startDregging('${index}')" onclick="showOverlay(${index})">
+function generateTaskCard(task) {
+  return ` <div id="card-${task.id}" class="card" draggable="true" ondragstart="startDregging('${task.id}')" onclick="showOverlay('${task.id}')">
     <div class="cardFrame">
       <div class="cardLable">${task.category}</div>
       <div class="cardTextbox">
@@ -60,7 +60,7 @@ function allowDrop(ev) {
 }
 
 function moveTo(state) {
-  todos[currentDraggedElement]["state"] = state;
+  todos[id]["state"] = state;
   updateHTML();
   setItem("allTasks", JSON.stringify(todos));
   unhighlight(state);
@@ -76,10 +76,9 @@ function unhighlight(index) {
 
 // Overlay Task
 
-function showOverlay(todoIndex) {
-  let todo = todos[todoIndex];
+function showOverlay(index) {
   let overlay = document.getElementById("taskoverlay");
-  overlay.innerHTML = renderTask(todo);
+  overlay.innerHTML = renderTask(index);
   document.getElementById("boardHeader").classList.add("blurout");
   document.getElementById("board").classList.add("blurout");
   document.getElementById("overlay").classList.add("overlayposition");
