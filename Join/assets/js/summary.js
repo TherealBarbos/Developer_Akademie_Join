@@ -1,9 +1,10 @@
 let todos = [];
 
-async function summaryinit() {
+async function summaryInit() {
   includeHTML();
   await loadTasks();
   updatesummary();
+  greeting();
 
   // countTasksByStatus();
 }
@@ -18,7 +19,7 @@ async function loadTasks() {
   }
 }
 
-// Definieres des Status und Ausgabe der jeweiligen länge
+// Definieren des Status und Ausgabe der jeweiligen Länge
 
 function updatesummary() {
   const toDoCount = countTasksByStatus(todos, "toDo");
@@ -71,6 +72,21 @@ function sortTasks(todos) {
     document.getElementById("prioDate").innerHTML = formattedDate;
   } else {
     document.getElementById("prioDate").innerHTML = "Keine ausstehenden Aufgaben";
+  }
+}
+
+// Greet User
+function greeting() {
+  let currentTime = new Date();
+  let hours = currentTime.getHours();
+  let greetingElement = document.getElementById('greeting');
+
+  if (hours >= 12 && hours < 19) {
+    greetingElement.innerHTML = 'Good afternoon,';
+  } else if (hours >= 19) {
+    greetingElement.innerHTML = 'Good evening,';
+  } else {
+    greetingElement.innerHTML = 'Good morning,';
   }
 }
 
