@@ -16,6 +16,9 @@
   display: flex;
   justify-content: center;
 }
+.bOverlayClose {
+  cursor: pointer;
+}
 .bOverlayCategory {
   display: flex;
   justify-content: space-between;

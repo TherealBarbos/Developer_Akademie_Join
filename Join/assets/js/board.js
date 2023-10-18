@@ -30,7 +30,7 @@ function startDregging(index) {
 }
 
 function generateTaskCard(task) {
-  console.log(task);
+
   return ` <div id="card-${task.id}" class="card" draggable="true" ondragstart="startDregging('${task.id}')" onclick="showOverlay('${task.id}')">
     <div class="cardFrame">
       <div class="cardLable">${task.category}</div>
@@ -92,17 +92,28 @@ function showOverlay(index) {
 
 // Task Overlay erzeugen
 
+function formatDateToDDMMYYYY(dateString) {
+  const date = new Date(dateString);
+
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+
+  return `${day}/${month}/${year}`;
+}
+
 function renderTask(todo) {
+
+  const formattedDueDate = formatDateToDDMMYYYY(todo.dueDate);
 
   // const unixTimestamp = todo.dueDate;
   // const date = new Date(unixTimestamp * 1000);
   // const options = { year: "numeric", month: "long", day: "numeric" };
   // const dateString = date.toLocaleDateString("en-US", options);
   
-console.log(todo);
   return `
   <div class="bOverlayCategory">${todo.category}
-  <div onclick="closeOverlay()">
+  <div class="bOverlayClose" onclick="closeOverlay()">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <mask index="mask0_93030_4211" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24"
               height="24">
@@ -118,7 +129,7 @@ console.log(todo);
 </div>
 <div class="bOverlayTitle">${todo.title}</div>
 <div class="bOverlayText">${todo.description}</div>
-<div class="bOverlayText">${todo.dueDate}</div>
+<div class="bOverlayText">${formattedDueDate}</div>
 <div class="bOverlayText">${todo.priority}</div>
 <div class="bOverlayAssigned">
   Assigned To:
