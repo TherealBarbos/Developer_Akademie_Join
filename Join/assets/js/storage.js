@@ -1,6 +1,7 @@
 //--local storage / sign up // 
 const STORAGE_TOKEN = '4AVD74O6ONTUSWYBIKRAF3SC5B2U9YW3OCE1JRVE';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
+let name = []
 
 function setArray(key, array) {
     localStorage.setItem(key, JSON.stringify(array));
