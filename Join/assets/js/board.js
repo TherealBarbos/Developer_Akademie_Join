@@ -114,7 +114,7 @@ function displaySubtasks(index) {
       ul.appendChild(li);
     });
 
-    const subtasksContainer = document.getElementById("subtasks");
+    const subtasksContainer = document.getElementById("todos.subtasks");
     subtasksContainer.appendChild(ul);
   } else {
     console.log("no subtasks");
