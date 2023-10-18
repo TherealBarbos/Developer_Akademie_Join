@@ -20,18 +20,17 @@
 
   <div w3-include-html="../templates/header.html"></div>
 
-  <div id="content">
-
-    <!-- <form onsubmit="addTask()"> -->
     <div class="contentOverall">
       <div class="addTask">
         <span class="addTaskHeader">Add Task</span>
+        
 
         <div class="add-task-inputs">
           <div class="add-task-left">
             <div class="enter-title-container gap-8">
               <h2> Title </h2>
               <input id="task-title" class="border-radius-6 border-color" placeholder="Enter Title"></input>
+              <span class="is-required"> This field is required </span>
             </div>
 
             <div class="enter-description-container gap-8">
@@ -68,11 +67,11 @@
               <h2> Prio </h2>
               <div class="prio-select">
                 <button onclick="urgentButton()" id="urgent" class="prio-button border-radius-6"> Urgent <img
-                    id="urgent-img" src="../img/urgent_no_bg.png"></button>
+                    id="urgent-img" src="../img/urgent_no_bg.svg"></button>
                 <button onclick="mediumButton()" id="medium" class="prio-button medium-clicked border-radius-6"> Medium
-                  <img id="medium-img" src="../img/medium_no_bg.png"></button>
+                  <img id="medium-img" src="../img/medium_no_bg.svg"></button>
                 <button onclick="lowButton()" id="low" class="prio-button low-clicked border-radius-6"> Low <img
-                    id="low-img" src="../img/low_no_bg.png"></button>
+                    id="low-img" src="../img/low_no_bg.svg"></button>
               </div>
             </div>
 
@@ -116,7 +115,6 @@
           </div>
         </div>
       </div>
-      <!-- </form> -->
     </div>
 
 </body>
