@@ -10,7 +10,7 @@ function updateHTML() {
   showTaskListByState("done");
   showTaskListByState("awaitFeedback");
 }
-
+// filter das Arry nach den Categorien 
 function showTaskListByState(state) {
   let filteredTasksByState = todos.filter((t) => t["state"] == state);
 
@@ -24,13 +24,14 @@ function showTaskListByState(state) {
 
 // Drang functuality
 
+// Drag Initiation
 function startDregging(index) {
   currentDraggedElement = index;
   document.getElementById(`card-${index}`).classList.add("cardDragging");
 }
-
+// Generische Function zum erzeugen der task Karten
 function generateTaskCard(task) {
-  console.log(task);
+
   return ` <div id="card-${task.id}" class="card" draggable="true" ondragstart="startDregging('${task.id}')" onclick="showOverlay('${task.id}')">
     <div class="cardFrame">
       <div class="cardLable">${task.category}</div>
@@ -58,6 +59,7 @@ function allowDrop(ev) {
   ev.preventDefault();
 }
 
+// Function zum Wechseln der Category
 function moveTo(state) {
   let id = todos.findIndex((item) => {
     return item.id == currentDraggedElement;
@@ -68,13 +70,14 @@ function moveTo(state) {
   unhighlight(state);
 }
 
+// Drag  styl- Effekte
 function highlight(index) {
   document.getElementById(index).classList.add("drag-over");
 }
-
 function unhighlight(index) {
   document.getElementById(index).classList.remove("drag-over");
 }
+
 
 // Overlay Task
 
@@ -92,17 +95,29 @@ function showOverlay(index) {
 
 // Task Overlay erzeugen
 
+// Unix-Timestamp entschlüsseln
+function formatDateToDDMMYYYY(dateString) {
+  const date = new Date(dateString);
+
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+
+  return `${day}/${month}/${year}`;
+}
+// Overlay rendern
 function renderTask(todo) {
+
+  const formattedDueDate = formatDateToDDMMYYYY(todo.dueDate);
 
   // const unixTimestamp = todo.dueDate;
   // const date = new Date(unixTimestamp * 1000);
   // const options = { year: "numeric", month: "long", day: "numeric" };
   // const dateString = date.toLocaleDateString("en-US", options);
   
-console.log(todo);
   return `
   <div class="bOverlayCategory">${todo.category}
-  <div onclick="closeOverlay()">
+  <div class="bOverlayClose" onclick="closeOverlay()">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <mask index="mask0_93030_4211" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24"
               height="24">
@@ -118,8 +133,8 @@ console.log(todo);
 </div>
 <div class="bOverlayTitle">${todo.title}</div>
 <div class="bOverlayText">${todo.description}</div>
-<div class="bOverlayText">${todo.dueDate}</div>
-<div class="bOverlayText">${todo.priority}</div>
+<div class="bOverlayText">Due date: ${formattedDueDate}</div>
+<div class="bOverlayText bOverlayuppercase">Priority:  ${todo.priority} <img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" /></div>
 <div class="bOverlayAssigned">
   Assigned To:
   <div class="bOverlayAssignedNames">${todo.assignedName}</div>
@@ -160,23 +175,37 @@ console.log(todo);
 `;
 }
 
-function closeOverlay(index) {
+// Overlay Schließen
+function closeOverlay() {
   document.getElementById("boardHeader").classList.remove("blurout");
   document.getElementById("board").classList.remove("blurout");
   document.getElementById("overlay").classList.remove("overlayposition");
   taskoverlay.classList.add("d-none");
 }
+
 // Overlay Task Edit
+function editTask(index) {
+  let id = todos.findIndex((item) => {
+    return item.id == index;
+  });
+
+
+
+
+}
 
 // Overla< Task Delete
 function deleteTask(index) {
-  todos.splice(currentDraggedElement, 1);
+  let id = todos.findIndex((item) => {
+    return item.id == index;
+  });
+  todos.splice(id, 1);
   setItem("allTasks", JSON.stringify(todos));
   updateHTML();
   closeOverlay();
 }
-// Overlay Schließen
-// remote storage
+
+// remote storage Functionen
 
 async function loadTasks() {
   try {

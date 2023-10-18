@@ -16,6 +16,12 @@
   display: flex;
   justify-content: center;
 }
+.bOverlayuppercase{
+  text-transform: capitalize;
+}
+.bOverlayClose {
+  cursor: pointer;
+}
 .bOverlayCategory {
   display: flex;
   justify-content: space-between;
