@@ -53,21 +53,12 @@
 ### Aufgaben
 
 - Git Repo erstellen
-
-![image]()
   
 - Ordnerstrucktur aufbauen
 
-![image](https://github.com/TherealBarbos/Developer_Akademie_Join/Join/assets/mdIMGS/folderstructure.png)
-
-
 - Summary
 
-![image]()
-
 - Board
-
-![image]()
   
 - CSS Imports
 ``` css
