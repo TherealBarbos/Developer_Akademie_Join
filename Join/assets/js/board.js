@@ -12,7 +12,7 @@ function updateHTML() {
   showTaskListByState("done");
   showTaskListByState("awaitFeedback");
 }
-// filter das Arry nach den Categorien 
+// filter das Arry nach den Kategorien 
 function showTaskListByState(state) {
   let filteredTasksByState = todos.filter((t) => t["state"] == state);
 
@@ -24,14 +24,14 @@ function showTaskListByState(state) {
   }
 }
 
-// Drang functuality
+// Drag functuality
 
 // Drag Initiation
 function startDregging(index) {
   currentDraggedElement = index;
   document.getElementById(`card-${index}`).classList.add("cardDragging");
 }
-// Generische Function zum erzeugen der task Karten
+// Generische Funktion zum Erzeugen der Task-Karten
 function generateTaskCard(task) {
 
   return ` <div id="card-${task.id}" class="card" draggable="true" ondragstart="startDregging('${task.id}')" onclick="showOverlay('${task.id}')">
@@ -134,11 +134,6 @@ function formatDateToDDMMYYYY(dateString) {
 function renderTask(todo) {
 
   const formattedDueDate = formatDateToDDMMYYYY(todo.dueDate);
-
-  // const unixTimestamp = todo.dueDate;
-  // const date = new Date(unixTimestamp * 1000);
-  // const options = { year: "numeric", month: "long", day: "numeric" };
-  // const dateString = date.toLocaleDateString("en-US", options);
   
   return `
   <div class="bOverlayCategory">${todo.category}
@@ -213,13 +208,9 @@ function editTask(index) {
   let id = todos.findIndex((item) => {
     return item.id == index;
   });
-
-
-
-
 }
 
-// Overla< Task Delete
+// Overlay Task Delete
 function deleteTask(index) {
   let id = todos.findIndex((item) => {
     return item.id == index;
@@ -230,7 +221,7 @@ function deleteTask(index) {
   closeOverlay();
 }
 
-// remote storage Functionen
+// remote storage Funktionen
 
 async function loadTasks() {
   try {

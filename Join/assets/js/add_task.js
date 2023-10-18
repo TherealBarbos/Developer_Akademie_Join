@@ -7,6 +7,17 @@ let contacts = [];
 let assignedToTask = [];
 let assignedInitial = [];
 
+function formValidation() {
+    const taskTitle = document.getElementById('task-title').value;
+    // const taskDescription = document.getElementById('task-description').value;
+    // const dueDateStr = document.getElementById('dueDate').value;
+    // const category = document.getElementById('category').value;
+
+    if (taskTitle.value = '') {
+        taskTitle.classList.add('red-border');
+    }
+}
+
 async function addTask() { // this fills the JSON array "allTasks" which holds the title, description, etc. of the task you want to add and saves them in the remote storage
     const uniqueID = new Date().getTime();
     const taskTitle = document.getElementById('task-title').value;
@@ -25,7 +36,7 @@ async function addTask() { // this fills the JSON array "allTasks" which holds t
         'description': taskDescription,
         'assignedName': assignedToTask,
         'assignedInitial': assignedInitial,
-        'dueDate': dueDate, // dueDate hat Unix timestamp. Muss später noch geändert werden?
+        'dueDate': dueDate,
         'priority': priority,
         'priorityImageSource': prioritySource,
         'category': category,
@@ -37,19 +48,17 @@ async function addTask() { // this fills the JSON array "allTasks" which holds t
     clearInputs();
 }
 
-
-
 function clearInputs() {
     document.getElementById('task-title').value = '';
     document.getElementById('task-description').value = '';
     document.getElementById('assignedName').value = '';
     document.getElementById('dueDate').value = '';
     document.getElementById('urgent').classList.remove('urgent');
-    document.getElementById('urgent-img').src = '../img/urgent_no_bg.png';
+    document.getElementById('urgent-img').src = '../img/urgent_no_bg.svg';
     document.getElementById('medium').classList.remove('medium');
-    document.getElementById('medium-img').src = '../img/medium_no_bg.png';
+    document.getElementById('medium-img').src = '../img/medium_no_bg.svg';
     document.getElementById('low').classList.remove('low');
-    document.getElementById('low-img').src = '../img/low_no_bg.png';
+    document.getElementById('low-img').src = '../img/low_no_bg.svg';
     document.getElementById('category').value = '';
     document.getElementById('subtask-list').innerHTML = '';
     SubtaskArray = [];
@@ -189,11 +198,11 @@ function getSelectedPriorityImageSource() {
     const lowButton = document.getElementById('low');
 
     if (urgentButton.classList.contains('urgent')) {
-        return '../img/urgent.png';
+        return '../img/urgent_no_bg.svg';
     } else if (mediumButton.classList.contains('medium')) {
-        return '../img/medium.png';
+        return '../img/medium_no_bg.svg';
     } else if (lowButton.classList.contains('low')) {
-        return '../img/low.png';
+        return '../img/low_no_bg.svg';
     }
 }
 
@@ -203,14 +212,14 @@ function urgentButton() { //this function handles the clicking/unclicking of the
 
     if (!urgentButton.classList.contains('urgent')) {
         urgentButton.classList.add('urgent');
-        img.src = '../img/urgent.png';
+        img.src = '../img/urgent.svg';
     } else {
         urgentButton.classList.remove('urgent');
-        img.src = '../img/urgent_no_bg.png';
+        img.src = '../img/urgent_no_bg.svg';
     }
 
-    document.getElementById('medium-img').src = '../img/medium_no_bg.png';
-    document.getElementById('low-img').src = '../img/low_no_bg.png';
+    document.getElementById('medium-img').src = '../img/medium_no_bg.svg';
+    document.getElementById('low-img').src = '../img/low_no_bg.svg';
     document.getElementById('medium').classList.remove('medium');
     document.getElementById('low').classList.remove('low');
 }
@@ -221,14 +230,14 @@ function mediumButton() { //this function handles the clicking/unclicking of the
 
     if (!mediumButton.classList.contains('medium')) {
         mediumButton.classList.add('medium');
-        img.src = '../img/medium.png';
+        img.src = '../img/medium.svg';
     } else {
         mediumButton.classList.remove('medium');
-        img.src = '../img/medium_no_bg.png';
+        img.src = '../img/medium_no_bg.svg';
     }
 
-    document.getElementById('urgent-img').src = '../img/urgent_no_bg.png';
-    document.getElementById('low-img').src = '../img/low_no_bg.png';
+    document.getElementById('urgent-img').src = '../img/urgent_no_bg.svg';
+    document.getElementById('low-img').src = '../img/low_no_bg.svg';
     document.getElementById('urgent').classList.remove('urgent');
     document.getElementById('low').classList.remove('low');
 }
@@ -239,14 +248,14 @@ function lowButton() { //this function handles the clicking/unclicking of the lo
 
     if (!lowButton.classList.contains('low')) {
         lowButton.classList.add('low');
-        img.src = '../img/low.png';
+        img.src = '../img/low.svg';
     } else {
         lowButton.classList.remove('low')
-        img.src = '../img/low_no_bg.png';
+        img.src = '../img/low_no_bg.svg';
     }
 
-    document.getElementById('urgent-img').src = '../img/urgent_no_bg.png';
-    document.getElementById('medium-img').src = '../img/medium_no_bg.png';
+    document.getElementById('urgent-img').src = '../img/urgent_no_bg.svg';
+    document.getElementById('medium-img').src = '../img/medium_no_bg.svg';
     document.getElementById('urgent').classList.remove('urgent');
     document.getElementById('medium').classList.remove('medium');
 }
