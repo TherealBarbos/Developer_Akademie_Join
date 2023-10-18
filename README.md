@@ -12,7 +12,7 @@
 	- [Ersan Bihorac](#ersan)
 	- [Oliver Härle](#oliver)
 	- [Manuel Kischel](#manu)	
-- [Schluß](#schluss)
+- [Dokumentation](#doku)
 
 <a name="gruppenaufteilung"></a>
 # Gruppenaufteilung
@@ -51,5 +51,8 @@
 &uarr; [zurück zur Übersicht](#top)
 ## Responsive 
 ### Wird vom einzelnen für seine Seite gelöst
+<a name="doku"></a>
+# Dokumentation
+
 
 
