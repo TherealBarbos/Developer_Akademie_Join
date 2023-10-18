@@ -2,7 +2,7 @@
 # Developer_Akademie_Join
 ## Project zur erstellung einer Join Webapp
 ### Vorlage
-### [Figma](https://www.figma.com/file/3qlJ22yFozngW2gdOfczMe/Join-Version-1-(Final-version)?type=design&node-id=71072-5046&mode=design){target="_blank"}
+### [Figma](https://www.figma.com/file/3qlJ22yFozngW2gdOfczMe/Join-Version-1-(Final-version)?type=design&node-id=71072-5046&mode=design){:target="_blank"}
 
 ## Unser Join
 ## [Join](http://join-707.developerakademie.net/Join/index.html)
