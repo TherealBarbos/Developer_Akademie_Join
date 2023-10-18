@@ -290,7 +290,7 @@
     }
 
     .contact-list {
-        position: fixed;
+        position: absolute;
         left: 240px;
         top: 10.1%;
         height: 89.9%;
@@ -354,7 +354,7 @@
     }
 
     .contact-list {
-        position: fixed;
+        position: absolute;
         left: 0;
         top: 8.9rem;
         height: calc(100% - 14rem);
