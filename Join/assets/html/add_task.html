@@ -27,17 +27,22 @@
 
         <div class="add-task-inputs">
           <div class="add-task-left">
+
+            <!-- title -->
             <div class="enter-title-container gap-8">
               <h2> Title </h2>
               <input id="task-title" class="border-radius-6 border-color" placeholder="Enter Title"></input>
-              <span class="is-required"> This field is required </span>
+              <span id="is-required-task" class="is-required d-none"> This field is required </span>
             </div>
 
+            <!-- description -->
             <div class="enter-description-container gap-8">
               <h2> Description </h2>
               <textarea id="task-description" class="border-radius-6 description-textarea border-color"></textarea>
+              <span id="is-required-description" class="is-required d-none"> This field is required </span>
             </div>
 
+            <!-- assigned to  -->
             <div class="assigned-to-container gap-8">
               <h2> Assigned to </h2>
               <input onclick="toggleSelect()" onkeyup="filterNames()" id="filterNames"
@@ -58,11 +63,14 @@
 
           <div class="add-task-right">
 
+            <!-- date -->
             <div class="enter-date gap-8">
               <h2> Due date </h2>
               <input class="border-radius-6 border-color" id="dueDate" type="date"></input>
+              <span id="is-required-date" class="is-required d-none"> This field is required </span>
             </div>
 
+            <!-- priority -->
             <div class="priority gap-8">
               <h2> Prio </h2>
               <div class="prio-select">
@@ -73,8 +81,10 @@
                 <button onclick="lowButton()" id="low" class="prio-button low-clicked border-radius-6"> Low <img
                     id="low-img" src="../img/low_no_bg.svg"></button>
               </div>
+              <span id="is-required-priority" class="is-required d-none"> Please assign priority </span>
             </div>
 
+            <!-- category -->
             <div class="assigned-to-container gap-8">
               <h2> Category </h2>
               <select id="category" class="select-category border-radius-6 border-color custom-select">
@@ -82,6 +92,7 @@
                 <option value="Technical Task"> Technical Task </option>
                 <option value="User Story"> User Story</option>
               </select>
+              <span id="is-required-category" class="is-required d-none"> This field is required </span>
             </div>
 
             <div class="assigned-to-container gap-8">
@@ -106,7 +117,7 @@
                 </svg>
               </button>
 
-              <a href="board.html"><button class="create-button" onclick="addTask()"></a>
+              <a href="board.html"><button class="create-button" onclick="formValidation()"></a>
               <span> Create Task </span>
               <img id="create-task-tick" class="create-task-tick" src="../img/create_task_button.png">
               </button>

@@ -7,17 +7,6 @@ let contacts = [];
 let assignedToTask = [];
 let assignedInitial = [];
 
-function formValidation() {
-    const taskTitle = document.getElementById('task-title').value;
-    // const taskDescription = document.getElementById('task-description').value;
-    // const dueDateStr = document.getElementById('dueDate').value;
-    // const category = document.getElementById('category').value;
-
-    if (taskTitle.value = '') {
-        taskTitle.classList.add('red-border');
-    }
-}
-
 async function addTask() { // this fills the JSON array "allTasks" which holds the title, description, etc. of the task you want to add and saves them in the remote storage
     const uniqueID = new Date().getTime();
     const taskTitle = document.getElementById('task-title').value;
@@ -356,6 +345,48 @@ function revertBackToButton() { // this function handles the deactivation of the
 async function load() {
     await loadContacts();
     loadAssignableNames();
+}
+
+//  form validation
+
+function formValidation() {
+    const taskTitle = document.getElementById('task-title');
+    const taskDescription = document.getElementById('task-description');
+    const dueDateStr = document.getElementById('dueDate');
+    const category = document.getElementById('category');
+    const urgentButton = document.getElementById('urgent');
+    const mediumButton = document.getElementById('medium');
+    const lowButton = document.getElementById('low');
+
+    if (taskTitle.value == '') {
+        taskTitle.classList.add('border-color-red');
+        document.getElementById('is-required-task').classList.remove('d-none');
+    };
+    if (taskDescription.value == '') {
+        taskDescription.classList.add('border-color-red');
+        document.getElementById('is-required-description').classList.remove('d-none');
+    };
+    if (dueDateStr.value == '') {
+        dueDateStr.classList.add('border-color-red');
+        document.getElementById('is-required-date').classList.remove('d-none');
+    };
+    if (category.value == '') {
+        category.classList.add('border-color-red');
+        document.getElementById('is-required-category').classList.remove('d-none');
+    };
+    if (!(urgentButton.classList.contains('urgent') || mediumButton.classList.contains('medium') || lowButton.classList.contains('low'))) {
+        document.getElementById('is-required-priority').classList.remove('d-none');
+    }
+
+    if (
+        taskTitle.value !== '' &&
+        taskDescription.value !== '' &&
+        dueDateStr.value !== '' &&
+        category.value !== '' &&
+        (urgentButton.classList.contains('urgent') || mediumButton.classList.contains('medium') || lowButton.classList.contains('low'))
+      ) {
+        addTask();
+      }    
 }
 
 // remote storage
