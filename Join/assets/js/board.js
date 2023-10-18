@@ -43,7 +43,7 @@ function generateTaskCard(task) {
       </div>
       <div class="cardProgress">
         <div class="cardProgressbar">${task.progressbar}</div>
-        <div class="cardProgressText">${task.progress}s</div>
+        <div class="cardProgressText">/${task.subtasks.length} Subtasks</div>
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
