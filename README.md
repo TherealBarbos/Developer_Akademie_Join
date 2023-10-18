@@ -72,9 +72,6 @@
 /* new css in assets*/
 @import url("assets/css/template.css");
 
-/* Signup/Login PAGE */
-/* new css in assets*/
-@import url("assets/css/signuplogin.css");
 ```
 - Color Roots
 ``` css
@@ -87,12 +84,6 @@
   /*leichtes Grau (placeholder Text usw)*/
   --join-color: #29ABE2;
   /*Das Join Blau*/
-  --background-color: #FFF;
-  /*element Hintergrund*/
-  --menu-color: #42526E;
-  /*Das heller Grau*/
-  --border-shadow: rgba(0, 0, 0, 0.08);
-  /* border */
 }
 ```
 - Help
