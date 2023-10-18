@@ -1,8 +1,15 @@
 let contacts = []
 let letters = []
+let buttonEditDelete = false;
 
 function displayEditDeleteContact() {
-    document.getElementById('btn-display-edit-delete').classList.remove('btn-mobile-d-none');
+    if (buttonEditDelete == false) {
+        document.getElementById('btn-display-edit-delete').classList.remove('btn-mobile-d-none');
+        buttonEditDelete = true;
+    } else if (buttonEditDelete == true) {
+        document.getElementById('btn-display-edit-delete').classList.add('btn-mobile-d-none');
+        buttonEditDelete = false;
+    }
 }
 
 function returnToContactList() {
@@ -65,9 +72,9 @@ async function addContact() {
  * this function is used to clear the Input fields from the Sign up page
  */
 function clearLoginInputs() {
-    document.getElementById('input-email').value = '';
-    document.getElementById('input-name').value = '';
-    document.getElementById('input-phone').value = '';
+    document.getElementById('input-email-addcontact').value = '';
+    document.getElementById('input-name-addcontact').value = '';
+    document.getElementById('input-phone-addcontact').value = '';
 }
 
 //
