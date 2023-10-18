@@ -3,7 +3,7 @@
 ## Project zur erstellung einer Join Webapp
 ### [Figma](https://www.figma.com/file/3qlJ22yFozngW2gdOfczMe/Join-Version-1-(Final-version)?type=design&node-id=71072-5046&mode=design)
 
-
+## Git Daten
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/TherealBarbos/Developer_Akademie_Join?logo=gith) 
 ![GitHub repo size](https://img.shields.io/github/repo-size/TherealBarbos/Developer_Akademie_Join?logo=github)  
 ![GitHub last commit](https://img.shields.io/github/last-commit/TherealBarbos/Developer_Akademie_Join?logo=github)  
