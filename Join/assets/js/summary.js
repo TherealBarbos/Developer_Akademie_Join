@@ -1,6 +1,10 @@
 let todos = [];
+let GreetingName = [];
 
 async function summaryInit() {
+  names = getArray('name');
+  GreetingName.push(names);
+
   includeHTML();
   await loadTasks();
   updatesummary();
@@ -29,7 +33,7 @@ function updatesummary() {
 
   const prioCount = countTasksByPrio(todos, "urgent");
   document.getElementById("prioNum").innerHTML = `${prioCount}`;
-  
+
   //gibt die nächste Prio Taskabage aus
   sortTasks(todos);
 }
@@ -53,7 +57,7 @@ function formatDate(date) {
 // Sortiere 'todos'nach den Fälligkeitsdaten
 
 function sortTasks(todos) {
-  
+
   // Konvertiere Unix-Timestamps in Datumsobjekte
   todos.forEach(task => {
     task.dueDate = new Date(task.dueDate);
@@ -81,11 +85,11 @@ function greeting() {
   let greetingElement = document.getElementById('greeting');
 
   if (hours >= 12 && hours < 19) {
-    greetingElement.innerHTML = 'Good afternoon,';
+    greetingElement.innerHTML = `Good afternoon, ${names}`;
   } else if (hours >= 19) {
-    greetingElement.innerHTML = 'Good evening,';
+    greetingElement.innerHTML = `Good evening,  ${names}`;
   } else {
-    greetingElement.innerHTML = 'Good morning,';
+    greetingElement.innerHTML = `Good morning, ${names}`;
   }
 }
 
