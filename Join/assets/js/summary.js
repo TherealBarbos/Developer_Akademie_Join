@@ -6,7 +6,6 @@ async function summaryInit() {
   updatesummary();
   greeting();
 
-  // countTasksByStatus();
 }
 // Laden des Remote-Storage
 
