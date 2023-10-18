@@ -16,7 +16,7 @@
   display: flex;
   justify-content: center;
 }
-.bOverlayuppercase{
+.bOverlayuppercase {
   text-transform: capitalize;
 }
 .bOverlayClose {
@@ -40,6 +40,8 @@
   line-height: 120%;
 }
 .bOverlayText {
+  display: flex;
+  align-items: center;
   color: var(--primary-color);
   font-size: 20px;
   font-style: normal;
@@ -79,7 +81,7 @@
   background-color: var(--icon, #eeeded);
   border-radius: 10px;
 }
-.checkboxSubtask{
+.checkboxSubtask {
   height: 24px;
   width: 24px;
 }

@@ -44,7 +44,7 @@ function generateTaskCard(task) {
       </div>
       <div class="cardProgress">
         <div class="cardProgressbar">${task.progressbar}</div>
-        <div class="cardProgressText">${task.progress}s</div>
+        <div class="cardProgressText">/${task.subtasks.length} Subtasks</div>
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
@@ -144,7 +144,7 @@ function toggleNameSubtask(SpecialID) {
 //       ul.appendChild(li);
 //     });
 
-//     const subtasksContainer = document.getElementById("todos.subtasks");
+//     const subtasksContainer = document.getElementById("subtasksContainer");
 //     subtasksContainer.appendChild(ul);
 //   } else {
 //     console.log("no subtasks");
@@ -186,7 +186,7 @@ function renderTask(todo, id) {
 <div class="bOverlayTitle">${todo.title}</div>
 <div class="bOverlayText">${todo.description}</div>
 <div class="bOverlayText">Due date: ${formattedDueDate}</div>
-<div class="bOverlayText bOverlayuppercase">Priority:  ${todo.priority} <img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" /></div>
+<div class="bOverlayText bOverlayuppercase">Priority:${todo.priority}<img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" /></div>
 <div class="bOverlayAssigned">
   Assigned To:
   <div class="bOverlayAssignedNames">${todo.assignedName}</div>
