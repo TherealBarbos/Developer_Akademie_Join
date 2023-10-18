@@ -356,8 +356,8 @@
     .contact-list {
         position: absolute;
         left: 0;
-        top: 8.9rem;
-        height: calc(100% - 14rem);
+        top: 10%;
+        height: 80%;
         width: 100%;
         background: white;
         overflow-y: auto;
