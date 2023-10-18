@@ -1,3 +1,11 @@
+# Übersicht
+- [Projektdaten](#daten)
+- [Gruppenaufteilung](#gruppenaufteilung)
+	- [Ersan Bihorac](#ersan)
+	- [Oliver Härle](#oliver)
+	- [Manuel Kischel](#manu)	
+- [Dokumentation](#doku)
+
 <a name="daten"></a>
 # Developer_Akademie_Join
 ## Project zur erstellung einer Join Webapp
@@ -7,16 +15,7 @@
 ## Unser Join
 ### Das ist Unser Join nach der Figmavorlage.
 ## [Join](http://join-707.developerakademie.net/Join/index.html)
-## Git Daten
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/TherealBarbos/Developer_Akademie_Join?logo=gith) ![GitHub repo size](https://img.shields.io/github/repo-size/TherealBarbos/Developer_Akademie_Join?logo=github) ![GitHub last commit](https://img.shields.io/github/last-commit/TherealBarbos/Developer_Akademie_Join?logo=github) ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/TherealBarbos/Developer_Akademie_Join?logo=github) ![GitHub Discussions](https://img.shields.io/github/discussions/TherealBarbos/Developer_Akademie_Join?logo=github)  ![GitHub](https://img.shields.io/github/license/TherealBarbos/Developer_Akademie_Join) ![GitHub language count](https://img.shields.io/github/languages/count/TherealBarbos/Developer_Akademie_Join) 
 
-# Übersicht
-- [Projektdaten](#daten)
-- [Gruppenaufteilung](#gruppenaufteilung)
-	- [Ersan Bihorac](#ersan)
-	- [Oliver Härle](#oliver)
-	- [Manuel Kischel](#manu)	
-- [Dokumentation](#doku)
 
 <a name="gruppenaufteilung"></a>
 # Gruppenaufteilung
