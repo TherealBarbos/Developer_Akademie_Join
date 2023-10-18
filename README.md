@@ -1,9 +1,9 @@
 # Übersicht
 - [Projektdaten](#daten)
 - [Gruppenaufteilung](#gruppenaufteilung)
-	- [Ersan Bihorac](#ersan)
-	- [Oliver Härle](#oliver)
-	- [Manuel Kischel](#manu)	
+	- [Ersan B.](#ersan)
+	- [Oliver H.](#oliver)
+	- [Manuel K.](#manu)	
 - [Dokumentation](#doku)
 
 <a name="daten"></a>
@@ -28,7 +28,7 @@
 # Gruppenaufteilung
 
 <a name="ersan"></a>
-## Ersan Bihorac
+## Ersan B.
 
 ### Aufgaben
 
@@ -39,7 +39,7 @@
 
 &uarr; [zurück zur Übersicht](#top)
 <a name="oliver"></a>
-## Oliver Härle
+## Oliver H.
 
 ### Aufgaben
 
@@ -48,7 +48,7 @@
 
 &uarr; [zurück zur Übersicht](#top)
 <a name="manu"></a>
-## Manuel Kischel
+## Manuel K.
 
 ### Aufgaben
 
