@@ -58,8 +58,9 @@
   
 - Ordnerstrucktur aufbauen
 
+![image](https://github.com/TherealBarbos/Developer_Akademie_Join/assets/mdIMGS/folderstructure.png)
 
-  
+
 - Summary
 
 ![image]()
