@@ -182,7 +182,7 @@ function renderTask(todo, id) {
 <div class="bOverlayTitle">${todo.title}</div>
 <div class="bOverlayText">${todo.description}</div>
 <div class="bOverlayText">Due date: ${formattedDueDate}</div>
-<div class="bOverlayText bOverlayuppercase">Priority:  ${todo.priority} <img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" /></div>
+<div class="bOverlayText bOverlayuppercase">Priority:${todo.priority}<img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" /></div>
 <div class="bOverlayAssigned">
   Assigned To:
   <div class="bOverlayAssignedNames">${todo.assignedName}</div>
