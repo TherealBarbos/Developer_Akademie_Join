@@ -2,6 +2,14 @@
 const STORAGE_TOKEN = '4AVD74O6ONTUSWYBIKRAF3SC5B2U9YW3OCE1JRVE';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
+function setArray(key, array) {
+    localStorage.setItem(key, JSON.stringify(array));
+}
+
+function getArray(key) {
+    return JSON.parse(localStorage.getItem(key));
+}
+
 async function init() {
     loadAccounts();
 }

@@ -1,9 +1,9 @@
 # Übersicht
 - [Projektdaten](#daten)
 - [Gruppenaufteilung](#gruppenaufteilung)
-	- [Ersan Bihorac](#ersan)
-	- [Oliver Härle](#oliver)
-	- [Manuel Kischel](#manu)	
+	- [Ersan B.](#ersan)
+	- [Oliver H.](#oliver)
+	- [Manuel K.](#manu)	
 - [Dokumentation](#doku)
 
 <a name="daten"></a>
@@ -28,7 +28,7 @@
 # Gruppenaufteilung
 
 <a name="ersan"></a>
-## Ersan Bihorac
+## Ersan B.
 
 ### Aufgaben
 
@@ -39,7 +39,7 @@
 
 &uarr; [zurück zur Übersicht](#top)
 <a name="oliver"></a>
-## Oliver Härle
+## Oliver H.
 
 ### Aufgaben
 
@@ -48,7 +48,7 @@
 
 &uarr; [zurück zur Übersicht](#top)
 <a name="manu"></a>
-## Manuel Kischel
+## Manuel K.
 
 ### Aufgaben
 
@@ -72,9 +72,6 @@
 /* new css in assets*/
 @import url("assets/css/template.css");
 
-/* Signup/Login PAGE */
-/* new css in assets*/
-@import url("assets/css/signuplogin.css");
 ```
 - Color Roots
 ``` css
@@ -87,12 +84,6 @@
   /*leichtes Grau (placeholder Text usw)*/
   --join-color: #29ABE2;
   /*Das Join Blau*/
-  --background-color: #FFF;
-  /*element Hintergrund*/
-  --menu-color: #42526E;
-  /*Das heller Grau*/
-  --border-shadow: rgba(0, 0, 0, 0.08);
-  /* border */
 }
 ```
 - Help
