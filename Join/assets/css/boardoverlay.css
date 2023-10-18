@@ -68,12 +68,20 @@
   font-weight: 400;
   line-height: 120%;
 }
-.bOverlaySubtasks {
+.subtaskListItem {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  align-self: stretch;
+  align-items: center;
+  gap: 16px;
+  font-size: 16px;
+  height: 32px;
+}
+.subtaskListItem:hover {
+  background-color: var(--icon, #eeeded);
+  border-radius: 10px;
+}
+.checkboxSubtask{
+  height: 24px;
+  width: 24px;
 }
 .bOverlaycontrolls {
   display: flex;
