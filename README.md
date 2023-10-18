@@ -52,8 +52,49 @@
 
 ### Aufgaben
 
+- Git Repo erstellen
+  
+- Ordnerstrucktur aufbauen
+
 - Summary
+
 - Board
+  
+- CSS Imports
+``` css
+/* Importieren Sie andere CSS-Dateien */
+
+/* Fonts PAGE */
+/* new css in assets*/
+@import url("assets/css/fonts.css");
+
+/* template (header+leftside*/
+/* new css in assets*/
+@import url("assets/css/template.css");
+
+/* Signup/Login PAGE */
+/* new css in assets*/
+@import url("assets/css/signuplogin.css");
+```
+- Color Roots
+``` css
+:root {
+  --primary-color: #000;
+  /*schwarz*/
+  --secondary-color: #2A3647;
+  /*das Haupt Blau/Grau*/
+  --tertiary-color: #a8a8a8;
+  /*leichtes Grau (placeholder Text usw)*/
+  --join-color: #29ABE2;
+  /*Das Join Blau*/
+  --background-color: #FFF;
+  /*element Hintergrund*/
+  --menu-color: #42526E;
+  /*Das heller Grau*/
+  --border-shadow: rgba(0, 0, 0, 0.08);
+  /* border */
+}
+```
 - Help
 - Privacy Policy
 - Legal Notice

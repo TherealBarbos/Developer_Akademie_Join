@@ -93,31 +93,33 @@ function showOverlay(index) {
   document.getElementById("board").classList.add("blurout");
   document.getElementById("overlay").classList.add("overlayposition");
   taskoverlay.classList.remove("d-none");
+
+  displaySubtasks(index);
 }
 
 // Task Overlay erzeugen
 
 // Subtasks filtern und als List darstellen
 
-// function displaySubtasks(index) {
-//   let id = todos.findIndex((item) => {
-//     return item.id == index;
-//   });
-//   if (todos[id].subtasks && todos[id].subtasks.length > 0) {
-//     const ul = document.createElement("ul");
+function displaySubtasks(index) {
+  let id = todos.findIndex((item) => {
+    return item.id == index;
+  });
+  if (todos[id].subtasks && todos[id].subtasks.length > 0) {
+    const ul = document.createElement("ul");
 
-//     todos[id].subtasks.forEach((subtask) => {
-//       const li = document.createElement("li");
-//       li.textContent = subtask;
-//       ul.appendChild(li);
-//     });
+    todos[id].subtasks.forEach((subtask) => {
+      const li = document.createElement("li");
+      li.textContent = subtask;
+      ul.appendChild(li);
+    });
 
-//     const subtasksContainer = document.getElementById("subtasks");
-//     subtasksContainer.appendChild(ul);
-//   } else {
-//     console.log("no subtasks");
-//   }
-// }
+    const subtasksContainer = document.getElementById("subtasks");
+    subtasksContainer.appendChild(ul);
+  } else {
+    console.log("no subtasks");
+  }
+}
 
 
 // Unix-Timestamp entschlüsseln
@@ -161,7 +163,7 @@ function renderTask(todo) {
 </div>
 <div class="bOverlaySub">
   Subtasks:
-  <div class="bOverlaySubtasks" id="subtasksContainer">${todo.id}</div>
+  <div class="bOverlaySubtasks" id="subtasksContainer"></div>
 </div>
 <div class="bOverlaycontrolls">
   <div class="bOverlaycontrollsbutton">
