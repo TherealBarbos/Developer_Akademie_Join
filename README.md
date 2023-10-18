@@ -53,10 +53,22 @@
 ### Aufgaben
 
 - Git Repo erstellen
+
+![image]()
+  
 - Ordnerstrucktur aufbauen
+
+
+  
 - Summary
+
+![image]()
+
 - Board
-- css Imports
+
+![image]()
+  
+- CSS Imports
 ``` css
 /* Importieren Sie andere CSS-Dateien */
 
