@@ -32,10 +32,9 @@
 ### Aufgaben
 
 - Summary
-´´´html
-Join/assets/html/summary.html
-´´´
+summary.html
 - Board
+board.html
 - Help
 - Privacy Policy
 - Legal Notice
