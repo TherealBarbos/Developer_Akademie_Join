@@ -127,6 +127,25 @@ function toggleNameSubtask(i) {
       checkbox.src = '../img/checkbox-unchecked.png';
   }
 }
+// function displaySubtasks(index) {
+//   let id = todos.findIndex((item) => {
+//     return item.id == index;
+//   });
+//   if (todos[id].subtasks && todos[id].subtasks.length > 0) {
+//     const ul = document.createElement("ul");
+
+//     todos[id].subtasks.forEach((subtask) => {
+//       const li = document.createElement("li");
+//       li.textContent = subtask;
+//       ul.appendChild(li);
+//     });
+
+//     const subtasksContainer = document.getElementById("todos.subtasks");
+//     subtasksContainer.appendChild(ul);
+//   } else {
+//     console.log("no subtasks");
+//   }
+// }
 
 
 // Unix-Timestamp entschlüsseln

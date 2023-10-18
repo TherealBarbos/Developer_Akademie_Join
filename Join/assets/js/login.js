@@ -9,6 +9,8 @@ function login() {
     console.log(account);
     if (account) {
         console.log('Account gefunden');
+        setArray('name', account.name);
+        setArray('firstLetter', account.firstLetter);
         redirectToSummary();
     }
     clearLoginInputs();
