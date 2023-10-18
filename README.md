@@ -7,3 +7,38 @@
 ![GitHub Discussions](https://img.shields.io/github/discussions/TherealBarbos/Developer_Akademie_Join?logo=github)  
 ![GitHub](https://img.shields.io/github/license/TherealBarbos/Developer_Akademie_Join)  
 ![GitHub language count](https://img.shields.io/github/languages/count/TherealBarbos/Developer_Akademie_Join)  
+
+
+# Gruppenaufteilung
+
+## Ersan Bihorac
+
+### Aufgaben
+
+- Langdingpage
+- Log in
+- Sign up
+- Contacts / remote Storage
+
+## Oliver Härle
+
+### Aufgaben
+
+- Add task / remote Storage
+- Add task overlay Board
+
+## Manuel Kischel
+
+### Aufgaben
+
+- Summary
+´´´ html
+Join/assets/html/summary.html
+´´´
+- Board
+- Help
+- Privacy Policy
+- Legal Notice
+
+
+
