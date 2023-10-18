@@ -88,19 +88,45 @@ function showOverlay(index) {
     return item.id == index;
   });
   let overlay = document.getElementById("taskoverlay");
-  overlay.innerHTML = renderTask(todos[id]);
+  overlay.innerHTML = renderTask(todos[id], id);
   document.getElementById("boardHeader").classList.add("blurout");
   document.getElementById("board").classList.add("blurout");
   document.getElementById("overlay").classList.add("overlayposition");
   taskoverlay.classList.remove("d-none");
 
-  displaySubtasks(index);
+  displaySubtasks(index); // index = z.B.: 1698364123489791324514
 }
 
 // Task Overlay erzeugen
 
-// Subtasks filtern und als List darstellen
+// Subtasks filtern und als Liste darstellen
 
+function displaySubtasks(index) {
+  let id = todos.findIndex((item) => {
+    return item.id == index; //id = id des GESAMTEN Tasks
+  });
+  let container = document.getElementById(`subtask-list-container${id}`);
+  for (let i = 0; i < todos[id].subtasks.length; i++) {
+    const subtask = todos[id].subtasks[i];
+    container.innerHTML += `
+    <li class="subtaskListItem" onclick="toggleNameSubtask${i}"">
+      <img class="checkboxSubtask" id="checkboxSubtask${i}" src="../img/checkbox-unchecked.png">
+      <span>${subtask}<span>
+    </li>
+    `;
+  }
+}
+
+function toggleNameSubtask(i) {
+  let li = document.getElementById(`subtaskListItem${i}`);
+  let checkbox = document.getElementById(`checkboxSubtask${i}`);
+
+  if (checkbox.src.endsWith('checkbox-unchecked.png')) {
+      checkbox.src = '../img/checkbox-checked.png';
+  } else {
+      checkbox.src = '../img/checkbox-unchecked.png';
+  }
+}
 // function displaySubtasks(index) {
 //   let id = todos.findIndex((item) => {
 //     return item.id == index;
@@ -133,8 +159,8 @@ function formatDateToDDMMYYYY(dateString) {
   return `${day}/${month}/${year}`;
 }
 // Overlay rendern
-function renderTask(todo) {
-
+function renderTask(todo, id) {
+  
   const formattedDueDate = formatDateToDDMMYYYY(todo.dueDate);
   
   return `
@@ -161,9 +187,7 @@ function renderTask(todo) {
   Assigned To:
   <div class="bOverlayAssignedNames">${todo.assignedName}</div>
 </div>
-<div class="bOverlaySub">
-  Subtasks:
-  <div class="bOverlaySubtasks" id="subtasksContainer"></div>
+<ul id="subtask-list-container${id}" class="bOverlaySub"></ul> 
 </div>
 <div class="bOverlaycontrolls">
   <div class="bOverlaycontrollsbutton">
