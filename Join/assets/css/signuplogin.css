@@ -23,10 +23,11 @@
   }
   
   .login-logo {
+    position: absolute;
     height: 120px;
     width: 100px;
-    padding-left: 77px;
-    padding-top: 30px;
+    top: 100px;
+    left: 100px;
   }
   
   .login-logo-upper-part {
@@ -230,9 +231,7 @@
   }
   
   .signup-logo-upper-part {
-    display: flex;
-    justify-content: space-between;
-    padding-left: 30px;
+    height: 200px;
   }
   
   .signup-page {
