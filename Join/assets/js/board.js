@@ -1,4 +1,5 @@
 let todos = [];
+let counter = 0;
 
 let currentDraggedElement;
 
@@ -108,25 +109,28 @@ function displaySubtasks(index) {
   let container = document.getElementById(`subtask-list-container${id}`);
   for (let i = 0; i < todos[id].subtasks.length; i++) {
     const subtask = todos[id].subtasks[i];
+    SpecialID = id.toString() + i.toString();
     container.innerHTML += `
-    <li class="subtaskListItem" onclick="toggleNameSubtask${i}"">
-      <img class="checkboxSubtask" id="checkboxSubtask${i}" src="../img/checkbox-unchecked.png">
+    <li class="subtaskListItem" onclick="toggleNameSubtask(${SpecialID})">
+      <img class="checkboxSubtask" id="checkboxSubtask${SpecialID}" src="../img/checkbox-unchecked.png">
       <span>${subtask}<span>
     </li>
     `;
   }
 }
 
-function toggleNameSubtask(i) {
-  let li = document.getElementById(`subtaskListItem${i}`);
-  let checkbox = document.getElementById(`checkboxSubtask${i}`);
+function toggleNameSubtask(SpecialID) {
+  let checkbox = document.getElementById(`checkboxSubtask${SpecialID}`);
 
   if (checkbox.src.endsWith('checkbox-unchecked.png')) {
-      checkbox.src = '../img/checkbox-checked.png';
+      checkbox.src = '../img/checkbox-checked-black-stroke.svg';
+      counter++;
   } else {
       checkbox.src = '../img/checkbox-unchecked.png';
+      counter--;
   }
 }
+
 // function displaySubtasks(index) {
 //   let id = todos.findIndex((item) => {
 //     return item.id == index;
