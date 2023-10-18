@@ -2,6 +2,8 @@ let todos = [];
 
 let currentDraggedElement;
 
+const subtasksContainer = document.getElementById("subtasksContainer");
+
 // Load and disply CARDS
 
 function updateHTML() {
@@ -95,6 +97,29 @@ function showOverlay(index) {
 
 // Task Overlay erzeugen
 
+// Subtasks filtern und als List darstellen
+
+// function displaySubtasks(index) {
+//   let id = todos.findIndex((item) => {
+//     return item.id == index;
+//   });
+//   if (todos[id].subtasks && todos[id].subtasks.length > 0) {
+//     const ul = document.createElement("ul");
+
+//     todos[id].subtasks.forEach((subtask) => {
+//       const li = document.createElement("li");
+//       li.textContent = subtask;
+//       ul.appendChild(li);
+//     });
+
+//     const subtasksContainer = document.getElementById("subtasks");
+//     subtasksContainer.appendChild(ul);
+//   } else {
+//     console.log("no subtasks");
+//   }
+// }
+
+
 // Unix-Timestamp entschlüsseln
 function formatDateToDDMMYYYY(dateString) {
   const date = new Date(dateString);
@@ -135,8 +160,8 @@ function renderTask(todo) {
   <div class="bOverlayAssignedNames">${todo.assignedName}</div>
 </div>
 <div class="bOverlaySub">
-  Subtasks
-  <div class="bOverlaySubtasks"> ${todo.subtasks}</div>
+  Subtasks:
+  <div class="bOverlaySubtasks" id="subtasksContainer">${todo.id}</div>
 </div>
 <div class="bOverlaycontrolls">
   <div class="bOverlaycontrollsbutton">
