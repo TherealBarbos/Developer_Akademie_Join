@@ -188,7 +188,7 @@ ul {
   border-radius: 10px;
 }
 
-.contact-create-btn {
+.add-task-contact-create-btn {
   height: 46px;
   width: 408px;
   background-color: #2a3647;
@@ -205,7 +205,7 @@ ul {
   margin-bottom: 2px;
 }
 
-.contact-create-btn:hover {
+.add-task-contact-create-btn:hover {
   background-color: #29ABE2;
   box-shadow: 0px 4px 4px 0px #00000040;
   width: 408px;
@@ -529,6 +529,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .border-color {
   border: 1px solid #D1D1D1;
+}
+
+.border-color-red {
+  color: 1px solid #FF8190;
 }
 
 .border-color:focus {

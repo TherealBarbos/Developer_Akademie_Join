@@ -7,6 +7,17 @@ let contacts = [];
 let assignedToTask = [];
 let assignedInitial = [];
 
+function formValidation() {
+    const taskTitle = document.getElementById('task-title').value;
+    // const taskDescription = document.getElementById('task-description').value;
+    // const dueDateStr = document.getElementById('dueDate').value;
+    // const category = document.getElementById('category').value;
+
+    if (taskTitle.value = '') {
+        taskTitle.classList.add('red-border');
+    }
+}
+
 async function addTask() { // this fills the JSON array "allTasks" which holds the title, description, etc. of the task you want to add and saves them in the remote storage
     const uniqueID = new Date().getTime();
     const taskTitle = document.getElementById('task-title').value;
@@ -36,8 +47,6 @@ async function addTask() { // this fills the JSON array "allTasks" which holds t
     await setItem('allTasks', JSON.stringify(allTasks));
     clearInputs();
 }
-
-
 
 function clearInputs() {
     document.getElementById('task-title').value = '';
