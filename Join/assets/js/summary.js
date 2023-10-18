@@ -85,11 +85,11 @@ function greeting() {
   let greetingElement = document.getElementById('greeting');
 
   if (hours >= 12 && hours < 19) {
-    greetingElement.innerHTML = `Good afternoon, ${names}`;
+    greetingElement.innerHTML = `Good afternoon, <br><span class="summaryWelcomeTextName">${names}</span>`;
   } else if (hours >= 19) {
-    greetingElement.innerHTML = `Good evening,  ${names}`;
+    greetingElement.innerHTML = `Good evening, <br><span class="summaryWelcomeTextName">${names}</span> `;
   } else {
-    greetingElement.innerHTML = `Good morning, ${names}`;
+    greetingElement.innerHTML = `Good morning, <br><span class="summaryWelcomeTextName">${names}</span>`;
   }
 }
 
