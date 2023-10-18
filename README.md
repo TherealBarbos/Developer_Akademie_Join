@@ -63,7 +63,7 @@
 ### Wird vom einzelnen für seine Seite gelöst
 <a name="doku"></a>
 # Dokumentation
-###Das Ausarbeiten einer Dokumentation für ein Git-Projekt ist eine wichtige Aufgabe, um sicherzustellen, dass Entwickler und Teammitglieder das Projekt verstehen und effektiv zusammenarbeiten können. Hier ist eine Anleitung zur Erstellung einer Git-Dokumentation:
+### Das Ausarbeiten einer Dokumentation für ein Git-Projekt ist eine wichtige Aufgabe, um sicherzustellen, dass Entwickler und Teammitglieder das Projekt verstehen und effektiv zusammenarbeiten können. Hier ist eine Anleitung zur Erstellung einer Git-Dokumentation:
 
 #### Projektbeschreibung:
 Beginnen Sie Ihre Dokumentation mit einer allgemeinen Beschreibung des Projekts. Geben Sie einen kurzen Überblick darüber, worum es in Ihrem Git-Projekt geht und welche Ziele Sie verfolgen.
