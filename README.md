@@ -32,12 +32,12 @@
 ### Aufgaben
 
 - Summary
-summary.html
 - Board
-board.html
 - Help
 - Privacy Policy
 - Legal Notice
 
+## Responsive 
+### Wird vom einzelnen für seine Seite gelöst
 
 
