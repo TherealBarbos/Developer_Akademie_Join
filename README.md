@@ -8,9 +8,18 @@
 ![GitHub](https://img.shields.io/github/license/TherealBarbos/Developer_Akademie_Join)  
 ![GitHub language count](https://img.shields.io/github/languages/count/TherealBarbos/Developer_Akademie_Join)  
 
+# Übersicht
+- [Einleitung](#einleitung)
+- [Gruppenaufteilung](#gruppenaufteilung)
+	- [Ersan Bihorac](#ersan)
+	- [Oliver Härle](#oliver)
+	- [Manuel Kischel](#manu)	
+- [Schluß](#schluss)
 
+<a name="gruppenaufteilung"></a>
 # Gruppenaufteilung
 
+<a name="ersan"></a>
 ## Ersan Bihorac
 
 ### Aufgaben
@@ -20,6 +29,8 @@
 - Sign up
 - Contacts / remote Storage
 
+&uarr; [zurück zur Übersicht](#top)
+<a name="oliver"></a>
 ## Oliver Härle
 
 ### Aufgaben
@@ -27,6 +38,8 @@
 - Add task / remote Storage
 - Add task overlay Board
 
+&uarr; [zurück zur Übersicht](#top)
+<a name="manu"></a>
 ## Manuel Kischel
 
 ### Aufgaben
@@ -37,6 +50,7 @@
 - Privacy Policy
 - Legal Notice
 
+&uarr; [zurück zur Übersicht](#top)
 ## Responsive 
 ### Wird vom einzelnen für seine Seite gelöst
 
