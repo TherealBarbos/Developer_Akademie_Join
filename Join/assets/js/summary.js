@@ -9,7 +9,7 @@ async function summaryInit() {
   await loadTasks();
   updatesummary();
   greeting();
-
+  
 }
 // Laden des Remote-Storage
 
