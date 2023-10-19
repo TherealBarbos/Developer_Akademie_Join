@@ -11,6 +11,7 @@ function updateHTML() {
   showTaskListByState("inProgress");
   showTaskListByState("done");
   showTaskListByState("awaitFeedback");
+
 }
 // filter das Arry nach den Kategorien 
 function showTaskListByState(state) {
@@ -21,6 +22,7 @@ function showTaskListByState(state) {
   for (let index = 0; index < filteredTasksByState.length; index++) {
     const element = filteredTasksByState[index];
     document.getElementById(state).innerHTML += generateTaskCard(element);
+    displayassigenedName(element.id);
   }
   
 }
@@ -32,7 +34,8 @@ function startDregging(index) {
   currentDraggedElement = index;
   document.getElementById(`card-${index}`).classList.add("cardDragging");
 }
-// Generische Funktion zum Erzeugen der Task-Karten
+
+// Generische Funktion zum Erzeugen der Task-Karten^
 function generateTaskCard(task) {
   let doneTasksSum = 0;
   for (let i = 0; i < task.subtasks.subtaskDone.length; i++) {
@@ -47,12 +50,17 @@ function generateTaskCard(task) {
         <div class="cardTextII">${task.description}</div>
       </div>
       <div class="cardProgress">
-        <div class="cardProgressbar">${task.progressbar}</div>
+        <div class="cardProgressbar">
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: ${doneTasksSum / task.subtasks.subtaskContent.length * 100}%" aria-valuenow="${doneTasksSum}" aria-valuemin="0" aria-valuemax="${task.subtasks.subtaskContent.length}"></div>
+         </div>
+
+        </div>
         <div class="cardProgressText">${doneTasksSum}/${task.subtasks.subtaskContent.length} Subtasks</div>
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
-          <div class="assigned-initials" id="assignedNameContainer">${task.assignedInitials}</div>
+          <div class="assigned-initials" >${task.assignedInitial}</div>
         </div>
         <div class="cardContactsPrio">
           <img src="${task.priorityImageSource}" alt="" class="cardContactsPrioImg" />
@@ -83,17 +91,18 @@ function displayassigenedName(index) {
   let id = todos.findIndex((item) => {
     return item.id == index;
   });
-  if (todos[id].assignedInitials && todos[id].assignedInitials.length > 0) {
+
+  if (todos[id].assignedInitial && todos[id].assignedInitial.length > 0) {
     const ul = document.createElement("ul");
 
-    todos[id].subtasks.forEach((assignedInitials) => {
+    todos[id].assignedInitial.forEach((assignedInitial) => {
       const li = document.createElement("li");
-      li.textContent = assignedInitials;
+      li.textContent = assignedInitial;
       ul.appendChild(li);
     });
 
-    const subtasksContainer = document.getElementById("assignedNameContainer");
-    subtasksContainer.appendChild(ul);
+    const assignedNameContainerContainer = document.getElementById("assignedNameContainer");
+    assignedNameContainerContainer.appendChild(ul);
   } else {
     console.log("no contacts");
   }
