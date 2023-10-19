@@ -214,16 +214,16 @@
   align-items: center;
   justify-content: flex-start;
 }
-.cardContactsBadgeImg {
-  display: flex;
-  width: 32px;
-  height: 32px;
+.cardAssignedinitials {
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 45px;
-  background: var(--background-color);
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
 }
+
 .cardContactsPrio {
   display: flex;
   width: 32px;
@@ -246,4 +246,6 @@
   width: 17px;
   height: 6.333px;
   flex-shrink: 0;
+}
+.cardAssignedinitials {
 }

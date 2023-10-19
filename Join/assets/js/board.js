@@ -60,7 +60,7 @@ function generateTaskCard(task) {
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
-          <div class="assigned-initials" >${task.assignedInitial}</div>
+          <div class="cardAssignedinitials" >${task.assignedInitial}</div>
         </div>
         <div class="cardContactsPrio">
           <img src="${task.priorityImageSource}" alt="" class="cardContactsPrioImg" />
