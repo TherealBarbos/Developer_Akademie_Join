@@ -277,10 +277,14 @@ function transformIntoInput() { //this function activates the input field to add
 
 function addNewSubtaskToList() { // this function pushes added subtasks into an array and renders them into a list below the input field
     let newSubtask = document.getElementById('subtask-input').value;
+    
+    if (newSubtask != '') {
     SubtaskArray.subtaskContent.push(newSubtask);
     SubtaskArray.subtaskDone.push(0);
     renderSubtaskContainer();
-    revertBackToButton();
+    revertBackToButton();} else {
+        document.getElementById('is-required-subtask').classList.remove('d-none');
+    }
 }
 
 function renderSubtaskContainer() { // This function renders the list of subtasks. It is called when a Subtask is added or deleted.
