@@ -1,6 +1,5 @@
 let todos = [];
 
-
 let currentDraggedElement;
 
 const subtasksContainer = document.getElementById("subtasksContainer");
@@ -23,6 +22,7 @@ function showTaskListByState(state) {
     const element = filteredTasksByState[index];
     document.getElementById(state).innerHTML += generateTaskCard(element);
   }
+  
 }
 
 // Drag functuality
@@ -52,7 +52,7 @@ function generateTaskCard(task) {
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
-          <img src="${task.assignedName}" alt="" class="cardContactsBadgeImg" />
+          <div class="assigned-initials" id="assignedNameContainer">${task.assignedInitials}</div>
         </div>
         <div class="cardContactsPrio">
           <img src="${task.priorityImageSource}" alt="" class="cardContactsPrioImg" />
@@ -75,6 +75,28 @@ function moveTo(state) {
   updateHTML();
   setItem("allTasks", JSON.stringify(todos));
   unhighlight(state);
+}
+
+// Function für das Namen einbinden
+
+function displayassigenedName(index) {
+  let id = todos.findIndex((item) => {
+    return item.id == index;
+  });
+  if (todos[id].assignedInitials && todos[id].assignedInitials.length > 0) {
+    const ul = document.createElement("ul");
+
+    todos[id].subtasks.forEach((assignedInitials) => {
+      const li = document.createElement("li");
+      li.textContent = assignedInitials;
+      ul.appendChild(li);
+    });
+
+    const subtasksContainer = document.getElementById("assignedNameContainer");
+    subtasksContainer.appendChild(ul);
+  } else {
+    console.log("no contacts");
+  }
 }
 
 // Drag  styl- Effekte
@@ -103,6 +125,7 @@ function showOverlay(index) {
 }
 
 // Task Overlay erzeugen
+
 
 // Subtasks filtern und als Liste darstellen
 
