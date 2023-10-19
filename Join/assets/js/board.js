@@ -104,14 +104,14 @@ function showOverlay(index) {
 
 function displaySubtasks(index) {
   let id = todos.findIndex((item) => {
-    return item.id == index; //id = id des GESAMTEN Tasks
+    return item.id == index;
   });
   let container = document.getElementById(`subtask-list-container${id}`);
   for (let i = 0; i < todos[id].subtasks.length; i++) {
     const subtask = todos[id].subtasks[i];
-    SpecialID = id.toString() + i.toString();
+    SpecialID = 1 + id.toString() + i.toString();
     container.innerHTML += `
-    <li class="subtaskListItem" onclick="toggleNameSubtask(${SpecialID})">
+    <li class="subtaskListItem" onclick="toggleNameSubtask(${SpecialID, id, i})">
       <img class="checkboxSubtask" id="checkboxSubtask${SpecialID}" src="../img/checkbox-unchecked.png">
       <span>${subtask}<span>
     </li>
@@ -119,17 +119,23 @@ function displaySubtasks(index) {
   }
 }
 
-let counters = {};
+//id = id des GESAMTEN Tasks
+// specialID = ID des jeweiligen Subtasks
+// i = nur zum itterieren?
 
-function toggleNameSubtask(SpecialID) {
+function toggleNameSubtask(SpecialID, id , i) {
   let checkbox = document.getElementById(`checkboxSubtask${SpecialID}`);
+  console.log(SpecialID);
+  console.log(id);
+  console.log(i);
 
-  if (checkbox.src.endsWith('checkbox-unchecked.png')) {
-    checkbox.src = '../img/checkbox-checked-black-stroke.svg';
-  } else {
-    checkbox.src = '../img/checkbox-unchecked.png';
-  }
+    if (checkbox.src.endsWith('checkbox-unchecked.png')) {
+      checkbox.src = '../img/checkbox-checked-black-stroke.svg';
+    } else {
+      checkbox.src = '../img/checkbox-unchecked.png';
+    }
 }
+
 
 
 

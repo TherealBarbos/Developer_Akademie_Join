@@ -3,6 +3,7 @@ const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
 let allTasks = loadTasks();
 let SubtaskArray = [];
+let SubtaskStateCheck = []
 let contacts = [];
 let assignedToTask = [];
 let assignedInitial = [];
@@ -17,6 +18,7 @@ async function addTask() { // this fills the JSON array "allTasks" which holds t
     const prioritySource = getSelectedPriorityImageSource();
     const category = document.getElementById('category').value;
     const subtask = SubtaskArray;
+    let subtaskState = SubtaskStateCheck;
 
     let task = {
         'id': uniqueID,
@@ -30,6 +32,7 @@ async function addTask() { // this fills the JSON array "allTasks" which holds t
         'priorityImageSource': prioritySource,
         'category': category,
         'subtasks': subtask,
+        'stateCheck': subtaskState
     }
 
     allTasks.push(task);
@@ -274,6 +277,7 @@ function transformIntoInput() { //this function activates the input field to add
 function addNewSubtaskToList() { // this function pushes added subtasks into an array and renders them into a list below the input field
     let newSubtask = document.getElementById('subtask-input').value;
     SubtaskArray.push(newSubtask);
+    SubtaskStateCheck.push(0);
     renderSubtaskContainer();
     revertBackToButton();
 }
