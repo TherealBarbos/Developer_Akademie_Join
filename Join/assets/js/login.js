@@ -17,6 +17,8 @@ function login() {
 }
 
 function guestLogin() {
+    setArray('name', 'Guest');
+    setArray('firstLetter', 'GU');
     redirectToSummary();
 }
 
