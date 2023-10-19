@@ -206,8 +206,8 @@
 }
 .cardContactsBadge {
   display: flex;
-  align-items: flex-start;
-  gap: -8px;
+  align-items: center;
+  justify-content: flex-start; 
 }
 .cardContactsBadgeImg {
   display: flex;

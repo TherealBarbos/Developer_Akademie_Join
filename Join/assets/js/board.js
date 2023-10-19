@@ -11,6 +11,7 @@ function updateHTML() {
   showTaskListByState("inProgress");
   showTaskListByState("done");
   showTaskListByState("awaitFeedback");
+
 }
 // filter das Arry nach den Kategorien 
 function showTaskListByState(state) {
@@ -21,6 +22,7 @@ function showTaskListByState(state) {
   for (let index = 0; index < filteredTasksByState.length; index++) {
     const element = filteredTasksByState[index];
     document.getElementById(state).innerHTML += generateTaskCard(element);
+    // displayassigenedName(element.id);
   }
   
 }
@@ -32,7 +34,8 @@ function startDregging(index) {
   currentDraggedElement = index;
   document.getElementById(`card-${index}`).classList.add("cardDragging");
 }
-// Generische Funktion zum Erzeugen der Task-Karten
+
+// Generische Funktion zum Erzeugen der Task-Karten^
 function generateTaskCard(task) {
   let doneTasksSum = 0;
   for (let i = 0; i < task.subtasks.subtaskDone.length; i++) {
@@ -52,7 +55,7 @@ function generateTaskCard(task) {
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
-          <div class="assigned-initials" id="assignedNameContainer">${task.assignedInitials}</div>
+          <div class="assigned-initials" >${task.assignedInitial}</div>
         </div>
         <div class="cardContactsPrio">
           <img src="${task.priorityImageSource}" alt="" class="cardContactsPrioImg" />
@@ -79,25 +82,26 @@ function moveTo(state) {
 
 // Function für das Namen einbinden
 
-function displayassigenedName(index) {
-  let id = todos.findIndex((item) => {
-    return item.id == index;
-  });
-  if (todos[id].assignedInitials && todos[id].assignedInitials.length > 0) {
-    const ul = document.createElement("ul");
+// function displayassigenedName(index) {
+//   let id = todos.findIndex((item) => {
+//     return item.id == index;
+//   });
 
-    todos[id].subtasks.forEach((assignedInitials) => {
-      const li = document.createElement("li");
-      li.textContent = assignedInitials;
-      ul.appendChild(li);
-    });
+//   if (todos[id].assignedInitial && todos[id].assignedInitial.length > 0) {
+//     const ul = document.createElement("ul");
 
-    const subtasksContainer = document.getElementById("assignedNameContainer");
-    subtasksContainer.appendChild(ul);
-  } else {
-    console.log("no contacts");
-  }
-}
+//     todos[id].assignedInitial.forEach((assignedInitial) => {
+//       const li = document.createElement("li");
+//       li.textContent = assignedInitial;
+//       ul.appendChild(li);
+//     });
+
+//     const assignedNameContainerContainer = document.getElementById("assignedNameContainer");
+//     assignedNameContainerContainer.appendChild(ul);
+//   } else {
+//     console.log("no contacts");
+//   }
+// }
 
 // Drag  styl- Effekte
 function highlight(index) {
