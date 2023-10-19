@@ -1,8 +1,8 @@
 .contact-list {
-    position: fixed;
+    position: absolute;
     left: 240px;
-    top: 209px;
-    height: 723px;
+    top: 25%;
+    height: 75%;
     width: 450px;
     background: white;
     overflow-y: auto;
@@ -56,10 +56,14 @@
 .add-btn-bg {
     position: absolute;
     left: 240px;
-    top: 93px;
-    padding: 34px 21px;
+    top: 10%;
     background-color: white;
     box-shadow: 4px 0px 6px 0px #00000014;
+    height: 15%;
+    width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .text {
@@ -157,7 +161,7 @@
     display: flex;
     flex-direction: column;
     width: 600px;
-    height: 365px;
+    max-height: 365px;
     gap: 20px;
 }
 
@@ -357,7 +361,7 @@
         position: absolute;
         left: 0;
         top: 10%;
-        height: 80%;
+        height: 81%;
         width: 100%;
         background: white;
         overflow-y: auto;

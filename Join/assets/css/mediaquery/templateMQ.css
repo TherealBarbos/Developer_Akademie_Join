@@ -9,6 +9,7 @@
     height: 80px;
     width: 100vw;
     padding: 1.5rem 0 1.5rem 0;
+    z-index: 2;
   }
 
   .left-side-logo {
@@ -43,6 +44,12 @@
   .left-side-menu-btn img {
     height: 28px;
     width: 28px;
+  }
+
+  .header {
+    max-height: 8rem;
+    width: 100vw;
+    z-index: 1;
   }
 }
 
