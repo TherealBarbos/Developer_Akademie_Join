@@ -2,8 +2,10 @@ const STORAGE_TOKEN = '4AVD74O6ONTUSWYBIKRAF3SC5B2U9YW3OCE1JRVE';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
 let allTasks = loadTasks();
-let SubtaskArray = [];
-let SubtaskStateCheck = []
+let SubtaskArray = {
+    'subtaskContent': [],
+    'subtaskDone': []
+};
 let contacts = [];
 let assignedToTask = [];
 let assignedInitial = [];
@@ -18,7 +20,7 @@ async function addTask() { // this fills the JSON array "allTasks" which holds t
     const prioritySource = getSelectedPriorityImageSource();
     const category = document.getElementById('category').value;
     const subtask = SubtaskArray;
-    let subtaskState = SubtaskStateCheck;
+
 
     let task = {
         'id': uniqueID,
@@ -32,7 +34,6 @@ async function addTask() { // this fills the JSON array "allTasks" which holds t
         'priorityImageSource': prioritySource,
         'category': category,
         'subtasks': subtask,
-        'stateCheck': subtaskState
     }
 
     allTasks.push(task);
@@ -53,7 +54,7 @@ function clearInputs() {
     document.getElementById('low-img').src = '../img/low_no_bg.svg';
     document.getElementById('category').value = '';
     document.getElementById('subtask-list').innerHTML = '';
-    SubtaskArray = [];
+    SubtaskArray = {};
     renderSubtaskContainer;
     const subtaskinput = document.getElementById('subtask-input');
     if (subtaskinput) {
@@ -276,8 +277,8 @@ function transformIntoInput() { //this function activates the input field to add
 
 function addNewSubtaskToList() { // this function pushes added subtasks into an array and renders them into a list below the input field
     let newSubtask = document.getElementById('subtask-input').value;
-    SubtaskArray.push(newSubtask);
-    SubtaskStateCheck.push(0);
+    SubtaskArray.subtaskContent.push(newSubtask);
+    SubtaskArray.subtaskDone.push(0);
     renderSubtaskContainer();
     revertBackToButton();
 }
@@ -285,8 +286,8 @@ function addNewSubtaskToList() { // this function pushes added subtasks into an 
 function renderSubtaskContainer() { // This function renders the list of subtasks. It is called when a Subtask is added or deleted.
     let subtaskContainer = document.getElementById('subtask-list');
     subtaskContainer.innerHTML = '';
-    for (let i = 0; i < SubtaskArray.length; i++) {
-        const addedTask = SubtaskArray[i];
+    for (let i = 0; i < SubtaskArray.subtaskContent.length; i++) {
+        const addedTask = SubtaskArray.subtaskContent[i];
         subtaskContainer.innerHTML +=
             `<li id="subtaskListItem${i}" class="addsubtask-list-element">
             <div style="display: flex; align-items: center; gap: 8px;">
@@ -323,12 +324,12 @@ function editSubtaskItem(i) { // this function allows the user to edit the text 
 
 function acceptChanges(i) { // this function replaces the old subtask with the edited one in the SubtaskArray and calls the function to revert the list item
     let replacingElement = document.getElementById(`readonly-Input${i}`).value;
-    SubtaskArray.splice(i, 1, replacingElement);
+    SubtaskArray.subtaskContent.splice(i, 1, replacingElement);
     renderSubtaskContainer();
 }
 
 function deleteSubtaskItem(i) {
-    SubtaskArray.splice(i, 1);
+    SubtaskArray.subtaskContent.splice(i, 1);
     renderSubtaskContainer();
 }
 

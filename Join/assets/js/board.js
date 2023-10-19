@@ -44,7 +44,7 @@ function generateTaskCard(task) {
       </div>
       <div class="cardProgress">
         <div class="cardProgressbar">${task.progressbar}</div>
-        <div class="cardProgressText">/${task.subtasks.length} Subtasks</div>
+        <div class="cardProgressText">/${task.subtasks.subtaskContent.length} Subtasks</div>
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
@@ -107,11 +107,11 @@ function displaySubtasks(index) {
     return item.id == index;
   });
   let container = document.getElementById(`subtask-list-container${id}`);
-  for (let i = 0; i < todos[id].subtasks.length; i++) {
-    const subtask = todos[id].subtasks[i];
+  for (let i = 0; i < todos[id].subtasks.subtaskContent.length; i++) {
+    const subtask = todos[id].subtasks.subtaskContent[i];
     SpecialID = 1 + id.toString() + i.toString();
     container.innerHTML += `
-    <li class="subtaskListItem" onclick="toggleNameSubtask(${SpecialID, id, i})">
+    <li class="subtaskListItem" onclick="toggleNameSubtask(${SpecialID})">
       <img class="checkboxSubtask" id="checkboxSubtask${SpecialID}" src="../img/checkbox-unchecked.png">
       <span>${subtask}<span>
     </li>
@@ -123,11 +123,9 @@ function displaySubtasks(index) {
 // specialID = ID des jeweiligen Subtasks
 // i = nur zum itterieren?
 
-function toggleNameSubtask(SpecialID, id , i) {
+function toggleNameSubtask(SpecialID) {
   let checkbox = document.getElementById(`checkboxSubtask${SpecialID}`);
   console.log(SpecialID);
-  console.log(id);
-  console.log(i);
 
     if (checkbox.src.endsWith('checkbox-unchecked.png')) {
       checkbox.src = '../img/checkbox-checked-black-stroke.svg';
