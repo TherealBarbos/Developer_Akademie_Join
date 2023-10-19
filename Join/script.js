@@ -1,3 +1,5 @@
+let UserFirstLetter = []
+
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
     for (let i = 0; i < includeElements.length; i++) {
@@ -10,4 +12,18 @@ async function includeHTML() {
             element.innerHTML = 'Page not found';
         }
     }
+    pasteFirstLetter();
+}
+
+function pasteFirstLetter() {
+    let box = document.getElementById('firstletterbox');
+    firstletter = getArray('firstLetter');
+    UserFirstLetter.push(firstletter);
+
+    box.innerHTML = '';
+    box.innerHTML = `${UserFirstLetter}`;
+}
+
+function getArray(key) {
+    return JSON.parse(localStorage.getItem(key));
 }

@@ -179,6 +179,8 @@
   gap: 11px;
 }
 .cardProgressbar {
+  border-radius: 8px;
+  background-color: #F4F4F4;
   display: flex;
   width: 128px;
   padding-right: 0px;
@@ -186,16 +188,8 @@
   justify-content: center;
   align-items: flex-start;
   gap: 10px;
-  border-radius: 8px;
-  background: #f4f4f4;
-}
-.progress-bar {
-  background-color: var(--background-color);
 }
 
-.progress-bar::before {
-  background-color: var(--join-color);
-}
 .cardProgressText {
   color: var(--primary-color);
   font-size: 12px;
@@ -214,16 +208,16 @@
   align-items: center;
   justify-content: flex-start;
 }
-.cardContactsBadgeImg {
-  display: flex;
-  width: 32px;
-  height: 32px;
+.cardAssignedinitials {
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 45px;
-  background: var(--background-color);
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
 }
+
 .cardContactsPrio {
   display: flex;
   width: 32px;
@@ -247,3 +241,5 @@
   height: 6.333px;
   flex-shrink: 0;
 }
+/* .cardAssignedinitials {
+} */
