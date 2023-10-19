@@ -1,5 +1,5 @@
 let todos = [];
-let counter = 0;
+
 
 let currentDraggedElement;
 
@@ -119,17 +119,19 @@ function displaySubtasks(index) {
   }
 }
 
+let counters = {};
+
 function toggleNameSubtask(SpecialID) {
   let checkbox = document.getElementById(`checkboxSubtask${SpecialID}`);
 
   if (checkbox.src.endsWith('checkbox-unchecked.png')) {
-      checkbox.src = '../img/checkbox-checked-black-stroke.svg';
-      counter++;
+    checkbox.src = '../img/checkbox-checked-black-stroke.svg';
   } else {
-      checkbox.src = '../img/checkbox-unchecked.png';
-      counter--;
+    checkbox.src = '../img/checkbox-unchecked.png';
   }
 }
+
+
 
 // function displaySubtasks(index) {
 //   let id = todos.findIndex((item) => {
