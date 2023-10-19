@@ -196,7 +196,6 @@
   background-color: #f4f4f4;
   overflow: hidden;
 }
-
 .progress-bar::before {
   content: "";
   display: block;

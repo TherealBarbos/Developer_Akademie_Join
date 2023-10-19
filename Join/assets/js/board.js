@@ -50,13 +50,13 @@ function generateTaskCard(task) {
         <div class="cardTextII">${task.description}</div>
       </div>
       <div class="cardProgress">
-        <div class="cardProgressbar" role="progressbar" style="width: ${doneTasksSum / task.subtasks.subtaskContent.length * 100}%" aria-valuenow="${doneTasksSum}" aria-valuemin="0" aria-valuemax="${task.subtasks.subtaskContent.length}">
+        <div class="cardProgressbar" style="width: ${doneTasksSum / task.subtasks.subtaskContent.length * 100}%" aria-valuenow="${doneTasksSum}" aria-valuemin="0" aria-valuemax="${task.subtasks.subtaskContent.length}">
         </div>
         <div class="cardProgressText">${doneTasksSum}/${task.subtasks.subtaskContent.length} Subtasks</div>
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
-          <div class="cardAssignedinitials" >${task.assignedInitial}</div>
+          <div class="assigned-initials color1" >${task.assignedInitial}</div>
         </div>
         <div class="cardContactsPrio">
           <img src="${task.priorityImageSource}" alt="" class="cardContactsPrioImg" />
