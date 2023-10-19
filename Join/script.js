@@ -1,5 +1,5 @@
 let UserFirstLetter = []
-
+let MenuToggle = false;
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
     for (let i = 0; i < includeElements.length; i++) {
@@ -26,4 +26,19 @@ function pasteFirstLetter() {
 
 function getArray(key) {
     return JSON.parse(localStorage.getItem(key));
+}
+
+function displayLogoutMenu() {
+    let menu = document.getElementById('logout-menu');
+    let box = document.getElementById('firstletterbox');
+
+    if (!MenuToggle) {
+        box.classList.add('grey-bg');
+        menu.classList.remove('d-none');
+        MenuToggle = true;
+    } else if (MenuToggle) {
+        box.classList.remove('grey-bg');
+        menu.classList.add('d-none');
+        MenuToggle = false;
+    }
 }
