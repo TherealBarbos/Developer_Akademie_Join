@@ -34,6 +34,10 @@ function startDregging(index) {
 }
 // Generische Funktion zum Erzeugen der Task-Karten
 function generateTaskCard(task) {
+  let doneTasksSum = 0;
+  for (let i = 0; i < task.subtasks.subtaskDone.length; i++) {
+    doneTasksSum += task.subtasks.subtaskDone[i];
+  }
 
   return ` <div id="card-${task.id}" class="card" draggable="true" ondragstart="startDregging('${task.id}')" onclick="showOverlay('${task.id}')">
     <div class="cardFrame">
@@ -44,7 +48,7 @@ function generateTaskCard(task) {
       </div>
       <div class="cardProgress">
         <div class="cardProgressbar">${task.progressbar}</div>
-        <div class="cardProgressText">/${task.subtasks.subtaskContent.length} Subtasks</div>
+        <div class="cardProgressText">${doneTasksSum}/${task.subtasks.subtaskContent.length} Subtasks</div>
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
@@ -111,27 +115,34 @@ function displaySubtasks(index) {
     const subtask = todos[id].subtasks.subtaskContent[i];
     SpecialID = 1 + id.toString() + i.toString();
     container.innerHTML += `
-    <li class="subtaskListItem" onclick="toggleNameSubtask(${SpecialID})">
-      <img class="checkboxSubtask" id="checkboxSubtask${SpecialID}" src="../img/checkbox-unchecked.png">
+    <li class="subtaskListItem" onclick="toggleNameSubtask(${SpecialID}, ${id}, ${i})">
+      <img src="${getImage(id, i)}" class="checkboxSubtask" id="checkboxSubtask${SpecialID}">
       <span>${subtask}<span>
     </li>
     `;
   }
 }
 
-//id = id des GESAMTEN Tasks
-// specialID = ID des jeweiligen Subtasks
-// i = nur zum itterieren?
+function getImage(id, i) {
+  if (todos[id].subtasks.subtaskDone[i] == 0) {
+    return '../img/checkbox-unchecked.png';
+  } else {
+    return '../img/checkbox-checked-black-stroke.svg'
+  };
+}
 
-function toggleNameSubtask(SpecialID) {
+function toggleNameSubtask(SpecialID, id, i) {
   let checkbox = document.getElementById(`checkboxSubtask${SpecialID}`);
-  console.log(SpecialID);
 
-    if (checkbox.src.endsWith('checkbox-unchecked.png')) {
+    if (todos[id].subtasks.subtaskDone[i] == 0) {
+      todos[id].subtasks.subtaskDone[i] = 1;
       checkbox.src = '../img/checkbox-checked-black-stroke.svg';
     } else {
+      todos[id].subtasks.subtaskDone[i] = 0;
       checkbox.src = '../img/checkbox-unchecked.png';
     }
+    console.log(todos[id].subtasks.subtaskDone);
+    setItem("allTasks", JSON.stringify(todos));
 }
 
 
@@ -237,6 +248,7 @@ function closeOverlay() {
   document.getElementById("board").classList.remove("blurout");
   document.getElementById("overlay").classList.remove("overlayposition");
   taskoverlay.classList.add("d-none");
+  updateHTML();
 }
 
 // Overlay Task Edit
