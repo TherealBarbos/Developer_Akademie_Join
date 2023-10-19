@@ -22,7 +22,7 @@ function showTaskListByState(state) {
   for (let index = 0; index < filteredTasksByState.length; index++) {
     const element = filteredTasksByState[index];
     document.getElementById(state).innerHTML += generateTaskCard(element);
-    // displayassigenedName(element.id);
+    displayassigenedName(element.id);
   }
   
 }
@@ -50,7 +50,12 @@ function generateTaskCard(task) {
         <div class="cardTextII">${task.description}</div>
       </div>
       <div class="cardProgress">
-        <div class="cardProgressbar">${task.progressbar}</div>
+        <div class="cardProgressbar">
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: ${doneTasksSum / task.subtasks.subtaskContent.length * 100}%" aria-valuenow="${doneTasksSum}" aria-valuemin="0" aria-valuemax="${task.subtasks.subtaskContent.length}"></div>
+         </div>
+
+        </div>
         <div class="cardProgressText">${doneTasksSum}/${task.subtasks.subtaskContent.length} Subtasks</div>
       </div>
       <div class="cardContacts">
@@ -82,26 +87,26 @@ function moveTo(state) {
 
 // Function für das Namen einbinden
 
-// function displayassigenedName(index) {
-//   let id = todos.findIndex((item) => {
-//     return item.id == index;
-//   });
+function displayassigenedName(index) {
+  let id = todos.findIndex((item) => {
+    return item.id == index;
+  });
 
-//   if (todos[id].assignedInitial && todos[id].assignedInitial.length > 0) {
-//     const ul = document.createElement("ul");
+  if (todos[id].assignedInitial && todos[id].assignedInitial.length > 0) {
+    const ul = document.createElement("ul");
 
-//     todos[id].assignedInitial.forEach((assignedInitial) => {
-//       const li = document.createElement("li");
-//       li.textContent = assignedInitial;
-//       ul.appendChild(li);
-//     });
+    todos[id].assignedInitial.forEach((assignedInitial) => {
+      const li = document.createElement("li");
+      li.textContent = assignedInitial;
+      ul.appendChild(li);
+    });
 
-//     const assignedNameContainerContainer = document.getElementById("assignedNameContainer");
-//     assignedNameContainerContainer.appendChild(ul);
-//   } else {
-//     console.log("no contacts");
-//   }
-// }
+    const assignedNameContainerContainer = document.getElementById("assignedNameContainer");
+    assignedNameContainerContainer.appendChild(ul);
+  } else {
+    console.log("no contacts");
+  }
+}
 
 // Drag  styl- Effekte
 function highlight(index) {

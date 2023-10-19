@@ -80,7 +80,6 @@
   display: flex;
   justify-content: space-between;
   margin-top: 3rem;
-
 }
 .boardTitelBox {
   display: flex;
@@ -93,7 +92,6 @@
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
-
 }
 .boardTitelBoxButton {
   display: flex;
@@ -107,7 +105,7 @@
 .drag {
   display: flex;
   flex-direction: column;
-  min-height: 35rem ;
+  min-height: 35rem;
   min-width: 15rem;
   gap: 24px;
 }
@@ -191,6 +189,13 @@
   border-radius: 8px;
   background: #f4f4f4;
 }
+.progress-bar {
+  background-color: var(--background-color);
+}
+
+.progress-bar::before {
+  background-color: var(--join-color);
+}
 .cardProgressText {
   color: var(--primary-color);
   font-size: 12px;
@@ -207,7 +212,7 @@
 .cardContactsBadge {
   display: flex;
   align-items: center;
-  justify-content: flex-start; 
+  justify-content: flex-start;
 }
 .cardContactsBadgeImg {
   display: flex;
