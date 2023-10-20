@@ -40,8 +40,7 @@ function generateTaskCard(task) {
   let doneTasksSum = 0;
   for (let i = 0; i < task.subtasks.subtaskDone.length; i++) {
     doneTasksSum += task.subtasks.subtaskDone[i];
-  }
-
+  };
   return ` <div id="card-${task.id}" class="card" draggable="true" ondragstart="startDregging('${task.id}')" onclick="showOverlay('${task.id}')">
     <div class="cardFrame">
       <div class="cardLable">${task.category}</div>
@@ -49,7 +48,7 @@ function generateTaskCard(task) {
         <div class="cardTextI">${task.title}</div>
         <div class="cardTextII">${task.description}</div>
       </div>
-      <div class="cardProgress">
+      <div id="card-subtask-${task.id}" class="cardProgress">
         <div class="cardProgressbar">
           <div class="progress">
            <div class="progress-bar" role="progressbar" style="width: ${doneTasksSum / task.subtasks.subtaskContent.length * 100}%" aria-valuenow="${doneTasksSum}" aria-valuemin="0" aria-valuemax="${task.subtasks.subtaskContent.length}"></div>
@@ -59,7 +58,7 @@ function generateTaskCard(task) {
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
-          <div class="assigned-initials color1" >${task.assignedInitial}</div>
+          <div class="assigned-initials color1">${task.assignedInitial}</div>
         </div>
         <div class="cardContactsPrio">
           <img src="${task.priorityImageSource}" alt="" class="cardContactsPrioImg" />
