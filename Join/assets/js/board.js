@@ -52,7 +52,7 @@ function generateTaskCard(task) {
       <div class="cardProgress">
         <div class="cardProgressbar">
           <div class="progress">
-           <div class="progress-bar" role="progressbar" style="width: ${doneTasksSum / task.subtasks.subtaskContent.length * 100}%" aria-valuenow="${doneTasksSum}" aria-valuemin="0" aria-valuemax="${task.subtasks.subtaskContent.length}"></div>
+           <div class="progress-bar" role="progressbar" style="width: ${doneTasksSum / task.subtasks.subtaskContent.length * 100}%; height: 15px; border-radius: 8px;" aria-valuenow="${doneTasksSum}" aria-valuemin="0" aria-valuemax="${task.subtasks.subtaskContent.length}"></div>
           </div>
         </div>
          <div class="cardProgressText">${doneTasksSum}/${task.subtasks.subtaskContent.length} Subtasks</div>
