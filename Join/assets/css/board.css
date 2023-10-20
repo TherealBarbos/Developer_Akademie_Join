@@ -175,21 +175,31 @@
 .cardProgress {
   display: flex;
   padding: 0px 8px 2px 0px;
-  align-items: center;
   gap: 11px;
 }
 .cardProgressbar {
   border-radius: 8px;
   background-color: #F4F4F4;
-  display: flex;
   width: 128px;
   padding-right: 0px;
+}
+::after {
+  box-sizing: border-box;
+}
+::before {
+  box-sizing: border-box;
+}
+.progress-bar {
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  gap: 10px;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #007bff;
+  transition: width .6s ease;
 }
-
 .cardProgressText {
   color: var(--primary-color);
   font-size: 12px;
