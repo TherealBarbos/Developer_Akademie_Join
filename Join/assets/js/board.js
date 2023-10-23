@@ -211,7 +211,7 @@ function formatDateToDDMMYYYY(dateString) {
 }
 // Overlay rendern
 function renderTask(todo, id) {
-  
+  console.log(id);
   const formattedDueDate = formatDateToDDMMYYYY(todo.dueDate);
   
   return `
@@ -230,7 +230,7 @@ function renderTask(todo, id) {
       </svg>
   </div>
 </div>
-<div class="bOverlayTitle">${todo.title}</div>
+<div ${todo.title} class="bOverlayTitle">${todo.title}</div>
 <div class="bOverlayText">${todo.description}</div>
 <div class="bOverlayText">Due date: ${formattedDueDate}</div>
 <div class="bOverlayText bOverlayuppercase">Priority:${todo.priority}<img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" /></div>
@@ -267,10 +267,10 @@ function renderTask(todo, id) {
                   fill="#2A3647" />
           </g>
       </svg>
-      <div class="bOverlaycontrollsText">Edit</div>
-  </div>    
+      <div class="bOverlaycontrollsText" onclick="editTask(${id})">Edit</div>
+  </div>
 `;
-}
+};
 
 // Overlay Schließen
 function closeOverlay() {
@@ -279,13 +279,6 @@ function closeOverlay() {
   document.getElementById("overlay").classList.remove("overlayposition");
   taskoverlay.classList.add("d-none");
   updateHTML();
-}
-
-// Overlay Task Edit
-function editTask(index) {
-  let id = todos.findIndex((item) => {
-    return item.id == index;
-  });
 }
 
 // Overlay Task Delete

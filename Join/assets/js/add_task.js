@@ -338,6 +338,7 @@ function acceptChanges(i) { // this function replaces the old subtask with the e
 
 function deleteSubtaskItem(i) {
     SubtaskArray.subtaskContent.splice(i, 1);
+    SubtaskArray.subtaskDone.splice(i, 1);
     renderSubtaskContainer();
 }
 
