@@ -261,18 +261,22 @@ function transformIntoInput() { //this function activates the input field to add
     const input = document.createElement('div');
     input.placeholder = 'Add Subtask';
     input.innerHTML = `
-    <form>
     <div id="subtask" class="subtask-button border-radius-6">
-        <input required id="subtask-input" class="subtask-input" placeholder="Contact Form">
+        <input onkeyup="handleKeyUp(event)" id="subtask-input" class="subtask-input" placeholder="Contact Form">
         <div>
             <img onclick="revertBackToButton()" class="exit" id="exit" src="../img/cancel.png">
             <img onclick="addNewSubtaskToList()" class="tick" id="tick" src="../img/check.png">
         </div>
-    </div>
-    </form>`;
+    </div>`;
 
     subtaskButton.replaceWith(input);
     document.getElementById('subtask-input').focus();
+}
+
+function handleKeyUp(event) {
+    if (event.key === 'Enter' || event.keyCode === 13) {
+        addNewSubtaskToList();
+    }
 }
 
 function addNewSubtaskToList() { // this function pushes added subtasks into an array and renders them into a list below the input field
@@ -432,3 +436,4 @@ async function getItem(key) {
 }
 
 document.addEventListener("click", hideContactSelect);
+
