@@ -281,4 +281,4 @@ function getEditedPrioritySource(id) {
     }
 }
 
-document.addEventListener("click", closeOverlay());
+// document.addEventListener("click", closeOverlay());
