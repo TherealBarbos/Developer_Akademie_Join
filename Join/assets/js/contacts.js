@@ -1,6 +1,21 @@
 let contacts = []
 let letters = []
 let buttonEditDelete = false;
+let addcontactOverlay = document.getElementById("addcontact-overlay");
+let editcontactOverlay = document.getElementById("editcontact-overlay");
+
+editcontactOverlay.addEventListener("click", function (event) {
+    if (event.target === editcontactOverlay) {
+        redirectEditContactToContacts();
+    }
+});
+
+addcontactOverlay.addEventListener("click", function (event) {
+    if (event.target === addcontactOverlay) {
+        redirectAddContactToContacts();
+    }
+});
+
 
 function displayEditDeleteContact() {
     if (buttonEditDelete == false) {
@@ -22,7 +37,7 @@ function returnToContactList() {
 
 function redirectEditContactToContacts() {
     document.getElementById('editcontact').classList.add('d-none');
-    document.getElementById('editcontact').classList.remove('bg-gray');
+    document.getElementById('editcontact-overlay').classList.remove('bg-gray');
     loadContacts();
     displayContacts();
     document.getElementById('details').innerHTML = '';
@@ -35,12 +50,16 @@ function redirectEditContactToContacts() {
 
 function redirectAddContactToContacts() {
     document.getElementById('addcontact').classList.add('d-none');
-    document.getElementById('addcontact').classList.remove('bg-gray');
+    document.getElementById('addcontact-overlay').classList.remove('bg-gray');
     loadContacts();
     displayContacts();
     document.getElementById('details').innerHTML = '';
 }
 
+function openAddContact() {
+    document.getElementById('addcontact').classList.remove('d-none');
+    document.getElementById('addcontact-overlay').classList.add('bg-gray');
+}
 
 /**
  * this function is used to log in the person. it checks if the email and password exists.
@@ -66,7 +85,9 @@ async function addContact() {
         await setItem('contacts', JSON.stringify(contacts));
     }
     clearLoginInputs();
+    redirectAddContactToContacts();
 }
+
 
 /**
  * this function is used to clear the Input fields from the Sign up page
@@ -83,11 +104,6 @@ async function load() {
     loadAccounts();
     collectLetters();
     displayContacts();
-}
-
-function openAddContact() {
-    document.getElementById('addcontact').classList.remove('d-none');
-    document.getElementById('addcontact').classList.add('bg-gray');
 }
 
 function deleteContact(index) {
@@ -109,7 +125,7 @@ function setArray(key, array) {
 
 function editContact(index) {
     document.getElementById('editcontact').classList.remove('d-none');
-    document.getElementById('editcontact').classList.add('bg-gray');
+    document.getElementById('editcontact-overlay').classList.add('bg-gray');
     setContactValues(index);
     document.getElementById('EditContactFirstLettersColor').classList.add(`color${contacts[index]['colorId']}`);
     document.getElementById('EditContactFirstLettersColor').classList.add('editContactLetter');
