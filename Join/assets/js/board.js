@@ -256,7 +256,7 @@ function renderTask(todo, id) {
       </svg>
       <div class="bOverlaycontrollsText" onclick="deleteTask(${todo.id})">Delete</div>
   </div>
-  <div class="bOverlaycontrollsbutton">
+  <div onclick="editTask(${id})" class="bOverlaycontrollsbutton">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <mask index="mask0_93030_4276" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24"
               height="24">

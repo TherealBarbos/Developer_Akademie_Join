@@ -54,7 +54,7 @@ function editTask(id) {
         <button class="subtask-button-inactive-edit width100 border-radius-6" onclick="transformIntoInputEdit(${id})"
             id="add-subtask-button-edit${id}">
             <span> Add new subtask </span>
-            <img src="../img/addtask.png" class="plus-sign-edit${id}" id="plus-sign-edit${id}">
+            <img src="../img/add.svg" class="plus-sign-edit${id}" id="plus-sign-edit${id}">
         </button>
         <span id="is-required-subtask${id}" class="is-required d-none"> Field cannot be empty </span>
     </div>
@@ -83,8 +83,8 @@ function transformIntoInputEdit(id) {
     <div id="subtask-edit${id}" class="subtask-button border-radius-6">
         <input onkeyup="handleKeyUp(event)" id="subtask-input-edit${id}" class="subtask-input" placeholder="Contact Form">
         <div class="little-flex">
-            <img onclick="revertBackToButtonEdit(${id})" class="exit" id="exit" src="../img/cancel.png">
-            <img onclick="addNewSubtaskToListEdit(${id})" class="tick" id="tick" src="../img/check.png">
+            <img onclick="revertBackToButtonEdit(${id})" class="exit" id="exit" src="../img/cancel.svg">
+            <img onclick="addNewSubtaskToListEdit(${id})" class="tick" id="tick" src="../img/check.svg">
         </div>
     </div>`;
 
@@ -119,9 +119,9 @@ function renderSubtaskContainerEdit(id) { // This function renders the list of s
               <input onclick="editSubtaskItemEdit(${newID}, ${i}, ${id})" readonly id="readonly-Input-edit${newID}" value="${addedTask}" class="input-edit-subtask"></input>
             </div>
             <div id="edit-and-delete-edit${newID}" class="edit-and-delete">
-              <img id="edit-edit${newID}" onclick="editSubtaskItemEdit(${newID}, ${i}, ${id})" class="edit-and-delete-img" src="../img/edit.png">
+              <img id="edit-edit${newID}" onclick="editSubtaskItemEdit(${newID}, ${i}, ${id})" class="edit-and-delete-img" src="../img/edit.svg">
               <img src="../img/short_separating_line.png">
-              <img id="delete-edit${i}" onclick="deleteSubtaskItemEdit(${i}, ${id})" class="edit-and-delete-img delete" src="../img/delete.png">
+              <img id="delete-edit${i}" onclick="deleteSubtaskItemEdit(${i}, ${id})" class="edit-and-delete-img delete" src="../img/delete.svg">
             </div>
           </li>`;
     }
@@ -146,7 +146,7 @@ function editSubtaskItemEdit(newID, i, id) { // this function allows the user to
     const editIcon = document.getElementById(`edit-edit${newID}`);
     const acceptChangesIcon = document.createElement('img');
     editIcon.replaceWith(acceptChangesIcon);
-    acceptChangesIcon.src = '../img/check.png';
+    acceptChangesIcon.src = '../img/check.svg';
     acceptChangesIcon.id = `edit-edit${newID}`;
     acceptChangesIcon.onclick = () => acceptChangesEdit(newID, i, id);
 
