@@ -208,7 +208,7 @@ function displayContacts() {
                     <span class="list-letter">${contact_id}</span>
                     <div class="line"> </div>
                     <div id="${contact_id}">
-                                 <div onclick="displayContactDetails(${i})" class="contact">
+                                 <div onclick="displayContactDetails(${i})" tabindex="${i}" class="contact">
                            <div class="pfp color${contact['colorId']}">${letter}</div>
                            <div class="contact-info column">
                              <div class="name-text" >${contact['name']}</div>
@@ -220,7 +220,7 @@ function displayContacts() {
             `;
         } else {
             id.innerHTML += /*html*/`
-          <div onclick="displayContactDetails(${i})" class="contact">
+          <div onclick="displayContactDetails(${i})" tabindex="${i}" class="contact">
               <div class="pfp  color${contact['colorId']}">${letter}</div>
               <div class="contact-info column">
                 <div class="name-text" >${contact['name']}</div>

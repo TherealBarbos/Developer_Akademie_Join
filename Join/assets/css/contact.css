@@ -129,6 +129,15 @@
     color: white;
 }
 
+div:focus {
+    background-color: #2A3647;
+    color: white;
+}
+
+div:focus .name-text {
+    color: white;
+}
+
 .pfp {
     height: 42px;
     width: 42px;
