@@ -93,6 +93,7 @@ body {
   padding: 20px;
   justify-content: center;
   gap: 24px;
+  z-index: 1;
 }
 
 .logout-menu-color {
