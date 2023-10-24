@@ -5,22 +5,45 @@
   justify-content: flex-start;
   gap: 2rem;
 }
+
 .boardTest {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .boardNav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 32px;
+  gap: 46px;
 }
+
+.inputSearch-mobile {
+  display: none;
+  max-width: 280px;
+  padding: 8px 16px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--icon, #a8a8a8);
+  background: var(--background-color);
+}
+
+.display-none-after-query {
+  display: block;
+}
+
+.display-none-before-query {
+  display: none;
+}
+
 .wrap {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
 }
+
 .inputSearch {
   display: flex;
   max-width: 280px;
@@ -45,14 +68,12 @@
 }
 
 .inputSearch::before {
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cmask id='mask0_90679_5742' style='mask-type: alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='32' height='32'%3E%3Crect width='32' height='32' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_90679_5742)'%3E%3Cpath d='M13.7118 20.2137C11.8946 20.2137 10.3567 19.5843 9.098 18.3256C7.83931 17.0669 7.20996 15.529 7.20996 13.7118C7.20996 11.8946 7.83931 10.3567 9.098 9.098C10.3567 7.83931 11.8946 7.20996 13.7118 7.20996C15.529 7.20996 17.0669 7.83931 18.3256 9.098C19.5843 10.3567 20.2137 11.8946 20.2137 13.7118C20.2137 14.4454 20.097 15.1372 19.8636 15.7874C19.6302 16.4376 19.3134 17.0127 18.9133 17.5129L24.5149 23.1145C24.6983 23.2979 24.79 23.5313 24.79 23.8147C24.79 24.0981 24.6983 24.3315 24.5149 24.5149C24.3315 24.6983 24.0981 24.79 23.8147 24.79C23.5313 24.79 23.2979 24.6983 23.1145 24.5149L17.5129 18.9133C17.0127 19.3134 16.4376 19.6302 15.7874 19.8636C15.1372 20.097 14.4454 20.2137 13.7118 20.2137ZM13.7118 18.2131C14.9622 18.2131 16.025 17.7755 16.9002 16.9002C17.7755 16.025 18.2131 14.9622 18.2131 13.7118C18.2131 12.4615 17.7755 11.3987 16.9002 10.5234C16.025 9.64815 14.9622 9.21053 13.7118 9.21053C12.4615 9.21053 11.3987 9.64815 10.5234 10.5234C9.64815 11.3987 9.21053 12.4615 9.21053 13.7118C9.21053 14.9622 9.64815 16.025 10.5234 16.9002C11.3987 17.7755 12.4615 18.2131 13.7118 18.2131Z' fill='%232A3647'/%3E%3C/g%3E%3C/svg%3E")
-    center / contain no-repeat;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cmask id='mask0_90679_5742' style='mask-type: alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='32' height='32'%3E%3Crect width='32' height='32' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_90679_5742)'%3E%3Cpath d='M13.7118 20.2137C11.8946 20.2137 10.3567 19.5843 9.098 18.3256C7.83931 17.0669 7.20996 15.529 7.20996 13.7118C7.20996 11.8946 7.83931 10.3567 9.098 9.098C10.3567 7.83931 11.8946 7.20996 13.7118 7.20996C15.529 7.20996 17.0669 7.83931 18.3256 9.098C19.5843 10.3567 20.2137 11.8946 20.2137 13.7118C20.2137 14.4454 20.097 15.1372 19.8636 15.7874C19.6302 16.4376 19.3134 17.0127 18.9133 17.5129L24.5149 23.1145C24.6983 23.2979 24.79 23.5313 24.79 23.8147C24.79 24.0981 24.6983 24.3315 24.5149 24.5149C24.3315 24.6983 24.0981 24.79 23.8147 24.79C23.5313 24.79 23.2979 24.6983 23.1145 24.5149L17.5129 18.9133C17.0127 19.3134 16.4376 19.6302 15.7874 19.8636C15.1372 20.097 14.4454 20.2137 13.7118 20.2137ZM13.7118 18.2131C14.9622 18.2131 16.025 17.7755 16.9002 16.9002C17.7755 16.025 18.2131 14.9622 18.2131 13.7118C18.2131 12.4615 17.7755 11.3987 16.9002 10.5234C16.025 9.64815 14.9622 9.21053 13.7118 9.21053C12.4615 9.21053 11.3987 9.64815 10.5234 10.5234C9.64815 11.3987 9.21053 12.4615 9.21053 13.7118C9.21053 14.9622 9.64815 16.025 10.5234 16.9002C11.3987 17.7755 12.4615 18.2131 13.7118 18.2131Z' fill='%232A3647'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
   left: 0;
 }
 
 .inputSearch::after {
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2' height='32' viewBox='0 0 2 32' fill='none'%3E%3Cpath d='M1 0.5V31.5' stroke='%23D1D1D1'/%3E%3C/svg%3E")
-    center / contain no-repeat;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2' height='32' viewBox='0 0 2 32' fill='none'%3E%3Cpath d='M1 0.5V31.5' stroke='%23D1D1D1'/%3E%3C/svg%3E") center / contain no-repeat;
   right: 0;
 }
 
@@ -66,10 +87,12 @@
   border: 1px solid var(--secondary-color);
   background: var(--secondary-color);
 }
+
 .addTaskButton a {
   color: var(--background-color);
   text-decoration: none;
 }
+
 .addTaskButton:hover {
   border-radius: 10px;
   background: var(--Ligth-blue, var(--join-color));
@@ -81,6 +104,7 @@
   justify-content: space-between;
   margin-top: 3rem;
 }
+
 .boardTitelBox {
   display: flex;
   justify-content: space-between;
@@ -93,15 +117,18 @@
   font-weight: 700;
   line-height: 120%;
 }
+
 .boardTitelBoxButton {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .boardDrag {
   display: flex;
   flex-direction: column;
 }
+
 .drag {
   display: flex;
   flex-direction: column;
@@ -109,11 +136,13 @@
   min-width: 15rem;
   gap: 24px;
 }
+
 .drag-over {
   border-radius: 24px;
   border: 1px dashed var(--tertiary-color);
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
 }
+
 .card {
   display: flex;
   padding: 16px;
@@ -127,9 +156,11 @@
   background: var(--background-color);
   box-shadow: 0px 0px 10px 3px var(--border-shadow);
 }
+
 .cardDragging {
   transform: rotate(5deg);
 }
+
 .cardFrame {
   display: flex;
   flex-direction: column;
@@ -137,6 +168,7 @@
   gap: 24px;
   align-self: stretch;
 }
+
 .cardLable {
   display: flex;
   padding: 4px 16px;
@@ -150,6 +182,7 @@
   font-weight: 400;
   line-height: 120%;
 }
+
 .cardTextbox {
   display: flex;
   flex-direction: column;
@@ -158,6 +191,7 @@
   align-self: stretch;
   border-radius: 10px;
 }
+
 .cardTextI {
   color: var(--secondary-color);
   font-size: 16px;
@@ -165,6 +199,7 @@
   font-weight: 700;
   line-height: 120%;
 }
+
 .cardTextII {
   color: var(--tertiary-color);
   font-size: 16px;
@@ -172,23 +207,28 @@
   font-weight: 400;
   line-height: 120%;
 }
+
 .cardProgress {
   display: flex;
   padding: 0px 8px 2px 0px;
   gap: 11px;
 }
+
 .cardProgressbar {
   border-radius: 8px;
   background-color: #F4F4F4;
   width: 128px;
   padding-right: 0px;
 }
+
 ::after {
   box-sizing: border-box;
 }
+
 ::before {
   box-sizing: border-box;
 }
+
 .progress-bar {
   display: flex;
   flex-direction: column;
@@ -200,6 +240,7 @@
   background-color: #007bff;
   transition: width .6s ease;
 }
+
 .cardProgressText {
   color: var(--primary-color);
   font-size: 12px;
@@ -207,17 +248,20 @@
   font-weight: 400;
   line-height: 120%;
 }
+
 .cardContacts {
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
 }
+
 .cardContactsBadge {
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
+
 .cardAssignedinitials {
   flex-direction: column;
   justify-content: center;
@@ -237,6 +281,7 @@
   align-items: center;
   gap: 10px;
 }
+
 .cardContactsPrioImg {
   display: flex;
   width: 32px;
@@ -246,11 +291,13 @@
   align-items: center;
   gap: 10px;
 }
+
 .cardContactsPrioImg img {
   width: 17px;
   height: 6.333px;
   flex-shrink: 0;
 }
+
 .cardAssignedInitials {
   color: black;
 }
