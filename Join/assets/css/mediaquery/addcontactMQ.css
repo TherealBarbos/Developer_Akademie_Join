@@ -164,6 +164,7 @@
         justify-content: center;
         gap: 24px;
         padding-right: 0;
+        margin-bottom: 16px;
     }
 
     #input-email-addcontact {
@@ -220,7 +221,7 @@
         display: flex;
         justify-content: flex-end;
         padding-left: 100%;
-        margin-bottom: 60px;
+        margin-bottom: 16px;
     }
 
     .img-person-bg {
@@ -243,6 +244,7 @@
         justify-content: center;
         gap: 24px;
         padding-right: 0;
+        margin-bottom: 16px;
     }
 
 }

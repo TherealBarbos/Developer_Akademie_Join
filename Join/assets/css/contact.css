@@ -252,7 +252,7 @@ div:focus .name-text {
     width: 30px;
     position: absolute;
     top: 0;
-    right: 24px;
+    right: 0;
 }
 
 .btn-mobile-display-edit-delete {
@@ -343,9 +343,9 @@ div:focus .name-text {
     .btn-mobile-display-edit-delete {
         height: 48px;
         width: 48px;
-        position: absolute;
-        bottom: -250px;
-        right: 36px;
+        position: fixed;
+        bottom: 17%;
+        right: 20px;
         background-color: #2A3647;
         border-radius: 50px;
         display: flex;
