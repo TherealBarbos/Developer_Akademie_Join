@@ -4,55 +4,75 @@ function editTask(id) {
     id;
     card = document.getElementById(`taskoverlay`);
     card.innerHTML = `
-    <section>
-      <span> Title </span>
-      <input id="edit-title${id}" value="${todos[id].title}"></input>
-      
-      <span> Description </span>
-      <textarea id="edit-description${id}">${todos[id].description}</textarea>
-  
-      <span> Due date </span>
-      <input id="edit-dueDate${id}" type="date" value="${formatDateToDDMMYYYY(todos[id].dueDate)}"></input>
 
-        <div class="priority gap-8">
-            <h2> Prio </h2>
-            <div class="prio-select">
-                <button onclick="urgentButtonEdit(${id})" id="urgentEdit${id}" class="prio-button border-radius-6 light-border"> Urgent <img
-                    id="urgent-img-edit${id}" src="../img/urgent_no_bg.svg"></button>
-                <button onclick="mediumButtonEdit(${id})" id="mediumEdit${id}" class="prio-button medium-clicked border-radius-6 light-border"> Medium
-                    <img id="medium-img-edit${id}" src="../img/medium_no_bg.svg"></button>
-                <button onclick="lowButtonEdit(${id})" id="lowEdit${id}" class="prio-button low-clicked border-radius-6 light-border"> Low <img
-                    id="low-img-edit${id}" src="../img/low_no_bg.svg"></button>
-            </div>
-            <span id="is-required-priority" class="is-required d-none"> Please assign priority </span>
+    <div class="bOverlayClose-edit" onclick="closeOverlay()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <mask index="mask0_93030_4211" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24"
+              height="24">
+              <rect width="24" height="24" fill="#D9D9D9" />
+          </mask>
+          <g mask="url(#mask0_93030_4211)">
+              <path
+                  d="M12 13.4L7.09999 18.3C6.91665 18.4834 6.68332 18.575 6.39999 18.575C6.11665 18.575 5.88332 18.4834 5.69999 18.3C5.51665 18.1167 5.42499 17.8834 5.42499 17.6C5.42499 17.3167 5.51665 17.0834 5.69999 16.9L10.6 12L5.69999 7.10005C5.51665 6.91672 5.42499 6.68338 5.42499 6.40005C5.42499 6.11672 5.51665 5.88338 5.69999 5.70005C5.88332 5.51672 6.11665 5.42505 6.39999 5.42505C6.68332 5.42505 6.91665 5.51672 7.09999 5.70005L12 10.6L16.9 5.70005C17.0833 5.51672 17.3167 5.42505 17.6 5.42505C17.8833 5.42505 18.1167 5.51672 18.3 5.70005C18.4833 5.88338 18.575 6.11672 18.575 6.40005C18.575 6.68338 18.4833 6.91672 18.3 7.10005L13.4 12L18.3 16.9C18.4833 17.0834 18.575 17.3167 18.575 17.6C18.575 17.8834 18.4833 18.1167 18.3 18.3C18.1167 18.4834 17.8833 18.575 17.6 18.575C17.3167 18.575 17.0833 18.4834 16.9 18.3L12 13.4Z"
+                  fill="#2A3647" />
+          </g>
+      </svg>
+    </div>
+
+    <section class="edit-section">
+
+    <div class="enter-title-container gap-8">
+      <h3> Title </h3>
+      <input class="radius-and-border" id="edit-title${id}" value="${todos[id].title}"></input>
+    </div>  
+
+    <div class="enter-description-container-edit gap-8">
+      <h3> Description </h3>
+      <textarea class="radius-and-border textarea-edit" id="edit-description${id}">${todos[id].description}</textarea>
+    </div>
+
+    <di class="enter-date gap-8"v>
+      <h3> Due date </h3>
+      <input class="radius-and-border" id="edit-dueDate${id}" type="date" value="${formatDateToDDMMYYYY(todos[id].dueDate)}"></input>
+    </div>
+
+    <div class="priority gap-8">
+        <h3> Priority </h3>
+        <div class="prio-select-edit">
+            <button onclick="urgentButtonEdit(${id})" id="urgentEdit${id}" class="prio-button border-radius-6 light-border"> Urgent <img
+                id="urgent-img-edit${id}" src="../img/urgent_no_bg.svg"></button>
+            <button onclick="mediumButtonEdit(${id})" id="mediumEdit${id}" class="prio-button medium-clicked border-radius-6 light-border"> Medium
+                <img id="medium-img-edit${id}" src="../img/medium_no_bg.svg"></button>
+            <button onclick="lowButtonEdit(${id})" id="lowEdit${id}" class="prio-button low-clicked border-radius-6 light-border"> Low <img
+                id="low-img-edit${id}" src="../img/low_no_bg.svg"></button>
         </div>
+        <span id="is-required-priority" class="is-required d-none"> Please assign priority </span>
+    </div>
 
-        <div>
-              <span> Subtasks </span>
-              <button class="subtask-button-inactive border-radius-6" onclick="transformIntoInputEdit(${id})"
-                id="add-subtask-button-edit${id}">
-                <span> Add new subtask </span>
-                <img src="../img/addtask.png" class="plus-sign-edit${id}" id="plus-sign-edit${id}">
-              </button>
-              <span id="is-required-subtask${id}" class="is-required d-none"> Field cannot be empty </span>
-        </div>
-
-        <ul id="subtask-list-edit${id}"></ul>
+    <div class="subtask-edit-mode-container gap-8">
+        <h3> Subtasks </h3>
+        <button class="subtask-button-inactive-edit width100 border-radius-6" onclick="transformIntoInputEdit(${id})"
+            id="add-subtask-button-edit${id}">
+            <span> Add new subtask </span>
+            <img src="../img/addtask.png" class="plus-sign-edit${id}" id="plus-sign-edit${id}">
+        </button>
+        <span id="is-required-subtask${id}" class="is-required d-none"> Field cannot be empty </span>
+    </div>
+    <ul id="subtask-list-edit${id}"></ul>
         
-
     </section>
 
-    <button class="acceptEditButton" onclick="acceptEdit(${id})">
-        <span>Ok</span>
-        <img src="../img/check-task.png"> 
+    <div class="accept-button-container">
+        <button class="acceptEditButton" onclick="acceptEdit(${id})">
+            <span>Ok</span>
+            <img src="../img/check-task.png">
+        </button>
+    </div>
     `;
 
-    determineclickedButton(id);
+    determineClickedButton(id);
     renderSubtaskContainerEdit(id);
 };
-
-
-
 
 function transformIntoInputEdit(id) {
     const subtaskButton = document.getElementById(`add-subtask-button-edit${id}`);
@@ -62,7 +82,7 @@ function transformIntoInputEdit(id) {
     input.innerHTML = `
     <div id="subtask-edit${id}" class="subtask-button border-radius-6">
         <input onkeyup="handleKeyUp(event)" id="subtask-input-edit${id}" class="subtask-input" placeholder="Contact Form">
-        <div>
+        <div class="little-flex">
             <img onclick="revertBackToButtonEdit(${id})" class="exit" id="exit" src="../img/cancel.png">
             <img onclick="addNewSubtaskToListEdit(${id})" class="tick" id="tick" src="../img/check.png">
         </div>
@@ -112,7 +132,7 @@ function revertBackToButtonEdit(id) { // this function handles the deactivation 
     const subtaskButton = document.createElement('div');
 
     subtaskButton.innerHTML = `
-        <button class="subtask-button-inactive border-radius-6" onclick="transformIntoInputEdit(${id})" id="add-subtask-button-edit${id}">
+        <button class="subtask-button-inactive-edit border-radius-6" onclick="transformIntoInputEdit(${id})" id="add-subtask-button-edit${id}">
             <span> Add new subtask </span>
             <img src="../img/addtask.png" class="plus-sign" id="plus-sign">
         </button>
@@ -123,7 +143,6 @@ function revertBackToButtonEdit(id) { // this function handles the deactivation 
 
 // change to editable state
 function editSubtaskItemEdit(newID, i, id) { // this function allows the user to edit the text in a subtask
-    // replace pen-icon with tick-icon and assing function to it
     const editIcon = document.getElementById(`edit-edit${newID}`);
     const acceptChangesIcon = document.createElement('img');
     editIcon.replaceWith(acceptChangesIcon);
@@ -163,44 +182,11 @@ async function acceptEdit(id) {
     todos[id].dueDate = document.getElementById(`edit-dueDate${id}`).value;
     todos[id].priority = getEditedPriority(id);
     todos[id].priorityImageSource = getEditedPrioritySource(id);
-
     await setItem('allTasks', JSON.stringify(todos));
+    closeOverlay();
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function determineclickedButton(id) {
+function determineClickedButton(id) {
     if (todos[id].priority == 'urgent') {
         document.getElementById(`urgentEdit${id}`).classList.add('urgent');
         document.getElementById(`urgent-img-edit${id}`).src = '../img/urgent.svg';
@@ -295,13 +281,4 @@ function getEditedPrioritySource(id) {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
+document.addEventListener("click", closeOverlay());

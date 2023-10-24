@@ -1,0 +1,149 @@
+h3 {
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0;
+}
+
+img:hover {
+    cursor: pointer;
+}
+
+.bOverlayClose-edit {
+    display: flex;
+    justify-content: flex-end;
+    width: 480px;
+}
+
+.bOverlayClose-edit:hover {
+    cursor: pointer;
+}
+
+.edit-section {
+    width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+input {
+    height: 48px;
+    font-size: 20px;
+    padding-left: 16px;
+    width: 100%;
+}
+
+.radius-and-border {
+    border-radius: 6px;
+    border: 1px solid #D1D1D1;
+}
+
+.enter-title-container {
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.enter-description-container-edit {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.textarea-edit {
+    resize: none;
+    background-image: url('../../assets/img/textarea_drag_bars.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 18.9px;
+    padding-right: 0;
+    height: 168px;
+    font-family: "Inter";
+    font-size: 20px;
+    width: 100%;
+}
+
+.enter-date {
+    width: 100%;
+    margin-top: 0;
+}
+
+.radius-and-border:focus {
+    border-color: #29ABE2;
+    outline: none;
+}
+
+.prio-select-edit {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0 16px;
+}
+
+.accept-button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.subtask-edit-mode-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    width: 100%;
+}
+
+.subtask-button-inactive-edit {
+    padding-left: 16px;
+    padding-inline: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    color: #d1d1d1;
+    background-color: #FFF;
+    height: 48px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #D1D1D1;
+    width: 100%;
+}
+
+.subtask-button {
+    width: 100%;
+}
+
+.subtask-input {
+    height: 16px;
+}
+
+.acceptEditButton {
+    width: 89px;
+    height: 57px;
+    padding: 16px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2A3647;
+    color: white;
+    font-size: 20px;
+    border: none;
+    gap: 4px;
+  }
+
+  .little-flex {
+    display: flex;
+  }
+  
+  .width100 {
+    width: 100%;
+  }
+  
+  .acceptEditButton:hover {
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }

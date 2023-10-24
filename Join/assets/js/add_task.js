@@ -400,6 +400,7 @@ function formValidation() {
         (urgentButton.classList.contains('urgent') || mediumButton.classList.contains('medium') || lowButton.classList.contains('low'))
       ) {
         addTask();
+        window.open("../html/board.html")
       }    
 }
 
