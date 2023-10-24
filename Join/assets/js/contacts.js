@@ -1,21 +1,23 @@
 let contacts = []
 let letters = []
 let buttonEditDelete = false;
-let addcontactOverlay = document.getElementById("addcontact-overlay");
-let editcontactOverlay = document.getElementById("editcontact-overlay");
 
-editcontactOverlay.addEventListener("click", function (event) {
-    if (event.target === editcontactOverlay) {
-        redirectEditContactToContacts();
-    }
+document.addEventListener("DOMContentLoaded", function () {
+    let addcontactOverlay = document.getElementById("addcontact-overlay");
+    let editcontactOverlay = document.getElementById("editcontact-overlay");
+
+    editcontactOverlay.addEventListener("click", function (event) {
+        if (event.target === editcontactOverlay) {
+            redirectEditContactToContacts();
+        }
+    });
+
+    addcontactOverlay.addEventListener("click", function (event) {
+        if (event.target === addcontactOverlay) {
+            redirectAddContactToContacts();
+        }
+    });
 });
-
-addcontactOverlay.addEventListener("click", function (event) {
-    if (event.target === addcontactOverlay) {
-        redirectAddContactToContacts();
-    }
-});
-
 
 function displayEditDeleteContact() {
     if (buttonEditDelete == false) {
