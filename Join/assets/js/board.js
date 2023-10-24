@@ -3,6 +3,7 @@ let todos = [];
 let currentDraggedElement;
 
 const subtasksContainer = document.getElementById("subtasksContainer");
+const assignedNameContainer = document.getElementById("assignedNameContainer");
 
 // Load and disply CARDS
 
@@ -58,7 +59,7 @@ function generateTaskCard(task) {
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
-          <div class="assigned-initials color1">${task.assignedInitial}</div>
+          <div class="cardAssignedInitials" id="assignedNameContainer"></div>
         </div>
         <div class="cardContactsPrio">
           <img src="${task.priorityImageSource}" alt="" class="cardContactsPrioImg" />

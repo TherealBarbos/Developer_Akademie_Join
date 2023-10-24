@@ -251,5 +251,6 @@
   height: 6.333px;
   flex-shrink: 0;
 }
-/* .cardAssignedinitials {
-} */
+.cardAssignedInitials {
+  color: black;
+}
