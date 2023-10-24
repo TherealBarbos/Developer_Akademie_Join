@@ -264,8 +264,8 @@ function transformIntoInput() { //this function activates the input field to add
     <div id="subtask" class="subtask-button border-radius-6">
         <input onkeyup="handleKeyUp(event)" id="subtask-input" class="subtask-input" placeholder="Contact Form">
         <div>
-            <img onclick="revertBackToButton()" class="exit" id="exit" src="../img/cancel.png">
-            <img onclick="addNewSubtaskToList()" class="tick" id="tick" src="../img/check.png">
+            <img onclick="revertBackToButton()" class="exit" id="exit" src="../img/cancel.svg">
+            <img onclick="addNewSubtaskToList()" class="tick" id="tick" src="../img/check.svg">
         </div>
     </div>`;
 
@@ -303,9 +303,9 @@ function renderSubtaskContainer() { // This function renders the list of subtask
               <input onclick="editSubtaskItem(${i})" readonly id="readonly-Input${i}" value="${addedTask}" class="input-edit-subtask"></input>
             </div>
             <div id="edit-and-delete${i}" class="edit-and-delete">
-              <img id="edit${i}" onclick="editSubtaskItem(${i})" class="edit-and-delete-img" src="../img/edit.png">
+              <img id="edit${i}" onclick="editSubtaskItem(${i})" class="edit-and-delete-img" src="../img/edit.svg">
               <img src="../img/short_separating_line.png">
-              <img id="delete${i}" onclick="deleteSubtaskItem(${i})" class="edit-and-delete-img delete" src="../img/delete.png">
+              <img id="delete${i}" onclick="deleteSubtaskItem(${i})" class="edit-and-delete-img delete" src="../img/delete.svg">
             </div>
           </li>`;
     }

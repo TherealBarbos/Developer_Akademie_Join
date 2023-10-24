@@ -119,6 +119,11 @@
   line-height: 120%;
 }
 
+.bOverlaycontrollsbutton:hover {
+  color: #29ABE2;
+  stroke: #29ABE2;
+}
+
 /* .overlayclose {
   display: flex;
   width: 32px;
