@@ -11,7 +11,14 @@ img:hover {
 .bOverlayClose-edit {
     display: flex;
     justify-content: flex-end;
-    width: 480px;
+    align-items: center;
+    width: 496px;
+    height: 40px;
+}
+
+.close-icon:hover {
+    background-color: #d1d1d1;
+    border-radius: 20px;
 }
 
 .bOverlayClose-edit:hover {
