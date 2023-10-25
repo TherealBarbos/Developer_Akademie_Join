@@ -260,16 +260,26 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  flex-direction: row;
 }
 
 .cardAssignedinitials {
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   text-align: center;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
+}
+.cardAssignedInitials ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.cardAssignedInitials li {
+  float: left;
 }
 
 .cardContactsPrio {
@@ -296,8 +306,4 @@
   width: 17px;
   height: 6.333px;
   flex-shrink: 0;
-}
-
-.cardAssignedInitials {
-  color: black;
 }

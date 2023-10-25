@@ -74,6 +74,7 @@
 
   .headerLogo {
     display: flex;
+    margin-left: 40px;
   }
 
   .help,
