@@ -3,7 +3,7 @@ let todos = [];
 let currentDraggedElement;
 
 const subtasksContainer = document.getElementById("subtasksContainer");
-const assignedNameContainer = document.getElementById("assignedNameContainer");
+const cardAssignedNameContainer = document.getElementById("cardAssignedNameContainer");
 
 // Load and disply CARDS
 
@@ -59,7 +59,7 @@ function generateTaskCard(task) {
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
-          <div class="cardAssignedInitials" id="assignedNameContainer"></div>
+          <div class="cardAssignedInitials" id="cardAssignedNameContainer"></div>
         </div>
         <div class="cardContactsPrio">
           <img src="${task.priorityImageSource}" alt="" class="cardContactsPrioImg" />
@@ -100,8 +100,8 @@ function displayassigenedName(index) {
       ul.appendChild(li);
     });
 
-    const assignedNameContainerContainer = document.getElementById("assignedNameContainer");
-    assignedNameContainerContainer.appendChild(ul);
+    const cardAssignedNameContainer = document.getElementById("cardAssignedNameContainer");
+    cardAssignedNameContainer.appendChild(ul);
   } else {
     console.log("no contacts");
   }
