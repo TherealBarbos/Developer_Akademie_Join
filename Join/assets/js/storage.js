@@ -34,7 +34,7 @@ function firstLetters(str) {
     let words = name.split(" ");
     let firstWord = words[0];
     let secondWord = words[1];
-    if (words.length > 0) {
+    if (words.length > 1) {
         let secondLetter = secondWord.substring(0, 1).toUpperCase();
         let firstLetter = firstWord.substring(0, 1).toUpperCase();
         return firstLetter + secondLetter;
