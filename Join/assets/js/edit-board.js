@@ -54,7 +54,7 @@ async function editTask(id) {
         <input onclick="toggleSelect()" onkeyup="filterNames()" id="filterNames" 
         class="border-radius-6 border-color assignedNameSelector" placeholder="Select contacts to assign to">
         <div class="d-none" id="assignedNameContainer">
-            <ul id="assignedName-edit${id}"></ul>
+            <ul class="assignedName-edit" id="assignedName-edit${id}"></ul>
             <a href="contact.html">
             <button class="add-task-contact-create-btn">
                 Add new contact
@@ -63,7 +63,7 @@ async function editTask(id) {
             </a>
         </div>
     </div>
-    <div id="initials-display-edit"></div>
+    <div id="initials-display-edit${id}"></div>
 
 
     <div class="subtask-edit-mode-container gap-8">
@@ -301,51 +301,73 @@ function getEditedPrioritySource(id) {
 
 
 function loadAssignableNamesEdit(id) { // this function loads the assignable contacts
-    const selectElement = document.getElementById(`assignedName-edit${id}`);
+    const selectElement = document.getElementById(`assignedName-edit${id}`); // list element
     for (let i = 0; i < contacts.length; i++) {
+        newID = 1 + id.toString() + i.toString();
         const initial = contacts[i]['firstLetter'];
         const name = contacts[i]['name'];
         selectElement.innerHTML += `
-            <li onclick="toggleName(${i})" id="toggle-name${i}" class="assignedNameLI">
+            <li onclick="toggleNameEdit(${i}, ${id}, ${newID})" id="toggle-name-edit${newID}" class="assignedNameLI">
                 <div class="name-and-initials">
-                    <div id="to-display${i}" class="assigned-initials color${i + 1}">${initial}</div>
-                    <span id="assigned-name-span">${name}</span>
+                    <div id="to-display${newID}" class="assigned-initials color${i + 1}">${initial}</div>
+                    <span id="assigned-name-span${newID}">${name}</span>
                 </div>
-                <div>
-                    <img class="checkbox" id="checkbox${i}" src="../img/checkbox-unchecked.png">
-                </div>
+                <img class="checkbox" id="checkbox-edit${newID}" src="${getCheckboxSource(id, name)}">
             </li>`;
+        getClassForLI(id, newID, name);
     }
 }
 
-function manipulateAssignedArray(i, li) { // this function assignes/splices contacts to/from the assignedToTaskArray
+function getCheckboxSource(id, name) {
+    if (todos[id].assignedName.includes(name)) {
+        return '../img/checkbox-checked.png'
+    } else {
+        return '../img/checkbox-unchecked.png'
+    };
+}
+
+function getClassForLI(id, newID, name) {
+    li = document.getElementById(`toggle-name-edit${newID}`);
+    if (todos[id].assignedName.includes(name)) {
+        li.classList.add('assignedNameLI-toggled')
+    }
+}
+
+function toggleNameEdit(i, id, newID) { //WORKS!!
+    let li = document.getElementById(`toggle-name-edit${newID}`);
+    let checkbox = document.getElementById(`checkbox-edit${newID}`);
+
+    li.classList.toggle('assignedNameLI-toggled');
+
+    if (checkbox.src.endsWith('checkbox-unchecked.png')) {
+        checkbox.src = '../img/checkbox-checked.png';
+    } else {
+        checkbox.src = '../img/checkbox-unchecked.png';
+    }
+    manipulateAssignedArrayEdit(i, li, id);
+}
+
+function manipulateAssignedArrayEdit(i, li, id) { // this function assignes/splices contacts to/from todos[i].assignedNames/assignedInitials
     const name = contacts[i]['name'];
-    const index = assignedToTask.indexOf(name);
+    const index = todos[id].assignedName.indexOf(name);
 
     if (li.classList.contains('assignedNameLI-toggled')) {
-        assignedToTask.push(name);
-    } else { assignedToTask.splice(index, 1) }
-    manipulateAssignedInitials(i);
+        todos[id].assignedName.push(name);
+    } else { todos[id].assignedName.splice(index, 1) }
+    manipulateAssignedInitialsEdit(i, id, li);
 }
 
-function manipulateAssignedInitials(i) {
+async function manipulateAssignedInitialsEdit(i, id, li) {
     const toBeAssigned = contacts[i]['firstLetter'];
     const index = assignedInitial.indexOf(toBeAssigned);
-    let checkbox = document.getElementById(`checkbox${i}`);
-    let container = document.getElementById('initials-display');
+    // let checkbox = document.getElementById(`checkbox-edit${newID}`);
 
-    if (checkbox.src.endsWith('checkbox-checked.png')) {
-        assignedInitial.push(toBeAssigned);
+    if (li.classList.contains('assignedNameLI-toggled')) { 
+        todos[id].assignedInitial.push(toBeAssigned);
     } else {
-        if (index !== -1) {
-            assignedInitial.splice(index, 1);
-        }
+        todos[id].assignedInitial.splice(index, 1);
     }
-    container.innerHTML = '';
-    for (let j = 0; j < assignedInitial.length; j++) {
-        const displayedInitial = assignedInitial[j];
-        container.innerHTML += `<span class="assigned-initials color${j + 1}">${displayedInitial}</span>`;
-    }
+    await setItem('allTasks', JSON.stringify(todos));
 }
 
 async function loadContacts() {

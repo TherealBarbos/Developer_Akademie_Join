@@ -102,9 +102,7 @@ function loadAssignableNames() { // this function loads the assignable contacts
                     <div id="to-display${i}" class="assigned-initials color${i + 1}">${initial}</div>
                     <span id="assigned-name-span">${name}</span>
                 </div>
-                <div>
-                    <img class="checkbox" id="checkbox${i}" src="../img/checkbox-unchecked.png">
-                </div>
+                <img class="checkbox" id="checkbox${i}" src="../img/checkbox-unchecked.png">
             </li>`;
     }
 }
@@ -280,12 +278,13 @@ function handleKeyUp(event) {
 
 function addNewSubtaskToList() { // this function pushes added subtasks into an array and renders them into a list below the input field
     let newSubtask = document.getElementById('subtask-input').value;
-    
+
     if (newSubtask != '') {
-    SubtaskArray.subtaskContent.push(newSubtask);
-    SubtaskArray.subtaskDone.push(0);
-    renderSubtaskContainer();
-    revertBackToButton();} else {
+        SubtaskArray.subtaskContent.push(newSubtask);
+        SubtaskArray.subtaskDone.push(0);
+        renderSubtaskContainer();
+        revertBackToButton();
+    } else {
         document.getElementById('is-required-subtask').classList.remove('d-none');
     }
 }
@@ -397,10 +396,10 @@ function formValidation() {
         dueDateStr.value !== '' &&
         category.value !== '' &&
         (urgentButton.classList.contains('urgent') || mediumButton.classList.contains('medium') || lowButton.classList.contains('low'))
-      ) {
+    ) {
         addTask();
         window.location.replace("../html/board.html")
-      }    
+    }
 }
 
 // remote storage
@@ -436,5 +435,7 @@ async function getItem(key) {
     });
 }
 
-document.addEventListener("click", hideContactSelect);
+if (window.location.href === '../html/add_task.html') {
+    document.addEventListener("click", hideContactSelect);
+}
 
