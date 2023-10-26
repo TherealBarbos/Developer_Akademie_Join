@@ -63,32 +63,48 @@ function openAddContact() {
     document.getElementById('addcontact-overlay').classList.add('bg-gray');
 }
 
-/**
- * this function is used to log in the person. it checks if the email and password exists.
- *  If the email and password are valid. the user gets logged in!
- */
 async function addContact() {
     let email = document.getElementById('input-email-addcontact');
     let name = document.getElementById('input-name-addcontact');
     let phone = document.getElementById('input-phone-addcontact');
 
-    let account = accounts.find(a => a.email == email.value && a.name == name.value);
-    if (account) {
-        console.log('Account gefunden');
-        let contact = {
-            'name': name.value,
-            'email': email.value,
-            'phone': '+' + phone.value,
-            'firstLetter': firstLetters(name.value),
-            'id': idLetter(name.value),
-            'colorId': account['colorId'],
-        };
-        contacts.push(contact)
-        await setItem('contacts', JSON.stringify(contacts));
-    }
+    let contact = {
+        'name': name.value,
+        'email': email.value,
+        'phone': '+' + phone.value,
+        'firstLetter': firstLetters(name.value),
+        'id': idLetter(name.value),
+        'colorId': randomColor(),
+    };
+    contacts.push(contact)
+    await setItem('contacts', JSON.stringify(contacts));
     clearLoginInputs();
     redirectAddContactToContacts();
 }
+
+//------------------------------------OLD FUNCTION-------------------------//
+//async function addContact() {
+//    let email = document.getElementById('input-email-addcontact');
+//    let name = document.getElementById('input-name-addcontact');
+//    let phone = document.getElementById('input-phone-addcontact');
+//
+//    let account = accounts.find(a => a.email == email.value && a.name == name.value);
+//    if (account) {
+//        console.log('Account gefunden');
+//        let contact = {
+//            'name': name.value,
+//            'email': email.value,
+//            'phone': '+' + phone.value,
+//            'firstLetter': firstLetters(name.value),
+//            'id': idLetter(name.value),
+//            'colorId': account['colorId'],
+//        };
+//        contacts.push(contact)
+//        await setItem('contacts', JSON.stringify(contacts));
+//    }
+//    clearLoginInputs();
+//    redirectAddContactToContacts();
+//}
 
 
 /**
