@@ -1,7 +1,7 @@
 // -edit${id}
 
-function editTask(id) {
-    id;
+async function editTask(id) {
+    await loadContacts();
     card = document.getElementById(`taskoverlay`);
     card.innerHTML = `
 
@@ -49,6 +49,23 @@ function editTask(id) {
         <span id="is-required-priority" class="is-required d-none"> Please assign priority </span>
     </div>
 
+    <div class="assigned-to-container-edit gap-8">
+        <h2> Assigned to </h2>
+        <input onclick="toggleSelect()" onkeyup="filterNames()" id="filterNames" 
+        class="border-radius-6 border-color assignedNameSelector" placeholder="Select contacts to assign to">
+        <div class="d-none" id="assignedNameContainer">
+            <ul id="assignedName-edit${id}"></ul>
+            <a href="contact.html">
+            <button class="add-task-contact-create-btn">
+                Add new contact
+                <img class="add-person" src="../img/person_add.png" alt="person-add">
+            </button>
+            </a>
+        </div>
+    </div>
+    <div id="initials-display-edit"></div>
+
+
     <div class="subtask-edit-mode-container gap-8">
         <h3> Subtasks </h3>
         <button class="subtask-button-inactive-edit width100 border-radius-6" onclick="transformIntoInputEdit(${id})"
@@ -70,6 +87,7 @@ function editTask(id) {
     </div>
     `;
 
+    loadAssignableNamesEdit(id);
     determineClickedButton(id);
     renderSubtaskContainerEdit(id);
 };
@@ -279,6 +297,72 @@ function getEditedPrioritySource(id) {
     } else if (lowButton.classList.contains('low')) {
         return '../img/low_no_bg.svg';
     }
+}
+
+
+function loadAssignableNamesEdit(id) { // this function loads the assignable contacts
+    const selectElement = document.getElementById(`assignedName-edit${id}`);
+    for (let i = 0; i < contacts.length; i++) {
+        const initial = contacts[i]['firstLetter'];
+        const name = contacts[i]['name'];
+        selectElement.innerHTML += `
+            <li onclick="toggleName(${i})" id="toggle-name${i}" class="assignedNameLI">
+                <div class="name-and-initials">
+                    <div id="to-display${i}" class="assigned-initials color${i + 1}">${initial}</div>
+                    <span id="assigned-name-span">${name}</span>
+                </div>
+                <div>
+                    <img class="checkbox" id="checkbox${i}" src="../img/checkbox-unchecked.png">
+                </div>
+            </li>`;
+    }
+}
+
+function manipulateAssignedArray(i, li) { // this function assignes/splices contacts to/from the assignedToTaskArray
+    const name = contacts[i]['name'];
+    const index = assignedToTask.indexOf(name);
+
+    if (li.classList.contains('assignedNameLI-toggled')) {
+        assignedToTask.push(name);
+    } else { assignedToTask.splice(index, 1) }
+    manipulateAssignedInitials(i);
+}
+
+function manipulateAssignedInitials(i) {
+    const toBeAssigned = contacts[i]['firstLetter'];
+    const index = assignedInitial.indexOf(toBeAssigned);
+    let checkbox = document.getElementById(`checkbox${i}`);
+    let container = document.getElementById('initials-display');
+
+    if (checkbox.src.endsWith('checkbox-checked.png')) {
+        assignedInitial.push(toBeAssigned);
+    } else {
+        if (index !== -1) {
+            assignedInitial.splice(index, 1);
+        }
+    }
+    container.innerHTML = '';
+    for (let j = 0; j < assignedInitial.length; j++) {
+        const displayedInitial = assignedInitial[j];
+        container.innerHTML += `<span class="assigned-initials color${j + 1}">${displayedInitial}</span>`;
+    }
+}
+
+async function loadContacts() {
+    try {
+        contacts = JSON.parse(await getItem('contacts'));
+    } catch (e) {
+        console.error('Loading error:', e);
+    }
+}
+
+async function getItem(key) {
+    const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+    return fetch(url).then(res => res.json()).then(res => {
+        if (res.data) {
+            return res.data.value;
+        } throw `Could not find data with key "${key}".`;
+    });
 }
 
 // document.addEventListener("click", closeOverlay());

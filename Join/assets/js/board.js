@@ -28,10 +28,10 @@ function showTaskListByState(state) {
   
 }
 
-// Drag functuality
+// Drag functionality
 
 // Drag Initiation
-function startDregging(index) {
+function startDraging(index) {
   currentDraggedElement = index;
   document.getElementById(`card-${index}`).classList.add("cardDragging");
 }
@@ -42,7 +42,7 @@ function generateTaskCard(task) {
   for (let i = 0; i < task.subtasks.subtaskDone.length; i++) {
     doneTasksSum += task.subtasks.subtaskDone[i];
   };
-  return ` <div id="card-${task.id}" class="card" draggable="true" ondragstart="startDregging('${task.id}')" onclick="showOverlay('${task.id}')">
+  return ` <div id="card-${task.id}" class="card" draggable="true" ondragstart="startDraging('${task.id}')" onclick="showOverlay('${task.id}')">
     <div class="cardFrame">
       <div class="cardLable">${task.category}</div>
       <div class="cardTextbox">

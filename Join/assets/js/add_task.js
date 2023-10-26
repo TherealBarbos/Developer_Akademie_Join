@@ -168,7 +168,6 @@ function manipulateAssignedInitials(i) {
     }
 }
 
-
 // priority section
 
 function getSelectedPriority() {
@@ -400,7 +399,7 @@ function formValidation() {
         (urgentButton.classList.contains('urgent') || mediumButton.classList.contains('medium') || lowButton.classList.contains('low'))
       ) {
         addTask();
-        window.open("../html/board.html")
+        window.location.replace("../html/board.html")
       }    
 }
 

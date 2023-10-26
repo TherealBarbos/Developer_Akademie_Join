@@ -1,7 +1,6 @@
 .taskoverlay {
-  position: fixed;
+  position: absolute;
   display: flex;
-
   padding: 48px 40px;
   flex-direction: column;
   gap: 24px;

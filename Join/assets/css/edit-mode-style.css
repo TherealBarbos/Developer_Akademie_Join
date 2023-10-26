@@ -31,6 +31,7 @@ img:hover {
     flex-direction: column;
     gap: 16px;
     align-items: center;
+    margin-top: -36px;
 }
 
 input {
@@ -72,6 +73,12 @@ input {
     font-family: "Inter";
     font-size: 20px;
     width: 100%;
+}
+
+.assigned-to-container-edit {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
 }
 
 .enter-date {
