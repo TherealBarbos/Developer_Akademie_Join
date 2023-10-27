@@ -362,7 +362,7 @@ async function load() {
 
 //  form validation
 
-function formValidation() {
+async function formValidation() {
     const taskTitle = document.getElementById('task-title');
     const taskDescription = document.getElementById('task-description');
     const dueDateStr = document.getElementById('dueDate');
@@ -398,7 +398,7 @@ function formValidation() {
         category.value !== '' &&
         (urgentButton.classList.contains('urgent') || mediumButton.classList.contains('medium') || lowButton.classList.contains('low'))
     ) {
-        addTask();
+        await addTask();
         window.location.replace("../html/board.html")
     }
 }
