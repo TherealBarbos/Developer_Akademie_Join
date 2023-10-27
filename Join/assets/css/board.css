@@ -322,9 +322,10 @@
   float: left;
   text-align: center;
 }
-.cardAssignedInitials li:nth-child(2){
+.cardAssignedInitials li:nth-child(n+2) {
   margin-left: -8px;
 }
+
 
 .cardContactsPrio {
   display: flex;
