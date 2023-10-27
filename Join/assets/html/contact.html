@@ -51,6 +51,7 @@
           </div>
         </div>
 
+        <form onsubmit="addContact(); return false">
         <div class="right-part">
           <div>
             <img class="x" onclick="redirectAddContactToContacts()" src="../img/close.svg" alt="x">
@@ -60,20 +61,22 @@
               <img class="img-person" src="../img/person.png" alt="person">
             </div>
             <div class="input-fields">
-              <input class="input" id="input-name-addcontact" type="text" placeholder="Name">
-              <input class="input" id="input-email-addcontact" type="text" placeholder="Email">
-              <input class="input" id="input-phone-addcontact" type="text" placeholder="Phone">
+              <input class="input" id="input-name-addcontact" required type="text" placeholder="Name">
+              <input class="input" id="input-email-addcontact" required type="email" placeholder="Email">
+              <input class="input" id="input-phone-addcontact" required  min="0" type="number" placeholder="Phone">
             </div>
           </div>
           <div class="buttons">
             <button onclick="redirectAddContactToContacts()" class="cancel-btn">
               <span>Cancel <img src="../img/x.svg" alt="x"></span>
             </button>
-            <button onclick="addContact()" class="create-btn">
+            <button type="submit" class="create-btn">
               <span>Create Contact <img src="../img/check.svg" alt="check"></span>
             </button>
           </div>
         </div>
+      </form>
+
       </div>
     </div>
   </div>
