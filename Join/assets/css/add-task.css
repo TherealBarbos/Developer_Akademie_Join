@@ -195,6 +195,13 @@ ul {
   border-radius: 10px;
 }
 
+.add-new-contact-link {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+
 .add-task-contact-create-btn {
   height: 46px;
   width: 90%;
@@ -456,7 +463,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-radius: 0px;
   background-color: white;
   border-bottom: 1px solid#29ABE2;
-  width: 440px;
   height: 32px;
   padding: 6px 16px;
   justify-content: space-between;

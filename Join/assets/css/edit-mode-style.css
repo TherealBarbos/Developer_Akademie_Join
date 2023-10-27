@@ -131,6 +131,7 @@ input {
 
 .subtask-list-edit {
     margin-left: -190px;
+    margin-top: -20px;
 }
 
 .assignedName-edit {
@@ -212,7 +213,7 @@ input {
 
 @media(max-width: 930px) {
     .subtask-list-edit {
-        margin-left: -10%;
+        margin-left: -8%;
         margin-top: -21px;
         padding-left: 0;
     }
@@ -233,5 +234,11 @@ input {
     }
     .prio-button {
         width: 155px;
+    }
+}
+
+@media (max-width: 400px) {
+    .add-task-contact-create-btn {
+        font-size: 16px
     }
 }
