@@ -12,7 +12,6 @@ img:hover {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 496px;
     height: 40px;
 }
 
@@ -26,7 +25,6 @@ img:hover {
 }
 
 .edit-section {
-    width: 480px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -82,6 +80,18 @@ input {
     width: 100%
 }
 
+.initials-display-edit {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.add-new-contact-link {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 .enter-date {
     width: 100%;
     margin-top: 0;
@@ -119,6 +129,10 @@ input {
     width: 100%;
 }
 
+.subtask-list-edit {
+    margin-left: -190px;
+}
+
 .assignedName-edit {
     width: 100%;
     height: 170px;
@@ -127,6 +141,21 @@ input {
     gap: 14px;
     overflow-y: scroll;
     padding: 0;
+}
+
+.addsubtask-list-element-edit {
+    display: flex;
+    height: 32px;
+    padding: 6px 16px;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-left: -42px; */
+}
+
+.addsubtask-list-element-edit:hover {
+    background-color: #eeeeee;
+    cursor: pointer;
+    border-radius: 16px;
 }
 
 .subtask-button-inactive-edit {
@@ -179,4 +208,30 @@ input {
 .acceptEditButton:hover {
     background: #29ABE2;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+@media(max-width: 930px) {
+    .subtask-list-edit {
+        margin-left: -10%;
+        margin-top: -21px;
+        padding-left: 0;
+    }
+}
+
+@media(max-width: 625px) {
+    .subtask-list-edit {
+        margin-left: 0;
+        margin-top: -21px;
+        padding-left: 0;
+    }
+}
+
+@media(max-width: 530px) {
+    .prio-select-edit {
+        flex-direction: column;
+        align-items: center;
+    }
+    .prio-button {
+        width: 155px;
+    }
 }

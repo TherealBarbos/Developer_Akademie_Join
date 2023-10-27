@@ -53,7 +53,7 @@ async function editTask(id) {
         class="border-radius-6 border-color assignedNameSelector" placeholder="Select contacts to assign to">
         <div class="d-none" id="assignedNameContainer">
             <ul class="assignedName-edit" id="assignedName-edit${id}"></ul>
-            <a href="contact.html">
+            <a class="add-new-contact-link" href="contact.html">
             <button class="add-task-contact-create-btn">
                 Add new contact
                 <img class="add-person" src="../img/person_add.png" alt="person-add">
@@ -61,7 +61,7 @@ async function editTask(id) {
             </a>
         </div>
     </div>
-    <div id="initials-display-edit${id}"></div>
+    <div class="initials-display-edit" id="initials-display-edit${id}"></div>
 
 
     <div class="subtask-edit-mode-container gap-8">
@@ -73,7 +73,7 @@ async function editTask(id) {
         </button>
         <span id="is-required-subtask${id}" class="is-required d-none"> Field cannot be empty </span>
     </div>
-    <ul id="subtask-list-edit${id}"></ul>
+    <ul class="subtask-list-edit" id="subtask-list-edit${id}"></ul>
         
     </section>
 
@@ -88,6 +88,7 @@ async function editTask(id) {
     loadAssignableNamesEdit(id);
     determineClickedButton(id);
     renderSubtaskContainerEdit(id);
+    displayInitialsEdit(id);
 };
 
 function transformIntoInputEdit(id) {
@@ -129,7 +130,7 @@ function renderSubtaskContainerEdit(id) { // This function renders the list of s
         const addedTask = todos[id].subtasks.subtaskContent[i];
         newID = 1 + id.toString() + i.toString();
         subtaskContainer.innerHTML +=
-            `<li id="subtaskListItem-edit${newID}" class="addsubtask-list-element">
+            `<li id="subtaskListItem-edit${newID}" class="addsubtask-list-element-edit">
             <div style="display: flex; align-items: center; gap: 8px;">
               <img style="height: 6px; width: 6px" src="../img/list_marker.png">
               <input onclick="editSubtaskItemEdit(${newID}, ${i}, ${id})" readonly id="readonly-Input-edit${newID}" value="${addedTask}" class="input-edit-subtask"></input>
@@ -168,7 +169,7 @@ function editSubtaskItemEdit(newID, i, id) { // this function allows the user to
 
     const listItem = document.getElementById(`subtaskListItem-edit${newID}`);
     listItem.classList.add('editable-list-element');
-    listItem.classList.remove('addsubtask-list-element');
+    listItem.classList.remove('addsubtask-list-element-edit');
     document.getElementById(`edit-and-delete-edit${newID}`).classList.add('row-reverse');
 
     const input = document.getElementById(`readonly-Input-edit${newID}`);

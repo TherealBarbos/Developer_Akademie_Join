@@ -21,7 +21,6 @@ async function addTask() { // this fills the JSON array "allTasks" which holds t
     const category = document.getElementById('category').value;
     const subtask = SubtaskArray;
 
-
     let task = {
         'id': uniqueID,
         'state': 'toDo',
@@ -295,17 +294,20 @@ function renderSubtaskContainer() { // This function renders the list of subtask
     for (let i = 0; i < SubtaskArray.subtaskContent.length; i++) {
         const addedTask = SubtaskArray.subtaskContent[i];
         subtaskContainer.innerHTML +=
-            `<li id="subtaskListItem${i}" class="addsubtask-list-element">
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <img style="height: 6px; width: 6px" src="../img/list_marker.png">
-              <input onclick="editSubtaskItem(${i})" readonly id="readonly-Input${i}" value="${addedTask}" class="input-edit-subtask"></input>
-            </div>
+        `<li id="subtaskListItem${i}" class="addsubtask-list-element">
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <img style="height: 6px; width: 6px" src="../img/list_marker.png">
+            <input onclick="editSubtaskItem(${i})" readonly id="readonly-Input${i}" value="${addedTask}"
+                class="input-edit-subtask"></input>
+    
             <div id="edit-and-delete${i}" class="edit-and-delete">
-              <img id="edit${i}" onclick="editSubtaskItem(${i})" class="edit-and-delete-img" src="../img/edit.svg">
-              <img src="../img/short_separating_line.png">
-              <img id="delete${i}" onclick="deleteSubtaskItem(${i})" class="edit-and-delete-img delete" src="../img/delete.svg">
+                <img id="edit${i}" onclick="editSubtaskItem(${i})" class="edit-and-delete-img" src="../img/edit.svg">
+                <img src="../img/short_separating_line.png">
+                <img id="delete${i}" onclick="deleteSubtaskItem(${i})" class="edit-and-delete-img delete"
+                    src="../img/delete.svg">
             </div>
-          </li>`;
+        </div>
+    </li>`;
     }
 }
 

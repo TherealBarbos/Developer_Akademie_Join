@@ -197,7 +197,7 @@ ul {
 
 .add-task-contact-create-btn {
   height: 46px;
-  width: 408px;
+  width: 90%;
   background-color: #2a3647;
   color: white;
   border-radius: 10px;
@@ -409,12 +409,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 #subtask-list {
   margin: -12px 0 8px 0;
-  width: 450px;
 }
 
 .addsubtask-list-element {
   display: flex;
-  width: 440px;
   height: 32px;
   padding: 6px 16px;
   justify-content: space-between;
