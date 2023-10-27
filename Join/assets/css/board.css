@@ -55,8 +55,6 @@
   border-radius: 10px;
   border: 1px solid var(--icon, #a8a8a8);
   background: var(--background-color);
-  background-image: url(../img/magn-glass.svg);
-  background-image: url(../img/short_separating_line.svg);
   background-repeat: no-repeat;
 }
 
