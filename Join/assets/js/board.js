@@ -137,10 +137,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (event.target !== searchInput) {
       // Hier wird das Eingabefeld geleert
       searchInput.value = "";
-      // Entfernen Sie die "d-none" und "test" Klassen von allen Tasks
+      // Entfernen Sie die "d-none" und "highlight" Klassen von allen Tasks
       const taskElements = document.querySelectorAll(".card");
       taskElements.forEach((taskElement) => {
-        taskElement.classList.remove("d-none", "test");
+        taskElement.classList.remove("d-none", "highlight");
       });
     }
   });
@@ -170,28 +170,23 @@ document.addEventListener("DOMContentLoaded", function () {
         initials.includes(searchText) ||
         assignedName.includes(searchText)
       ) {
-        taskElement.classList.add("test");
+        taskElement.classList.add("highlight");
       } else {
         taskElement.classList.add("d-none");
+        taskElement.classList.remove("highlight"); // Entfernen Sie die "highlight" Klasse, wenn der Task nicht übereinstimmt
       }
     });
 
-    // updateHTML();
-  });
-
-  // Event-Listener für das Input-Ereignis, wenn der Inhalt manuell gelöscht wird
-  searchInput.addEventListener("input", function () {
+    // Wenn das Suchfeld leer ist, entfernen Sie die "d-none" und "highlight" Klassen von allen Tasks
     if (searchInput.value === "") {
-      // Entfernen Sie die "test" Klasse von allen Tasks
       const taskElements = document.querySelectorAll(".card");
       taskElements.forEach((taskElement) => {
-        taskElement.classList.remove("test");
+        taskElement.classList.remove("d-none", "highlight");
       });
     }
+    // updateHTML();
   });
 });
-
-
 
 
 // Overlay Task
