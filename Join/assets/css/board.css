@@ -311,7 +311,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #0038ff;
+
   border: solid 1px var(--background-color);
   color: #f4f4f4;
   border-radius: 45px;

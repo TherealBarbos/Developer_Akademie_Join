@@ -107,9 +107,10 @@ function displayassigenedName(index) {
   if (todos[id].assignedInitial && todos[id].assignedInitial.length > 0) {
     const ul = document.createElement("ul");
 
-    todos[id].assignedInitial.forEach((assignedInitial) => {
+    todos[id].assignedInitial.forEach((assignedInitial, i) => {
       const li = document.createElement("li");
       li.textContent = assignedInitial;
+      li.classList.add("color" + (i + 1));
       ul.appendChild(li);
     });
 
