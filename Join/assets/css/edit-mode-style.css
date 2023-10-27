@@ -183,6 +183,26 @@ input {
     height: 16px;
 }
 
+.input-edit-subtask-edit-mode {
+    font-size: 19px;
+    border: unset;
+    outline: none;
+    background: none;
+    padding: 10px 60px 10px 0;
+  }
+
+.editable-list-element-edit-mode {
+    display: flex;
+    border-radius: 0px;
+    background-color: white;
+    border-bottom: 1px solid#29ABE2;
+    height: 32px;
+    padding: 6px 16px;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: ;
+  }
+
 .acceptEditButton {
     width: 89px;
     height: 57px;
