@@ -5,7 +5,9 @@
   justify-content: flex-start;
   gap: 2rem;
 }
-
+.test {
+  background-color: var(--join-color) !important;
+}
 .boardTest {
   display: flex;
   justify-content: space-between;

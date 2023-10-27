@@ -126,6 +126,54 @@ function unhighlight(index) {
   document.getElementById(index).classList.remove("drag-over");
 }
 
+// Suchfunktion
+
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.querySelector("#boardSearchID");
+
+  // Event-Listener für das Klicken auf das Dokument
+  document.addEventListener("click", function (event) {
+    // Überprüfen, ob das geklickte Element nicht das Eingabefeld ist
+    if (event.target !== searchInput) {
+      // Hier wird das Eingabefeld geleert
+      searchInput.value = "";
+    }
+  });
+
+  searchInput.addEventListener("input", function () {
+    const searchText = searchInput.value.toLowerCase();
+
+    const taskElements = document.querySelectorAll(".card"); // Alle Aufgabenkarten auswählen
+    taskElements.forEach((taskElement) => {
+      const title = taskElement
+        .querySelector(".cardTextI")
+        .textContent.toLowerCase();
+      const description = taskElement
+        .querySelector(".cardTextII")
+        .textContent.toLowerCase();
+      const initials = taskElement
+        .querySelector(".cardContactsBadge")
+        .textContent.toLowerCase();
+      const assignedName = taskElement
+        .querySelector(".cardTextI")
+        .textContent.toLowerCase();
+
+      if (
+        title.includes(searchText) ||
+        description.includes(searchText) ||
+        initials.includes(searchText) ||
+        assignedName.includes(searchText)
+      ) {
+        taskElement.classList.add("test")
+      } else {
+        taskElement.classList.add("d-none");
+      }
+    });
+
+    // updateHTML();
+  });
+});
+
 // Overlay Task
 
 function showOverlay(index) {
@@ -138,10 +186,9 @@ function showOverlay(index) {
   document.getElementById("board").classList.add("blurout");
   document.getElementById("overlay").classList.add("overlayposition");
   taskoverlay.classList.remove("d-none");
-  displayassigenedName(index)
+  displayassigenedName(index);
   displaySubtasks(index); // index = e.g.: 1698364123489791324514
 }
-
 
 // Subtasks filtern und als Liste darstellen
 
@@ -206,7 +253,6 @@ function toggleNameSubtask(SpecialID, id, i) {
 //     console.log("no subtasks");
 //   }
 // }
-
 
 // dexipher Unix-Timestamp
 function formatDateToDDMMYYYY(dateString) {
