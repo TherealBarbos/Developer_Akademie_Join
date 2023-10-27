@@ -88,6 +88,29 @@ function startDraging(index) {
   currentDraggedElement = index;
   document.getElementById(`card-${index}`).classList.add("cardDragging");
 }
+```
+#####  Unix-Timestamp decode
+``` js
+function formatDateToDDMMYYYY(dateString) {
+  const date = new Date(dateString);
+
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = date.getFullYear();
+
+  return `${day}/${month}/${year}`;
+```
+##### Delete Tasks
+``` js
+function deleteTask(index) {
+  let id = todos.findIndex((item) => {
+    return item.id == index;
+  });
+  todos.splice(id, 1);
+  setItem("allTasks", JSON.stringify(todos));
+  updateHTML();
+  closeOverlay();
+}
 ``` 
 - **CSS Imports**
 
