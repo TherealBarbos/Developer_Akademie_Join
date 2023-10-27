@@ -99,6 +99,8 @@ function moveTo(state) {
 
 // Function für das Namen einbinden
 
+// Board
+
 function displayassigenedName(index) {
   let id = todos.findIndex((item) => {
     return item.id == index;
@@ -107,9 +109,10 @@ function displayassigenedName(index) {
   if (todos[id].assignedInitial && todos[id].assignedInitial.length > 0) {
     const ul = document.createElement("ul");
 
-    todos[id].assignedInitial.forEach((assignedInitial) => {
+    todos[id].assignedInitial.forEach((assignedInitial, i) => {
       const li = document.createElement("li");
       li.textContent = assignedInitial;
+      li.classList.add("color" + (i + 1));
       ul.appendChild(li);
     });
 
@@ -121,6 +124,49 @@ function displayassigenedName(index) {
     console.log("no contacts");
   }
 }
+
+// Overlay
+function displayAssignedNameOverlay(index) {
+  let id = todos.findIndex((item) => {
+    return item.id == index;
+  });
+
+  if (todos[id].assignedInitial && todos[id].assignedInitial.length > 0) {
+    const ul = document.createElement("ul");
+
+    todos[id].assignedInitial.forEach((assignedInitial, i) => {
+
+      if (todos[id].assignedName && todos[id].assignedName[i]) {
+        const li = document.createElement("li");
+    
+        // Erstelle das erste div-Element
+        const div1 = document.createElement("div");
+        div1.textContent = assignedInitial;
+        div1.classList.add("initialsOverlay");
+        div1.classList.add(`color${i + 1}`);
+        li.appendChild(div1);
+        
+        // Erstelle das zweite div-Element
+        const div2 = document.createElement("div");
+        div2.textContent = todos[id].assignedName[i];
+        div2.classList.add("nameOverlay");
+        li.appendChild(div2);
+
+        ul.appendChild(li);
+      } else {
+        console.log("Kein zugehöriger assignedName gefunden.");
+      }
+    });
+
+    const cardAssignedNameContainerOverlay = document.getElementById(
+      `cardAssignedNameContainerOverlay${index}`
+    );
+    cardAssignedNameContainerOverlay.appendChild(ul);
+  } else {
+    console.log("Keine zugewiesenen Kontakte gefunden.");
+  }
+}
+
 
 // Drag  style-effects
 function highlight(index) {
@@ -142,7 +188,7 @@ function showOverlay(index) {
   document.getElementById("board").classList.add("blurout");
   document.getElementById("overlay").classList.add("overlayposition");
   taskoverlay.classList.remove("d-none");
-  displayassigenedName(index)
+  displayAssignedNameOverlay(index)
   displaySubtasks(index); // index = e.g.: 1698364123489791324514
 }
 
@@ -246,7 +292,7 @@ function renderTask(todo, id) {
 <div class="bOverlayAssigned">
   Assigned To:
   <div class="bOverlayAssignedNames">
-  <div class="cardAssignedInitials" id="cardAssignedNameContainer${todo.id}"></div></div>
+  <div class="overlayIniNam" id="cardAssignedNameContainerOverlay${todo.id}"></div></div>
 </div >
 <div class='bOverlayText ${hideHeaderIfNoSubtasks(id)}'> Subtasks </div>
 <ul id="subtask-list-container${id}" class="bOverlaySub">

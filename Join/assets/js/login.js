@@ -6,9 +6,7 @@ function login() {
     let email = document.getElementById('input-email');
     let password = document.getElementById('input-password');
     let account = accounts.find(a => a.email == email.value && a.password == password.value);
-    console.log(account);
     if (account) {
-        console.log('Account gefunden');
         setArray('name', account.name);
         setArray('firstLetter', account.firstLetter);
         redirectToSummary();

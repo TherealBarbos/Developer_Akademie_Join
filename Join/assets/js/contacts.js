@@ -1,6 +1,8 @@
 let contacts = []
 let letters = []
 let buttonEditDelete = false;
+let guestcontacts = []
+
 
 document.addEventListener("DOMContentLoaded", function () {
     let addcontactOverlay = document.getElementById("addcontact-overlay");
@@ -67,6 +69,7 @@ async function addContact() {
     let email = document.getElementById('input-email-addcontact');
     let name = document.getElementById('input-name-addcontact');
     let phone = document.getElementById('input-phone-addcontact');
+    let username = getArray('name');
 
     let contact = {
         'name': name.value,
@@ -76,9 +79,14 @@ async function addContact() {
         'id': idLetter(name.value),
         'colorId': randomColor(),
     };
-    contacts.push(contact)
-    await setItem('contacts', JSON.stringify(contacts));
+    if (username == 'Guest') {
+        guestcontacts.push(contact);
+    } else {
+        contacts.push(contact);
+        await setItem('contacts', JSON.stringify(contacts));
+    }
     clearLoginInputs();
+    displayContacts();
     redirectAddContactToContacts();
 }
 
@@ -132,8 +140,9 @@ function deleteContact(index) {
     let contactlist = document.getElementById('contact-list');
     contactlist.classList.remove('disappear-after-query');
     details.classList.add('disappear-after-query');
+    loadContacts();
+    displayContacts();
 
-    load();
     document.getElementById('details').innerHTML = '';
 }
 
@@ -151,6 +160,7 @@ function editContact(index) {
 }
 
 function displayContactDetails(index) {
+    contacts.sort(compareNames);
     let details = document.getElementById('details');
     let contactlist = document.getElementById('contact-list');
     contactlist.classList.add('disappear-after-query');
@@ -266,10 +276,21 @@ function collectLetters() {
 }
 
 async function loadContacts() {
-    try {
-        contacts = JSON.parse(await getItem('contacts'));
-    } catch (e) {
-        console.error('Loading error:', e);
+    let username = getArray('name');
+    if (username == 'Guest') {
+        try {
+            contacts = JSON.parse(await getItem('guestcontacts'));
+        } catch (e) {
+            console.error('Loading error:', e);
+        }
+        console.log('guestlogin');
+    } else {
+        try {
+            contacts = JSON.parse(await getItem('contacts'));
+        } catch (e) {
+            console.error('Loading error:', e);
+        }
+        console.log('userlogin');
     }
 }
 

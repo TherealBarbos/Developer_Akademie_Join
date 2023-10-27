@@ -5,6 +5,7 @@ async function saveContactValues(i) {
     let colorId = contacts[i]['colorId'];
     let firstLetter = contacts[i]['firstLetter'];
     let id = contacts[i]['id'];
+    let username = getArray('name');
 
     let contact = {
         'name': name.value,
@@ -14,12 +15,13 @@ async function saveContactValues(i) {
         'colorId': colorId,
         'id': id,
     };
-    
+
     contacts.splice(i, 1);
     contacts.splice(i, 0, contact);
-    await setItem('contacts', contacts);
-    loadContacts();
-    displayContacts()
+    if (username == 'Guest') {
+    } else {
+        await setItem('contacts', contacts);
+    }
     redirectEditContactToContacts();
 }
 
@@ -30,12 +32,4 @@ function setContactValues(index) {
     document.getElementById('saveContactValue').innerHTML = /*html*/`
     <span onclick="saveContactValues(${index})">Save <img src="../img/check.svg" alt="check"></span>
     `
-}
-
-async function loadContacts() {
-    try {
-        contacts = JSON.parse(await getItem('contacts'));
-    } catch (e) {
-        console.error('Loading error:', e);
-    }
 }
