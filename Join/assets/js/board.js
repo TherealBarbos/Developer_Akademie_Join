@@ -108,11 +108,12 @@ function displayassigenedName(index) {
 
   if (todos[id].assignedInitial && todos[id].assignedInitial.length > 0) {
     const ul = document.createElement("ul");
+    let randomNum = Math.floor(Math.random() * 15) + 1;
 
     todos[id].assignedInitial.forEach((assignedInitial, i) => {
       const li = document.createElement("li");
       li.textContent = assignedInitial;
-      li.classList.add("color" + (i + 1));
+      li.classList.add("color" + (i + randomNum));
       ul.appendChild(li);
     });
 
@@ -138,12 +139,14 @@ function displayAssignedNameOverlay(index) {
 
       if (todos[id].assignedName && todos[id].assignedName[i]) {
         const li = document.createElement("li");
-    
+
+        let randomNum = Math.floor(Math.random() * 15) + 1;
+
         // Erstelle das erste div-Element
         const div1 = document.createElement("div");
         div1.textContent = assignedInitial;
         div1.classList.add("initialsOverlay");
-        div1.classList.add(`color${i + 1}`);
+        div1.classList.add(`color${randomNum}`);
         li.appendChild(div1);
         
         // Erstelle das zweite div-Element
