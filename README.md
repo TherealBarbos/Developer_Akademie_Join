@@ -52,15 +52,46 @@
 
 ### Aufgaben
 
-- Git Repo erstellen
+- **Git Repo erstellen**
   
-- Ordnerstrucktur aufbauen
+- **Ordnerstrucktur aufbauen**
 
-- Summary
+- **Summary**
+##### Update of the site
+```js
+function updatesummary() {
+  const toDoCount = countTasksByStatus(todos, "toDo");
+  document.getElementById("pTodo").innerHTML = `${toDoCount}`;
 
-- Board
-  
-- CSS Imports
+  const doneCount = countTasksByStatus(todos, "done");
+  document.getElementById("pDone").innerHTML = `${doneCount}`;
+
+  const prioCount = countTasksByPrio(todos, "urgent");
+  document.getElementById("prioNum").innerHTML = `${prioCount}`;
+
+  //gibt die nächste Prio Taskabage aus
+  sortTasks(todos);
+}
+```
+##### count the Tasks
+```js
+function countTasksByStatus(todos, state) {
+  return todos.filter((todo) => todo.state === state).length;
+}
+```
+
+
+- **Board**
+##### Drag and Drop
+``` js
+function startDraging(index) {
+  currentDraggedElement = index;
+  document.getElementById(`card-${index}`).classList.add("cardDragging");
+}
+``` 
+- **CSS Imports**
+
+##### implement other CSS
 ``` css
 /* Importieren Sie andere CSS-Dateien */
 
@@ -73,7 +104,8 @@
 @import url("assets/css/template.css");
 
 ```
-- Color Roots
+- **Color Roots**
+###### Create fixed Colors
 ``` css
 :root {
   --primary-color: #000;
@@ -86,9 +118,9 @@
   /*Das Join Blau*/
 }
 ```
-- Help
-- Privacy Policy
-- Legal Notice
+- **Help**
+- **Privacy Policy**
+- **Legal Notice**
 
 &uarr; [zurück zur Übersicht](#top)
 ## Responsive 
