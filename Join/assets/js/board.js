@@ -2,11 +2,6 @@ let todos = [];
 
 let currentDraggedElement;
 
-const subtasksContainer = document.getElementById("subtasksContainer");
-const cardAssignedNameContainer = document.getElementById(
-  "cardAssignedNameContainer"
-);
-
 // Load and disply CARDS
 
 function updateHTML() {
@@ -143,7 +138,7 @@ function showOverlay(index) {
   document.getElementById("board").classList.add("blurout");
   document.getElementById("overlay").classList.add("overlayposition");
   taskoverlay.classList.remove("d-none");
-
+  displayassigenedName(index)
   displaySubtasks(index); // index = e.g.: 1698364123489791324514
 }
 
@@ -250,7 +245,8 @@ function renderTask(todo, id) {
 <div class="bOverlayText bOverlayuppercase">Priority:${todo.priority}<img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" /></div>
 <div class="bOverlayAssigned">
   Assigned To:
-  <div class="bOverlayAssignedNames">${todo.assignedName}</div>
+  <div class="bOverlayAssignedNames">
+  <div class="cardAssignedInitials" id="cardAssignedNameContainer${todo.id}"></div></div>
 </div>
 <ul id="subtask-list-container${id}" class="bOverlaySub"></ul> 
 </div>
