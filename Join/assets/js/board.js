@@ -3,7 +3,9 @@ let todos = [];
 let currentDraggedElement;
 
 const subtasksContainer = document.getElementById("subtasksContainer");
-const cardAssignedNameContainer = document.getElementById("cardAssignedNameContainer");
+const cardAssignedNameContainer = document.getElementById(
+  "cardAssignedNameContainer"
+);
 
 // Load and disply CARDS
 
@@ -12,9 +14,8 @@ function updateHTML() {
   showTaskListByState("inProgress");
   showTaskListByState("done");
   showTaskListByState("awaitFeedback");
-
 }
-// filter das Arry nach den Kategorien 
+// filter das Arry nach den Kategorien
 function showTaskListByState(state) {
   let filteredTasksByState = todos.filter((t) => t["state"] == state);
 
@@ -25,7 +26,6 @@ function showTaskListByState(state) {
     document.getElementById(state).innerHTML += generateTaskCard(element);
     displayassigenedName(element.id);
   }
-  
 }
 
 // Drag functionality
@@ -36,13 +36,17 @@ function startDraging(index) {
   document.getElementById(`card-${index}`).classList.add("cardDragging");
 }
 
-// Generische Funktion zum Erzeugen der Task-Karten^
+// Generische Funktion zum Erzeugen der Task-Karten
 function generateTaskCard(task) {
   let doneTasksSum = 0;
   for (let i = 0; i < task.subtasks.subtaskDone.length; i++) {
     doneTasksSum += task.subtasks.subtaskDone[i];
-  };
-  return ` <div id="card-${task.id}" class="card" draggable="true" ondragstart="startDraging('${task.id}')" onclick="showOverlay('${task.id}')">
+  }
+  return ` <div id="card-${
+    task.id
+  }" class="card" draggable="true" ondragstart="startDraging('${
+    task.id
+  }')" onclick="showOverlay('${task.id}')">
     <div class="cardFrame">
       <div class="cardLable">${task.category}</div>
       <div class="cardTextbox">
@@ -52,17 +56,27 @@ function generateTaskCard(task) {
       <div id="card-subtask-${task.id}" class="cardProgress">
         <div class="cardProgressbar">
           <div class="progress">
-           <div class="progress-bar" role="progressbar" style="width: ${doneTasksSum / task.subtasks.subtaskContent.length * 100}%; height: 15px; border-radius: 8px;" aria-valuenow="${doneTasksSum}" aria-valuemin="0" aria-valuemax="${task.subtasks.subtaskContent.length}"></div>
+           <div class="progress-bar" role="progressbar" style="width: ${
+             (doneTasksSum / task.subtasks.subtaskContent.length) * 100
+           }%; height: 15px; border-radius: 8px;" aria-valuenow="${doneTasksSum}" aria-valuemin="0" aria-valuemax="${
+    task.subtasks.subtaskContent.length
+  }"></div>
           </div>
         </div>
-         <div class="cardProgressText">${doneTasksSum}/${task.subtasks.subtaskContent.length} Subtasks</div>
+         <div class="cardProgressText">${doneTasksSum}/${
+    task.subtasks.subtaskContent.length
+  } Subtasks</div>
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
-          <div class="cardAssignedInitials" id="cardAssignedNameContainer"></div>
+          <div class="cardAssignedInitials" id="cardAssignedNameContainer${
+            task.id
+          }"></div>
         </div>
         <div class="cardContactsPrio">
-          <img src="${task.priorityImageSource}" alt="" class="cardContactsPrioImg" />
+          <img src="${
+            task.priorityImageSource
+          }" alt="" class="cardContactsPrioImg" />
         </div>
       </div>
     </div>
@@ -100,7 +114,9 @@ function displayassigenedName(index) {
       ul.appendChild(li);
     });
 
-    const cardAssignedNameContainer = document.getElementById("cardAssignedNameContainer");
+    const cardAssignedNameContainer = document.getElementById(
+      `cardAssignedNameContainer${index}`
+    );
     cardAssignedNameContainer.appendChild(ul);
   } else {
     console.log("no contacts");
@@ -114,7 +130,6 @@ function highlight(index) {
 function unhighlight(index) {
   document.getElementById(index).classList.remove("drag-over");
 }
-
 
 // Overlay Task
 
@@ -145,7 +160,10 @@ function displaySubtasks(index) {
     SpecialID = 1 + id.toString() + i.toString();
     container.innerHTML += `
     <li class="subtaskListItem" onclick="toggleNameSubtask(${SpecialID}, ${id}, ${i})">
-      <img src="${getImage(id, i)}" class="checkboxSubtask" id="checkboxSubtask${SpecialID}">
+      <img src="${getImage(
+        id,
+        i
+      )}" class="checkboxSubtask" id="checkboxSubtask${SpecialID}">
       <span>${subtask}<span>
     </li>
     `;
@@ -154,28 +172,25 @@ function displaySubtasks(index) {
 
 function getImage(id, i) {
   if (todos[id].subtasks.subtaskDone[i] == 0) {
-    return '../img/checkbox-unchecked.png';
+    return "../img/checkbox-unchecked.png";
   } else {
-    return '../img/checkbox-checked-black-stroke.svg'
-  };
+    return "../img/checkbox-checked-black-stroke.svg";
+  }
 }
 
 function toggleNameSubtask(SpecialID, id, i) {
   let checkbox = document.getElementById(`checkboxSubtask${SpecialID}`);
 
-    if (todos[id].subtasks.subtaskDone[i] == 0) {
-      todos[id].subtasks.subtaskDone[i] = 1;
-      checkbox.src = '../img/checkbox-checked-black-stroke.svg';
-    } else {
-      todos[id].subtasks.subtaskDone[i] = 0;
-      checkbox.src = '../img/checkbox-unchecked.png';
-    }
-    console.log(todos[id].subtasks.subtaskDone);
-    setItem("allTasks", JSON.stringify(todos));
+  if (todos[id].subtasks.subtaskDone[i] == 0) {
+    todos[id].subtasks.subtaskDone[i] = 1;
+    checkbox.src = "../img/checkbox-checked-black-stroke.svg";
+  } else {
+    todos[id].subtasks.subtaskDone[i] = 0;
+    checkbox.src = "../img/checkbox-unchecked.png";
+  }
+  console.log(todos[id].subtasks.subtaskDone);
+  setItem("allTasks", JSON.stringify(todos));
 }
-
-
-
 
 // function displaySubtasks(index) {
 //   let id = todos.findIndex((item) => {
@@ -202,8 +217,8 @@ function toggleNameSubtask(SpecialID, id, i) {
 function formatDateToDDMMYYYY(dateString) {
   const date = new Date(dateString);
 
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
   const year = date.getFullYear();
 
   return `${day}/${month}/${year}`;
@@ -212,7 +227,7 @@ function formatDateToDDMMYYYY(dateString) {
 function renderTask(todo, id) {
   console.log(id);
   const formattedDueDate = formatDateToDDMMYYYY(todo.dueDate);
-  
+
   return `
   <div class="bOverlayCategory">${todo.category}
   <div class="bOverlayClose" onclick="closeOverlay()">
@@ -240,8 +255,8 @@ function renderTask(todo, id) {
 <ul id="subtask-list-container${id}" class="bOverlaySub"></ul> 
 </div>
 <div class="bOverlaycontrolls">
-  <div onclick="deleteTask${todo.id}" class="bOverlaycontrollsbutton">
-      <svg onclick="deleteTask(${todo.id})" class="control-SVG" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <div onclick="deleteTask(${todo.id})" class="bOverlaycontrollsbutton">
+      <svg class="control-SVG" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <mask index="mask0_93030_4270" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24"
               height="24">
               <rect width="24" height="24" fill="none" />
@@ -269,7 +284,7 @@ function renderTask(todo, id) {
       <div class="bOverlaycontrollsText" onclick="editTask(${id})">Edit</div>
   </div>
 `;
-};
+}
 
 // Overlay Schließen
 function closeOverlay() {
