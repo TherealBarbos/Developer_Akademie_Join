@@ -1,5 +1,3 @@
-// -edit${id}
-
 async function editTask(id) {
     await loadContacts();
     card = document.getElementById(`taskoverlay`);
