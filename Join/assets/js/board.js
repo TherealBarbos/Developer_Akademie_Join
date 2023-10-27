@@ -36,7 +36,7 @@ function startDraging(index) {
   document.getElementById(`card-${index}`).classList.add("cardDragging");
 }
 
-// Generische Funktion zum Erzeugen der Task-Karten^
+// Generische Funktion zum Erzeugen der Task-Karten
 function generateTaskCard(task) {
   let doneTasksSum = 0;
   for (let i = 0; i < task.subtasks.subtaskDone.length; i++) {
@@ -59,7 +59,7 @@ function generateTaskCard(task) {
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
-          <div class="cardAssignedInitials" id="cardAssignedNameContainer"></div>
+          <div class="cardAssignedInitials" id="cardAssignedNameContainer${task.id}"></div>
         </div>
         <div class="cardContactsPrio">
           <img src="${task.priorityImageSource}" alt="" class="cardContactsPrioImg" />
@@ -100,7 +100,7 @@ function displayassigenedName(index) {
       ul.appendChild(li);
     });
 
-    const cardAssignedNameContainer = document.getElementById("cardAssignedNameContainer");
+    const cardAssignedNameContainer = document.getElementById(`cardAssignedNameContainer${index}`);
     cardAssignedNameContainer.appendChild(ul);
   } else {
     console.log("no contacts");
@@ -243,7 +243,7 @@ function renderTask(todo, id) {
 </div>
 <div class="bOverlaycontrolls">
   <div onclick="deleteTask${todo.id}" class="bOverlaycontrollsbutton">
-      <svg onclick="deleteTask(${todo.id})" class="control-SVG" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <svg class="control-SVG" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <mask index="mask0_93030_4270" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24"
               height="24">
               <rect width="24" height="24" fill="none" />
