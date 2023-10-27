@@ -133,7 +133,7 @@ function renderSubtaskContainerEdit(id) { // This function renders the list of s
             `<li id="subtaskListItem-edit${newID}" class="addsubtask-list-element-edit">
             <div style="display: flex; align-items: center; gap: 8px;">
               <img style="height: 6px; width: 6px" src="../img/list_marker.png">
-              <input onclick="editSubtaskItemEdit(${newID}, ${i}, ${id})" readonly id="readonly-Input-edit${newID}" value="${addedTask}" class="input-edit-subtask"></input>
+              <input onclick="editSubtaskItemEdit(${newID}, ${i}, ${id})" readonly id="readonly-Input-edit${newID}" value="${addedTask}" class="input-edit-subtask-edit-mode"></input>
             </div>
             <div id="edit-and-delete-edit${newID}" class="edit-and-delete">
               <img id="edit-edit${newID}" onclick="editSubtaskItemEdit(${newID}, ${i}, ${id})" class="edit-and-delete-img" src="../img/edit.svg">
@@ -168,7 +168,7 @@ function editSubtaskItemEdit(newID, i, id) { // this function allows the user to
     acceptChangesIcon.onclick = () => acceptChangesEdit(newID, i, id);
 
     const listItem = document.getElementById(`subtaskListItem-edit${newID}`);
-    listItem.classList.add('editable-list-element');
+    listItem.classList.add('editable-list-element-edit-mode');
     listItem.classList.remove('addsubtask-list-element-edit');
     document.getElementById(`edit-and-delete-edit${newID}`).classList.add('row-reverse');
 
