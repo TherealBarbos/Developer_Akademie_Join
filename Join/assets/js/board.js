@@ -137,9 +137,15 @@ document.addEventListener("DOMContentLoaded", function () {
     if (event.target !== searchInput) {
       // Hier wird das Eingabefeld geleert
       searchInput.value = "";
+      // Entfernen Sie die "d-none" und "test" Klassen von allen Tasks
+      const taskElements = document.querySelectorAll(".card");
+      taskElements.forEach((taskElement) => {
+        taskElement.classList.remove("d-none", "test");
+      });
     }
   });
 
+  // Event-Listener für das Input-Ereignis im Suchfeld
   searchInput.addEventListener("input", function () {
     const searchText = searchInput.value.toLowerCase();
 
@@ -164,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function () {
         initials.includes(searchText) ||
         assignedName.includes(searchText)
       ) {
-        taskElement.classList.add("test")
+        taskElement.classList.add("test");
       } else {
         taskElement.classList.add("d-none");
       }
@@ -172,7 +178,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // updateHTML();
   });
+
+  // Event-Listener für das Input-Ereignis, wenn der Inhalt manuell gelöscht wird
+  searchInput.addEventListener("input", function () {
+    if (searchInput.value === "") {
+      // Entfernen Sie die "test" Klasse von allen Tasks
+      const taskElements = document.querySelectorAll(".card");
+      taskElements.forEach((taskElement) => {
+        taskElement.classList.remove("test");
+      });
+    }
+  });
 });
+
+
+
 
 // Overlay Task
 
