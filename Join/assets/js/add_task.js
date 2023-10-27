@@ -112,7 +112,7 @@ function filterNames() {
     const li = document.getElementsByClassName('assignedNameLI');
 
     for (let i = 0; i < li.length; i++) {
-        const txtValue = li[i].querySelector(".assigned-name").textContent || li[i].querySelector(".assigned-name").innerText;
+        const txtValue = li[i].querySelector(".assignedNameLI").textContent || li[i].querySelector(".assignedNameLI").innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
             li[i].style.display = "";
         } else {
@@ -436,7 +436,7 @@ async function getItem(key) {
     });
 }
 
-if (window.location.href === '../html/add_task.html') {
+if (document.getElementById('task-title')) {
     document.addEventListener("click", hideContactSelect);
-}
+} else {console.log('whyyy')}
 
