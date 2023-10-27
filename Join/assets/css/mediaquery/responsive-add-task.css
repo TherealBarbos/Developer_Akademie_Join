@@ -35,12 +35,20 @@
     }
 }
 
-@media (max-width: 725px) {
+@media (max-width: 500px) {
     .addTaskHeader,
     .subtask-button-inactive,
     .add-task-left,
     .add-task-right {
         max-width: 330px;
+    }
+
+    .input-edit-subtask {
+        padding-right: 0px;
+    }
+
+    .addsubtask-list-element {
+        margin-left: -55px;
     }
 
     h2 {
@@ -54,5 +62,13 @@
     .add-task-left,
     .add-task-right {
         max-width: 310px;
+    }
+
+    .addsubtask-list-element {
+        margin-left: -55px;
+    }
+
+    .edit-and-delete {
+        margin-left: -20px;
     }
 }
