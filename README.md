@@ -105,7 +105,7 @@ function startDraging(index) {
 
 ```
 - **Color Roots**
-###### Create fixed Colors
+##### Create fixed Colors
 ``` css
 :root {
   --primary-color: #000;
