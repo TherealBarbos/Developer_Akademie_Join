@@ -131,13 +131,10 @@ function unhighlight(index) {
 document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.querySelector("#boardSearchID");
 
-  // Event-Listener für das Klicken auf das Dokument
   document.addEventListener("click", function (event) {
-    // Überprüfen, ob das geklickte Element nicht das Eingabefeld ist
     if (event.target !== searchInput) {
-      // Hier wird das Eingabefeld geleert
       searchInput.value = "";
-      // Entfernen Sie die "d-none" und "highlight" Klassen von allen Tasks
+
       const taskElements = document.querySelectorAll(".card");
       taskElements.forEach((taskElement) => {
         taskElement.classList.remove("d-none", "highlight");
@@ -173,21 +170,18 @@ document.addEventListener("DOMContentLoaded", function () {
         taskElement.classList.add("highlight");
       } else {
         taskElement.classList.add("d-none");
-        taskElement.classList.remove("highlight"); // Entfernen Sie die "highlight" Klasse, wenn der Task nicht übereinstimmt
+        taskElement.classList.remove("highlight");
       }
     });
 
-    // Wenn das Suchfeld leer ist, entfernen Sie die "d-none" und "highlight" Klassen von allen Tasks
     if (searchInput.value === "") {
       const taskElements = document.querySelectorAll(".card");
       taskElements.forEach((taskElement) => {
         taskElement.classList.remove("d-none", "highlight");
       });
     }
-    // updateHTML();
   });
 });
-
 
 // Overlay Task
 
