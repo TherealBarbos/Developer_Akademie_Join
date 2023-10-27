@@ -82,6 +82,64 @@ function determineColor(task) {
   }
 }
 
+// Suchfunktion
+
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.querySelector("#boardSearchID");
+
+  document.addEventListener("click", function (event) {
+    if (event.target !== searchInput) {
+      searchInput.value = "";
+
+      const taskElements = document.querySelectorAll(".card");
+      taskElements.forEach((taskElement) => {
+        taskElement.classList.remove("d-none", "highlight");
+      });
+    }
+  });
+
+  // Event-Listener für das Input-Ereignis im Suchfeld
+  searchInput.addEventListener("input", function () {
+    const searchText = searchInput.value.toLowerCase();
+
+    const taskElements = document.querySelectorAll(".card"); // Alle Aufgabenkarten auswählen
+    taskElements.forEach((taskElement) => {
+      const title = taskElement
+        .querySelector(".cardTextI")
+        .textContent.toLowerCase();
+      const description = taskElement
+        .querySelector(".cardTextII")
+        .textContent.toLowerCase();
+      const initials = taskElement
+        .querySelector(".cardContactsBadge")
+        .textContent.toLowerCase();
+      const assignedName = taskElement
+        .querySelector(".cardTextI")
+        .textContent.toLowerCase();
+
+      if (
+        title.includes(searchText) ||
+        description.includes(searchText) ||
+        initials.includes(searchText) ||
+        assignedName.includes(searchText)
+      ) {
+        taskElement.classList.add("highlight");
+      } else {
+        taskElement.classList.add("d-none");
+        taskElement.classList.remove("highlight");
+      }
+    });
+
+    if (searchInput.value === "") {
+      const taskElements = document.querySelectorAll(".card");
+      taskElements.forEach((taskElement) => {
+        taskElement.classList.remove("d-none", "highlight");
+      });
+    }
+  });
+});
+
+
 function allowDrop(ev) {
   ev.preventDefault();
 }
@@ -108,11 +166,12 @@ function displayassigenedName(index) {
 
   if (todos[id].assignedInitial && todos[id].assignedInitial.length > 0) {
     const ul = document.createElement("ul");
+    let randomNum = Math.floor(Math.random() * 15) + 1;
 
     todos[id].assignedInitial.forEach((assignedInitial, i) => {
       const li = document.createElement("li");
       li.textContent = assignedInitial;
-      li.classList.add("color" + (i + 1));
+      li.classList.add("color" + (i + randomNum));
       ul.appendChild(li);
     });
 
@@ -138,12 +197,14 @@ function displayAssignedNameOverlay(index) {
 
       if (todos[id].assignedName && todos[id].assignedName[i]) {
         const li = document.createElement("li");
-    
+
+        let randomNum = Math.floor(Math.random() * 15) + 1;
+
         // Erstelle das erste div-Element
         const div1 = document.createElement("div");
         div1.textContent = assignedInitial;
         div1.classList.add("initialsOverlay");
-        div1.classList.add(`color${i + 1}`);
+        div1.classList.add(`color${randomNum}`);
         li.appendChild(div1);
         
         // Erstelle das zweite div-Element
