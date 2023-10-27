@@ -33,49 +33,53 @@ function startDraging(index) {
 
 // Generische Funktion zum Erzeugen der Task-Karten
 function generateTaskCard(task) {
-  let doneTasksSum = 0;
-  for (let i = 0; i < task.subtasks.subtaskDone.length; i++) {
-    doneTasksSum += task.subtasks.subtaskDone[i];
-  }
-  return ` <div id="card-${
-    task.id
-  }" class="card" draggable="true" ondragstart="startDraging('${
-    task.id
-  }')" onclick="showOverlay('${task.id}')">
+  return ` <div id="card-${task.id}" class="card" draggable="true" ondragstart="startDraging('${task.id}')" onclick="showOverlay('${task.id}')">
     <div class="cardFrame">
-      <div class="cardLable">${task.category}</div>
+      <div class="cardLable ${determineColor(task)}">${task.category}</div>
       <div class="cardTextbox">
         <div class="cardTextI">${task.title}</div>
         <div class="cardTextII">${task.description}</div>
       </div>
-      <div id="card-subtask-${task.id}" class="cardProgress">
+      <div id="card-subtask-${task.id}" class="cardProgress ${determineIfSubtaskExists(task)}">
         <div class="cardProgressbar">
           <div class="progress">
-           <div class="progress-bar" role="progressbar" style="width: ${
-             (doneTasksSum / task.subtasks.subtaskContent.length) * 100
-           }%; height: 15px; border-radius: 8px;" aria-valuenow="${doneTasksSum}" aria-valuemin="0" aria-valuemax="${
-    task.subtasks.subtaskContent.length
-  }"></div>
+           <div class="progress-bar" role="progressbar" style="width: ${(taskSum(task) / task.subtasks.subtaskContent.length) * 100}%; 
+           height: 15px; border-radius: 8px;" aria-valuenow="${taskSum(task)}" aria-valuemin="0" aria-valuemax="${task.subtasks.subtaskContent.length}"></div>
           </div>
         </div>
-         <div class="cardProgressText">${doneTasksSum}/${
-    task.subtasks.subtaskContent.length
-  } Subtasks</div>
+         <div class="cardProgressText">${taskSum(task)}/${task.subtasks.subtaskContent.length} Subtasks</div>
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
-          <div class="cardAssignedInitials" id="cardAssignedNameContainer${
-            task.id
-          }"></div>
+          <div class="cardAssignedInitials" id="cardAssignedNameContainer${task.id}"></div>
         </div>
         <div class="cardContactsPrio">
-          <img src="${
-            task.priorityImageSource
-          }" alt="" class="cardContactsPrioImg" />
+          <img src="${task.priorityImageSource}" alt="" class="cardContactsPrioImg" />
         </div>
       </div>
     </div>
   </div>`;
+}
+
+function taskSum(task) {
+  let doneTasksSum = 0;
+  for (let i = 0; i < task.subtasks.subtaskDone.length; i++) {
+    doneTasksSum += task.subtasks.subtaskDone[i];
+  };
+  return doneTasksSum;
+}
+
+function determineIfSubtaskExists(task) {
+  if (task.subtasks.subtaskDone.length === 0)
+    return 'd-none';
+}
+
+function determineColor(task) {
+  if (task.category == 'Technical Task') {
+    return 'technical-task'
+  } else {
+    return 'user-story'
+  }
 }
 
 function allowDrop(ev) {
@@ -126,63 +130,6 @@ function unhighlight(index) {
   document.getElementById(index).classList.remove("drag-over");
 }
 
-// Suchfunktion
-
-document.addEventListener("DOMContentLoaded", function () {
-  const searchInput = document.querySelector("#boardSearchID");
-
-  document.addEventListener("click", function (event) {
-    if (event.target !== searchInput) {
-      searchInput.value = "";
-
-      const taskElements = document.querySelectorAll(".card");
-      taskElements.forEach((taskElement) => {
-        taskElement.classList.remove("d-none", "highlight");
-      });
-    }
-  });
-
-  // Event-Listener für das Input-Ereignis im Suchfeld
-  searchInput.addEventListener("input", function () {
-    const searchText = searchInput.value.toLowerCase();
-
-    const taskElements = document.querySelectorAll(".card"); // Alle Aufgabenkarten auswählen
-    taskElements.forEach((taskElement) => {
-      const title = taskElement
-        .querySelector(".cardTextI")
-        .textContent.toLowerCase();
-      const description = taskElement
-        .querySelector(".cardTextII")
-        .textContent.toLowerCase();
-      const initials = taskElement
-        .querySelector(".cardContactsBadge")
-        .textContent.toLowerCase();
-      const assignedName = taskElement
-        .querySelector(".cardTextI")
-        .textContent.toLowerCase();
-
-      if (
-        title.includes(searchText) ||
-        description.includes(searchText) ||
-        initials.includes(searchText) ||
-        assignedName.includes(searchText)
-      ) {
-        taskElement.classList.add("highlight");
-      } else {
-        taskElement.classList.add("d-none");
-        taskElement.classList.remove("highlight");
-      }
-    });
-
-    if (searchInput.value === "") {
-      const taskElements = document.querySelectorAll(".card");
-      taskElements.forEach((taskElement) => {
-        taskElement.classList.remove("d-none", "highlight");
-      });
-    }
-  });
-});
-
 // Overlay Task
 
 function showOverlay(index) {
@@ -195,9 +142,10 @@ function showOverlay(index) {
   document.getElementById("board").classList.add("blurout");
   document.getElementById("overlay").classList.add("overlayposition");
   taskoverlay.classList.remove("d-none");
-  displayassigenedName(index);
+  displayassigenedName(index)
   displaySubtasks(index); // index = e.g.: 1698364123489791324514
 }
+
 
 // Subtasks filtern und als Liste darstellen
 
@@ -211,10 +159,7 @@ function displaySubtasks(index) {
     SpecialID = 1 + id.toString() + i.toString();
     container.innerHTML += `
     <li class="subtaskListItem" onclick="toggleNameSubtask(${SpecialID}, ${id}, ${i})">
-      <img src="${getImage(
-        id,
-        i
-      )}" class="checkboxSubtask" id="checkboxSubtask${SpecialID}">
+      <img src="${getImage(id, i)}" class="checkboxSubtask" id="checkboxSubtask${SpecialID}">
       <span>${subtask}<span>
     </li>
     `;
@@ -263,6 +208,7 @@ function toggleNameSubtask(SpecialID, id, i) {
 //   }
 // }
 
+
 // dexipher Unix-Timestamp
 function formatDateToDDMMYYYY(dateString) {
   const date = new Date(dateString);
@@ -296,13 +242,15 @@ function renderTask(todo, id) {
 <div ${todo.title} class="bOverlayTitle">${todo.title}</div>
 <div class="bOverlayText">${todo.description}</div>
 <div class="bOverlayText">Due date: ${formattedDueDate}</div>
-<div class="bOverlayText bOverlayuppercase">Priority:${todo.priority}<img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" /></div>
+<div class="bOverlayText bOverlayuppercase">Priority: ${todo.priority}<img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" /></div>
 <div class="bOverlayAssigned">
   Assigned To:
   <div class="bOverlayAssignedNames">
   <div class="cardAssignedInitials" id="cardAssignedNameContainer${todo.id}"></div></div>
-</div>
-<ul id="subtask-list-container${id}" class="bOverlaySub"></ul> 
+</div >
+<div class='bOverlayText ${hideHeaderIfNoSubtasks(id)}'> Subtasks </div>
+<ul id="subtask-list-container${id}" class="bOverlaySub">
+</ul> 
 </div>
 <div class="bOverlaycontrolls">
   <div onclick="deleteTask(${todo.id})" class="bOverlaycontrollsbutton">
@@ -318,6 +266,7 @@ function renderTask(todo, id) {
           </g>
       </svg>
       <div class="bOverlaycontrollsText">Delete</div>
+      <img src="../img/short_separating_line.svg">
   </div>
   <div onclick="editTask(${id})" class="bOverlaycontrollsbutton">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -334,6 +283,12 @@ function renderTask(todo, id) {
       <div class="bOverlaycontrollsText" onclick="editTask(${id})">Edit</div>
   </div>
 `;
+}
+
+function hideHeaderIfNoSubtasks(id) {
+  if (todos[id].subtasks.subtaskContent.length == 0) {
+    return 'd-none'
+  }
 }
 
 // Overlay Schließen

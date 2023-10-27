@@ -137,7 +137,7 @@ function renderSubtaskContainerEdit(id) { // This function renders the list of s
             </div>
             <div id="edit-and-delete-edit${newID}" class="edit-and-delete">
               <img id="edit-edit${newID}" onclick="editSubtaskItemEdit(${newID}, ${i}, ${id})" class="edit-and-delete-img" src="../img/edit.svg">
-              <img src="../img/short_separating_line.png">
+              <img src="../img/short_separating_line.svg">
               <img id="delete-edit${i}" onclick="deleteSubtaskItemEdit(${i}, ${id})" class="edit-and-delete-img delete" src="../img/delete.svg">
             </div>
           </li>`;

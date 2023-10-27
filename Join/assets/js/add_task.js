@@ -299,10 +299,9 @@ function renderSubtaskContainer() { // This function renders the list of subtask
             <img style="height: 6px; width: 6px" src="../img/list_marker.png">
             <input onclick="editSubtaskItem(${i})" readonly id="readonly-Input${i}" value="${addedTask}"
                 class="input-edit-subtask"></input>
-    
             <div id="edit-and-delete${i}" class="edit-and-delete">
                 <img id="edit${i}" onclick="editSubtaskItem(${i})" class="edit-and-delete-img" src="../img/edit.svg">
-                <img src="../img/short_separating_line.png">
+                <img src="../img/short_separating_line.svg">
                 <img id="delete${i}" onclick="deleteSubtaskItem(${i})" class="edit-and-delete-img delete"
                     src="../img/delete.svg">
             </div>
