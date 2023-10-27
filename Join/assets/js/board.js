@@ -171,7 +171,7 @@ function displayassigenedName(index) {
     todos[id].assignedInitial.forEach((assignedInitial, i) => {
       const li = document.createElement("li");
       li.textContent = assignedInitial;
-      li.classList.add("color" + (i + randomNum));
+      li.classList.add("color" + ((i + randomNum) % 15 + 1));
       ul.appendChild(li);
     });
 
