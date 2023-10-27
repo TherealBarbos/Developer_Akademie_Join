@@ -31,12 +31,12 @@ async function editTask(id) {
       <textarea class="radius-and-border textarea-edit" id="edit-description${id}">${todos[id].description}</textarea>
     </div>
 
-    <di class="enter-date gap-8"v>
+    <div class="enter-date gap-8"v>
       <h3> Due date </h3>
       <input class="radius-and-border" id="edit-dueDate${id}" type="date" value="${formatDateToDDMMYYYY(todos[id].dueDate)}"></input>
     </div>
 
-    <div class="priority gap-8">
+    <div class="priority-edit gap-8">
         <h3> Priority </h3>
         <div class="prio-select-edit">
             <button onclick="urgentButtonEdit(${id})" id="urgentEdit${id}" class="prio-button border-radius-6 light-border"> Urgent <img
@@ -50,7 +50,7 @@ async function editTask(id) {
     </div>
 
     <div class="assigned-to-container-edit gap-8">
-        <h2> Assigned to </h2>
+        <h3> Assigned to </h3>
         <input onclick="toggleSelect()" onkeyup="filterNames()" id="filterNames" 
         class="border-radius-6 border-color assignedNameSelector" placeholder="Select contacts to assign to">
         <div class="d-none" id="assignedNameContainer">
@@ -360,14 +360,23 @@ function manipulateAssignedArrayEdit(i, li, id) { // this function assignes/spli
 async function manipulateAssignedInitialsEdit(i, id, li) {
     const toBeAssigned = contacts[i]['firstLetter'];
     const index = assignedInitial.indexOf(toBeAssigned);
-    // let checkbox = document.getElementById(`checkbox-edit${newID}`);
 
-    if (li.classList.contains('assignedNameLI-toggled')) { 
+    if (li.classList.contains('assignedNameLI-toggled')) {
         todos[id].assignedInitial.push(toBeAssigned);
     } else {
         todos[id].assignedInitial.splice(index, 1);
     }
     await setItem('allTasks', JSON.stringify(todos));
+    displayInitialsEdit(id);
+}
+
+function displayInitialsEdit(id) {
+    let container = document.getElementById(`initials-display-edit${id}`);
+    container.innerHTML = '';
+    for (let j = 0; j < todos[id].assignedInitial.length; j++) {
+        const displayedInitial = todos[id].assignedInitial[j];
+        container.innerHTML += `<span class="assigned-initials color${j + 1}">${displayedInitial}</span>`;
+    }
 }
 
 async function loadContacts() {

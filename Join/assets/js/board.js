@@ -123,7 +123,7 @@ function displayassigenedName(index) {
   }
 }
 
-// Drag  styl- Effekte
+// Drag  style-effects
 function highlight(index) {
   document.getElementById(index).classList.add("drag-over");
 }
@@ -144,10 +144,9 @@ function showOverlay(index) {
   document.getElementById("overlay").classList.add("overlayposition");
   taskoverlay.classList.remove("d-none");
 
-  displaySubtasks(index); // index = z.B.: 1698364123489791324514
+  displaySubtasks(index); // index = e.g.: 1698364123489791324514
 }
 
-// Task Overlay erzeugen
 
 // Subtasks filtern und als Liste darstellen
 
@@ -213,7 +212,8 @@ function toggleNameSubtask(SpecialID, id, i) {
 //   }
 // }
 
-// Unix-Timestamp entschlüsseln
+
+// dexipher Unix-Timestamp
 function formatDateToDDMMYYYY(dateString) {
   const date = new Date(dateString);
 
@@ -223,7 +223,7 @@ function formatDateToDDMMYYYY(dateString) {
 
   return `${day}/${month}/${year}`;
 }
-// Overlay rendern
+// render Overlay
 function renderTask(todo, id) {
   console.log(id);
   const formattedDueDate = formatDateToDDMMYYYY(todo.dueDate);
