@@ -31,11 +31,3 @@ function setContactValues(index) {
     <span onclick="saveContactValues(${index})">Save <img src="../img/check.svg" alt="check"></span>
     `
 }
-
-async function loadContacts() {
-    try {
-        contacts = JSON.parse(await getItem('contacts'));
-    } catch (e) {
-        console.error('Loading error:', e);
-    }
-}
