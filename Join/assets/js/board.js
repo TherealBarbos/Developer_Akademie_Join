@@ -275,7 +275,6 @@ function formatDateToDDMMYYYY(dateString) {
 }
 // render Overlay
 function renderTask(todo, id) {
-  console.log(id);
   const formattedDueDate = formatDateToDDMMYYYY(todo.dueDate);
 
   return `
