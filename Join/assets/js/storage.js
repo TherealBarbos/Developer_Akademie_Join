@@ -3,6 +3,52 @@ const STORAGE_TOKEN = '4AVD74O6ONTUSWYBIKRAF3SC5B2U9YW3OCE1JRVE';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 let name = []
 let firstLetter = []
+let passwordVisible = false;
+let confirmPasswordVisible = false;
+
+function togglePassword() {
+    if (!passwordVisible) {
+        document.getElementById('input-password').type = 'text';
+        document.getElementById('btn-visibility-password').src = '../img/visibility_off.png';
+        passwordVisible = true;
+    } else {
+        document.getElementById('input-password').type = 'password';
+        document.getElementById('btn-visibility-password').src = '../img/visibility.png';
+        passwordVisible = false;
+    }
+}
+
+function toggleConfirmPassword() {
+    if (!confirmPasswordVisible) {
+        document.getElementById('input-confirm-password').type = 'text';
+        document.getElementById('btn-visibility-confirm-password').src = '../img/visibility_off.png';
+        confirmPasswordVisible = true;
+    } else {
+        document.getElementById('input-confirm-password').type = 'password';
+        document.getElementById('btn-visibility-confirm-password').src = '../img/visibility.png';
+        confirmPasswordVisible = false;
+    }
+}
+
+function enableVisibilityConfirmPassword() {
+    document.getElementById('btn-visibility-confirm-password').classList.remove('d-none');
+    document.getElementById('input-confirm-password').classList.remove('password');
+}
+
+function disableVisibilityConfirmPassword() {
+    document.getElementById('btn-visibility-confirm-password').classList.add('d-none');
+    document.getElementById('input-confirm-password').classList.add('password');
+}
+
+function enableVisibilityPassword() {
+    document.getElementById('btn-visibility-password').classList.remove('d-none');
+    document.getElementById('input-password').classList.remove('password');
+}
+
+function disableVisibilityPassword() {
+    document.getElementById('btn-visibility-password').classList.add('d-none');
+    document.getElementById('input-password').classList.add('password');
+}
 
 function setArray(key, array) {
     localStorage.setItem(key, JSON.stringify(array));

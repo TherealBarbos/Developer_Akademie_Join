@@ -33,14 +33,27 @@
             </div>
             <form onsubmit="signUp(); return false">
                 <div class="signup-window-inputs">
-                    <input placeholder="Name" id="input-name" minlength="1" maxlength="20" required type="text"
-                        class="login-input">
-                    <input placeholder="Email" id="input-email" minlength="1" maxlength="25" required type="email"
-                        class="login-input">
-                    <input placeholder="Password" id="input-password" minlength="1" maxlength="20" required type="text"
-                        class="login-input">
-                    <input placeholder="Confirm Password" id="input-confirm-password" minlength="1" maxlength="20"
-                        required type="text" class="login-input">
+
+                    <input autocomplete="off" placeholder="Name" id="input-name" minlength="1" maxlength="20" required
+                        type="text" class="login-input">
+
+                    <input autocomplete="off" placeholder="Email" id="input-email" minlength="1" maxlength="25" required
+                        type="email" class="login-input">
+
+                    <input required placeholder="Password" id="input-password" type="password"
+                        class="login-input password" onmouseleave="disableVisibilityPassword()"
+                        onmouseover="enableVisibilityPassword()">
+
+                    <img class="btn-visibility-signup d-none" id="btn-visibility-password" src="../img/visibility.png"
+                        alt="visibility" onclick="togglePassword()" onmouseover="enableVisibilityPassword()">
+
+                    <input required placeholder="Confirm Password" id="input-confirm-password" minlength="1"
+                        maxlength="20" required type="password" class="login-input password" onmouseleave="disableVisibilityConfirmPassword()"
+                        onmouseover="enableVisibilityConfirmPassword()">
+
+                    <img class="btn-visibility-signup d-none" id="btn-visibility-confirm-password" src="../img/visibility.png"
+                        alt="visibility" onclick="toggleConfirmPassword()" onmouseover="enableVisibilityConfirmPassword()">
+                        
                     <div id="wrong-password" class="wrong-password d-none">Wrong password Ups! Try again.</div>
                     <div class="signup-checkbox">
                         <input required type="checkbox">

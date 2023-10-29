@@ -31,8 +31,12 @@
                     <img class="vector-login" src="../img/Vector 5.svg" alt="">
                 </div>
                 <div class="login-window-inputs">
-                    <input required placeholder="Email" id="input-email" type="text" class="login-input">
-                    <input required placeholder="Password" id="input-password" type="text" class="login-input">
+                    <input autocomplete="off" required placeholder="Email" id="input-email" type="text" class="login-input">
+                    <input required placeholder="Password" id="input-password" type="password"
+                        class="login-input password" onmouseleave="disableVisibilityPassword()"
+                        onmouseover="enableVisibilityPassword()">
+                    <img class="btn-visibility d-none" id="btn-visibility-password" src="../img/visibility.png" alt="visibility"
+                        onclick="togglePassword()" onmouseover="enableVisibilityPassword()">
                     <div class="login-checkbox">
                         <input required type="checkbox">
                         <span>
@@ -45,13 +49,13 @@
                     <button onclick="guestLogin()" class="login-btn-guest">Guest Log in</button>
                 </div>
             </div>
-        </form> 
+        </form>
 
         <div class="login-signup-upper-part2">
             <span>Not a Join user?</span>
             <button onclick="redirectToSignUp()" class="login-btn">Sign up</button>
         </div>
-        
+
         <div class="login-legalnotice">
             <a href="privacy-policy.html" target="_blank" class="legal-notice-private-policy">Private Policy</a>
             <a href="legal-notice.html" target="_blank" class="legal-notice-private-policy">Legal notice</a>
