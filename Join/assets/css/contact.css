@@ -287,14 +287,6 @@ div:focus .name-text {
     margin-bottom: 12px;
 }
 
-.btn-mobile-backtocontactlist {
-    height: 30px;
-    width: 30px;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
 .btn-mobile-edit-delete {
     width: 100px;
     height: 100px;
@@ -331,6 +323,18 @@ div:focus .name-text {
         pointer-events: none;
     }
 
+    .btn-mobile-backtocontactlist {
+        height: 30px;
+        width: 30px;
+        position: absolute;
+        top: 0;
+        right: 46px;
+    }
+
+    .disappear-until-mobile {
+        display: block;
+    }
+
     .contact-list {
         position: absolute;
         left: 240px;
@@ -365,8 +369,12 @@ div:focus .name-text {
         pointer-events: none;
     }
 
-    .disappear-until-mobile {
-        display: block;
+    .btn-mobile-backtocontactlist {
+        height: 30px;
+        width: 30px;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 
     .btn-mobile-display-edit-delete {
