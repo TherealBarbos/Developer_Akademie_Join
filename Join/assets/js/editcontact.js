@@ -30,6 +30,6 @@ function setContactValues(index) {
     document.getElementById('edit-input-email').value = `${contacts[index]['email']}`;
     document.getElementById('edit-input-phone').value = `${contacts[index]['phone']}`;
     document.getElementById('saveContactValue').innerHTML = /*html*/`
-    <span onclick="saveContactValues(${index})">Save <img src="../img/check.svg" alt="check"></span>
+    <span class="create-btn-align" onclick="saveContactValues(${index})">Save <img src="../img/check.svg" alt="check"></span>
     `
 }

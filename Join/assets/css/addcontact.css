@@ -183,9 +183,14 @@ h2 {
     color: white;
     border-radius: 8px;
     border: none;
-    padding: 16px;
     font-size: 20px;
     font-weight: 700;
+}
+
+.create-btn-align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .create-btn:hover {
@@ -195,7 +200,6 @@ h2 {
     color: white;
     border-radius: 8px;
     border: none;
-    padding: 16px;
     font-size: 20px;
     font-weight: 700;
     box-shadow: 0px 4px 4px 0px #00000040;
