@@ -179,6 +179,11 @@
   font-size: 13px;
 }
 
+.wrong-password-login {
+  color: #FF203B;
+  font-size: 13px;
+}
+
 .login-input:focus {
   outline: none !important;
   border-color: #29ABE2 !important;

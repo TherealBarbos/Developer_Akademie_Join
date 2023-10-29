@@ -10,6 +10,9 @@ function login() {
         setArray('name', account.name);
         setArray('firstLetter', account.firstLetter);
         redirectToSummary();
+    } else {
+        document.getElementById('input-password').classList.add('red-input');
+        document.getElementById('wrong-password').classList.remove('d-none');
     }
     clearLoginInputs();
 }
