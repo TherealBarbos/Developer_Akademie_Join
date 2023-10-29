@@ -130,6 +130,14 @@ async function load() {
     loadAccounts();
     collectLetters();
     displayContacts();
+    checkGuestGiveAlert();
+}
+
+function checkGuestGiveAlert() {
+    let username = getArray('name');
+    if (username == 'Guest') {
+        alert('Please login to add, edit and delete Contacts!');
+    }
 }
 
 function deleteContact(index) {
@@ -316,14 +324,12 @@ async function loadContacts() {
         } catch (e) {
             console.error('Loading error:', e);
         }
-        console.log('guestlogin');
     } else {
         try {
             contacts = JSON.parse(await getItem('contacts'));
         } catch (e) {
             console.error('Loading error:', e);
         }
-        console.log('userlogin');
     }
 }
 
