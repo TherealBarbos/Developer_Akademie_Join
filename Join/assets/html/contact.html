@@ -67,11 +67,16 @@
               </div>
             </div>
             <div class="buttons">
-              <button onclick="redirectAddContactToContacts()" class="cancel-btn">
-                <span>Cancel <img src="../img/x.svg" alt="x"></span>
+              <button onclick="redirectAddContactToContacts()" class="cancel-btn flex" id="addcontact-btn-hover">
+                  <div id="addcontact-btn-hover-normal">
+                    <span>Cancel <img src="../img/x.svg" alt="x"></span>
+                  </div>
+                  <div id="addcontact-btn-hover-blue">
+                    <span>Cancel <img src="../img/x-blue.png" alt="x"></span>
+                  </div>
               </button>
               <button type="submit" class="create-btn">
-                <span class="create-btn-align">Create Contact <img src="../img/check.svg" alt="check"></span>
+                <span class="create-btn-align">Create Contact <img src="../img/check-white.png" alt="check"></span>
               </button>
             </div>
           </div>
@@ -108,11 +113,16 @@
             </div>
           </div>
           <div class="edit-buttons">
-            <button onclick="redirectEditContactToContacts()" class="cancel-btn">
-              <span>Delete <img src="../img/x.svg" alt="x"></span>
+            <button onclick="redirectEditContactToContacts()" class="cancel-btn flex"  id="addcontact-btn-hover">
+              <div id="addcontact-btn-hover-normal">
+                <span>Delete <img src="../img/x.svg" alt="x"></span>
+              </div>
+              <div id="addcontact-btn-hover-blue">
+                <span>Delete <img src="../img/x-blue.png" alt="x"></span>
+              </div>
             </button>
             <button id="saveContactValue" class="save-btn">
-              <span class="create-btn-align">Save <img src="../img/check.svg" alt="save"></span>
+              <span class="create-btn-align">Save <img src="../img/check-white.png" alt="save"></span>
             </button>
           </div>
         </div>

@@ -66,6 +66,46 @@
     align-items: center;
 }
 
+.onhover-cursor-pointer:hover {
+    cursor: pointer;
+}
+
+#addcontact-btn-hover-blue {
+    display: none;
+}
+
+#addcontact-btn-hover:hover div[id='addcontact-btn-hover-blue'] {
+    display: flex;
+}
+
+#addcontact-btn-hover:hover div[id='addcontact-btn-hover-normal'] {
+    display: none;
+}
+
+#edit-btn-hover-blue {
+    display: none;
+}
+
+#edit-btn-hover:hover div[id='edit-btn-hover-blue'] {
+    display: flex;
+}
+
+#edit-btn-hover:hover div[id='edit-btn-hover-normal'] {
+    display: none;
+}
+
+#delete-btn-hover-blue {
+    display: none;
+}
+
+#delete-btn-hover:hover div[id='delete-btn-hover-blue'] {
+    display: flex;
+}
+
+#delete-btn-hover:hover div[id='delete-btn-hover-normal'] {
+    display: none;
+}
+
 .text {
     position: absolute;
     top: 200px;

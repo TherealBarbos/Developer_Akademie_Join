@@ -175,12 +175,28 @@ function displayContactDetails(index) {
         <div class="details-name">${contacts[index]['name']}</div>
         <div class="edit-delete disappear-after-smallest-query">
           <div onclick="editContact(${index})" class="flex">
-            <img src="../img/edit.png" alt="edit">
-            <div>Edit</div>
+          <div id="edit-btn-hover" >
+            <div id="edit-btn-hover-normal" class="flex">
+              <img src="../img/edit.png" alt="edit">
+              <div>Edit</div>
+            </div>
+            <div id="edit-btn-hover-blue" class="flex onhover-cursor-pointer">
+              <img src="../img/edit-blue.png" alt="edit">
+              <div>Edit</div>
+            </div>
+          </div>
           </div>
           <div onclick="deleteContact(${index})" class="flex">
-            <img src="../img/delete.png" alt="delete">
-            <div>Delete</div>
+          <div id="delete-btn-hover" >
+            <div id="delete-btn-hover-normal" class="flex">
+              <img src="../img/delete.png" alt="delete">
+              <div>Delete</div>
+            </div>
+            <div id="delete-btn-hover-blue" class="flex onhover-cursor-pointer">
+              <img src="../img/delete-blue.png" alt="delete">
+              <div>Delete</div>
+            </div>
+          </div>
           </div>
         </div>
       </div>
