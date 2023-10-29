@@ -5,6 +5,8 @@
         display: flex;
         justify-content: space-between;
         flex-direction: column;
+        width: 70vw;
+        height: 90vh;
     }
 
     .img-person-bg {
@@ -24,10 +26,10 @@
 
     .add-c-left-part {
         border-bottom-left-radius: 0;
-        border-top-left-radius: 0;
-        width: 100vw;
-        height: 40vh;
-        padding: 10px 10px;
+        border-top-right-radius: 30px;
+        width: 100%;
+        height: 100%;
+        padding: 0;
         background-color: #2A3647;
         color: white;
         display: flex;
@@ -42,6 +44,20 @@
         padding-bottom: 0;
     }
 
+    .img-person-bg {
+        height: 120px;
+        width: 120px;
+        background-color: #D1D1D1;
+        display: flex;
+        border: solid 3px #FFFFFF;
+        border-radius: 70px;
+        box-shadow: 0px 0px 4px 0px #0000001A;
+        margin-right: 0;
+        margin-top: 0;
+        position: absolute;
+        top: 33vh;
+    }
+
     .right-part {
         display: flex;
         justify-content: center;
@@ -49,7 +65,7 @@
         flex-direction: column;
         padding: 10px 10px;
         gap: 60px;
-        height: 60vh;
+        height: 56vh;
     }
 
     .bg-gray {
@@ -60,6 +76,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 9999;
     }
 
     .x-responsive {
@@ -93,27 +110,15 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 655px) {
     .page {
         border-radius: 30px;
         background-color: #FFFFFF;
         display: flex;
         justify-content: space-between;
         flex-direction: column;
-    }
-
-    .add-c-left-part {
-        border-bottom-left-radius: 0;
-        border-top-left-radius: 0;
-        width: 100vw;
-        height: 40vh;
-        padding: 10px 10px;
-        background-color: #2A3647;
-        color: white;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
+        width: 70vw;
+        height: 80vh;
     }
 
     .right-part {
@@ -122,8 +127,8 @@
         align-items: center;
         flex-direction: column;
         padding: 10px 10px;
-        gap: 60px;
-        height: 60vh;
+        gap: 5vh;
+        height: 50vh;
     }
 
     .bg-gray {
@@ -141,7 +146,7 @@
         border-radius: 10px;
         color: black;
         border: solid 1px lightgrey;
-        width: 80vw;
+        width: 100%;
         height: 40px;
         font-size: 20px;
     }
@@ -225,18 +230,7 @@
     }
 
     .img-person-bg {
-        height: 120px;
-        width: 120px;
-        background-color: #D1D1D1;
-        display: flex;
-        border: solid 3px #FFFFFF;
-        border-radius: 70px;
-        box-shadow: 0px 0px 4px 0px #0000001A;
-        margin-right: 0;
-        margin-top: 0;
-        position: absolute;
-        left: 40%;
-        top: 33%;
+        display: none;
     }
 
     .edit-buttons {
