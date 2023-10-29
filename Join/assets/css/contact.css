@@ -238,8 +238,8 @@ div:focus .name-text {
 }
 
 .details-pfp {
-    height: 120px;
-    width: 120px;
+    min-height: 120px;
+    min-width: 120px;
     background-color: aquamarine;
     display: flex;
     justify-content: center;
