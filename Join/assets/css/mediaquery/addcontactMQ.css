@@ -111,6 +111,7 @@
 }
 
 @media (max-width: 655px) {
+
     .contact {
         display: flex;
         align-items: center;

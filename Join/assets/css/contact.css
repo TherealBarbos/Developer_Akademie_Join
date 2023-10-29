@@ -255,33 +255,22 @@ div:focus .name-text {
     right: 0;
 }
 
-.btn-mobile-display-edit-delete {
-    height: 48px;
-    width: 48px;
-    position: absolute;
-    bottom: -250px;
-    right: 24px;
-    background-color: #2A3647;
-    border-radius: 50px;
-}
-
-.btn-mobile-display-addcontact {
-
-    position: fixed;
-
-}
-
 .btn-mobile-edit-delete {
     width: 100px;
     height: 100px;
     border-radius: 20px;
     border-bottom-right-radius: 0px;
-    position: absolute;
-    bottom: -175px;
-    right: 36px;
+    position: fixed;
+    bottom: 26%;
+    right: 20px;
     background-color: white;
     box-shadow: 0px 4px 4px 0px #00000040;
 }
+
+.btn-mobile-display-addcontact {
+    position: fixed;
+}
+
 
 .btn-mobile-d-none {
     display: none !important;
