@@ -136,8 +136,12 @@ async function load() {
 function checkGuestGiveAlert() {
     let username = getArray('name');
     if (username == 'Guest') {
-        alert('Please login to add, edit and delete Contacts!');
+        document.getElementById('alert-message').classList.remove('d-none');
     }
+}
+
+function alertButtonOk() {
+    document.getElementById('alert-message').classList.add('d-none');
 }
 
 function deleteContact(index) {
