@@ -111,6 +111,20 @@
 }
 
 @media (max-width: 655px) {
+    .contact {
+        display: flex;
+        align-items: center;
+        margin: 5px 5px;
+        gap: 15px;
+        padding: 10px 30px;
+        border-radius: 10px;
+    }
+
+    .pfp {
+        min-height: 42px;
+        min-width: 42px;
+    }
+
     .page {
         border-radius: 30px;
         background-color: #FFFFFF;
