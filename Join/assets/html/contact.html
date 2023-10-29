@@ -68,12 +68,12 @@
             </div>
             <div class="buttons">
               <button onclick="redirectAddContactToContacts()" class="cancel-btn flex" id="addcontact-btn-hover">
-                  <div id="addcontact-btn-hover-normal">
-                    <span>Cancel <img src="../img/x.svg" alt="x"></span>
-                  </div>
-                  <div id="addcontact-btn-hover-blue">
-                    <span>Cancel <img src="../img/x-blue.png" alt="x"></span>
-                  </div>
+                <div id="addcontact-btn-hover-normal">
+                  <span>Cancel <img src="../img/x.svg" alt="x"></span>
+                </div>
+                <div id="addcontact-btn-hover-blue">
+                  <span>Cancel <img src="../img/x-blue.png" alt="x"></span>
+                </div>
               </button>
               <button type="submit" class="create-btn">
                 <span class="create-btn-align">Create Contact <img src="../img/check-white.png" alt="check"></span>
@@ -98,34 +98,36 @@
           </div>
         </div>
 
-        <div class="right-part">
-          <div>
-            <img class="x" onclick="redirectEditContactToContacts()" src="../img/close.svg" alt="x">
-          </div>
-          <div class="rightpart-middle">
-            <div id="EditContactFirstLettersColor" class="img-person-bg">
-              <img id="EditContactFirstLetters">
+        <form>
+          <div class="right-part">
+            <div>
+              <img class="x" onclick="redirectEditContactToContacts()" src="../img/close.svg" alt="x">
             </div>
-            <div class="input-fields">
-              <input class="input" id="edit-input-name" type="text" placeholder="Name">
-              <input class="input" id="edit-input-email" type="text" placeholder="Email">
-              <input class="input" id="edit-input-phone" type="text" placeholder="Phone">
+            <div class="rightpart-middle">
+              <div id="EditContactFirstLettersColor" class="img-person-bg">
+                <img id="EditContactFirstLetters">
+              </div>
+              <div class="input-fields">
+                <input class="input" id="edit-input-name" type="text" placeholder="Name">
+                <input class="input" id="edit-input-email" type="text" placeholder="Email">
+                <input class="input" id="edit-input-phone" type="text" placeholder="Phone">
+              </div>
+            </div>
+            <div class="edit-buttons">
+              <button onclick="redirectEditContactToContacts()" class="cancel-btn flex" id="addcontact-btn-hover">
+                <div id="addcontact-btn-hover-normal">
+                  <span>Delete <img src="../img/x.svg" alt="x"></span>
+                </div>
+                <div id="addcontact-btn-hover-blue">
+                  <span>Delete <img src="../img/x-blue.png" alt="x"></span>
+                </div>
+              </button>
+              <button id="saveContactValue" class="save-btn">
+                <span class="create-btn-align">Save <img src="../img/check-white.png" alt="save"></span>
+              </button>
             </div>
           </div>
-          <div class="edit-buttons">
-            <button onclick="redirectEditContactToContacts()" class="cancel-btn flex"  id="addcontact-btn-hover">
-              <div id="addcontact-btn-hover-normal">
-                <span>Delete <img src="../img/x.svg" alt="x"></span>
-              </div>
-              <div id="addcontact-btn-hover-blue">
-                <span>Delete <img src="../img/x-blue.png" alt="x"></span>
-              </div>
-            </button>
-            <button id="saveContactValue" class="save-btn">
-              <span class="create-btn-align">Save <img src="../img/check-white.png" alt="save"></span>
-            </button>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
 
