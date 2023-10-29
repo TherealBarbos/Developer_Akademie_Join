@@ -138,32 +138,39 @@
         background-position: 65vw 10px;
     }
 
-    #input-password {
-        background-image: url(../../img/lock.png);
-        background-repeat: no-repeat;
-        background-position: 65vw 8px;
-    }
-
     #input-name {
         background-image: url(../../img/person.svg);
         background-repeat: no-repeat;
         background-position: 65vw 10px;
     }
 
-    #input-confirm-password {
-        background-image: url(../../img/lock.png);
-        background-repeat: no-repeat;
-        background-position: 65vw 8px;
-    }
-
     #input-password:focus {
-        background-image: url(../../img/visibility.png);
-        background-repeat: no-repeat;
-        background-position: 65vw 10px;
+        background-image: none;
     }
 
     #input-confirm-password:focus {
-        background-image: url(../../img/visibility.png);
+        background-image: none;
+    }
+
+    .btn-visibility {
+        position: relative;
+        height: 16px;
+        width: 24px;
+        margin-top: -60px;
+        margin-left: 64vw;
+        margin-bottom: 12px;
+    }
+    
+    .btn-visibility-signup {
+        position: relative;
+        height: 16px;
+        width: 24px;
+        margin-top: -52px;
+        margin-left: 64vw;
+        margin-bottom: 12px;
+    }
+
+    .password {
         background-repeat: no-repeat;
         background-position: 65vw 10px;
     }
