@@ -61,6 +61,7 @@
 ``` bash
 ├── assets/
 │   ├── css
+│   │   ├── mediaquery
 │   ├── fonts
 │   ├── html
 │   ├── img
