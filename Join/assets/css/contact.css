@@ -240,6 +240,25 @@ div:focus .name-text {
     width: 10px;
 }
 
+.animate-from-right {
+    position: absolute;
+    opacity: 0;
+    transform: translateX(100%);
+    animation: slideFromRight 0.25s forwards;
+}
+
+@keyframes slideFromRight {
+    0% {
+        transform: translateX(+400px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 .details {
     position: absolute;
     top: 300px;
@@ -330,8 +349,8 @@ div:focus .name-text {
     border-radius: 20px;
     border-bottom-right-radius: 0px;
     position: fixed;
-    bottom: 26%;
-    right: 20px;
+    bottom: 20%;
+    right: 0px;
     background-color: white;
     box-shadow: 0px 4px 4px 0px #00000040;
 }
@@ -418,6 +437,15 @@ div:focus .name-text {
         left: 25%;
     }
 
+    .animate-from-right {
+        animation: none;
+    }
+
+    .animate-from-right {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
     .disappear-after-query {
         display: none;
     }
@@ -439,8 +467,8 @@ div:focus .name-text {
         height: 48px;
         width: 48px;
         position: fixed;
-        bottom: 17%;
-        right: 20px;
+        bottom: 0%;
+        right: 0px;
         background-color: #2A3647;
         border-radius: 50px;
         display: flex;

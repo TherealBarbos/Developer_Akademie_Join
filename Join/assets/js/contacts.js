@@ -260,6 +260,9 @@ function displayContactDetails(index) {
       <img src="../img/more_vert.png" alt="dots">
     </div>
 `
+    details.style.animation = 'none'; // Animation deaktivieren
+    void details.offsetWidth; // Repaint erzwingen
+    details.style.animation = null; // Animation aktivieren
 }
 
 function displayContacts() {
