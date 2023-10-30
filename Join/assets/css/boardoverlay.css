@@ -92,6 +92,7 @@
 .subtaskListItem:hover {
   background-color: var(--icon, #eeeded);
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .checkboxSubtask {

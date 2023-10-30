@@ -85,8 +85,11 @@ function toggleSelect() { // this function opens and closes the list of assignab
 }
 
 function hideContactSelect(event) {
-    if (event.target.id !== "filterNames" && event.target.id !== "assignedName" && !event.target.classList.contains('assignedNameLI') && !event.target.classList.contains('assignedNameLI-toggled') && !event.target.classList.contains('checkbox') && !event.target.classList.contains('assigned-initials') && event.target.id !== "assigned-name-span") {
-        document.getElementById("assignedNameContainer").classList.add("d-none");
+    let nameContainer = document.getElementById('assignedNameContainer');
+    if (nameContainer) {
+        if (event.target.id !== "filterNames" && event.target.id !== "assignedName" && !event.target.classList.contains('assignedNameLI') && !event.target.classList.contains('assignedNameLI-toggled') && !event.target.classList.contains('checkbox') && !event.target.classList.contains('assigned-initials') && event.target.id !== "assigned-name-span") {
+            nameContainer.classList.add("d-none");
+        }
     }
 }
 
@@ -259,7 +262,7 @@ function transformIntoInput() { //this function activates the input field to add
     input.innerHTML = `
     <div id="subtask" class="subtask-button border-radius-6">
         <input onkeyup="handleKeyUp(event)" id="subtask-input" class="subtask-input" placeholder="Contact Form">
-        <div>
+        <div style="display: flex;">
             <img onclick="revertBackToButton()" class="exit" id="exit" src="../img/cancel.svg">
             <img onclick="addNewSubtaskToList()" class="tick" id="tick" src="../img/check.svg">
         </div>
@@ -294,7 +297,7 @@ function renderSubtaskContainer() { // This function renders the list of subtask
     for (let i = 0; i < SubtaskArray.subtaskContent.length; i++) {
         const addedTask = SubtaskArray.subtaskContent[i];
         subtaskContainer.innerHTML +=
-        `<li id="subtaskListItem${i}" class="addsubtask-list-element">
+            `<li id="subtaskListItem${i}" class="addsubtask-list-element">
         <div style="display: flex; align-items: center; gap: 8px;">
             <img style="height: 6px; width: 6px" src="../img/list_marker.png">
             <input onclick="editSubtaskItem(${i})" readonly id="readonly-Input${i}" value="${addedTask}"
@@ -436,7 +439,5 @@ async function getItem(key) {
     });
 }
 
-if (document.getElementById('task-title')) {
-    document.addEventListener("click", hideContactSelect);
-} else {console.log('whyyy')}
+document.addEventListener("click", hideContactSelect);
 
