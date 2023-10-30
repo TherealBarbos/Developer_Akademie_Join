@@ -256,3 +256,15 @@
     }
 
 }
+
+@media (max-width: 400px) {
+    .page {
+        border-radius: 30px;
+        background-color: #FFFFFF;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 90vw;
+        height: 80vh;
+    }
+}
