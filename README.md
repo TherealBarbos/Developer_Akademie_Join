@@ -53,8 +53,35 @@
 ### Aufgaben
 
 > - **Git Repo erstellen**
+##### Reop Erstellen 
+##### REDME.md Grundstrucktur 
+##### Merge branch 'main' verwalten
   
 > - **Ordnerstrucktur aufbauen**
+``` bash
+├── assets/
+│   ├── css
+│   ├── fonts
+│   ├── html
+│   ├── img
+│   ├── js
+│   ├── templates
+├── index.html
+├── style.css
+├── script.je
+├── README.md
+```
+``` bash
++---Join
+    +---assets
+        +---css
+        ª   +---mediaquery
+        +---fonts
+        +---html
+        +---img
+        +---js
+        +---templates
+```
 
 > - **Summary**
 ##### Update of the site
