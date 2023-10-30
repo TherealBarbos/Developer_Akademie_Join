@@ -54,7 +54,7 @@
 
 > - **Git Repo erstellen**
 ##### Reop Erstellen 
-##### REDME.md Grundstrucktur 
+##### README.md Grundstrucktur 
 ##### Merge branch 'main' verwalten
   
 > - **Ordnerstrucktur aufbauen**
