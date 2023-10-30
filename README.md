@@ -9,7 +9,7 @@
 <a name="daten"></a>
 # Developer_Akademie_Join
 ## Git Daten
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/TherealBarbos/Developer_Akademie_Join?logo=gith) ![GitHub repo size](https://img.shields.io/github/repo-size/TherealBarbos/Developer_Akademie_Join?logo=github) ![GitHub last commit](https://img.shields.io/github/last-commit/TherealBarbos/Developer_Akademie_Join?logo=github) ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/TherealBarbos/Developer_Akademie_Join?logo=github) ![GitHub Discussions](https://img.shields.io/github/discussions/TherealBarbos/Developer_Akademie_Join?logo=github)  ![GitHub](https://img.shields.io/github/license/TherealBarbos/Developer_Akademie_Join) ![GitHub language count](https://img.shields.io/github/languages/count/TherealBarbos/Developer_Akademie_Join) 
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/TherealBarbos/Developer_Akademie_Join?logo=gith) ![GitHub repo size](https://img.shields.io/github/repo-size/TherealBarbos/Developer_Akademie_Join?logo=github) ![GitHub last commit](https://img.shields.io/github/last-commit/TherealBarbos/Developer_Akademie_Join?logo=github) ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/TherealBarbos/Developer_Akademie_Join?logo=github) ![GitHub Discussions](https://img.shields.io/github/discussions/TherealBarbos/Developer_Akademie_Join?logo=github) ![GitHub language count](https://img.shields.io/github/languages/count/TherealBarbos/Developer_Akademie_Join) 
 ## Project zur erstellung einer Join Webapp
 ### Schwerpunkte
 - Zusammenarbeit mit Git
@@ -52,11 +52,40 @@
 
 ### Aufgaben
 
-- **Git Repo erstellen**
+> - ### **Git Repo erstellen**
+##### Reop Erstellen 
+##### README.md Grundstrucktur 
+##### Merge branch 'main' verwalten
   
-- **Ordnerstrucktur aufbauen**
+> - ### **Ordnerstrucktur aufbauen**
+``` bash
+├── assets/
+│   ├── css
+│   │   ├── mediaquery
+│   ├── fonts
+│   ├── html
+│   ├── img
+│   ├── js
+│   ├── templates
+├── index.html
+├── style.css
+├── script.je
+├── README.md
+```
+##### tree > README.md
+``` bash
++---Join
+    +---assets
+        +---css
+        ª   +---mediaquery
+        +---fonts
+        +---html
+        +---img
+        +---js
+        +---templates
+```
 
-- **Summary**
+> - ### **Summary**
 ##### Update of the site
 ```js
 function updatesummary() {
@@ -80,13 +109,56 @@ function countTasksByStatus(todos, state) {
 }
 ```
 
-
-- **Board**
+ 
+> - ### **Board**
 ##### Drag and Drop
 ``` js
 function startDraging(index) {
   currentDraggedElement = index;
   document.getElementById(`card-${index}`).classList.add("cardDragging");
+}
+```
+#####  Load Tasks
+``` js
+function showTaskListByState(state) {
+  let filteredTasksByState = todos.filter((t) => t["state"] == state);
+
+  document.getElementById(state).innerHTML = "";
+
+  for (let index = 0; index < filteredTasksByState.length; index++) {
+    const element = filteredTasksByState[index];
+    document.getElementById(state).innerHTML += generateTaskCard(element);
+    displayassigenedName(element.id);
+  }
+}
+
+function generateTaskCard(task) {
+  return ` <div id="card-${task.id}" class="card" draggable="true" ondragstart="startDraging('${task.id}')" onclick="showOverlay('${task.id}')">
+    <div class="cardFrame">
+      <div class="cardLable ${determineColor(task)}">${task.category}</div>
+      <div class="cardTextbox">
+        <div class="cardTextI">${task.title}</div>
+        <div class="cardTextII">${task.description}</div>
+      </div>
+      <div id="card-subtask-${task.id}" class="cardProgress ${determineIfSubtaskExists(task)}">
+        <div class="cardProgressbar">
+          <div class="progress">
+           <div class="progress-bar" role="progressbar" style="width: ${(taskSum(task) / task.subtasks.subtaskContent.length) * 100}%; 
+           height: 15px; border-radius: 8px;" aria-valuenow="${taskSum(task)}" aria-valuemin="0" aria-valuemax="${task.subtasks.subtaskContent.length}"></div>
+          </div>
+        </div>
+         <div class="cardProgressText">${taskSum(task)}/${task.subtasks.subtaskContent.length} Subtasks</div>
+      </div>
+      <div class="cardContacts">
+        <div class="cardContactsBadge">
+          <div class="cardAssignedInitials" id="cardAssignedNameContainer${task.id}"></div>
+        </div>
+        <div class="cardContactsPrio">
+          <img src="${task.priorityImageSource}" alt="" class="cardContactsPrioImg" />
+        </div>
+      </div>
+    </div>
+  </div>`;
 }
 ```
 #####  Unix-Timestamp decode
@@ -112,7 +184,7 @@ function deleteTask(index) {
   closeOverlay();
 }
 ``` 
-- **CSS Imports**
+> - ### **CSS Imports**
 
 ##### implement other CSS
 ``` css
@@ -127,7 +199,7 @@ function deleteTask(index) {
 @import url("assets/css/template.css");
 
 ```
-- **Color Roots**
+> - ### **Color Roots**
 ##### Create fixed Colors
 ``` css
 :root {
@@ -141,9 +213,21 @@ function deleteTask(index) {
   /*Das Join Blau*/
 }
 ```
-- **Help**
-- **Privacy Policy**
-- **Legal Notice**
+> - ### **Help**
+#####  onclick back to last site
+``` html
+<div class="return-arrow" onclick="window.history.back()">
+```
+> - ### **Privacy Policy**
+#####  onclick close tap
+``` html
+ <div class="return-arrow" onclick="window.close()">
+```
+> - ### **Legal Notice**
+#####  onclick open new tap
+``` html
+<a href="../html/legal-notice.html" target="_blank">Legal notice</a>
+```
 
 &uarr; [zurück zur Übersicht](#top)
 ## Responsive 
