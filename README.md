@@ -89,6 +89,49 @@ function startDraging(index) {
   document.getElementById(`card-${index}`).classList.add("cardDragging");
 }
 ```
+#####  Load Tasks
+``` js
+function showTaskListByState(state) {
+  let filteredTasksByState = todos.filter((t) => t["state"] == state);
+
+  document.getElementById(state).innerHTML = "";
+
+  for (let index = 0; index < filteredTasksByState.length; index++) {
+    const element = filteredTasksByState[index];
+    document.getElementById(state).innerHTML += generateTaskCard(element);
+    displayassigenedName(element.id);
+  }
+}
+
+function generateTaskCard(task) {
+  return ` <div id="card-${task.id}" class="card" draggable="true" ondragstart="startDraging('${task.id}')" onclick="showOverlay('${task.id}')">
+    <div class="cardFrame">
+      <div class="cardLable ${determineColor(task)}">${task.category}</div>
+      <div class="cardTextbox">
+        <div class="cardTextI">${task.title}</div>
+        <div class="cardTextII">${task.description}</div>
+      </div>
+      <div id="card-subtask-${task.id}" class="cardProgress ${determineIfSubtaskExists(task)}">
+        <div class="cardProgressbar">
+          <div class="progress">
+           <div class="progress-bar" role="progressbar" style="width: ${(taskSum(task) / task.subtasks.subtaskContent.length) * 100}%; 
+           height: 15px; border-radius: 8px;" aria-valuenow="${taskSum(task)}" aria-valuemin="0" aria-valuemax="${task.subtasks.subtaskContent.length}"></div>
+          </div>
+        </div>
+         <div class="cardProgressText">${taskSum(task)}/${task.subtasks.subtaskContent.length} Subtasks</div>
+      </div>
+      <div class="cardContacts">
+        <div class="cardContactsBadge">
+          <div class="cardAssignedInitials" id="cardAssignedNameContainer${task.id}"></div>
+        </div>
+        <div class="cardContactsPrio">
+          <img src="${task.priorityImageSource}" alt="" class="cardContactsPrioImg" />
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+```
 #####  Unix-Timestamp decode
 ``` js
 function formatDateToDDMMYYYY(dateString) {
@@ -142,8 +185,20 @@ function deleteTask(index) {
 }
 ```
 - **Help**
+#####  onclick back to last site
+``` html
+<div class="return-arrow" onclick="window.history.back()">
+```
 - **Privacy Policy**
+#####  onclick close tap
+``` html
+ <div class="return-arrow" onclick="window.close()">
+```
 - **Legal Notice**
+#####  onclick open new tap
+``` html
+<a href="../html/legal-notice.html" target="_blank">Legal notice</a>
+```
 
 &uarr; [zurück zur Übersicht](#top)
 ## Responsive 
