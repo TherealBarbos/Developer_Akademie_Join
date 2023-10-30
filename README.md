@@ -52,12 +52,12 @@
 
 ### Aufgaben
 
-> - **Git Repo erstellen**
+> - ### **Git Repo erstellen**
 ##### Reop Erstellen 
 ##### README.md Grundstrucktur 
 ##### Merge branch 'main' verwalten
   
-> - **Ordnerstrucktur aufbauen**
+> - ### **Ordnerstrucktur aufbauen**
 ``` bash
 ├── assets/
 │   ├── css
@@ -85,7 +85,7 @@
         +---templates
 ```
 
-> - **Summary**
+> - ### **Summary**
 ##### Update of the site
 ```js
 function updatesummary() {
@@ -110,7 +110,7 @@ function countTasksByStatus(todos, state) {
 ```
 
  
-> - **Board**
+> - ### **Board**
 ##### Drag and Drop
 ``` js
 function startDraging(index) {
@@ -184,7 +184,7 @@ function deleteTask(index) {
   closeOverlay();
 }
 ``` 
-> - **CSS Imports**
+> - ### **CSS Imports**
 
 ##### implement other CSS
 ``` css
@@ -199,7 +199,7 @@ function deleteTask(index) {
 @import url("assets/css/template.css");
 
 ```
-> - **Color Roots**
+> - ### **Color Roots**
 ##### Create fixed Colors
 ``` css
 :root {
@@ -213,17 +213,17 @@ function deleteTask(index) {
   /*Das Join Blau*/
 }
 ```
-> - **Help**
+> - ### **Help**
 #####  onclick back to last site
 ``` html
 <div class="return-arrow" onclick="window.history.back()">
 ```
-> - **Privacy Policy**
+> - ### **Privacy Policy**
 #####  onclick close tap
 ``` html
  <div class="return-arrow" onclick="window.close()">
 ```
-> - **Legal Notice**
+> - ### **Legal Notice**
 #####  onclick open new tap
 ``` html
 <a href="../html/legal-notice.html" target="_blank">Legal notice</a>
