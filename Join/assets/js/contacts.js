@@ -3,7 +3,6 @@ let letters = []
 let buttonEditDelete = false;
 let guestcontacts = []
 
-
 document.addEventListener("DOMContentLoaded", function () {
     let addcontactOverlay = document.getElementById("addcontact-overlay");
     let editcontactOverlay = document.getElementById("editcontact-overlay");
@@ -22,10 +21,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function displayEditDeleteContact() {
-    if (buttonEditDelete == false) {
+    if (!buttonEditDelete) {
         document.getElementById('btn-display-edit-delete').classList.remove('btn-mobile-d-none');
         buttonEditDelete = true;
-    } else if (buttonEditDelete == true) {
+    } else if (buttonEditDelete) {
         document.getElementById('btn-display-edit-delete').classList.add('btn-mobile-d-none');
         buttonEditDelete = false;
     }
@@ -65,13 +64,12 @@ function openAddContact() {
     document.getElementById('addcontact-overlay').classList.add('bg-gray');
 }
 
-async function addContact() {
+function createNewContact() {
     let email = document.getElementById('input-email-addcontact');
     let name = document.getElementById('input-name-addcontact');
     let phone = document.getElementById('input-phone-addcontact');
-    let username = getArray('name');
 
-    let contact = {
+    return contact = {
         'name': name.value,
         'email': email.value,
         'phone': '+' + phone.value,
@@ -79,41 +77,23 @@ async function addContact() {
         'id': idLetter(name.value),
         'colorId': randomColor(),
     };
+}
+
+async function addContact() {
+    let contact = createNewContact();
+    let username = getArray('name');
+
     if (username == 'Guest') {
         guestcontacts.push(contact);
     } else {
         contacts.push(contact);
         await setItem('contacts', JSON.stringify(contacts));
     }
+
     clearLoginInputs();
     displayContacts();
     redirectAddContactToContacts();
 }
-
-//------------------------------------OLD FUNCTION-------------------------//
-//async function addContact() {
-//    let email = document.getElementById('input-email-addcontact');
-//    let name = document.getElementById('input-name-addcontact');
-//    let phone = document.getElementById('input-phone-addcontact');
-//
-//    let account = accounts.find(a => a.email == email.value && a.name == name.value);
-//    if (account) {
-//        console.log('Account gefunden');
-//        let contact = {
-//            'name': name.value,
-//            'email': email.value,
-//            'phone': '+' + phone.value,
-//            'firstLetter': firstLetters(name.value),
-//            'id': idLetter(name.value),
-//            'colorId': account['colorId'],
-//        };
-//        contacts.push(contact)
-//        await setItem('contacts', JSON.stringify(contacts));
-//    }
-//    clearLoginInputs();
-//    redirectAddContactToContacts();
-//}
-
 
 /**
  * this function is used to clear the Input fields from the Sign up page
@@ -124,7 +104,6 @@ function clearLoginInputs() {
     document.getElementById('input-phone-addcontact').value = '';
 }
 
-//
 async function load() {
     await loadContacts();
     loadAccounts();
@@ -147,14 +126,12 @@ function alertButtonOk() {
 function deleteContact(index) {
     contacts.splice(index, 1);
     setItem('contacts', contacts);
-
     let details = document.getElementById('details');
     let contactlist = document.getElementById('contact-list');
     contactlist.classList.remove('disappear-after-query');
     details.classList.add('disappear-after-query');
     loadContacts();
     displayContacts();
-
     document.getElementById('details').innerHTML = '';
 }
 
@@ -177,9 +154,90 @@ function displayContactDetails(index) {
     let contactlist = document.getElementById('contact-list');
     contactlist.classList.add('disappear-after-query');
     details.classList.remove('disappear-after-query');
+    details.innerHTML = contactDetailsTemplate(index);
+    details.style.animation = 'none'; // Animation deaktivieren
+    void details.offsetWidth; // Repaint erzwingen
+    details.style.animation = null; // Animation aktivieren
+}
 
-    details.innerHTML = '';
-    details.innerHTML = /*html*/`
+///////diese funktion ist an sicht eine art template funktion deswegen macht es denke ich nicht so viel sinn diese zu verkürzen//////
+function displayContacts() {
+    let list = document.getElementById('contact-list');
+    list.innerHTML = '';
+    contacts.sort(compareNames);
+
+    for (let i = 0; i < contacts.length; i++) {
+        let contact = contacts[i];
+        let letter = contact['firstLetter'];
+        let contact_id = contact['id'];
+        let id = document.getElementById(`${contact_id}`);
+
+        if (document.getElementById(contact_id) == undefined) {
+            list.innerHTML += /*html*/`
+                <div>
+                    <span class="list-letter">${contact_id}</span>
+                    <div class="line"> </div>
+                        <div id="${contact_id}">
+                            <div onclick="displayContactDetails(${i})" tabindex="${i}" class="contact">
+                                <div class="pfp color${contact['colorId']}">${letter}</div>
+                                <div class="contact-info column">
+                                <div class="name-text" >${contact['name']}</div>
+                                <div class="email-text">${contact['email']}</div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else {
+            id.innerHTML += /*html*/`
+            <div onclick="displayContactDetails(${i})" tabindex="${i}" class="contact">
+                <div class="pfp  color${contact['colorId']}">${letter}</div>
+                <div class="contact-info column">
+                    <div class="name-text" >${contact['name']}</div>
+                    <div class="email-text">${contact['email']}</div>
+                </div>
+            </div>
+        `;
+        }
+    }
+
+    list.innerHTML += /*html*/`
+    <div onclick="openAddContact()" class="btn-mobile-display-addcontact disappear-until-mobile">
+        <img src="../img/person_add.png" alt="person-add">
+    </div>
+    `
+}
+
+function collectLetters() {
+    for (let i = 0; i < contacts.length; i++) {
+        let contact = contacts[i];
+        const FirstLetter = contact['name'].charAt(0).toUpperCase();
+
+        if (!letters.includes(FirstLetter)) {
+            letters.push(FirstLetter);
+        }
+    }
+}
+
+async function loadContacts() {
+    let username = getArray('name');
+    if (username == 'Guest') {
+        try {
+            contacts = JSON.parse(await getItem('guestcontacts'));
+        } catch (e) {
+            console.error('Loading error:', e);
+        }
+    } else {
+        try {
+            contacts = JSON.parse(await getItem('contacts'));
+        } catch (e) {
+            console.error('Loading error:', e);
+        }
+    }
+}
+
+function contactDetailsTemplate(index) {
+    return /*html*/`
     
     <div class="details-upper-part">
       <div class="details-pfp color${contacts[index]['colorId']}">${contacts[index]['firstLetter']}  </div>
@@ -260,84 +318,6 @@ function displayContactDetails(index) {
       <img src="../img/more_vert.png" alt="dots">
     </div>
 `
-    details.style.animation = 'none'; // Animation deaktivieren
-    void details.offsetWidth; // Repaint erzwingen
-    details.style.animation = null; // Animation aktivieren
-}
-
-function displayContacts() {
-    let list = document.getElementById('contact-list');
-    list.innerHTML = '';
-    contacts.sort(compareNames);
-
-    for (let i = 0; i < contacts.length; i++) {
-        let contact = contacts[i];
-        let letter = contact['firstLetter'];
-        let contact_id = contact['id'];
-        let id = document.getElementById(`${contact_id}`);
-
-        if (document.getElementById(contact_id) == undefined) {
-            list.innerHTML += /*html*/`
-                <div>
-                    <span class="list-letter">${contact_id}</span>
-                    <div class="line"> </div>
-                    <div id="${contact_id}">
-                                 <div onclick="displayContactDetails(${i})" tabindex="${i}" class="contact">
-                           <div class="pfp color${contact['colorId']}">${letter}</div>
-                           <div class="contact-info column">
-                             <div class="name-text" >${contact['name']}</div>
-                             <div class="email-text">${contact['email']}</div>
-                           </div>
-                       </div>
-                    </div>
-        </div>
-            `;
-        } else {
-            id.innerHTML += /*html*/`
-          <div onclick="displayContactDetails(${i})" tabindex="${i}" class="contact">
-              <div class="pfp  color${contact['colorId']}">${letter}</div>
-              <div class="contact-info column">
-                <div class="name-text" >${contact['name']}</div>
-                <div class="email-text">${contact['email']}</div>
-              </div>
-          </div>
-        `;
-        }
-    }
-
-    list.innerHTML += /*html*/`
-     <div onclick="openAddContact()" class="btn-mobile-display-addcontact disappear-until-mobile">
-        <img src="../img/person_add.png" alt="person-add">
-    </div>
-    `
-}
-
-function collectLetters() {
-    for (let i = 0; i < contacts.length; i++) {
-        let contact = contacts[i];
-        const FirstLetter = contact['name'].charAt(0).toUpperCase();
-
-        if (!letters.includes(FirstLetter)) {
-            letters.push(FirstLetter);
-        }
-    }
-}
-
-async function loadContacts() {
-    let username = getArray('name');
-    if (username == 'Guest') {
-        try {
-            contacts = JSON.parse(await getItem('guestcontacts'));
-        } catch (e) {
-            console.error('Loading error:', e);
-        }
-    } else {
-        try {
-            contacts = JSON.parse(await getItem('contacts'));
-        } catch (e) {
-            console.error('Loading error:', e);
-        }
-    }
 }
 
 async function setItem(key, value) {

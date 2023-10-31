@@ -1,6 +1,6 @@
 /**
  * this function is used to log in the person. it checks if the email and password exists.
- *  If the email and password are valid. the user gets logged in!
+ *  If the email and password are valid. the user gets logged in
  */
 function login() {
     let email = document.getElementById('input-email');

@@ -25,10 +25,14 @@ async function signUp() {
         redirectToLogin();
     }
     else {
-        document.getElementById('input-confirm-password').classList.add('red-input');
-        document.getElementById('wrong-password').classList.remove('d-none');
+        displayWrongData();
     }
     clearSignupInputs();
+}
+
+function displayWrongData() {
+    document.getElementById('input-confirm-password').classList.add('red-input');
+    document.getElementById('wrong-password').classList.remove('d-none');
 }
 
 async function redirectToLogin() {

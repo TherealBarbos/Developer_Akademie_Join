@@ -88,13 +88,11 @@ function firstLetters(str) {
         let firstLetter = firstWord.substring(0, 1).toUpperCase();
         return firstLetter;
     }
-
 }
 
 function compareNames(a, b) {
-    let nameA = a.name.toUpperCase(); // Großbuchstaben für den Vergleich
-    let nameB = b.name.toUpperCase(); // Großbuchstaben für den Vergleich
-
+    let nameA = a.name.toUpperCase();
+    let nameB = b.name.toUpperCase();
     if (nameA < nameB) {
         return -1;
     }
@@ -103,8 +101,6 @@ function compareNames(a, b) {
     }
     return 0;
 }
-
-//     accounts.sort(compareNames);
 
 async function loadAccounts() {
     try {
