@@ -1,26 +1,86 @@
 let todos = [];
 
-let quote = [
-  "The happiness of your life depends upon the quality of your thoughts. - Marcus Aurelius",
-  "Phantasie ist wichtiger als Wissen, denn Wissen ist begrenzt. - Albert Einstein",
-  "Frieden kann nicht durch Gewalt erreicht werden. Es kann nur durch Verständnis erreicht werden. - Albert Einstein",
-  "Logik bringt dich von A nach B. Phantasie bringt dich überall hin. - Albert Einstein",
-  "Wenn etwas wichtig genug ist, dann solltest du es trotz aller Widrigkeiten tun. - Elon Musk",
-  "Ich denke, es ist möglich, das Leben zu multiplizieren und irgendwohin anders zu bringen. - Elon Musk",
-  "Du musst in der Lage sein, wie ein Bohrer in die Dinge einzudringen und wirklich verstehen, was du tust. - Elon Musk",
-  "Deine Arbeit wird einen großen Teil deines Lebens ausmachen, und die einzige Möglichkeit, wirklich zufrieden zu sein, ist, das zu tun, was du für eine großartige Arbeit hältst. - Steve Jobs",
-  "Innovationen entstehen, wenn man Dinge anders macht, nicht, wenn man sie genauso macht wie alle anderen. - Steve Jobs",
-  "Bleibe hungrig, bleibe töricht. - Steve Jobs",
-  "Das Leben ist das, was passiert, während du eifrig dabei bist, andere Pläne zu schmieden. - John Lennon",
-  "Zwei Dinge sind unendlich: das Universum und die menschliche Dummheit. Aber bei dem Universum bin ich mir noch nicht ganz sicher. - Albert Einstein",
-  "Man sieht nur das, was man weiß. - Johann Wolfgang von Goethe",
-  "Die Zukunft gehört denen, die an die Schönheit ihrer Träume glauben. - Eleanor Roosevelt",
-  "Du kannst die Wellen nicht stoppen, aber du kannst lernen zu surfen. - Jon Kabat-Zinn",
-  "Die größte Ruhm liegt nicht darin, niemals zu fallen, sondern jedes Mal wieder aufzustehen. - Nelson Mandela",
-  "Das Leben ist zu kurz, um in der Warteschlange zu stehen. - Hugh Hefner",
-  "Glück ist, wenn das, was du denkst, was du sagst und was du tust, in Harmonie miteinander sind. - Mahatma Gandhi",
-  "Wenn du nach den Sternen greifst, kannst du vielleicht nur die Spitzen der Bäume erreichen, aber das ist immer noch höher als der Boden. - Jodie Foster",
-  "Die größte Entdeckung aller Zeiten ist, dass ein Mensch seine Zukunft ändern kann, indem er seine Einstellung ändert. - Oprah Winfrey"
+let quotes = [
+  {
+    text: "Das Glück deines Lebens hängt von der Qualität deiner Gedanken ab.",
+    author: "Marcus Aurelius",
+  },
+  {
+    text: "Phantasie ist wichtiger als Wissen, denn Wissen ist begrenzt.",
+    author: "Albert Einstein",
+  },
+  {
+    text: "Frieden kann nicht durch Gewalt erreicht werden. Es kann nur durch Verständnis erreicht werden.",
+    author: "Albert Einstein",
+  },
+  {
+    text: "Logik bringt dich von A nach B. Phantasie bringt dich überall hin.",
+    author: "Albert Einstein",
+  },
+  {
+    text: "Wenn etwas wichtig genug ist, dann solltest du es trotz aller Widrigkeiten tun.",
+    author: "Elon Musk",
+  },
+  {
+    text: "Ich denke, es ist möglich, das Leben zu multiplizieren und irgendwohin anders zu bringen.",
+    author: "Elon Musk",
+  },
+  {
+    text: "Du musst in der Lage sein, wie ein Bohrer in die Dinge einzudringen und wirklich verstehen, was du tust.",
+    author: "Elon Musk",
+  },
+  {
+    text: "Deine Arbeit wird einen großen Teil deines Lebens ausmachen, und die einzige Möglichkeit, wirklich zufrieden zu sein, ist, das zu tun, was du für eine großartige Arbeit hältst.",
+    author: "Steve Jobs",
+  },
+  {
+    text: "Innovationen entstehen, wenn man Dinge anders macht, nicht, wenn man sie genauso macht wie alle anderen.",
+    author: "Steve Jobs",
+  },
+  {
+    text: "Bleibe hungrig, bleibe töricht.",
+    author: "Steve Jobs",
+  },
+  {
+    text: "Das Leben ist das, was passiert, während du eifrig dabei bist, andere Pläne zu schmieden.",
+    author: "John Lennon",
+  },
+  {
+    text: "Zwei Dinge sind unendlich: das Universum und die menschliche Dummheit. Aber bei dem Universum bin ich mir noch nicht ganz sicher.",
+    author: "Albert Einstein",
+  },
+  {
+    text: "Man sieht nur das, was man weiß.",
+    author: "Johann Wolfgang von Goethe",
+  },
+  {
+    text: "Die Zukunft gehört denen, die an die Schönheit ihrer Träume glauben.",
+    author: "Eleanor Roosevelt",
+  },
+  {
+    text: "Du kannst die Wellen nicht stoppen, aber du kannst lernen zu surfen.",
+    author: "Jon Kabat-Zinn",
+  },
+  {
+    text: "Die größte Ruhm liegt nicht darin, niemals zu fallen, sondern jedes Mal wieder aufzustehen.",
+    author: "Nelson Mandela",
+  },
+  {
+    text: "Das Leben ist zu kurz, um in der Warteschlange zu stehen.",
+    author: "Hugh Hefner",
+  },
+  {
+    text: "Glück ist, wenn das, was du denkst, was du sagst und was du tust, in Harmonie miteinander sind.",
+    author: "Mahatma Gandhi",
+  },
+  {
+    text: "Wenn du nach den Sternen greifst, kannst du vielleicht nur die Spitzen der Bäume erreichen, aber das ist immer noch höher als der Boden.",
+    author: "Jodie Foster",
+  },
+  {
+    text: "Die größte Entdeckung aller Zeiten ist, dass ein Mensch seine Zukunft ändern kann, indem er seine Einstellung ändert.",
+    author: "Oprah Winfrey",
+  },
 ];
 
 let currentDraggedElement;
@@ -56,15 +116,16 @@ function showTaskListByState(state) {
 function generatePlaceholder() {
   const randomQuote = getRandomQuote();
   return `<div class="cardplaceholder">
-  <div class="cardplaceholderLable">No Task!</div>
-  <div class="cardTextI">Just Knowledge:</div>
-  <div class="cardTextII">"${randomQuote}"</div>
+    <div class="cardplaceholderLable">No Task!</div>
+    <div class="cardTextI">Just Knowledge:</div>
+    <div class="cardTextII">"${randomQuote.text}"</div>
+    <div class="cardTextII cardTextR">- ${randomQuote.author}</div>
   </div>`;
 }
 
 function getRandomQuote() {
-  const randomIndex = Math.floor(Math.random() * quote.length);
-  return quote[randomIndex];
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  return quotes[randomIndex];
 }
 
 // Drag functionality
@@ -77,28 +138,46 @@ function startDraging(index) {
 
 // Generische Funktion zum Erzeugen der Task-Karten
 function generateTaskCard(task) {
-  return ` <div id="card-${task.id}" class="card" draggable="true" ondragstart="startDraging('${task.id}')" onclick="showOverlay('${task.id}')">
+  return ` <div id="card-${
+    task.id
+  }" class="card" draggable="true" ondragstart="startDraging('${
+    task.id
+  }')" onclick="showOverlay('${task.id}')">
     <div class="cardFrame">
       <div class="cardLable ${determineColor(task)}">${task.category}</div>
       <div class="cardTextbox">
         <div class="cardTextI">${task.title}</div>
         <div class="cardTextII">${task.description}</div>
       </div>
-      <div id="card-subtask-${task.id}" class="cardProgress ${determineIfSubtaskExists(task)}">
+      <div id="card-subtask-${
+        task.id
+      }" class="cardProgress ${determineIfSubtaskExists(task)}">
         <div class="cardProgressbar">
           <div class="progress">
-           <div class="progress-bar" role="progressbar" style="width: ${(taskSum(task) / task.subtasks.subtaskContent.length) * 100}%; 
-           height: 15px; border-radius: 8px;" aria-valuenow="${taskSum(task)}" aria-valuemin="0" aria-valuemax="${task.subtasks.subtaskContent.length}"></div>
+           <div class="progress-bar" role="progressbar" style="width: ${
+             (taskSum(task) / task.subtasks.subtaskContent.length) * 100
+           }%; 
+           height: 15px; border-radius: 8px;" aria-valuenow="${taskSum(
+             task
+           )}" aria-valuemin="0" aria-valuemax="${
+    task.subtasks.subtaskContent.length
+  }"></div>
           </div>
         </div>
-         <div class="cardProgressText">${taskSum(task)}/${task.subtasks.subtaskContent.length} Subtasks</div>
+         <div class="cardProgressText">${taskSum(task)}/${
+    task.subtasks.subtaskContent.length
+  } Subtasks</div>
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
-          <div class="cardAssignedInitials" id="cardAssignedNameContainer${task.id}"></div>
+          <div class="cardAssignedInitials" id="cardAssignedNameContainer${
+            task.id
+          }"></div>
         </div>
         <div class="cardContactsPrio">
-          <img src="${task.priorityImageSource}" alt="" class="cardContactsPrioImg" />
+          <img src="${
+            task.priorityImageSource
+          }" alt="" class="cardContactsPrioImg" />
         </div>
       </div>
     </div>
@@ -109,20 +188,19 @@ function taskSum(task) {
   let doneTasksSum = 0;
   for (let i = 0; i < task.subtasks.subtaskDone.length; i++) {
     doneTasksSum += task.subtasks.subtaskDone[i];
-  };
+  }
   return doneTasksSum;
 }
 
 function determineIfSubtaskExists(task) {
-  if (task.subtasks.subtaskDone.length === 0)
-    return 'd-none';
+  if (task.subtasks.subtaskDone.length === 0) return "d-none";
 }
 
 function determineColor(task) {
-  if (task.category == 'Technical Task') {
-    return 'technical-task'
+  if (task.category == "Technical Task") {
+    return "technical-task";
   } else {
-    return 'user-story'
+    return "user-story";
   }
 }
 
@@ -183,7 +261,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
 function allowDrop(ev) {
   ev.preventDefault();
 }
@@ -215,7 +292,7 @@ function displayassigenedName(index) {
     todos[id].assignedInitial.forEach((assignedInitial, i) => {
       const li = document.createElement("li");
       li.textContent = assignedInitial;
-      li.classList.add("color" + ((i + randomNum) % 15 + 1));
+      li.classList.add("color" + (((i + randomNum) % 15) + 1));
       ul.appendChild(li);
     });
 
@@ -238,7 +315,6 @@ function displayAssignedNameOverlay(index) {
     const ul = document.createElement("ul");
 
     todos[id].assignedInitial.forEach((assignedInitial, i) => {
-
       if (todos[id].assignedName && todos[id].assignedName[i]) {
         const li = document.createElement("li");
 
@@ -250,7 +326,7 @@ function displayAssignedNameOverlay(index) {
         div1.classList.add("initialsOverlay");
         div1.classList.add(`color${randomNum}`);
         li.appendChild(div1);
-        
+
         // Erstelle das zweite div-Element
         const div2 = document.createElement("div");
         div2.textContent = todos[id].assignedName[i];
@@ -272,7 +348,6 @@ function displayAssignedNameOverlay(index) {
   }
 }
 
-
 // Drag  style-effects
 function highlight(index) {
   document.getElementById(index).classList.add("drag-over");
@@ -293,10 +368,9 @@ function showOverlay(index) {
   document.getElementById("board").classList.add("blurout");
   document.getElementById("overlay").classList.add("overlayposition");
   taskoverlay.classList.remove("d-none");
-  displayAssignedNameOverlay(index)
+  displayAssignedNameOverlay(index);
   displaySubtasks(index); // index = e.g.: 1698364123489791324514
 }
-
 
 // Subtasks filtern und als Liste darstellen
 
@@ -310,7 +384,10 @@ function displaySubtasks(index) {
     SpecialID = 1 + id.toString() + i.toString();
     container.innerHTML += `
     <li class="subtaskListItem" onclick="toggleNameSubtask(${SpecialID}, ${id}, ${i})">
-      <img src="${getImage(id, i)}" class="checkboxSubtask" id="checkboxSubtask${SpecialID}">
+      <img src="${getImage(
+        id,
+        i
+      )}" class="checkboxSubtask" id="checkboxSubtask${SpecialID}">
       <span>${subtask}<span>
     </li>
     `;
@@ -359,7 +436,6 @@ function toggleNameSubtask(SpecialID, id, i) {
 //   }
 // }
 
-
 // dexipher Unix-Timestamp
 function formatDateToDDMMYYYY(dateString) {
   const date = new Date(dateString);
@@ -393,11 +469,17 @@ function renderTask(todo, id) {
 <div ${todo.title} class="bOverlayTitle">${todo.title}</div>
 <div class="bOverlayText">${todo.description}</div>
 <div class="bOverlayText">Due date: ${formattedDueDate}</div>
-<div class="bOverlayText bOverlayuppercase">Priority: ${todo.priority}<img src="${todo.priorityImageSource}" alt="" class="cardContactsPrioImg" /></div>
+<div class="bOverlayText bOverlayuppercase">Priority: ${
+    todo.priority
+  }<img src="${
+    todo.priorityImageSource
+  }" alt="" class="cardContactsPrioImg" /></div>
 <div class="bOverlayAssigned">
   Assigned To:
   <div class="bOverlayAssignedNames">
-  <div class="overlayIniNam" id="cardAssignedNameContainerOverlay${todo.id}"></div></div>
+  <div class="overlayIniNam" id="cardAssignedNameContainerOverlay${
+    todo.id
+  }"></div></div>
 </div >
 <div class='bOverlayText ${hideHeaderIfNoSubtasks(id)}'> Subtasks </div>
 <ul id="subtask-list-container${id}" class="bOverlaySub">
@@ -438,7 +520,7 @@ function renderTask(todo, id) {
 
 function hideHeaderIfNoSubtasks(id) {
   if (todos[id].subtasks.subtaskContent.length == 0) {
-    return 'd-none'
+    return "d-none";
   }
 }
 
