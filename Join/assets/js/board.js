@@ -1,87 +1,87 @@
 let todos = [];
-
 let quotes = [
   {
     text: "Das Glück deines Lebens hängt von der Qualität deiner Gedanken ab.",
-    author: "Marcus Aurelius",
+    author: "Marcus Aurelius"
   },
   {
     text: "Phantasie ist wichtiger als Wissen, denn Wissen ist begrenzt.",
-    author: "Albert Einstein",
+    author: "Albert Einstein"
   },
   {
     text: "Frieden kann nicht durch Gewalt erreicht werden. Es kann nur durch Verständnis erreicht werden.",
-    author: "Albert Einstein",
+    author: "Albert Einstein"
   },
   {
     text: "Logik bringt dich von A nach B. Phantasie bringt dich überall hin.",
-    author: "Albert Einstein",
+    author: "Albert Einstein"
   },
   {
     text: "Wenn etwas wichtig genug ist, dann solltest du es trotz aller Widrigkeiten tun.",
-    author: "Elon Musk",
+    author: "Elon Musk"
   },
   {
     text: "Ich denke, es ist möglich, das Leben zu multiplizieren und irgendwohin anders zu bringen.",
-    author: "Elon Musk",
+    author: "Elon Musk"
   },
   {
     text: "Du musst in der Lage sein, wie ein Bohrer in die Dinge einzudringen und wirklich verstehen, was du tust.",
-    author: "Elon Musk",
+    author: "Elon Musk"
   },
   {
     text: "Deine Arbeit wird einen großen Teil deines Lebens ausmachen, und die einzige Möglichkeit, wirklich zufrieden zu sein, ist, das zu tun, was du für eine großartige Arbeit hältst.",
-    author: "Steve Jobs",
+    author: "Steve Jobs"
   },
   {
     text: "Innovationen entstehen, wenn man Dinge anders macht, nicht, wenn man sie genauso macht wie alle anderen.",
-    author: "Steve Jobs",
+    author: "Steve Jobs"
   },
   {
     text: "Bleibe hungrig, bleibe töricht.",
-    author: "Steve Jobs",
+    author: "Steve Jobs"
   },
   {
     text: "Das Leben ist das, was passiert, während du eifrig dabei bist, andere Pläne zu schmieden.",
-    author: "John Lennon",
+    author: "John Lennon"
   },
   {
     text: "Zwei Dinge sind unendlich: das Universum und die menschliche Dummheit. Aber bei dem Universum bin ich mir noch nicht ganz sicher.",
-    author: "Albert Einstein",
+    author: "Albert Einstein"
   },
   {
     text: "Man sieht nur das, was man weiß.",
-    author: "Johann Wolfgang von Goethe",
+    author: "Johann Wolfgang von Goethe"
   },
   {
     text: "Die Zukunft gehört denen, die an die Schönheit ihrer Träume glauben.",
-    author: "Eleanor Roosevelt",
+    author: "Eleanor Roosevelt"
   },
   {
     text: "Du kannst die Wellen nicht stoppen, aber du kannst lernen zu surfen.",
-    author: "Jon Kabat-Zinn",
+    author: "Jon Kabat-Zinn"
   },
   {
     text: "Die größte Ruhm liegt nicht darin, niemals zu fallen, sondern jedes Mal wieder aufzustehen.",
-    author: "Nelson Mandela",
+    author: "Nelson Mandela"
   },
   {
     text: "Das Leben ist zu kurz, um in der Warteschlange zu stehen.",
-    author: "Hugh Hefner",
+    author: "Hugh Hefner"
   },
   {
     text: "Glück ist, wenn das, was du denkst, was du sagst und was du tust, in Harmonie miteinander sind.",
-    author: "Mahatma Gandhi",
+    author: "Mahatma Gandhi"
   },
   {
     text: "Wenn du nach den Sternen greifst, kannst du vielleicht nur die Spitzen der Bäume erreichen, aber das ist immer noch höher als der Boden.",
-    author: "Jodie Foster",
+    author: "Jodie Foster"
   },
   {
     text: "Die größte Entdeckung aller Zeiten ist, dass ein Mensch seine Zukunft ändern kann, indem er seine Einstellung ändert.",
-    author: "Oprah Winfrey",
-  },
+    author: "Oprah Winfrey"
+  }
 ];
+
 
 let currentDraggedElement;
 
@@ -112,6 +112,7 @@ function showTaskListByState(state) {
     }
   }
 }
+// Erstellt den platzhalter für die Karten
 
 function generatePlaceholder() {
   const randomQuote = getRandomQuote();
@@ -134,6 +135,13 @@ function getRandomQuote() {
 function startDraging(index) {
   currentDraggedElement = index;
   document.getElementById(`card-${index}`).classList.add("cardDragging");
+}
+// Drag  style-effects
+function highlight(index) {
+  document.getElementById(index).classList.add("drag-over");
+}
+function unhighlight(index) {
+  document.getElementById(index).classList.remove("drag-over");
 }
 
 // Generische Funktion zum Erzeugen der Task-Karten
@@ -348,13 +356,7 @@ function displayAssignedNameOverlay(index) {
   }
 }
 
-// Drag  style-effects
-function highlight(index) {
-  document.getElementById(index).classList.add("drag-over");
-}
-function unhighlight(index) {
-  document.getElementById(index).classList.remove("drag-over");
-}
+
 
 // Overlay Task
 
@@ -415,26 +417,6 @@ function toggleNameSubtask(SpecialID, id, i) {
   console.log(todos[id].subtasks.subtaskDone);
   setItem("allTasks", JSON.stringify(todos));
 }
-
-// function displaySubtasks(index) {
-//   let id = todos.findIndex((item) => {
-//     return item.id == index;
-//   });
-//   if (todos[id].subtasks && todos[id].subtasks.length > 0) {
-//     const ul = document.createElement("ul");
-
-//     todos[id].subtasks.forEach((subtask) => {
-//       const li = document.createElement("li");
-//       li.textContent = subtask;
-//       ul.appendChild(li);
-//     });
-
-//     const subtasksContainer = document.getElementById("subtasksContainer");
-//     subtasksContainer.appendChild(ul);
-//   } else {
-//     console.log("no subtasks");
-//   }
-// }
 
 // dexipher Unix-Timestamp
 function formatDateToDDMMYYYY(dateString) {
