@@ -16,7 +16,6 @@ async function summaryInit() {
 async function loadTasks() {
   try {
     todos = JSON.parse(await getItem("allTasks"));
-    console.log(todos);
   } catch (e) {
     console.error("loading error:", e);
   }

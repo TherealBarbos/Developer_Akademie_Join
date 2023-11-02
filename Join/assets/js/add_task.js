@@ -262,7 +262,7 @@ function transformIntoInput() { //this function activates the input field to add
     input.innerHTML = `
     <div id="subtask" class="subtask-button border-radius-6">
         <input onkeyup="handleKeyUp(event)" id="subtask-input" class="subtask-input" placeholder="Contact Form">
-        <div style="display: flex;">
+        <div class="exit-and-delete" style="display: flex;">
             <img onclick="revertBackToButton()" class="exit" id="exit" src="../img/cancel.svg">
             <img onclick="addNewSubtaskToList()" class="tick" id="tick" src="../img/check.svg">
         </div>
@@ -402,8 +402,19 @@ async function formValidation() {
         (urgentButton.classList.contains('urgent') || mediumButton.classList.contains('medium') || lowButton.classList.contains('low'))
     ) {
         await addTask();
-        window.location.replace("../html/board.html")
+        showMessage();
+        openBoard();
     }
+}
+
+function showMessage() {
+    document.getElementById('creation-message').classList.add('active');
+}
+
+function openBoard() {
+    setTimeout(() => {
+        window.location.replace("../html/board.html");
+    }, "1000"); 
 }
 
 // remote storage

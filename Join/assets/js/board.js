@@ -318,8 +318,6 @@ function displayassigenedName(index) {
       `cardAssignedNameContainer${index}`
     );
     cardAssignedNameContainer.appendChild(ul);
-  } else {
-    console.log("no contacts");
   }
 }
 
@@ -352,8 +350,6 @@ function displayAssignedNameOverlay(index) {
         li.appendChild(div2);
 
         ul.appendChild(li);
-      } else {
-        console.log("Kein zugehöriger assignedName gefunden.");
       }
     });
 
@@ -361,8 +357,6 @@ function displayAssignedNameOverlay(index) {
       `cardAssignedNameContainerOverlay${index}`
     );
     cardAssignedNameContainerOverlay.appendChild(ul);
-  } else {
-    console.log("Keine zugewiesenen Kontakte gefunden.");
   }
 }
 
@@ -422,7 +416,6 @@ function toggleNameSubtask(SpecialID, id, i) {
     todos[id].subtasks.subtaskDone[i] = 0;
     checkbox.src = "../img/checkbox-unchecked.png";
   }
-  console.log(todos[id].subtasks.subtaskDone);
   setItem("allTasks", JSON.stringify(todos));
 }
 
