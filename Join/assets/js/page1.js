@@ -1,3 +1,6 @@
+/**
+ * this function creates the animation of the app
+ */
 function transition() {
     setTimeout(() => {
         document.getElementById('logo-white').classList.add('page1-img1-transition')

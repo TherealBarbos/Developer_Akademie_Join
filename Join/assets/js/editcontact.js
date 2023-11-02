@@ -1,3 +1,7 @@
+/**
+ * this function saves the contact values in the remote storage and redirects the user to the contacts page
+ * @param {index} i -index 
+ */
 async function saveContactValues(i) {
     let username = getArray('name');
     let contact = contactValue();
@@ -11,6 +15,10 @@ async function saveContactValues(i) {
     redirectEditContactToContacts();
 }
 
+/**
+ * this function creates the contact based on the input fields
+ * @returns -the contact value
+ */
 function contactValue() {
     let email = document.getElementById('edit-input-email');
     let name = document.getElementById('edit-input-name');
@@ -29,6 +37,10 @@ function contactValue() {
     };
 }
 
+/**
+ * this function sets the contact values into the input field of the edit overlay 
+ * @param {index} index 
+ */
 function setContactValues(index) {
     document.getElementById('edit-input-name').value = `${contacts[index]['name']}`;
     document.getElementById('edit-input-email').value = `${contacts[index]['email']}`;
