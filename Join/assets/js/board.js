@@ -2,86 +2,85 @@ let todos = [];
 let quotes = [
   {
     text: "Das Glück deines Lebens hängt von der Qualität deiner Gedanken ab.",
-    author: "Marcus Aurelius"
+    author: "Marcus Aurelius",
   },
   {
     text: "Phantasie ist wichtiger als Wissen, denn Wissen ist begrenzt.",
-    author: "Albert Einstein"
+    author: "Albert Einstein",
   },
   {
     text: "Frieden kann nicht durch Gewalt erreicht werden. Es kann nur durch Verständnis erreicht werden.",
-    author: "Albert Einstein"
+    author: "Albert Einstein",
   },
   {
     text: "Logik bringt dich von A nach B. Phantasie bringt dich überall hin.",
-    author: "Albert Einstein"
+    author: "Albert Einstein",
   },
   {
     text: "Wenn etwas wichtig genug ist, dann solltest du es trotz aller Widrigkeiten tun.",
-    author: "Elon Musk"
+    author: "Elon Musk",
   },
   {
     text: "Ich denke, es ist möglich, das Leben zu multiplizieren und irgendwohin anders zu bringen.",
-    author: "Elon Musk"
+    author: "Elon Musk",
   },
   {
     text: "Du musst in der Lage sein, wie ein Bohrer in die Dinge einzudringen und wirklich verstehen, was du tust.",
-    author: "Elon Musk"
+    author: "Elon Musk",
   },
   {
     text: "Deine Arbeit wird einen großen Teil deines Lebens ausmachen, und die einzige Möglichkeit, wirklich zufrieden zu sein, ist, das zu tun, was du für eine großartige Arbeit hältst.",
-    author: "Steve Jobs"
+    author: "Steve Jobs",
   },
   {
     text: "Innovationen entstehen, wenn man Dinge anders macht, nicht, wenn man sie genauso macht wie alle anderen.",
-    author: "Steve Jobs"
+    author: "Steve Jobs",
   },
   {
     text: "Bleibe hungrig, bleibe töricht.",
-    author: "Steve Jobs"
+    author: "Steve Jobs",
   },
   {
     text: "Das Leben ist das, was passiert, während du eifrig dabei bist, andere Pläne zu schmieden.",
-    author: "John Lennon"
+    author: "John Lennon",
   },
   {
     text: "Zwei Dinge sind unendlich: das Universum und die menschliche Dummheit. Aber bei dem Universum bin ich mir noch nicht ganz sicher.",
-    author: "Albert Einstein"
+    author: "Albert Einstein",
   },
   {
     text: "Man sieht nur das, was man weiß.",
-    author: "Johann Wolfgang von Goethe"
+    author: "Johann Wolfgang von Goethe",
   },
   {
     text: "Die Zukunft gehört denen, die an die Schönheit ihrer Träume glauben.",
-    author: "Eleanor Roosevelt"
+    author: "Eleanor Roosevelt",
   },
   {
     text: "Du kannst die Wellen nicht stoppen, aber du kannst lernen zu surfen.",
-    author: "Jon Kabat-Zinn"
+    author: "Jon Kabat-Zinn",
   },
   {
     text: "Die größte Ruhm liegt nicht darin, niemals zu fallen, sondern jedes Mal wieder aufzustehen.",
-    author: "Nelson Mandela"
+    author: "Nelson Mandela",
   },
   {
     text: "Das Leben ist zu kurz, um in der Warteschlange zu stehen.",
-    author: "Hugh Hefner"
+    author: "Hugh Hefner",
   },
   {
     text: "Glück ist, wenn das, was du denkst, was du sagst und was du tust, in Harmonie miteinander sind.",
-    author: "Mahatma Gandhi"
+    author: "Mahatma Gandhi",
   },
   {
     text: "Wenn du nach den Sternen greifst, kannst du vielleicht nur die Spitzen der Bäume erreichen, aber das ist immer noch höher als der Boden.",
-    author: "Jodie Foster"
+    author: "Jodie Foster",
   },
   {
     text: "Die größte Entdeckung aller Zeiten ist, dass ein Mensch seine Zukunft ändern kann, indem er seine Einstellung ändert.",
-    author: "Oprah Winfrey"
-  }
+    author: "Oprah Winfrey",
+  },
 ];
-
 
 let currentDraggedElement;
 
@@ -112,38 +111,6 @@ function showTaskListByState(state) {
     }
   }
 }
-// Erstellt den platzhalter für die Karten
-
-function generatePlaceholder() {
-  const randomQuote = getRandomQuote();
-  return `<div class="cardplaceholder">
-    <div class="cardplaceholderLable">No Task!</div>
-    <div class="cardTextI">Just Knowledge:</div>
-    <div class="cardTextII">"${randomQuote.text}"</div>
-    <div class="cardTextII cardTextR">- ${randomQuote.author}</div>
-  </div>`;
-}
-
-function getRandomQuote() {
-  const randomIndex = Math.floor(Math.random() * quotes.length);
-  return quotes[randomIndex];
-}
-
-// Drag functionality
-
-// Drag Initiation
-function startDraging(index) {
-  currentDraggedElement = index;
-  document.getElementById(`card-${index}`).classList.add("cardDragging");
-}
-// Drag  style-effects
-function highlight(index) {
-  document.getElementById(index).classList.add("drag-over");
-}
-function unhighlight(index) {
-  document.getElementById(index).classList.remove("drag-over");
-}
-
 // Generische Funktion zum Erzeugen der Task-Karten
 function generateTaskCard(task) {
   return ` <div id="card-${
@@ -191,6 +158,44 @@ function generateTaskCard(task) {
     </div>
   </div>`;
 }
+
+// Erstellt den platzhalter für die Karten
+
+function generatePlaceholder() {
+  const randomQuote = getRandomQuote();
+  return `<div class="cardplaceholder">
+    <div class="cardplaceholderLable">No Task!</div>
+    <div class="cardTextI">Just Knowledge:</div>
+    <div class="cardTextII">"${randomQuote.text}"</div>
+    <div class="cardTextII cardTextR">- ${randomQuote.author}</div>
+  </div>`;
+}
+
+function getRandomQuote() {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  return quotes[randomIndex];
+}
+
+// Drag functionality
+
+// Drag Initiation
+function startDraging(index) {
+  currentDraggedElement = index;
+  document.getElementById(`card-${index}`).classList.add("cardDragging");
+}
+// Drag  style-effects
+function highlight(index) {
+  document.getElementById(index).classList.add("drag-over");
+}
+function unhighlight(index) {
+  document.getElementById(index).classList.remove("drag-over");
+}
+
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+// Subtask Summe
 
 function taskSum(task) {
   let doneTasksSum = 0;
@@ -247,6 +252,11 @@ document.addEventListener("DOMContentLoaded", function () {
         .querySelector(".cardTextI")
         .textContent.toLowerCase();
 
+      const cardPlaceholders = document.querySelectorAll(".cardplaceholder");
+      cardPlaceholders.forEach((placeholder) => {
+        placeholder.classList.add("d-none");
+      });
+
       if (
         title.includes(searchText) ||
         description.includes(searchText) ||
@@ -262,6 +272,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (searchInput.value === "") {
       const taskElements = document.querySelectorAll(".card");
+      const cardPlaceholders = document.querySelectorAll(".cardplaceholder");
+      cardPlaceholders.forEach((placeholder) => {
+        placeholder.classList.remove("d-none");
+      });
       taskElements.forEach((taskElement) => {
         taskElement.classList.remove("d-none", "highlight");
       });
@@ -269,20 +283,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-function allowDrop(ev) {
-  ev.preventDefault();
-}
-
-// Function zum Wechseln der Category
-function moveTo(state) {
-  let id = todos.findIndex((item) => {
-    return item.id == currentDraggedElement;
-  });
-  todos[id]["state"] = state;
-  updateHTML();
-  setItem("allTasks", JSON.stringify(todos));
-  unhighlight(state);
-}
 
 // Function für das Namen einbinden
 
@@ -355,8 +355,6 @@ function displayAssignedNameOverlay(index) {
     console.log("Keine zugewiesenen Kontakte gefunden.");
   }
 }
-
-
 
 // Overlay Task
 
@@ -531,7 +529,6 @@ function deleteTask(index) {
 async function loadTasks() {
   try {
     todos = JSON.parse(await getItem("allTasks"));
-    console.log(todos);
   } catch (e) {
     console.error("loading error:", e);
   }
