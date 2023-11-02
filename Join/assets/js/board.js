@@ -194,6 +194,16 @@ function unhighlight(index) {
 function allowDrop(ev) {
   ev.preventDefault();
 }
+// Function zum Wechseln der Category
+function moveTo(state) {
+  let id = todos.findIndex((item) => {
+    return item.id == currentDraggedElement;
+  });
+  todos[id]["state"] = state;
+  updateHTML();
+  setItem("allTasks", JSON.stringify(todos));
+  unhighlight(state);
+}
 
 // Subtask Summe
 
