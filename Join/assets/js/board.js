@@ -1,5 +1,28 @@
 let todos = [];
 
+let quote = [
+  "The happiness of your life depends upon the quality of your thoughts. - Marcus Aurelius",
+  "Phantasie ist wichtiger als Wissen, denn Wissen ist begrenzt. - Albert Einstein",
+  "Frieden kann nicht durch Gewalt erreicht werden. Es kann nur durch Verständnis erreicht werden. - Albert Einstein",
+  "Logik bringt dich von A nach B. Phantasie bringt dich überall hin. - Albert Einstein",
+  "Wenn etwas wichtig genug ist, dann solltest du es trotz aller Widrigkeiten tun. - Elon Musk",
+  "Ich denke, es ist möglich, das Leben zu multiplizieren und irgendwohin anders zu bringen. - Elon Musk",
+  "Du musst in der Lage sein, wie ein Bohrer in die Dinge einzudringen und wirklich verstehen, was du tust. - Elon Musk",
+  "Deine Arbeit wird einen großen Teil deines Lebens ausmachen, und die einzige Möglichkeit, wirklich zufrieden zu sein, ist, das zu tun, was du für eine großartige Arbeit hältst. - Steve Jobs",
+  "Innovationen entstehen, wenn man Dinge anders macht, nicht, wenn man sie genauso macht wie alle anderen. - Steve Jobs",
+  "Bleibe hungrig, bleibe töricht. - Steve Jobs",
+  "Das Leben ist das, was passiert, während du eifrig dabei bist, andere Pläne zu schmieden. - John Lennon",
+  "Zwei Dinge sind unendlich: das Universum und die menschliche Dummheit. Aber bei dem Universum bin ich mir noch nicht ganz sicher. - Albert Einstein",
+  "Man sieht nur das, was man weiß. - Johann Wolfgang von Goethe",
+  "Die Zukunft gehört denen, die an die Schönheit ihrer Träume glauben. - Eleanor Roosevelt",
+  "Du kannst die Wellen nicht stoppen, aber du kannst lernen zu surfen. - Jon Kabat-Zinn",
+  "Die größte Ruhm liegt nicht darin, niemals zu fallen, sondern jedes Mal wieder aufzustehen. - Nelson Mandela",
+  "Das Leben ist zu kurz, um in der Warteschlange zu stehen. - Hugh Hefner",
+  "Glück ist, wenn das, was du denkst, was du sagst und was du tust, in Harmonie miteinander sind. - Mahatma Gandhi",
+  "Wenn du nach den Sternen greifst, kannst du vielleicht nur die Spitzen der Bäume erreichen, aber das ist immer noch höher als der Boden. - Jodie Foster",
+  "Die größte Entdeckung aller Zeiten ist, dass ein Mensch seine Zukunft ändern kann, indem er seine Einstellung ändert. - Oprah Winfrey"
+];
+
 let currentDraggedElement;
 
 // Load and disply CARDS
@@ -13,14 +36,35 @@ function updateHTML() {
 // filter das Arry nach den Kategorien
 function showTaskListByState(state) {
   let filteredTasksByState = todos.filter((t) => t["state"] == state);
+  const taskListContainer = document.getElementById(state);
 
-  document.getElementById(state).innerHTML = "";
-
-  for (let index = 0; index < filteredTasksByState.length; index++) {
-    const element = filteredTasksByState[index];
-    document.getElementById(state).innerHTML += generateTaskCard(element);
-    displayassigenedName(element.id);
+  // Überprüfe, ob Aufgaben für diesen Zustand vorhanden sind
+  if (filteredTasksByState.length === 0) {
+    // Wenn keine Aufgaben vorhanden sind, füge den Platzhalter und ein zufälliges Zitat ein
+    taskListContainer.innerHTML = generatePlaceholder();
+  } else {
+    // Andernfalls zeige die Aufgabenliste für diesen Zustand
+    taskListContainer.innerHTML = ""; // Leere den Container
+    for (let index = 0; index < filteredTasksByState.length; index++) {
+      const element = filteredTasksByState[index];
+      taskListContainer.innerHTML += generateTaskCard(element);
+      displayassigenedName(element.id);
+    }
   }
+}
+
+function generatePlaceholder() {
+  const randomQuote = getRandomQuote();
+  return `<div class="cardplaceholder">
+  <div class="cardplaceholderLable">No Task!</div>
+  <div class="cardTextI">Just Knowledge:</div>
+  <div class="cardTextII">"${randomQuote}"</div>
+  </div>`;
+}
+
+function getRandomQuote() {
+  const randomIndex = Math.floor(Math.random() * quote.length);
+  return quote[randomIndex];
 }
 
 // Drag functionality
