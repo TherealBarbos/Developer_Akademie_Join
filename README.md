@@ -21,7 +21,7 @@
 
 ## Unser Join
 ### Das ist Unser Join nach der Figmavorlage.
-## [Join](http://join-707.developerakademie.net/Join/index.html)
+## [Join](http://join-707.developerakademie.net/Join/assets/html/page1.html)
 
 
 <a name="gruppenaufteilung"></a>
