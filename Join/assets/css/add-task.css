@@ -133,6 +133,10 @@ ul {
   z-index: 1;
 }
 
+#filterNames {
+  padding-left: 13px;
+}
+
 .assignedNameSelector::placeholder {
   color: #D1D1D1;
 }

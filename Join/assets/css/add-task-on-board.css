@@ -1,0 +1,26 @@
+#add-task-on-board {
+    padding: 30px;
+    width: 750px;
+    min-height: 570px;
+    background-color: white;
+    position: fixed;
+    right: -150%;
+    transition: right 400ms;
+    bottom: 50px;
+    border-radius: 40px;
+    overflow-y: hidden;
+}
+
+#add-task-on-board.active {
+    right: calc(50vw - 400px);
+}
+
+.title-and-exit {
+    display: flex;
+    justify-content: space-between;
+}
+
+.blur {
+    filter: blur(1px);
+    overflow: hidden;
+}

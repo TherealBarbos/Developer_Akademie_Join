@@ -23,7 +23,7 @@ async function addTask() { // this fills the JSON array "allTasks" which holds t
 
     let task = {
         'id': uniqueID,
-        'state': 'toDo',
+        'state': states,
         'title': taskTitle,
         'description': taskDescription,
         'assignedName': assignedToTask,

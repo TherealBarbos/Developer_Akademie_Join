@@ -332,7 +332,7 @@ function getClassForLI(id, newID, name) {
     }
 }
 
-function toggleNameEdit(i, id, newID) { //WORKS!!
+function toggleNameEdit(i, id, newID) {
     let li = document.getElementById(`toggle-name-edit${newID}`);
     let checkbox = document.getElementById(`checkbox-edit${newID}`);
 
@@ -394,5 +394,3 @@ async function getItem(key) {
         } throw `Could not find data with key "${key}".`;
     });
 }
-
-// document.addEventListener("click", closeOverlay());
