@@ -10,7 +10,10 @@ let contacts = [];
 let assignedToTask = [];
 let assignedInitial = [];
 
-async function addTask() { // this fills the JSON array "allTasks" which holds the title, description, etc. of the task you want to add and saves them in the remote storage
+/**
+ * This function adds tasks to the JSON "allTasks" which hold the title, description, due date, etc. After pushing, the JSON is saved in the remote storage.
+ */
+async function addTask() {
     const uniqueID = new Date().getTime();
     const taskTitle = document.getElementById('task-title').value;
     const taskDescription = document.getElementById('task-description').value;
@@ -23,7 +26,7 @@ async function addTask() { // this fills the JSON array "allTasks" which holds t
 
     let task = {
         'id': uniqueID,
-        'state': states,
+        'state': 'toDo',
         'title': taskTitle,
         'description': taskDescription,
         'assignedName': assignedToTask,
@@ -40,6 +43,17 @@ async function addTask() { // this fills the JSON array "allTasks" which holds t
     clearInputs();
 }
 
+function determineState() {
+    if (states.length == 1) {
+        return states 
+    } else {
+        return 'todo'
+    }
+}
+
+/**
+ * This function clears the input fields.
+ */
 function clearInputs() {
     document.getElementById('task-title').value = '';
     document.getElementById('task-description').value = '';
@@ -57,12 +71,14 @@ function clearInputs() {
     renderSubtaskContainer;
     const subtaskinput = document.getElementById('subtask-input');
     if (subtaskinput) {
-        subtask.value = '';
+    subtask.value = '';
         revertBackToButton();
     };
     revertContactSelect();
 }
-
+/**
+ * This function is called after clearing the inputs/adding a task. It empties the arrays that handle the contacts assigned to a task. 
+ */
 function revertContactSelect() {
     document.getElementById('initials-display').innerHTML = '';
     document.getElementById('assignedNameContainer').classList.add('d-none');
@@ -79,11 +95,16 @@ function revertContactSelect() {
 }
 
 // Contact Section
-
-function toggleSelect() { // this function opens and closes the list of assignable names in the user's contacts
+/**
+ * This function this function opens and closes the list of assignable names in the user's contacts
+ */
+function toggleSelect() {
     document.getElementById('assignedNameContainer').classList.toggle('d-none');
 }
 
+/**
+ * This function hides the contact select when clicking anywhere outside the cointainer. The event listener below this function is associated with it.
+ */
 function hideContactSelect(event) {
     let nameContainer = document.getElementById('assignedNameContainer');
     if (nameContainer) {
@@ -93,7 +114,12 @@ function hideContactSelect(event) {
     }
 }
 
-function loadAssignableNames() { // this function loads the assignable contacts
+document.addEventListener("click", hideContactSelect);
+
+/**
+ * This function accesses the contact-array and creates a list so the user may assign/unassign their contacts
+ */
+function loadAssignableNames() {
     const selectElement = document.getElementById("assignedName");
     for (let i = 0; i < contacts.length; i++) {
         const initial = contacts[i]['firstLetter'];
@@ -109,21 +135,11 @@ function loadAssignableNames() { // this function loads the assignable contacts
     }
 }
 
-function filterNames() {
-    const input = document.getElementById('filterNames');
-    const filter = input.value.toUpperCase();
-    const li = document.getElementsByClassName('assignedNameLI');
-
-    for (let i = 0; i < li.length; i++) {
-        const txtValue = li[i].querySelector(".assignedNameLI").textContent || li[i].querySelector(".assignedNameLI").innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
-}
-
+/**
+ * This function handles the visual representation of assigning/unassigning a contact
+ * 
+ * @param i - This is a contact's index on the list
+ */
 function toggleName(i) {
     let li = document.getElementById(`toggle-name${i}`);
     let checkbox = document.getElementById(`checkbox${i}`);
@@ -138,7 +154,14 @@ function toggleName(i) {
     manipulateAssignedArray(i, li);
 }
 
-function manipulateAssignedArray(i, li) { // this function assignes/splices contacts to/from the assignedToTaskArray
+/**
+ * This function assignes/splices contacts to/from the assignedToTask-Array
+ * 
+ * @param {number} i - Represents a contact's index on the list
+ * @param {number} li - Represents the whole list-element, including its index (<li>)
+ */
+
+function manipulateAssignedArray(i, li) {
     const name = contacts[i]['name'];
     const index = assignedToTask.indexOf(name);
 
@@ -148,6 +171,11 @@ function manipulateAssignedArray(i, li) { // this function assignes/splices cont
     manipulateAssignedInitials(i);
 }
 
+/**
+ * This function assignes/splices contacts to/from the assignedToTaskArray-Intials
+ * 
+ * @param i - Represents a contact's index on the list
+ */
 function manipulateAssignedInitials(i) {
     const toBeAssigned = contacts[i]['firstLetter'];
     const index = assignedInitial.indexOf(toBeAssigned);
@@ -170,6 +198,10 @@ function manipulateAssignedInitials(i) {
 
 // priority section
 
+/**
+ * This function registers which button is currently clicked. It is called in the addTask function in order to determine the priority.
+ * 
+ */
 function getSelectedPriority() {
     const urgentButton = document.getElementById('urgent');
     const mediumButton = document.getElementById('medium');
@@ -183,6 +215,11 @@ function getSelectedPriority() {
         return 'low';
     }
 }
+
+/**
+ * This function registers which button is currently. It is called in the addTask function to determine the image source according to priority.
+ * 
+ */
 
 function getSelectedPriorityImageSource() {
     const urgentButton = document.getElementById('urgent');
@@ -198,7 +235,12 @@ function getSelectedPriorityImageSource() {
     }
 }
 
-function urgentButton() { //this function handles the clicking/unclicking of the urgent button
+/**
+ * This function handles the clicking/unclicking of the urgent button.
+ * 
+ */
+
+function urgentButton() { 
     let img = document.getElementById('urgent-img');
     const urgentButton = document.getElementById('urgent');
 
@@ -216,7 +258,12 @@ function urgentButton() { //this function handles the clicking/unclicking of the
     document.getElementById('low').classList.remove('low');
 }
 
-function mediumButton() { //this function handles the clicking/unclicking of the medium button
+/**
+ * This function handles the clicking/unclicking of the medium button.
+ * 
+ */
+
+function mediumButton() {
     let img = document.getElementById('medium-img');
     const mediumButton = document.getElementById('medium');
 
@@ -234,7 +281,12 @@ function mediumButton() { //this function handles the clicking/unclicking of the
     document.getElementById('low').classList.remove('low');
 }
 
-function lowButton() { //this function handles the clicking/unclicking of the low button
+/**
+ * This function handles the clicking/unclicking of the low button.
+ * 
+ */
+
+function lowButton() {
     let img = document.getElementById('low-img');
     const lowButton = document.getElementById('low');
 
@@ -254,7 +306,12 @@ function lowButton() { //this function handles the clicking/unclicking of the lo
 
 // Subtask-Section
 
-function transformIntoInput() { //this function activates the input field to add subtasks
+/**
+ * This function activates the input field to add subtasks.
+ * 
+ */
+
+function transformIntoInput() { 
     const subtaskButton = document.getElementById('add-subtask-button');
 
     const input = document.createElement('div');
@@ -272,14 +329,25 @@ function transformIntoInput() { //this function activates the input field to add
     document.getElementById('subtask-input').focus();
 }
 
+/**
+ * This function allow the user to add a subtask by clicking the enter-button
+ * 
+ */
+
 function handleKeyUp(event) {
     if (event.key === 'Enter' || event.keyCode === 13) {
         addNewSubtaskToList();
     }
 }
 
-function addNewSubtaskToList() { // this function pushes added subtasks into an array and renders them into a list below the input field
+/**
+ * This function pushes added subtasks into the corresponding array.
+ * 
+ */
+function addNewSubtaskToList() { 
     let newSubtask = document.getElementById('subtask-input').value;
+
+    console.log(newSubtask);
 
     if (newSubtask != '') {
         SubtaskArray.subtaskContent.push(newSubtask);
@@ -291,7 +359,12 @@ function addNewSubtaskToList() { // this function pushes added subtasks into an 
     }
 }
 
-function renderSubtaskContainer() { // This function renders the list of subtasks. It is called when a Subtask is added or deleted.
+/**
+ * This function renders the list of subtasks. It is called when a Subtask is added or deleted.
+ * 
+ */
+
+function renderSubtaskContainer() { 
     let subtaskContainer = document.getElementById('subtask-list');
     subtaskContainer.innerHTML = '';
     for (let i = 0; i < SubtaskArray.subtaskContent.length; i++) {
@@ -313,7 +386,12 @@ function renderSubtaskContainer() { // This function renders the list of subtask
     }
 }
 
-function editSubtaskItem(i) { // this function allows the user to edit the text in a subtask
+/**
+ * This function allows the user to edit the text in a subtask
+ * 
+ */
+
+function editSubtaskItem(i) { 
     const editIcon = document.getElementById(`edit${i}`);
     const acceptChangesIcon = document.createElement('img');
     editIcon.replaceWith(acceptChangesIcon);
@@ -332,11 +410,21 @@ function editSubtaskItem(i) { // this function allows the user to edit the text 
     input.selectionStart = input.selectionEnd = input.value.length;
 }
 
-function acceptChanges(i) { // this function replaces the old subtask with the edited one in the SubtaskArray and calls the function to revert the list item
+/**
+ * This function replaces the old subtask with the edited one in the SubtaskArray and calls the function to revert the list item.
+ * 
+ */
+
+function acceptChanges(i) {
     let replacingElement = document.getElementById(`readonly-Input${i}`).value;
     SubtaskArray.subtaskContent.splice(i, 1, replacingElement);
     renderSubtaskContainer();
 }
+
+/**
+ * This function allow the user to delete an item on the subtask list.
+ * 
+ */
 
 function deleteSubtaskItem(i) {
     SubtaskArray.subtaskContent.splice(i, 1);
@@ -344,7 +432,12 @@ function deleteSubtaskItem(i) {
     renderSubtaskContainer();
 }
 
-function revertBackToButton() { // this function handles the deactivation of the subtask-input
+/**
+ * This function handles the deactivation of the subtask-input
+ * 
+ */
+
+function revertBackToButton() {
     const input = document.getElementById('subtask');
     const subtaskButton = document.createElement('div');
 
@@ -358,6 +451,10 @@ function revertBackToButton() { // this function handles the deactivation of the
     input.replaceWith(subtaskButton);
 }
 
+/**
+ * This function calls the functions to load the contacts and the assignables names
+ * 
+ */
 async function load() {
     await loadContacts();
     loadAssignableNames();
@@ -365,6 +462,11 @@ async function load() {
 
 //  form validation
 
+
+/**
+ * This function checks if all the required fields hold text in them. If not, it visiualizes the missing information to the user.
+ * 
+ */
 async function formValidation() {
     const taskTitle = document.getElementById('task-title');
     const taskDescription = document.getElementById('task-description');
@@ -406,11 +508,17 @@ async function formValidation() {
         openBoard();
     }
 }
-
+/**
+ * This function shows a message to the user that a task was succesfully added to the board
+ * 
+ */
 function showMessage() {
     document.getElementById('creation-message').classList.add('active');
 }
-
+/**
+ * This function calls the board. It loads the board after 1 second has passed so the user may see the message that a task was created.
+ * 
+ */
 function openBoard() {
     setTimeout(() => {
         window.location.replace("../html/board.html");
@@ -419,6 +527,10 @@ function openBoard() {
 
 // remote storage
 
+/**
+ * This function loads the contacts from the remote storage.
+ * 
+ */
 async function loadContacts() {
     try {
         contacts = JSON.parse(await getItem('contacts'));
@@ -427,6 +539,10 @@ async function loadContacts() {
     }
 }
 
+/**
+ * This function loads the tasks from the remote storage.
+ * 
+ */
 async function loadTasks() {
     try {
         allTasks = JSON.parse(await getItem('allTasks'));
@@ -434,13 +550,23 @@ async function loadTasks() {
         console.error('loading error:', e);
     }
 }
-
+/**
+ * this function sets an array into the remote storage
+ * @param {string} key - name of the key
+ * @param {*} value - the array
+ * @returns 
+ */
 async function setItem(key, value) {
     const payload = { key, value, token: STORAGE_TOKEN };
     return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload) })
         .then(res => res.json());
 }
 
+/**
+ * this function takes the key out of the remote storage
+ * @param {string} key - name of the key 
+ * @returns 
+ */
 async function getItem(key) {
     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
     return fetch(url).then(res => res.json()).then(res => {
@@ -450,5 +576,5 @@ async function getItem(key) {
     });
 }
 
-document.addEventListener("click", hideContactSelect);
+
 

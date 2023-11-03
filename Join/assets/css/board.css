@@ -127,6 +127,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0.5px;
+  border: 2px solid black;
+  border-radius: 8px;
+  fill: black;
+  stroke: black;
+  stroke-width: 0.1px;
+}
+
+.boardTitelBoxButton:hover {
+  cursor: pointer;
+  border-color: #29ABE2;
+  stroke: #29ABE2;
+  fill: #29ABE2;
 }
 
 .boardDrag {
@@ -185,21 +198,6 @@
   font-style: normal;
   font-weight: 800;
   line-height: 120%;
-}
-
-.plus-img {
-  display: flex;
-  padding: 4px;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid black;
-  border-radius: 8px;
-}
-
-.plus-img:hover {
-  cursor: pointer;
-  border-color: #29ABE2;
-  stroke: #29ABE2;
 }
 
 .technical-task {

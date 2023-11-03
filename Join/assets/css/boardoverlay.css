@@ -120,10 +120,12 @@
 
 .bOverlaycontrollsbutton svg path {
   fill: #2A3647;
+  stroke: none;
 }
 
 .bOverlaycontrollsbutton:hover svg path {
   fill: #29ABE2;
+  stroke: none;
 }
 
 .bOverlaycontrollsText {

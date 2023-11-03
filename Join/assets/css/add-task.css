@@ -337,19 +337,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .urgent {
   background-color: #ff3d00;
   color: #FFF;
-  font-weight: bold;
 }
 
 .medium {
   background-color: #ffa800;
   color: #FFF;
-  font-weight: bold;
 }
 
 .low {
   background-color: #7ae229;
   color: #FFF;
-  font-weight: bold;
 }
 
 .subtask-button {

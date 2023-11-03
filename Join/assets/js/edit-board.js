@@ -1,3 +1,7 @@
+/**
+ * This function activates the edit mode
+ * @param {number} id - A task's id-number
+ */
 async function editTask(id) {
     await loadContacts();
     card = document.getElementById(`taskoverlay`);
@@ -91,6 +95,11 @@ async function editTask(id) {
     displayInitialsEdit(id);
 };
 
+/**
+ * This function activates the input field to add subtasks.
+ * @param {number} id - A task's id-number
+ */
+
 function transformIntoInputEdit(id) {
     const subtaskButton = document.getElementById(`add-subtask-button-edit${id}`);
 
@@ -109,7 +118,11 @@ function transformIntoInputEdit(id) {
     document.getElementById(`subtask-input-edit${id}`).focus();
 }
 
-async function addNewSubtaskToListEdit(id) { // this function pushes added subtasks into an array and renders them into a list below the input field
+/**
+ * This function pushes added subtasks into the corresponding array.
+ * @param {number} id - A task's id-number
+ */
+async function addNewSubtaskToListEdit(id) {
     let newSubtask = document.getElementById(`subtask-input-edit${id}`).value;
 
     if (newSubtask != '') {
@@ -123,7 +136,12 @@ async function addNewSubtaskToListEdit(id) { // this function pushes added subta
     }
 }
 
-function renderSubtaskContainerEdit(id) { // This function renders the list of subtasks. It is called when a Subtask is added or deleted.
+/**
+ * This function renders the list of subtasks. It is called when a Subtask is added or deleted.
+ * @param {number} id - A task's id-number
+ */
+
+function renderSubtaskContainerEdit(id) { 
     let subtaskContainer = document.getElementById(`subtask-list-edit${id}`);
     subtaskContainer.innerHTML = '';
     for (let i = 0; i < todos[id].subtasks.subtaskContent.length; i++) {
@@ -144,7 +162,12 @@ function renderSubtaskContainerEdit(id) { // This function renders the list of s
     }
 }
 
-function revertBackToButtonEdit(id) { // this function handles the deactivation of the subtask-input
+/**
+ * This function handles the deactivation of the subtask-input
+ * @param {number} id - A task's id-number
+ */
+
+function revertBackToButtonEdit(id) {
     const input = document.getElementById(`subtask-edit${id}`);
     const subtaskButton = document.createElement('div');
 
@@ -157,9 +180,14 @@ function revertBackToButtonEdit(id) { // this function handles the deactivation 
 
     input.replaceWith(subtaskButton);
 }
+/**
+ * This function allows the user to edit the text in a subtask.
+ * @param {number} id - A task's id-number.
+ * @param {number} i - The subtask's number in the list.
+ * @param {number} newID - A combination of id and i to identify every subtask in every task
+ */ 
 
-// change to editable state
-function editSubtaskItemEdit(newID, i, id) { // this function allows the user to edit the text in a subtask
+function editSubtaskItemEdit(newID, i, id) { // 
     const editIcon = document.getElementById(`edit-edit${newID}`);
     const acceptChangesIcon = document.createElement('img');
     editIcon.replaceWith(acceptChangesIcon);
@@ -178,12 +206,25 @@ function editSubtaskItemEdit(newID, i, id) { // this function allows the user to
     input.selectionStart = input.selectionEnd = input.value.length;
 }
 
+/**
+ * This function allows the user to delete the text in a subtask
+ * @param {number} id - A task's id-number
+ * @param {number} i - The subtask's number in the list.
+ */
+
 async function deleteSubtaskItemEdit(i, id) {
     todos[id].subtasks.subtaskContent.splice(i, 1);
     todos[id].subtasks.subtaskDone.splice(i, 1);
     await setItem('allTasks', JSON.stringify(todos));
     renderSubtaskContainerEdit(id);
 }
+
+/**
+ * This function replaces the old subtask with the edited one in the SubtaskArray and calls the function to revert the list item.
+ * @param {number} id - A task's id-number.
+ * @param {number} i - The subtask's number in the list.
+ * @param {number} newID - A combination of id and i to identify every subtask in every task
+ */
 
 async function acceptChangesEdit(newID, i, id) { // this function replaces the old subtask with the edited one in the SubtaskArray and calls the function to revert the list item
     let replacingElement = document.getElementById(`readonly-Input-edit${newID}`).value;
@@ -192,6 +233,10 @@ async function acceptChangesEdit(newID, i, id) { // this function replaces the o
     renderSubtaskContainerEdit(id);
 }
 
+/**
+ * This functions saves the changes.
+ * @param {number} id - A task's id-number
+ */
 
 async function acceptEdit(id) {
     todos[id].title = document.getElementById(`edit-title${id}`).value;
@@ -202,6 +247,11 @@ async function acceptEdit(id) {
     await setItem('allTasks', JSON.stringify(todos));
     closeOverlay();
 }
+
+/**
+ * This function determines which button is clicked.
+ * @param {number} id - A task's id-number
+ */
 
 function determineClickedButton(id) {
     if (todos[id].priority == 'urgent') {
@@ -216,7 +266,12 @@ function determineClickedButton(id) {
     }
 };
 
-function urgentButtonEdit(id) { //this function handles the clicking/unclicking of the urgent button
+/**
+ * This function handles the clicking/unclicking of the urgent button.
+ * @param {number} id - A task's id-number
+ */
+
+function urgentButtonEdit(id) { 
     let img = document.getElementById(`urgent-img-edit${id}`);
     const urgentButton = document.getElementById(`urgentEdit${id}`);
 
@@ -234,7 +289,12 @@ function urgentButtonEdit(id) { //this function handles the clicking/unclicking 
     document.getElementById(`lowEdit${id}`).classList.remove('low');
 }
 
-function mediumButtonEdit(id) { //this function handles the clicking/unclicking of the medium button
+/**
+ * This function handles the clicking/unclicking of the medium button.
+ * @param {number} id - A task's id-number
+ */
+
+function mediumButtonEdit(id) { 
     let img = document.getElementById(`medium-img-edit${id}`);
     const mediumButton = document.getElementById(`mediumEdit${id}`);
 
@@ -251,6 +311,11 @@ function mediumButtonEdit(id) { //this function handles the clicking/unclicking 
     document.getElementById(`urgentEdit${id}`).classList.remove('urgent');
     document.getElementById(`lowEdit${id}`).classList.remove('low');
 }
+
+/**
+ * This function handles the clicking/unclicking of the low button.
+ * @param {number} id - A task's id-number
+ */
 
 function lowButtonEdit(id) { //this function handles the clicking/unclicking of the low button
     let img = document.getElementById(`low-img-edit${id}`);
@@ -270,6 +335,11 @@ function lowButtonEdit(id) { //this function handles the clicking/unclicking of 
     document.getElementById(`mediumEdit${id}`).classList.remove('medium');
 }
 
+/**
+ * This function registers which button is currently clicked. It is called in the addTask function in order to determine the priority.
+ * @param {number} id - A task's id-number
+ */
+
 function getEditedPriority(id) {
     const urgentButton = document.getElementById(`urgentEdit${id}`);
     const mediumButton = document.getElementById(`mediumEdit${id}`);
@@ -283,6 +353,11 @@ function getEditedPriority(id) {
         return 'low';
     }
 };
+
+/**
+ * This function registers which button is currently. It is called in the addTask function to determine the image source according to priority.
+ * @param {number} id - A task's id-number
+ */
 
 function getEditedPrioritySource(id) {
     const urgentButton = document.getElementById(`urgentEdit${id}`);
@@ -298,9 +373,13 @@ function getEditedPrioritySource(id) {
     }
 }
 
+/**
+ *This function accesses the contact-array and creates a list so the user may assign/unassign their contacts.
+ * @param {number} id - A task's id-number
+ */
 
 function loadAssignableNamesEdit(id) { // this function loads the assignable contacts
-    const selectElement = document.getElementById(`assignedName-edit${id}`); // list element
+    const selectElement = document.getElementById(`assignedName-edit${id}`);
     for (let i = 0; i < contacts.length; i++) {
         newID = 1 + id.toString() + i.toString();
         const initial = contacts[i]['firstLetter'];
@@ -317,6 +396,12 @@ function loadAssignableNamesEdit(id) { // this function loads the assignable con
     }
 }
 
+/**
+ * This function checks which checkbox has been marked and which has not.
+ * @param {number} id - A task's id-number
+ * @param {string} name - A contact's name
+ */
+
 function getCheckboxSource(id, name) {
     if (todos[id].assignedName.includes(name)) {
         return '../img/checkbox-checked.png'
@@ -325,12 +410,24 @@ function getCheckboxSource(id, name) {
     };
 }
 
+/**
+ * This function checks which name has been marked. If marked, the class changes.
+ * @param {number} id - A task's id-number
+ */
+
 function getClassForLI(id, newID, name) {
     li = document.getElementById(`toggle-name-edit${newID}`);
     if (todos[id].assignedName.includes(name)) {
         li.classList.add('assignedNameLI-toggled')
     }
 }
+
+/**
+ * This function allows the user to edit the text in a subtask
+ * @param {number} id - A task's id-number.
+ * @param {number} i - The subtask's number in the list.
+ * @param {number} newID - A combination of id and i to identify every subtask in every task
+ */
 
 function toggleNameEdit(i, id, newID) {
     let li = document.getElementById(`toggle-name-edit${newID}`);
@@ -346,7 +443,14 @@ function toggleNameEdit(i, id, newID) {
     manipulateAssignedArrayEdit(i, li, id);
 }
 
-function manipulateAssignedArrayEdit(i, li, id) { // this function assignes/splices contacts to/from todos[i].assignedNames/assignedInitials
+/**
+ * this function assignes/splices contacts to/from todos[i].assignedNames/assignedInitials
+ * @param {number} id - A task's id-number.
+ * @param {number} i - The subtask's number in the list.
+ * @param {HTMLElement} li - The respective list item that holds a contact's name
+ */
+
+function manipulateAssignedArrayEdit(i, li, id) { // 
     const name = contacts[i]['name'];
     const index = todos[id].assignedName.indexOf(name);
 
@@ -355,6 +459,13 @@ function manipulateAssignedArrayEdit(i, li, id) { // this function assignes/spli
     } else { todos[id].assignedName.splice(index, 1) }
     manipulateAssignedInitialsEdit(i, id, li);
 }
+
+/**
+ * This function allows the user to edit the text in a subtask
+ * @param {number} i - The subtask's number in the list.
+ * @param {number} id - A task's id-number
+ * @param {HTMLElement} li - The respective list item that holds a contact's name
+ */
 
 async function manipulateAssignedInitialsEdit(i, id, li) {
     const toBeAssigned = contacts[i]['firstLetter'];
@@ -369,6 +480,11 @@ async function manipulateAssignedInitialsEdit(i, id, li) {
     displayInitialsEdit(id);
 }
 
+/**
+ * This function displays the intials of the contacts assigned to the task.
+ * @param {number} id - A task's id-number
+ */
+
 function displayInitialsEdit(id) {
     let container = document.getElementById(`initials-display-edit${id}`);
     container.innerHTML = '';
@@ -378,6 +494,11 @@ function displayInitialsEdit(id) {
     }
 }
 
+/**
+ * This function loads the contacts from the remote storage.
+ * 
+ */
+
 async function loadContacts() {
     try {
         contacts = JSON.parse(await getItem('contacts'));
@@ -385,6 +506,11 @@ async function loadContacts() {
         console.error('Loading error:', e);
     }
 }
+
+/**
+ * This function loads the tasks from the remote storage.
+ * 
+ */
 
 async function getItem(key) {
     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
