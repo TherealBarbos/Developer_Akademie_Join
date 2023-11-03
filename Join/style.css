@@ -75,6 +75,8 @@ body {
   }
 }
 
+/* Diese CSS Klassen bitte noch aufräumen */
+
 .logout-menu {
   position: absolute;
   top: 10%;
@@ -126,6 +128,10 @@ body {
 .grey-bg {
   background-color: #E1E5EC;
 }
+
+/* bis hier */
+
+/* global css classes */
 
 .d-none {
   display: none;

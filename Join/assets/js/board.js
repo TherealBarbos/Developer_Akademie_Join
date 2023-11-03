@@ -111,13 +111,18 @@ function showTaskListByState(state) {
     }
   }
 }
+
 // Generische Funktion zum Erzeugen der Task-Karten
+
 function generateTaskCard(task) {
   return ` <div id="card-${task.id
     }" class="card" draggable="true" ondragstart="startDraging('${task.id
     }')" onclick="showOverlay('${task.id}')">
     <div class="cardFrame">
+      <div class="cardHead">
       <div class="cardLable ${determineColor(task)}">${task.category}</div>
+      <div class="cardMove" onclick="move"> <img src="../img/move_black.png" alt="moveTo"> </div>
+      </div>
       <div class="cardTextbox">
         <div class="cardTextI">${task.title}</div>
         <div class="cardTextII">${task.description}</div>
@@ -186,7 +191,9 @@ function unhighlight(index) {
 function allowDrop(ev) {
   ev.preventDefault();
 }
+
 // Function zum Wechseln der Category
+
 function moveTo(state) {
   let id = todos.findIndex((item) => {
     return item.id == currentDraggedElement;
@@ -195,6 +202,16 @@ function moveTo(state) {
   updateHTML();
   setItem("allTasks", JSON.stringify(todos));
   unhighlight(state);
+}
+
+function switchTo(index, state) {
+  let id = todos.findIndex((item) => {
+    return item.id == index;
+  });
+  todos[id]["state"] = state;
+  updateHTML();
+  setItem("allTasks", JSON.stringify(todos));
+
 }
 
 // Subtask Summe
@@ -425,6 +442,7 @@ function formatDateToDDMMYYYY(dateString) {
 
   return `${day}/${month}/${year}`;
 }
+
 // render Overlay
 function renderTask(todo, id) {
   const formattedDueDate = formatDateToDDMMYYYY(todo.dueDate);
