@@ -17,7 +17,6 @@
   }
   .boardTitel{
     margin-top: 1rem;
-    max-width: 10rem;
   }
   .cardMove {
     display: block;
@@ -42,7 +41,6 @@
     margin: 0px 20px;
   }
   .boardSearchbar {
-    max-width: 5000px;
   }
 
 
@@ -74,9 +72,9 @@
 
   .boardNav {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    gap: 46px;
+    gap: 0;
     width: 100%;
   }
 }
