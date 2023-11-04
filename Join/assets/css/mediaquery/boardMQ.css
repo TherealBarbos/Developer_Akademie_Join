@@ -23,11 +23,12 @@
   }
   .drag {
     flex-direction: row;
-    min-height: 20rem;
-    min-width: 30rem;
+    padding: 15px;
+    min-height: 250px;
+
   }
   .boardDrag{
-    max-width: 550px;
+
 
   }
 }
@@ -40,10 +41,6 @@
     gap: 12px;
     margin: 0px 20px;
   }
-  .boardSearchbar {
-  }
-
-
   .addTaskButton a {
     display: none;
   }

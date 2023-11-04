@@ -50,7 +50,7 @@
                 </div>
               </div>
             </div>
-            <div class="boardAddtast">
+            <div class="boardAddtask">
               <button class="addTaskButton">
                 <a href="add_task.html">Add Task</a>
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -72,7 +72,7 @@
     </div>
     <div class="board" id="board">
       <!-- <div class="wrap"> -->
-        <div class="boardDrag">
+        <div class="boardCategory">
           <div class="boardTitel">
             <div class="boardTitelBoxText">To do</div>
             <div onclick="openAddTaskOverlay('toDo')" class="boardTitelBoxButton">
@@ -93,7 +93,7 @@
             <!-- Bereich 'toDo' -->
           </div>
         </div>
-        <div class="boardDrag">
+        <div class="boardCategory">
           <div class="boardTitel">
             <div class="boardTitelBoxText">In progress</div>
             <div onclick="openAddTaskOverlay('inProgress')" class="boardTitelBoxButton">
@@ -116,7 +116,7 @@
         </div>
       <!-- </div> -->
       <!-- <div class="wrap"> -->
-        <div class="boardDrag">
+        <div class="boardCategory">
           <div class="boardTitel">
             <div class="boardTitelBoxText">Await feedback</div>
             <div onclick="openAddTaskOverlay('awaitFeedback')" class="boardTitelBoxButton">
@@ -137,7 +137,7 @@
             <!-- Bereich 'awaitFeedback' -->
           </div>
         </div>
-        <div class="boardDrag">
+        <div class="boardCategory">
           <div class="boardTitel">
             <div class="boardTitelBoxText">Done</div>
             <div>
@@ -176,7 +176,7 @@
           <!-- title -->
           <div class="enter-title-container gap-8">
             <h2> Title </h2>
-            <input id="task-title" class="border-radius-6 border-color" placeholder="Enter Title"></input>
+            <input id="task-title" class="border-radius-6 border-color" placeholder="Enter Title">
             <span id="is-required-task" class="is-required d-none"> This field is required </span>
           </div>
 
@@ -211,7 +211,7 @@
           <!-- date -->
           <div class="enter-date gap-8">
             <h2> Due date </h2>
-            <input class="border-radius-6 border-color" id="dueDate" type="date"></input>
+            <input class="border-radius-6 border-color" id="dueDate" type="date">
             <span id="is-required-date" class="is-required d-none"> This field is required </span>
           </div>
 
@@ -274,8 +274,6 @@
       </div>
     </div>
   </section>
-
-
 
 
 </body>

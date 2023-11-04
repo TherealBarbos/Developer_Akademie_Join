@@ -123,24 +123,18 @@ function showTaskListByState(state) {
  * @returns {string} - The HTML markup for the task card.
  */
 function generateTaskCard(task) {
-  return ` <div id="card-${
-    task.id
-  }" class="card" draggable="true" ondragstart="startDraging('${
-    task.id
-  }')" onclick="showOverlay('${task.id}')">
+  return ` <div id="card-${task.id}" class="card" draggable="true" ondragstart="startDraging('${task.id}')" onclick="showOverlay('${task.id}')">
     <div class="cardFrame">
       <div class="cardHead">
       <div class="cardLable ${determineColor(task)}">${task.category}</div>
-        <div class="cardMove" onclick="displayMoveMenu(event)" id="moveIcon">
-         <img src="../img/move_black.png" alt="moveTo"> 
-         </div>
+      <div class="cardMove" onclick="displayMoveMenu('${task.id}', event)" id="moveIcon">
+      <img src="../img/move_black.png" alt="moveTo"> 
+    </div>
          <div id="move-menu" class="move-menu d-none">
           <div><u>move Task to:</u></div>
           <div onclick="switchTo('${task.id}', 'toDo')">To do</div>
           <div onclick="switchTo('${task.id}', 'inProgress')">In progress</div>
-          <div onclick="switchTo('${
-            task.id
-          }', 'awaitFeedback')">Await feedback</div>
+          <div onclick="switchTo('${task.id}', 'awaitFeedback')">Await feedback</div>
           <div onclick="switchTo('${task.id}', 'done')">Done</div>
         </div>
       </div>
@@ -148,9 +142,7 @@ function generateTaskCard(task) {
         <div class="cardTextI">${task.title}</div>
         <div class="cardTextII">${task.description}</div>
       </div>
-      <div id="card-subtask-${
-        task.id
-      }" class="cardProgress ${determineIfSubtaskExists(task)}">
+      <div id="card-subtask-${task.id}" class="cardProgress ${determineIfSubtaskExists(task)}">
         <div class="cardProgressbar">
           <div class="progress">
            <div class="progress-bar" role="progressbar" style="width: ${
@@ -269,10 +261,15 @@ function switchTo(index, state) {
 /**
  * Displays or hides the move menu when clicking the move icon.
  */
-function displayMoveMenu(event) {
+function displayMoveMenu(index, event) {
   event.stopPropagation();
   let menu = document.getElementById("move-menu");
   let box = document.getElementById("moveIcon");
+
+  let taskCard = document.getElementById(`card-${index}`);
+  let taskCardRect = taskCard.getBoundingClientRect();
+  menu.style.left = taskCardRect.right + "px";
+  menu.style.top = taskCardRect.top + "px";
 
   if (!MenuToggle) {
     box.classList.add("grey-bg");
@@ -284,6 +281,7 @@ function displayMoveMenu(event) {
     MenuToggle = false;
   }
 }
+
 /**
  * Calculates the sum of completed subtasks for a task.
  *
