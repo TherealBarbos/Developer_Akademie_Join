@@ -32,7 +32,7 @@ img:hover {
     margin-top: -36px;
 }
 
-input {
+.edit-input {
     height: 48px;
     font-size: 20px;
     padding-left: 16px;

@@ -8,7 +8,7 @@
 .test {
   background-color: var(--join-color) !important;
 }
-.boardTest {
+.boardHead {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,9 +16,8 @@
 
 .boardNav {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  gap: 46px;
+  gap: 25px;
 }
 
 .inputSearch-mobile {
@@ -45,10 +44,10 @@
   flex-wrap: wrap;
   gap: 2rem;
 }
-
-.inputSearch {
+.boardSearchbar {
   display: flex;
-  max-width: 280px;
+  justify-content: space-between;
+  max-width: 312px;
   padding: 8px 16px;
   align-items: center;
   gap: 10px;
@@ -56,6 +55,25 @@
   border: 1px solid var(--icon, #a8a8a8);
   background: var(--background-color);
   background-repeat: no-repeat;
+}
+.boardSearchIcons {
+  display: flex;
+  justify-content: center;
+}
+.inputSearch {
+  display: flex;
+  border: none;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+.inputSearch::placeholder {
+  color: var(--quaternary-color);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
 }
 
 .inputSearch::before,
@@ -137,9 +155,9 @@
 
 .boardTitelBoxButton:hover {
   cursor: pointer;
-  border-color: #29ABE2;
-  stroke: #29ABE2;
-  fill: #29ABE2;
+  border-color: #29abe2;
+  stroke: #29abe2;
+  fill: #29abe2;
 }
 
 .boardDrag {
@@ -279,10 +297,6 @@
   height: 20px;
 }
 
-.cardMove img:hover {
-  
-}
-
 .move-menu {
   position: absolute;
   right: 0;
@@ -290,7 +304,7 @@
   background-color: var(--secondary-color);
   border-radius: 20px 0px 20px 20px;
   color: var(--background-color);
-  box-shadow: 0px 0px 4px 0px #0000001A;
+  box-shadow: 0px 0px 4px 0px #0000001a;
   font-size: 16px;
   font-weight: 400;
   display: flex;
@@ -422,7 +436,7 @@
 .cardAssignedInitials li:nth-child(n + 2) {
   margin-left: -10px;
 }
-.cardAssignedInitials li:nth-child(n + 2):nth-child(6n+1) {
+.cardAssignedInitials li:nth-child(n + 2):nth-child(6n + 1) {
   margin-left: 0;
 }
 

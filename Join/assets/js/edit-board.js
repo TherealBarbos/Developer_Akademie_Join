@@ -25,7 +25,7 @@ async function editTask(id) {
 
     <div class="enter-title-container gap-8">
       <h3> Title </h3>
-      <input class="radius-and-border" id="edit-title${id}" value="${todos[id].title}"></input>
+      <input class="radius-and-border edit-input" id="edit-title${id}" value="${todos[id].title}"></input>
     </div>  
 
     <div class="enter-description-container-edit gap-8">
@@ -35,7 +35,7 @@ async function editTask(id) {
 
     <div class="enter-date gap-8"v>
       <h3> Due date </h3>
-      <input class="radius-and-border" id="edit-dueDate${id}" type="date" value="${formatDateToDDMMYYYY(todos[id].dueDate)}"></input>
+      <input class="radius-and-border edit-input" id="edit-dueDate${id}" type="date" value="${formatDateToDDMMYYYY(todos[id].dueDate)}"></input>
     </div>
 
     <div class="priority-edit gap-8">
@@ -53,7 +53,7 @@ async function editTask(id) {
 
     <div class="assigned-to-container-edit gap-8">
         <h3> Assigned to </h3>
-        <input onclick="toggleSelect()" onkeyup="filterNames()" id="filterNames" 
+        <input class="edit-input" onclick="toggleSelect()" onkeyup="filterNames()" id="filterNames" 
         class="border-radius-6 border-color assignedNameSelector" placeholder="Select contacts to assign to">
         <div class="d-none" id="assignedNameContainer">
             <ul class="assignedName-edit" id="assignedName-edit${id}"></ul>

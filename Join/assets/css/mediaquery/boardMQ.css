@@ -3,51 +3,48 @@
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
-  .boardTest {
+  .boardHead {
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
     flex-direction: column;
     gap: 12px;
   }
+  .board {
+    margin: 25px;
+  }
+  .boardTitel{
+    margin-top: 1rem;
+    max-width: 10rem;
+  }
   .cardMove {
     display: block;
   }
-  
+  .drag {
+    flex-direction: row;
+    min-height: 20rem;
+    min-width: 30rem;
+  }
+  .boardDrag{
+    max-width: 550px;
+
+  }
 }
 
 @media (max-width: 820px) {
-  .boardTest {
+  .boardHead {
     display: flex;
-    /* justify-content: space-between; */
     align-items: flex-start;
     flex-direction: column;
     gap: 12px;
     margin: 0px 20px;
   }
-
-  .inputSearch-mobile {
-    display: flex;
-    max-width: none;
-    padding: 8px 16px;
-    align-items: center;
-    gap: 10px;
-    border-radius: 10px;
-    border: 1px solid var(--icon, #a8a8a8);
-    background: var(--background-color);
-    width: 90%;
+  .boardSearchbar {
+    max-width: 5000px;
   }
 
-  .display-none-after-query {
-    display: none;
-  }
-
-  .display-none-before-query {
-    display: block;
-  }
 
   .addTaskButton a {
     display: none;

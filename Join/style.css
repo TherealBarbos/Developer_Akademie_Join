@@ -52,7 +52,9 @@
   --secondary-color: #2A3647;
   /*das Haupt Blau/Grau*/
   --tertiary-color: #a8a8a8;
-  /*leichtes Grau (placeholder Text usw)*/
+  /*leichtes Grau Text */
+  --quaternary-color: #D1D1D1;
+  /*leichtes Grau Placeholder */
   --join-color: #29ABE2;
   /*Das Join Blau*/
   --background-color: #FFF;
