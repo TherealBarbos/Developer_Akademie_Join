@@ -11,7 +11,6 @@ async function saveContactValues(i) {
     if (username == 'Guest') {
     } else {
         await setItem('contacts', contacts);
-        console.log('success');
     }
     redirectEditContactToContacts();
 }
