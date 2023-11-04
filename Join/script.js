@@ -16,6 +16,9 @@ async function includeHTML() {
     pasteFirstLetter();
 }
 
+/**
+ * this function puts the first letter of the user in the header
+ */
 function pasteFirstLetter() {
     let box = document.getElementById('firstletterbox');
     firstletter = getArray('firstLetter');
@@ -25,10 +28,18 @@ function pasteFirstLetter() {
     box.innerHTML = `${UserFirstLetter}`;
 }
 
+/**
+ * this function gets the array out of the local storage
+ * @param {string} key - name of the key
+ * @returns 
+ */
 function getArray(key) {
     return JSON.parse(localStorage.getItem(key));
 }
 
+/**
+ * this function opens or closes the logout meanu for the user
+ */
 function displayLogoutMenu() {
     let menu = document.getElementById('logout-menu');
     let box = document.getElementById('firstletterbox');
