@@ -250,6 +250,7 @@
 }
 
 .cardHead {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -274,7 +275,31 @@
 }
 
 .cardMove img {
-  size: 16px;
+  width: 20px;
+  height: 20px;
+}
+
+.cardMove img:hover {
+  
+}
+
+.move-menu {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: var(--secondary-color);
+  border-radius: 20px 0px 20px 20px;
+  color: var(--background-color);
+  box-shadow: 0px 0px 4px 0px #0000001A;
+  font-size: 16px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  justify-content: center;
+  gap: 24px;
+  z-index: 1;
 }
 
 .cardTextbox {
@@ -357,9 +382,9 @@
 
 .cardContactsBadge {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
   flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .cardAssignedinitials {
@@ -373,6 +398,7 @@
 }
 .cardAssignedInitials ul {
   display: flex;
+  flex-wrap: wrap;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -382,17 +408,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   border: solid 1px var(--background-color);
-  color: #f4f4f4;
+  color: var(--background-color);
   border-radius: 45px;
   width: 32px;
   height: 32px;
   float: left;
   text-align: center;
 }
+.cardAssignedInitials li:first-child {
+  margin-left: 0;
+}
 .cardAssignedInitials li:nth-child(n + 2) {
-  margin-left: -8px;
+  margin-left: -10px;
+}
+.cardAssignedInitials li:nth-child(n + 2):nth-child(6n+1) {
+  margin-left: 0;
 }
 
 .cardContactsPrio {

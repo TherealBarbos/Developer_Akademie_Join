@@ -84,15 +84,20 @@ let quotes = [
 
 let currentDraggedElement;
 
-// Load and disply CARDS
-
+/**
+ * Updates the HTML to display the task cards based on their state.
+ */
 function updateHTML() {
   showTaskListByState("toDo");
   showTaskListByState("inProgress");
-  showTaskListByState("done");
   showTaskListByState("awaitFeedback");
+  showTaskListByState("done");
 }
-// filter das Arry nach den Kategorien
+/**
+ * Filters the tasks array based on the given state and displays the task list in the corresponding container.
+ *
+ * @param {string} state - The state to filter tasks by (e.g., "toDo", "inProgress").
+ */
 function showTaskListByState(state) {
   let filteredTasksByState = todos.filter((t) => t["state"] == state);
   const taskListContainer = document.getElementById(state);
@@ -111,53 +116,77 @@ function showTaskListByState(state) {
     }
   }
 }
-
-// Generische Funktion zum Erzeugen der Task-Karten
-
+/**
+ * Generates a task card HTML for the given task.
+ *
+ * @param {object} task - The task object to create a card for.
+ * @returns {string} - The HTML markup for the task card.
+ */
 function generateTaskCard(task) {
-  return ` <div id="card-${task.id
-    }" class="card" draggable="true" ondragstart="startDraging('${task.id
-    }')" onclick="showOverlay('${task.id}')">
+  return ` <div id="card-${
+    task.id
+  }" class="card" draggable="true" ondragstart="startDraging('${
+    task.id
+  }')" onclick="showOverlay('${task.id}')">
     <div class="cardFrame">
       <div class="cardHead">
       <div class="cardLable ${determineColor(task)}">${task.category}</div>
-      <div class="cardMove" onclick="move"> <img src="../img/move_black.png" alt="moveTo"> </div>
+        <div class="cardMove" onclick="displayMoveMenu(event)" id="moveIcon">
+         <img src="../img/move_black.png" alt="moveTo"> 
+         </div>
+         <div id="move-menu" class="move-menu d-none">
+          <div><u>move Task to</u></div>
+          <div onclick="switchTo('${task.id}', 'toDo')">To do</div>
+          <div onclick="switchTo('${task.id}', 'inProgress')">In progress</div>
+          <div onclick="switchTo('${
+            task.id
+          }', 'awaitFeedback')">Await feedback</div>
+          <div onclick="switchTo('${task.id}', 'done')">Done</div>
+        </div>
       </div>
       <div class="cardTextbox">
         <div class="cardTextI">${task.title}</div>
         <div class="cardTextII">${task.description}</div>
       </div>
-      <div id="card-subtask-${task.id
-    }" class="cardProgress ${determineIfSubtaskExists(task)}">
+      <div id="card-subtask-${
+        task.id
+      }" class="cardProgress ${determineIfSubtaskExists(task)}">
         <div class="cardProgressbar">
           <div class="progress">
-           <div class="progress-bar" role="progressbar" style="width: ${(taskSum(task) / task.subtasks.subtaskContent.length) * 100
-    }%; 
+           <div class="progress-bar" role="progressbar" style="width: ${
+             (taskSum(task) / task.subtasks.subtaskContent.length) * 100
+           }%; 
            height: 15px; border-radius: 8px;" aria-valuenow="${taskSum(
-      task
-    )}" aria-valuemin="0" aria-valuemax="${task.subtasks.subtaskContent.length
-    }"></div>
+             task
+           )}" aria-valuemin="0" aria-valuemax="${
+    task.subtasks.subtaskContent.length
+  }"></div>
           </div>
         </div>
-         <div class="cardProgressText">${taskSum(task)}/${task.subtasks.subtaskContent.length
-    } Subtasks</div>
+         <div class="cardProgressText">${taskSum(task)}/${
+    task.subtasks.subtaskContent.length
+  } Subtasks</div>
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
-          <div class="cardAssignedInitials" id="cardAssignedNameContainer${task.id
-    }"></div>
+          <div class="cardAssignedInitials" id="cardAssignedNameContainer${
+            task.id
+          }"></div>
         </div>
         <div class="cardContactsPrio">
-          <img src="${task.priorityImageSource
-    }" alt="" class="cardContactsPrioImg" />
+          <img src="${
+            task.priorityImageSource
+          }" alt="" class="cardContactsPrioImg" />
         </div>
       </div>
     </div>
   </div>`;
 }
-
-// Erstellt den platzhalter für die Karten
-
+/**
+ * Generates a placeholder HTML when there are no tasks in a category.
+ *
+ * @returns {string} - The HTML markup for the placeholder card.
+ */
 function generatePlaceholder() {
   const randomQuote = getRandomQuote();
   return `<div class="cardplaceholder">
@@ -167,33 +196,53 @@ function generatePlaceholder() {
     <div class="cardTextII cardTextR">- ${randomQuote.author}</div>
   </div>`;
 }
-
+/**
+ * Retrieves a random quote from the quotes array.
+ *
+ * @returns {object} - A random quote object with 'text' and 'author' properties.
+ */
 function getRandomQuote() {
   const randomIndex = Math.floor(Math.random() * quotes.length);
   return quotes[randomIndex];
 }
-
-// Drag functionality
-
-// Drag Initiation
+/**
+ * Initiates the drag operation for a task card.
+ *
+ * @param {number} index - The index of the task to be dragged.
+ */
 function startDraging(index) {
   currentDraggedElement = index;
   document.getElementById(`card-${index}`).classList.add("cardDragging");
 }
-// Drag  style-effects
+/**
+ * Highlights the drop target when a task is being dragged over it.
+ *
+ * @param {string} index - The ID of the drop target.
+ */
 function highlight(index) {
   document.getElementById(index).classList.add("drag-over");
 }
+/**
+ * Removes the highlighting of the drop target when the drag operation ends.
+ *
+ * @param {string} index - The ID of the drop target.
+ */
 function unhighlight(index) {
   document.getElementById(index).classList.remove("drag-over");
 }
-
+/**
+ * Allows a drop operation on a target element.
+ *
+ * @param {Event} ev - The drag event object.
+ */
 function allowDrop(ev) {
   ev.preventDefault();
 }
-
-// Function zum Wechseln der Category
-
+/**
+ * Moves a task to the specified state.
+ *
+ * @param {string} state - The state to move the task to.
+ */
 function moveTo(state) {
   let id = todos.findIndex((item) => {
     return item.id == currentDraggedElement;
@@ -203,7 +252,12 @@ function moveTo(state) {
   setItem("allTasks", JSON.stringify(todos));
   unhighlight(state);
 }
-
+/**
+ * Switches the state of a task to the given state.
+ *
+ * @param {number} index - The index of the task to switch state.
+ * @param {string} state - The new state for the task.
+ */
 function switchTo(index, state) {
   let id = todos.findIndex((item) => {
     return item.id == index;
@@ -211,11 +265,31 @@ function switchTo(index, state) {
   todos[id]["state"] = state;
   updateHTML();
   setItem("allTasks", JSON.stringify(todos));
-
 }
+/**
+ * Displays or hides the move menu when clicking the move icon.
+ */
+function displayMoveMenu(event) {
+  event.stopPropagation();
+  let menu = document.getElementById("move-menu");
+  let box = document.getElementById("moveIcon");
 
-// Subtask Summe
-
+  if (!MenuToggle) {
+    box.classList.add("grey-bg");
+    menu.classList.remove("d-none");
+    MenuToggle = true;
+  } else if (MenuToggle) {
+    box.classList.remove("grey-bg");
+    menu.classList.add("d-none");
+    MenuToggle = false;
+  }
+}
+/**
+ * Calculates the sum of completed subtasks for a task.
+ *
+ * @param {object} task - The task object to calculate subtask progress for.
+ * @returns {number} - The number of completed subtasks.
+ */
 function taskSum(task) {
   let doneTasksSum = 0;
   if (task.subtasks.subtaskDone) {
@@ -225,13 +299,23 @@ function taskSum(task) {
     return doneTasksSum;
   }
 }
-
+/**
+ * Determines if subtasks exist for a task and returns a CSS class name.
+ *
+ * @param {object} task - The task object to check for subtasks.
+ * @returns {string} - A CSS class name based on the existence of subtasks.
+ */
 function determineIfSubtaskExists(task) {
   if (task.subtasks.subtaskDone) {
     if (task.subtasks.subtaskDone.length === 0) return "d-none";
   }
 }
-
+/**
+ * Determines the color class based on the category of a task.
+ *
+ * @param {object} task - The task object to determine the color for.
+ * @returns {string} - A CSS class name for the task card's color.
+ */
 function determineColor(task) {
   if (task.category == "Technical Task") {
     return "technical-task";
@@ -239,9 +323,9 @@ function determineColor(task) {
     return "user-story";
   }
 }
-
-// Suchfunktion
-
+/**
+ * Adds event listeners for search functionality.
+ */
 document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.querySelector("#boardSearchID");
 
@@ -305,12 +389,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
-
-// Function für das Namen einbinden
-
-// Board
-
+/**
+ * Displays the assigned initials on a task card.
+ *
+ * @param {number} index - The index of the task to display assigned initials.
+ */
 function displayassigenedName(index) {
   let id = todos.findIndex((item) => {
     return item.id == index;
@@ -334,7 +417,11 @@ function displayassigenedName(index) {
   }
 }
 
-// Overlay
+/**
+ * Displays assigned initials and names in the overlay.
+ *
+ * @param {number} index - The index of the task to display assigned initials and names.
+ */
 function displayAssignedNameOverlay(index) {
   let id = todos.findIndex((item) => {
     return item.id == index;
@@ -372,9 +459,11 @@ function displayAssignedNameOverlay(index) {
     cardAssignedNameContainerOverlay.appendChild(ul);
   }
 }
-
-// Overlay Task
-
+/**
+ * Shows an overlay with detailed information about a task.
+ *
+ * @param {number} index - The index of the task to show in the overlay.
+ */
 function showOverlay(index) {
   let id = todos.findIndex((item) => {
     return item.id == index;
@@ -388,9 +477,11 @@ function showOverlay(index) {
   displayAssignedNameOverlay(index);
   displaySubtasks(index); // index = e.g.: 1698364123489791324514
 }
-
-// Subtasks filtern und als Liste darstellen
-
+/**
+ * Displays subtasks on the overlay.
+ *
+ * @param {number} index - The index of the task to display subtasks for.
+ */
 function displaySubtasks(index) {
   let id = todos.findIndex((item) => {
     return item.id == index;
@@ -402,9 +493,9 @@ function displaySubtasks(index) {
     container.innerHTML += `
     <li class="subtaskListItem" onclick="toggleNameSubtask(${SpecialID}, ${id}, ${i})">
       <img src="${getImage(
-      id,
-      i
-    )}" class="checkboxSubtask" id="checkboxSubtask${SpecialID}">
+        id,
+        i
+      )}" class="checkboxSubtask" id="checkboxSubtask${SpecialID}">
       <span>${subtask}<span>
     </li>
     `;
@@ -418,7 +509,13 @@ function getImage(id, i) {
     return "../img/checkbox-checked-black-stroke.svg";
   }
 }
-
+/**
+ * Toggles the completion status of a subtask.
+ *
+ * @param {number} SpecialID - The unique ID of the subtask.
+ * @param {number} id - The index of the task containing the subtask.
+ * @param {number} i - The index of the subtask within the task.
+ */
 function toggleNameSubtask(SpecialID, id, i) {
   let checkbox = document.getElementById(`checkboxSubtask${SpecialID}`);
 
@@ -431,8 +528,12 @@ function toggleNameSubtask(SpecialID, id, i) {
   }
   setItem("allTasks", JSON.stringify(todos));
 }
-
-// dexipher Unix-Timestamp
+/**
+ * Formats a date string to "DD/MM/YYYY" format.
+ *
+ * @param {string} dateString - The date string to format.
+ * @returns {string} - The formatted date in "DD/MM/YYYY" format.
+ */
 function formatDateToDDMMYYYY(dateString) {
   const date = new Date(dateString);
 
@@ -442,8 +543,13 @@ function formatDateToDDMMYYYY(dateString) {
 
   return `${day}/${month}/${year}`;
 }
-
-// render Overlay
+/**
+ * Renders the task overlay content.
+ *
+ * @param {object} task - The task object to display in the overlay.
+ * @param {number} id - The index of the task.
+ * @returns {string} - The HTML markup for the task overlay.
+ */
 function renderTask(todo, id) {
   const formattedDueDate = formatDateToDDMMYYYY(todo.dueDate);
 
@@ -466,14 +572,17 @@ function renderTask(todo, id) {
 <div ${todo.title} class="bOverlayTitle">${todo.title}</div>
 <div class="bOverlayText">${todo.description}</div>
 <div class="bOverlayText">Due date: ${formattedDueDate}</div>
-<div class="bOverlayText bOverlayuppercase">Priority: ${todo.priority
-    }<img src="${todo.priorityImageSource
-    }" alt="" class="cardContactsPrioImg" /></div>
+<div class="bOverlayText bOverlayuppercase">Priority: ${
+    todo.priority
+  }<img src="${
+    todo.priorityImageSource
+  }" alt="" class="cardContactsPrioImg" /></div>
 <div class="bOverlayAssigned">
   Assigned To:
   <div class="bOverlayAssignedNames">
-  <div class="overlayIniNam" id="cardAssignedNameContainerOverlay${todo.id
-    }"></div></div>
+  <div class="overlayIniNam" id="cardAssignedNameContainerOverlay${
+    todo.id
+  }"></div></div>
 </div >
 <div class='bOverlayText ${hideHeaderIfNoSubtasks(id)}'> Subtasks </div>
 <ul id="subtask-list-container${id}" class="bOverlaySub">
@@ -518,7 +627,10 @@ function hideHeaderIfNoSubtasks(id) {
   }
 }
 
-// Overlay Schließen
+
+/**
+ * Closes the task overlay.
+ */
 function closeOverlay() {
   document.getElementById("boardHeader").classList.remove("blurout");
   document.getElementById("board").classList.remove("blurout");
@@ -526,8 +638,11 @@ function closeOverlay() {
   taskoverlay.classList.add("d-none");
   updateHTML();
 }
-
-// Overlay Task Delete
+/**
+ * Deletes a task from the tasks array and updates the HTML.
+ *
+ * @param {number} index - The index of the task to delete.
+ */
 function deleteTask(index) {
   let id = todos.findIndex((item) => {
     return item.id == index;
@@ -537,9 +652,9 @@ function deleteTask(index) {
   updateHTML();
   closeOverlay();
 }
-
-// remote storage Funktionen
-
+/**
+ * Loads tasks from remote storage and populates the tasks array.
+ */
 async function loadTasks() {
   try {
     todos = JSON.parse(await getItem("allTasks"));
@@ -548,7 +663,12 @@ async function loadTasks() {
   }
   updateHTML();
 }
-
+/**
+ * Retrieves an item from remote storage by its key.
+ *
+ * @param {string} key - The key to identify the item.
+ * @returns {Promise} - A promise that resolves with the retrieved item.
+ */
 async function getItem(key) {
   const url = `${STORAGE_URL}?key=${key}&token=4AVD74O6ONTUSWYBIKRAF3SC5B2U9YW3OCE1JRVE`;
   return fetch(url)
@@ -560,7 +680,13 @@ async function getItem(key) {
       throw `Could not find data with key "${key}".`;
     });
 }
-
+/**
+ * Sets an item in remote storage with the given key and value.
+ *
+ * @param {string} key - The key to identify the item.
+ * @param {string} value - The value to store.
+ * @returns {Promise} - A promise indicating the success of the operation.
+ */
 async function setItem(key, value) {
   const payload = { key, value, token: STORAGE_TOKEN };
   return fetch(STORAGE_URL, {
