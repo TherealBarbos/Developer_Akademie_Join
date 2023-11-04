@@ -4,13 +4,14 @@
  */
 async function saveContactValues(i) {
     let username = getArray('name');
-    let contact = contactValue();
+    let contact = contactValue(i);
 
     contacts.splice(i, 1);
     contacts.splice(i, 0, contact);
     if (username == 'Guest') {
     } else {
         await setItem('contacts', contacts);
+        console.log('success');
     }
     redirectEditContactToContacts();
 }
@@ -19,7 +20,7 @@ async function saveContactValues(i) {
  * this function creates the contact based on the input fields
  * @returns -the contact value
  */
-function contactValue() {
+function contactValue(i) {
     let email = document.getElementById('edit-input-email');
     let name = document.getElementById('edit-input-name');
     let phone = document.getElementById('edit-input-phone');
@@ -45,7 +46,5 @@ function setContactValues(index) {
     document.getElementById('edit-input-name').value = `${contacts[index]['name']}`;
     document.getElementById('edit-input-email').value = `${contacts[index]['email']}`;
     document.getElementById('edit-input-phone').value = `${contacts[index]['phone']}`;
-    document.getElementById('saveContactValue').innerHTML = /*html*/`
-    <span class="create-btn-align" onclick="saveContactValues(${index})">Save <img src="../img/check-white.png" alt="check"></span>
-    `
+    document.getElementById('submit-edited-contact').setAttribute('onsubmit', `saveContactValues(${index}); return false`);
 }
