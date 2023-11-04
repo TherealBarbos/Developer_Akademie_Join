@@ -131,7 +131,7 @@ function generateTaskCard(task) {
       <img src="../img/move_black.png" alt="moveTo"> 
     </div>
          <div id="move-menu" class="move-menu d-none">
-          <div><u>move Task to:</u></div>
+          <div>move Task to:</div>
           <div onclick="switchTo('${task.id}', 'toDo')">To do</div>
           <div onclick="switchTo('${task.id}', 'inProgress')">In progress</div>
           <div onclick="switchTo('${task.id}', 'awaitFeedback')">Await feedback</div>

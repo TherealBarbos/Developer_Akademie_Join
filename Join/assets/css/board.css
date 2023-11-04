@@ -290,6 +290,7 @@
   position: absolute;
   right: 0;
   top: 0;
+  width: 200px;
   background-color: var(--secondary-color);
   border-radius: 20px 0px 20px 20px;
   color: var(--background-color);
