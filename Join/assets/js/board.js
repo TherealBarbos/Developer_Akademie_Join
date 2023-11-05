@@ -130,7 +130,7 @@ function generateTaskCard(task) {
       <div class="cardMove" onclick="displayMoveMenu('${task.id}')" id="moveIcon">
       <img src="../img/move_black.png" alt="moveTo"> 
     </div>
-         <div id="move-menu" class="move-menu d-none">
+         <div id="move-menu-${task.id}" class="move-menu d-none">
           <div>move Task to:</div>
           <div onclick="switchTo('${task.id}', 'toDo')">To do</div>
           <div onclick="switchTo('${task.id}', 'inProgress')">In progress</div>
@@ -259,20 +259,18 @@ function switchTo(index, state) {
   setItem("allTasks", JSON.stringify(todos));
 }
 /**
- * Displays or hides the move menu when clicking the move icon.
+ * Displays the move menu when clicking the move icon.
  */
 function displayMoveMenu(index) {
   let id = todos.findIndex((item) => {
     return item.id == index;
   });
-  if (todos[id].state == "toDo") {
-    document.getElementById("move-menu").classList.toggle("d-none");
-  }
-  if (todos[id].state == "inProgress") {
-    document.getElementById("move-menu").classList.toggle("d-none");
-  }
+    document.getElementById(`move-menu-${index}`).classList.remove("d-none");
 }
 
+function hideMoveMenu(index) {
+  document.getElementById(`move-menu-${index}`).classList.add("d-none");
+}
 
 /**
  * Calculates the sum of completed subtasks for a task.
