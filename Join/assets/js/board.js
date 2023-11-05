@@ -123,11 +123,11 @@ function showTaskListByState(state) {
  * @returns {string} - The HTML markup for the task card.
  */
 function generateTaskCard(task) {
-  return ` <div id="card-${task.id}" class="card" draggable="true" ondragstart="startDraging('${task.id}')" onclick="showOverlay('${task.id}')">
+  return ` <div id="card-${task.id}" class="card" draggable="true" ondragstart="startDraging('${task.id}')">
     <div class="cardFrame">
       <div class="cardHead">
       <div class="cardLable ${determineColor(task)}">${task.category}</div>
-      <div class="cardMove" onclick="displayMoveMenu('${task.id}', event)" id="moveIcon">
+      <div class="cardMove" onclick="displayMoveMenu('${task.id}')" id="moveIcon">
       <img src="../img/move_black.png" alt="moveTo"> 
     </div>
          <div id="move-menu" class="move-menu d-none">
@@ -261,26 +261,18 @@ function switchTo(index, state) {
 /**
  * Displays or hides the move menu when clicking the move icon.
  */
-function displayMoveMenu(index, event) {
-  event.stopPropagation();
-  let menu = document.getElementById("move-menu");
-  let box = document.getElementById("moveIcon");
-
-  let taskCard = document.getElementById(`card-${index}`);
-  let taskCardRect = taskCard.getBoundingClientRect();
-  menu.style.left = taskCardRect.right + "px";
-  menu.style.top = taskCardRect.top + "px";
-
-  if (!MenuToggle) {
-    box.classList.add("grey-bg");
-    menu.classList.remove("d-none");
-    MenuToggle = true;
-  } else if (MenuToggle) {
-    box.classList.remove("grey-bg");
-    menu.classList.add("d-none");
-    MenuToggle = false;
+function displayMoveMenu(index) {
+  let id = todos.findIndex((item) => {
+    return item.id == index;
+  });
+  if (todos[id].state == "toDo") {
+    document.getElementById("move-menu").classList.toggle("d-none");
+  }
+  if (todos[id].state == "inProgress") {
+    document.getElementById("move-menu").classList.toggle("d-none");
   }
 }
+
 
 /**
  * Calculates the sum of completed subtasks for a task.
