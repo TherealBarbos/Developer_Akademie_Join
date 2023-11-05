@@ -1,0 +1,35 @@
+/* template (left menu+Head) */
+/* new css in assets*/
+@import url("../css/mediaquery/templateMQ.css");
+
+/* Summary */
+/* new css in assets*/
+@import url("../css/mediaquery/summaryMQ.css");
+
+/* add Task */
+/* new css in assets*/
+/* @import url("../css/mediaquery/responsive-add-task.css"); */
+
+/* Board */
+/* new css in assets*/
+@import url("../css/mediaquery/boardMQ.css");
+
+/* Overall */
+/* new css in assets*/
+@import url("../css/mediaquery/overallMQ.css");
+
+/* Overlay */
+/* new css in assets*/
+@import url("../css/mediaquery/overlayMQ.css");
+
+/* addcontact */
+/* new css in assets*/
+@import url("../css/mediaquery/addcontactMQ.css");
+
+/* style */
+/* new css in assets*/
+@import url("../css/mediaquery/styleMQ.css");
+
+/* signuplogin.css */
+/* new css in assets*/
+@import url("../css/mediaquery/signuploginMQ.css");

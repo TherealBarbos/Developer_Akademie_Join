@@ -1,0 +1,355 @@
+body {
+    margin: 0px;
+    font-family: "Inter";
+    background: #f6f7f8;
+}
+
+.add-c-left-part {
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    width: 470px;
+    height: 600px;
+    background-color: #2A3647;
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo {
+    width: auto;
+    height: 64px;
+}
+
+.vector {
+    width: 90px;
+}
+
+h1 {
+    font-size: 58px;
+    font-weight: 700;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+h2 {
+    font-size: 26px;
+    font-weight: 400;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.left-part-content {
+    gap: 24px;
+    padding-left: 40px;
+    padding-bottom: 80px;
+}
+
+.gap {
+    padding: 4px 0px;
+}
+
+.page {
+    border-radius: 30px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+}
+
+.right-part {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    padding: 60px 60px;
+    gap: 60px;
+}
+
+.input {
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: black;
+    border: solid 1px lightgrey;
+    width: 420px;
+    height: 40px;
+    font-size: 20px;
+}
+
+.input::placeholder {
+    color: #D1D1D1;
+}
+
+.input:focus {
+    outline: none !important;
+    border-color: #29ABE2 !important;
+}
+
+#input-email-addcontact {
+    background-image: url(../img/mail.png);
+    background-repeat: no-repeat;
+    background-position: 400px 22px;
+}
+
+#input-name-addcontact {
+    background-image: url(../img/person.svg);
+    background-repeat: no-repeat;
+    background-position: 400px 22px;
+}
+
+#input-phone-addcontact {
+    background-image: url(../img/call.svg);
+    background-repeat: no-repeat;
+    background-position: 400px 22px;
+}
+
+#edit-input-email {
+    background-image: url(../img/mail.png);
+    background-repeat: no-repeat;
+    background-position: 400px 22px;
+}
+
+#edit-input-name {
+    background-image: url(../img/person.svg);
+    background-repeat: no-repeat;
+    background-position: 400px 22px;
+}
+
+#edit-input-phone {
+    background-image: url(../img/call.svg);
+    background-repeat: no-repeat;
+    background-position: 400px 22px;
+}
+
+.input-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.rightpart-middle {
+    display: flex;
+}
+
+.img-person-bg {
+    height: 120px;
+    width: 120px;
+    background-color: #D1D1D1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 3px #FFFFFF;
+    border-radius: 70px;
+    box-shadow: 0px 0px 4px 0px #0000001A;
+    margin-right: 160px;
+    margin-top: 60px;
+}
+
+.img-person {
+    height: 42px;
+    width: 42px;
+    fill: white;
+}
+
+.save-btn {
+    height: 56px;
+    width: 124px;
+    background-color: #2a3647;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.save-btn:hover {
+    height: 56px;
+    width: 124px;
+    background-color: #29ABE2;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: 700;
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.create-btn {
+    height: 56px;
+    width: 214px;
+    background-color: #2a3647;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.create-btn-align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.create-btn:hover {
+    height: 56px;
+    width: 214px;
+    background-color: #29ABE2;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    font-size: 20px;
+    font-weight: 700;
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.cancel-btn {
+    height: 56px;
+    width: 124px;
+    background-color: white;
+    color: black;
+    border-radius: 8px;
+    border: solid 1px black;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.cancel-btn:hover {
+    height: 56px;
+    width: 124px;
+    background-color: white;
+    color: #29ABE2;
+    border-radius: 8px;
+    border: solid 2px #29ABE2;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: 700;
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding-right: 88px;
+}
+
+.edit-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding-right: 178px;
+}
+
+.d-none {
+    display: none;
+}
+
+.absolute {
+    position: absolute;
+    width: 1440px;
+}
+
+.bg-gray {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.432);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-letter {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 0;
+    padding-left: 95px;
+    padding-bottom: 20px;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.line {
+    background-color: #D1D1D1;
+    height: 1px;
+    max-width: 100%;
+    margin: 0px 50px;
+}
+
+.color1 {
+    background-color: #FF7A00;
+}
+
+.color2 {
+    background-color: #FF5EB3;
+}
+
+.color3 {
+    background-color: #6E52FF;
+}
+
+.color4 {
+    background-color: #9327FF;
+}
+
+.color5 {
+    background-color: #00BEE8;
+}
+
+.color6 {
+    background-color: #1FD7C1;
+}
+
+.color7 {
+    background-color: #FF745E;
+}
+
+.color8 {
+    background-color: #FFA35E;
+}
+
+.color9 {
+    background-color: #FC71FF;
+}
+
+.color10 {
+    background-color: #FFC701;
+}
+
+.color11 {
+    background-color: #0038FF;
+}
+
+.color12 {
+    background-color: #C3FF2B;
+}
+
+.color13 {
+    background-color: #FFE62B;
+}
+
+.color14 {
+    background-color: #FF4646;
+}
+
+.color15 {
+    background-color: #FFBB2B;
+}
+
+.editContactLetter {
+    color: white;
+    font-size: 40px;
+}
+
+.x-responsive {
+    display: none;
+}
+
+.x {
+    display: block;
+}

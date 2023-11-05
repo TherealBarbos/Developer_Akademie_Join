@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="../img/logo_favicon.ico" />
+
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../css/tag-colors.css">
+  <link rel="stylesheet" href="../css/mediaquery/responsive-add-task.css">
+
+  <script src="../js/add_task.js"></script>
+  <script src="../../script.js"></script>
+
+  <title>Add Task</title>
+</head>
+
+<body onload="includeHTML(), load()">
+
+  <section id="creation-message">
+    <span> Task added to board </span>
+    <img src="../img/board.svg">
+  </section>
+
+  <div w3-include-html="../templates/header.html"></div>
+
+  <div class="contentOverall">
+    <div class="addTask">
+      <span class="addTaskHeader">Add Task</span>
+
+
+      <div class="add-task-inputs">
+        <div class="add-task-left">
+
+          <!-- title -->
+          <div class="enter-title-container gap-8">
+            <h2> Title </h2>
+            <input id="task-title" class="border-radius-6 border-color" placeholder="Enter Title"></input>
+            <span id="is-required-task" class="is-required d-none"> This field is required </span>
+          </div>
+
+          <!-- description -->
+          <div class="enter-description-container gap-8">
+            <h2> Description </h2>
+            <textarea id="task-description" class="border-radius-6 description-textarea border-color"></textarea>
+            <span id="is-required-description" class="is-required d-none"> This field is required </span>
+          </div>
+
+          <!-- assigned to  -->
+          <div class="assigned-to-container gap-8">
+            <h2> Assigned to </h2>
+            <input onclick="toggleSelect()" onkeyup="filterNames()" id="filterNames"
+              class="border-radius-6 border-color assignedNameSelector" placeholder="Select contacts to assign to">
+            <div class="d-none" id="assignedNameContainer">
+              <ul id="assignedName"></ul>
+              <a class="add-new-contact-link" href="contact.html">
+                <button class="add-task-contact-create-btn">
+                  Add new contact
+                  <img class="add-person" src="../img/person_add.png" alt="person-add">
+                </button>
+              </a>
+            </div>
+          </div>
+          <div id="initials-display"></div>
+        </div>
+        <img src="../img/lineGray.png" class="gray-separation-line" alt="gray-separation-line">
+
+        <div class="add-task-right">
+
+          <!-- date -->
+          <div class="enter-date gap-8">
+            <h2> Due date </h2>
+            <input class="border-radius-6 border-color" id="dueDate" type="date"></input>
+            <span id="is-required-date" class="is-required d-none"> This field is required </span>
+          </div>
+
+          <!-- priority -->
+          <div class="priority gap-8">
+            <h2> Priority </h2>
+            <div class="prio-select">
+              <button onclick="urgentButton()" id="urgent" class="prio-button border-radius-6"> Urgent <img
+                  id="urgent-img" src="../img/urgent_no_bg.svg"></button>
+              <button onclick="mediumButton()" id="medium" class="prio-button medium-clicked border-radius-6"> Medium
+                <img id="medium-img" src="../img/medium_no_bg.svg"></button>
+              <button onclick="lowButton()" id="low" class="prio-button low-clicked border-radius-6"> Low <img
+                  id="low-img" src="../img/low_no_bg.svg"></button>
+            </div>
+            <span id="is-required-priority" class="is-required d-none"> Please assign priority </span>
+          </div>
+
+          <!-- category -->
+          <div class="genericContainer gap-8">
+            <h2> Category </h2>
+            <select id="category" class="select-category border-radius-6 border-color custom-select">
+              <option value="" disabled selected hidden>Select task category</option>
+              <option value="Technical Task"> Technical Task </option>
+              <option value="User Story"> User Story</option>
+            </select>
+            <span id="is-required-category" class="is-required d-none"> This field is required </span>
+          </div>
+
+          <!-- subtasks -->
+          <div class="genericContainer gap-8">
+            <h2> Subtasks </h2>
+            <button class="subtask-button-inactive border-radius-6" onclick="transformIntoInput()"
+              id="add-subtask-button">
+              <span> Add new subtask </span>
+              <img src="../img/add.svg" class="plus-sign" id="plus-sign">
+            </button>
+            <span id="is-required-subtask" class="is-required d-none"> Field cannot be empty </span>
+          </div>
+
+          <ul id="subtask-list"></ul>
+
+          <div class="create-clear-button-container">
+            <button onclick="clearInputs()" id="clear-button">
+              <span> Clear </span>
+              <svg class="clearSVG" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24"
+                fill="none">
+                <path
+                  d="M12.0692 12.0001L17.3122 17.2431M6.82617 17.2431L12.0692 12.0001L6.82617 17.2431ZM17.3122 6.75708L12.0682 12.0001L17.3122 6.75708ZM12.0682 12.0001L6.82617 6.75708L12.0682 12.0001Z"
+                  stroke="" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+
+            <a href="board.html"><button class="create-button" onclick="formValidation()"></a>
+            <span> Create Task </span>
+            <img id="create-task-tick" class="create-task-tick" src="../img/create_task_button.png">
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+
+</html>

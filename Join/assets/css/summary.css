@@ -1,0 +1,220 @@
+.summaryHead {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.summaryTitel {
+  font-size: 61px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+.summaryText {
+  color: var(--secondary-color);
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.summaryWelcome {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.summaryWelcomeText {
+  color: var(--secondary-color);
+  font-size: 47px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+.summaryWelcomeTextName {
+  color: var(--join-color);
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+.summaryboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+}
+
+.summaryTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+
+.summaryTopImg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.summaryTopcard {
+  display: flex;
+  padding: 38px 19px;
+  width: 264px;
+  stroke: var(--background-color);
+  fill: var(--background-color);
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background-color: var(--background-color);
+  cursor: pointer;
+}
+
+.summaryTopCount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.summaryBigNumber {
+  color: var(--secondary-color);
+  text-align: center;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+}
+
+.summaryBigText {
+  color: #2a3647;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.summaryMiddle {
+  display: flex;
+  padding: 28px 48px;
+  width: 560px;
+  justify-content: center;
+  align-items: center;
+  gap: 15%;
+  border-radius: 30px;
+  background-color: var(--background-color);
+  cursor: pointer;
+}
+
+.summaryMiddlePriority {
+  display: flex;
+  margin-left: 5%;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 18px;
+}
+
+.summaryMiddlePriorityLevel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.summaryMiddlePriorityDate {
+  color: var(--secondary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.summaryMiddlePriorityDateTextI {
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+.summaryMiddlePriorityDateTextII {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.summaryBottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10%;
+}
+
+.summaryBottomCard {
+  display: flex;
+  padding: 5%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background-color: var(--background-color);
+  box-shadow: 0px 0px 4px 0px var(--border-shadow);
+  cursor: pointer;
+}
+
+.summaryTopcard:hover {
+  color: var(--background-color);
+  background-color: var(--secondary-color);
+  stroke: var(--secondary-color);
+  fill: var(--secondary-color);
+  transform: scale(1.075);
+}
+.summaryTopcard:hover circle {
+  fill: var(--background-color);
+}
+
+.summaryTopcard:hover div {
+  color: var(--background-color);
+  background-color: var(--secondary-color);
+}
+
+.summaryMiddle:hover {
+  color: var(--background-color);
+  background-color: var(--secondary-color);
+  stroke: var(--secondary-color);
+  fill: var(--secondary-color);
+  transform: scale(1.075);
+}
+.summaryMiddle:hover div {
+  color: var(--background-color);
+  background-color: var(--secondary-color);
+}
+.summaryBottomCard:hover {
+  color: var(--background-color);
+  background-color: var(--secondary-color);
+  stroke: var(--secondary-color);
+  fill: var(--secondary-color);
+  transform: scale(1.075);
+}
+.summaryBottomCard:hover div {
+  color: var(--background-color);
+  background-color: var(--secondary-color);
+}

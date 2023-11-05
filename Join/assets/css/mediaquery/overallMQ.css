@@ -1,0 +1,11 @@
+@media (max-width: 910px) {
+    .contentOverall {
+       margin-right: 25px;
+    }
+}
+
+@media (max-width: 820) {
+    .contentOverall {
+        margin: 18vh 0 0 0;
+    }
+}

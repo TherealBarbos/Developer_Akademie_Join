@@ -1,0 +1,254 @@
+@media (max-width: 1350px) {
+    .page {
+        border-radius: 30px;
+        background-color: #FFFFFF;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 70vw;
+        height: 90vh;
+    }
+
+    .add-c-left-part {
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 30px;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        background-color: #2A3647;
+        color: white;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .left-part-content {
+        gap: 24px;
+        padding-left: 0;
+        padding-bottom: 0;
+    }
+
+    .img-person-bg {
+        height: 120px;
+        width: 120px;
+        background-color: #D1D1D1;
+        display: flex;
+        border: solid 3px #FFFFFF;
+        border-radius: 70px;
+        box-shadow: 0px 0px 4px 0px #0000001A;
+        margin-right: 0;
+        margin-top: 0;
+        position: absolute;
+        top: 28vh;
+        left: 45%;
+    }
+
+    .right-part {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 10px 10px;
+        gap: 60px;
+        height: 56vh;
+    }
+
+    .bg-gray {
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.432);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .x-responsive {
+        display: flex;
+        justify-content: flex-end;
+        padding-left: 100%;
+        margin-bottom: 60px;
+    }
+
+    .x {
+        display: none;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        padding-right: 0;
+    }
+
+    .edit-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 655px) {
+    .contact {
+        display: flex;
+        align-items: center;
+        margin: 5px 5px;
+        gap: 15px;
+        padding: 10px 30px;
+        border-radius: 10px;
+    }
+
+    .pfp {
+        min-height: 42px;
+        min-width: 42px;
+    }
+
+    .page {
+        border-radius: 30px;
+        background-color: #FFFFFF;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 70vw;
+        height: 80vh;
+    }
+
+    .right-part {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 10px 10px;
+        gap: 5vh;
+        height: 50vh;
+    }
+
+    .bg-gray {
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.432);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .input {
+        padding: 4px 4px;
+        border-radius: 10px;
+        color: black;
+        border: solid 1px lightgrey;
+        width: 95%;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .cancel-btn {
+        height: 56px;
+        width: 124px;
+        background-color: white;
+        color: black;
+        border-radius: 8px;
+        border: solid 1px black;
+        padding: 16px;
+        font-size: 20px;
+        font-weight: 700;
+        display: none;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        padding-right: 0;
+        margin-bottom: 16px;
+    }
+
+    #input-email-addcontact {
+        background-image: url(../../img/mail.png);
+        background-repeat: no-repeat;
+        background-position: 90% 14px;
+    }
+
+    #input-name-addcontact {
+        background-image: url(../../img/person.svg);
+        background-repeat: no-repeat;
+        background-position: 90% 14px;
+    }
+
+    #input-phone-addcontact {
+        background-image: url(../../img/call.svg);
+        background-repeat: no-repeat;
+        background-position: 90% 14px;
+    }
+
+    #edit-input-email {
+        background-image: url(../../img/mail.png);
+        background-repeat: no-repeat;
+        background-position: 90% 14px;
+    }
+
+    #edit-input-name {
+        background-image: url(../../img/person.svg);
+        background-repeat: no-repeat;
+        background-position: 90% 14px;
+    }
+
+    #edit-input-phone {
+        background-image: url(../../img/call.svg);
+        background-repeat: no-repeat;
+        background-position: 90% 14px;
+    }
+
+    h1 {
+        font-size: 40px;
+        font-weight: 700;
+        margin-block-start: 0;
+        margin-block-end: 0;
+    }
+
+    h2 {
+        font-size: 16px;
+        font-weight: 400;
+        margin-block-start: 0;
+        margin-block-end: 0;
+    }
+
+    .x-responsive {
+        display: flex;
+        justify-content: flex-end;
+        padding-left: 90%;
+        margin-bottom: 16px;
+    }
+
+    .img-person-bg {
+        display: none;
+    }
+
+    .edit-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        padding-right: 0;
+        margin-bottom: 16px;
+    }
+}
+
+@media (max-width: 500px) {
+    .page {
+        border-radius: 30px;
+        background-color: #FFFFFF;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 90vw;
+        height: 80vh;
+    }
+}

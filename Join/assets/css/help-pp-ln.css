@@ -1,0 +1,83 @@
+
+.textField {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  
+  .textFieldBig {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    overflow-y: scroll;
+   
+  }
+  .textFieldBig::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .return-arrow {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+    align-items: center;
+  }
+  
+  
+  .textNormal {
+    align-self: stretch;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+  }
+  .textNormal span {
+    color: var(--join-color);
+  }
+  
+  .textNormal p {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    margin: 0;
+  }
+  
+  .textBig {
+    width: 346px;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+  }
+  
+  .textlist ul {
+    align-self: stretch;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .textEnumeration {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+  }
+  
+  .helpList {
+    display: flex;
+    align-items: flex-start;
+    gap: 35px;
+    align-self: stretch;
+  }
+  
+  .helpListNumber {
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+  }
+  

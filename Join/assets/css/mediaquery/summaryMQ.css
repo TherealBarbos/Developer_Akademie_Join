@@ -1,0 +1,246 @@
+@media (max-width: 1250px) {
+    .summaryWelcome {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
+    }
+
+    .overallHead {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 3rem;
+    }
+
+    .summary {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4rem;
+    }
+
+    .summaryTopcard {
+        display: flex;
+        padding: 38px 19px;
+        width: 220px;
+        justify-content: center;
+        align-items: center;
+        gap: 18px;
+        flex-shrink: 0;
+        border-radius: 30px;
+        background-color: var(--background-color);
+    }
+
+    .summaryTop {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .summaryMiddle {
+        display: flex;
+        padding: 28px 48px;
+        width: 450px;
+        justify-content: center;
+        align-items: center;
+        gap: 15%;
+        border-radius: 30px;
+        background-color: var(--background-color);
+    }
+
+    .summaryBottom {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 3%;
+    }
+
+}
+
+@media (max-width: 820px) {
+    .summaryTitel {
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%;
+    }
+
+    .summaryText {
+        color: var(--secondary-color);
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+    }
+
+    .header {
+        max-height: 8rem;
+        width: 100vw;
+    }
+
+    .headerLogo {
+        display: flex;
+        margin-left: 40px;
+    }
+
+    .help,
+    .headerText {
+        display: none;
+    }
+
+    .overallHead {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 0;
+    }
+
+    .summary {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4rem;
+    }
+
+    .summaryTopcard {
+        display: flex;
+        padding: 24px 19px;
+        width: 180px;
+        justify-content: center;
+        align-items: center;
+        gap: 18px;
+        flex-shrink: 0;
+        border-radius: 30px;
+        background-color: var(--background-color);
+    }
+
+    .summaryMiddle {
+        display: flex;
+        padding: 20px 48px;
+        width: 370px;
+        justify-content: center;
+        align-items: center;
+        gap: 15%;
+        border-radius: 30px;
+        background-color: var(--background-color);
+    }
+
+    .summaryBottomCard {
+        display: flex;
+        padding: 3%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        border-radius: 30px;
+        background-color: var(--background-color);
+        box-shadow: 0px 0px 4px 0px var(--border-shadow);
+    }
+
+    .summaryHead {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .summaryText {
+        color: var(--secondary-color);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+    }
+
+    .summaryTitel {
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%;
+    }
+
+    .summaryHead {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .overallHead {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    .summaryTop {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .summaryBottom {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 2%;
+    }
+
+    .summaryMiddle {
+        display: flex;
+        padding: 20px 48px;
+        width: 250px;
+        justify-content: center;
+        align-items: center;
+        gap: 15%;
+        border-radius: 30px;
+        background-color: var(--background-color);
+    }
+
+    .summaryTopcard {
+        display: flex;
+        padding: 14px 14px;
+        width: 134px;
+        justify-content: center;
+        align-items: center;
+        gap: 18px;
+        flex-shrink: 0;
+        border-radius: 30px;
+        background-color: var(--background-color);
+    }
+
+    .summaryBigNumber {
+        color: var(--secondary-color);
+        text-align: center;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 120%;
+    }
+
+    .summaryBigText {
+        color: #2a3647;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+    }
+
+    .summaryTopImg {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        height: 58px;
+    }
+
+}

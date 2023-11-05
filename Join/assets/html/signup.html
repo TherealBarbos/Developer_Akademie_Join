@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <link rel="stylesheet" href="/Join/style.css" />
+    <link rel="icon" type="image/x-icon" href="../img/logo_favicon.ico" />
+    <script src="../js/storage.js"></script>
+    <script src="../js/signup.js"></script>
+</head>
+
+<body onload="init()">
+    <div class="signup-page">
+        <div class="signup-logo-upper-part">
+            <div>
+                <img class="login-logo" src="../img/logo.png" alt="logo">
+            </div>
+        </div>
+    </div>
+    <div class="signup-page-2">
+        <div class="signup-window">
+            <div class="signup-window-upper-part">
+                <div>
+                    <img onclick="redirectToLogin()" class="signup-arrow" src="../img/arrow-left-line.svg"
+                        alt="arrow-left">
+                </div>
+                <div class="column">
+                    <span class="login-text">Sign up</span>
+                    <img class="signup-vector" src="../img/Vector 5.svg" alt="vector">
+                </div>
+            </div>
+            <form onsubmit="signUp(); return false">
+                <div class="signup-window-inputs">
+
+                    <input autocomplete="off" placeholder="Name" id="input-name" minlength="1" maxlength="20" required
+                        type="text" class="login-input">
+
+                    <input autocomplete="off" placeholder="Email" id="input-email" minlength="1" maxlength="25" required
+                        type="email" class="login-input">
+
+                    <input required placeholder="Password" id="input-password" type="password"
+                        class="login-input password" onmouseleave="disableVisibilityPassword()"
+                        onmouseover="enableVisibilityPassword()">
+
+                    <img class="btn-visibility-signup d-none" id="btn-visibility-password" src="../img/visibility.png"
+                        alt="visibility" onclick="togglePassword()" onmouseover="enableVisibilityPassword()">
+
+                    <input required placeholder="Confirm Password" id="input-confirm-password" minlength="1"
+                        maxlength="20" required type="password" class="login-input password" onmouseleave="disableVisibilityConfirmPassword()"
+                        onmouseover="enableVisibilityConfirmPassword()">
+
+                    <img class="btn-visibility-signup d-none" id="btn-visibility-confirm-password" src="../img/visibility.png"
+                        alt="visibility" onclick="toggleConfirmPassword()" onmouseover="enableVisibilityConfirmPassword()">
+                        
+                    <div id="wrong-password" class="wrong-password d-none">Wrong password Ups! Try again.</div>
+                    <div class="signup-checkbox">
+                        <input required type="checkbox">
+                        <div>
+                            <span class="signup-grey-text">I accept the</span>
+                            <span class="signup-blue-text">Privacy policy</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="signup-window-buttons">
+                    <button type="submit" class="signup-btn">Sign up</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="signup-legalnotice">
+            <a href="privacy-policy.html" target="_blank" class="legal-notice-private-policy">Private Policy</a>
+            <a href="legal-notice.html" target="_blank" class="legal-notice-private-policy">Legal notice</a>
+        </div>
+    </div>
+</body>
+
+</html>

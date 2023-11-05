@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="icon" type="image/x-icon" href="../img/logo_favicon.ico" />
+  <script src="../js/contacts.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/editcontact.js"></script>
+  <script src="../../script.js"></script>
+  <title>Contacts</title>
+
+</head>
+
+<body onload="includeHTML(), load()">
+
+  <div w3-include-html="../templates/header.html"></div>
+
+  <div class="add-btn-bg disappear-after-query">
+    <button onclick="openAddContact()" class="contact-create-btn">
+      Add new contact
+      <img class="add-person" src="../img/person_add.png" alt="person-add">
+    </button>
+  </div>
+
+  <div class="contact-list" id="contact-list">
+
+  </div>
+
+  <div class="text disappear-after-query" id="better-with-team">
+    <div class="text-contacts">Contacts</div>
+    <img src="../img/Vector-contact.svg" alt="vector">
+    <div class="text-team">better with a team</div>
+  </div>
+
+  <div class="disappear-after-query details animate-from-right" id="details">
+  </div>
+
+  <div id="addcontact-overlay">
+    <div id="addcontact" class="d-none animate-from-right  animate-from-bottom">
+      <div class="page">
+        <div class="add-c-left-part">
+          <div class="left-part-content">
+            <img class="logo gap" src="../img/logo_white.png" alt="logo">
+            <img class="x-responsive" onclick="redirectAddContactToContacts()" src="../img/close-white.png" alt="x">
+            <h1 class="gap">Add contact</h1>
+            <h2 class="gap">Task are better with a team!</h2>
+            <img class="vector gap" src="../img/Vector 5.svg" alt="vector">
+          </div>
+        </div>
+
+        <form onsubmit="addContact(); return false">
+          <div class="right-part">
+            <div>
+              <img class="x" onclick="redirectAddContactToContacts()" src="../img/close.svg" alt="x">
+            </div>
+            <div class="rightpart-middle">
+              <div class="img-person-bg">
+                <img class="img-person" src="../img/person.png" alt="person">
+              </div>
+              <div class="input-fields">
+                <input class="input" id="input-name-addcontact" required type="text" placeholder="Name">
+                <input class="input" id="input-email-addcontact" required type="email" placeholder="Email">
+                <input class="input" id="input-phone-addcontact" required min="0" type="number" placeholder="Phone">
+              </div>
+            </div>
+            <div class="buttons">
+              <button onclick="redirectAddContactToContacts()" class="cancel-btn flex" id="addcontact-btn-hover">
+                <div id="addcontact-btn-hover-normal">
+                  <span>Cancel <img src="../img/x.svg" alt="x"></span>
+                </div>
+                <div id="addcontact-btn-hover-blue">
+                  <span>Cancel <img src="../img/x-blue.png" alt="x"></span>
+                </div>
+              </button>
+              <button type="submit" class="create-btn">
+                <span class="create-btn-align">Create Contact <img src="../img/check-white.png" alt="check"></span>
+              </button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="editcontact-overlay">
+    <div id="editcontact" class="d-none animate-from-right  animate-from-bottom">
+      <div class="page">
+        <div class="add-c-left-part">
+          <div class="left-part-content">
+            <img class="x-responsive" onclick="redirectEditContactToContacts()" src="../img/close-white.png" alt="x">
+            <img class="logo gap" src="../img/logo_white.png" alt="logo">
+            <h1 class="gap">Edit contact</h1>
+            <img class="vector gap" src="../img/Vector 5.svg" alt="vector">
+          </div>
+        </div>
+
+        <form id="submit-edited-contact">
+          <div class="right-part">
+            <div>
+              <img class="x" onclick="redirectEditContactToContacts()" src="../img/close.svg" alt="x">
+            </div>
+            <div class="rightpart-middle">
+              <div id="EditContactFirstLettersColor" class="img-person-bg">
+                <img id="EditContactFirstLetters">
+              </div>
+              <div class="input-fields">
+                <input class="input" id="edit-input-name" type="text" placeholder="Name">
+                <input class="input" id="edit-input-email" type="text" placeholder="Email">
+                <input class="input" id="edit-input-phone" type="text" placeholder="Phone">
+              </div>
+            </div>
+            <div class="edit-buttons">
+              <button onclick="redirectEditContactToContacts()" class="cancel-btn flex" id="addcontact-btn-hover">
+                <div id="addcontact-btn-hover-normal">
+                  <span>Delete <img src="../img/x.svg" alt="x"></span>
+                </div>
+                <div id="addcontact-btn-hover-blue">
+                  <span>Delete <img src="../img/x-blue.png" alt="x"></span>
+                </div>
+              </button>
+              <button id="saveContactValue" class="save-btn" type="submit">
+                <span class="create-btn-align">Save <img src="../img/check-white.png" alt="save"></span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="alert-message" class="alert-message d-none">
+    <span>Please login to add, edit and delete Contacts!</span>
+    <button class="alert-message-btn" onclick="alertButtonOk()">Ok</button>
+  </div>
+</body>
+
+</html>
