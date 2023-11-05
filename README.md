@@ -118,6 +118,33 @@ function startDraging(index) {
   document.getElementById(`card-${index}`).classList.add("cardDragging");
 }
 ```
+``` js
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+```
+``` js
+function moveTo(state) {
+  let id = todos.findIndex((item) => {
+    return item.id == currentDraggedElement;
+  });
+  todos[id]["state"] = state;
+  updateHTML();
+  setItem("allTasks", JSON.stringify(todos));
+  unhighlight(state);
+}
+```
+##### Drag and Drop alternativ for mobile
+``` js
+function switchTo(index, state) {
+  let id = todos.findIndex((item) => {
+    return item.id == index;
+  });
+  todos[id]["state"] = state;
+  updateHTML();
+  setItem("allTasks", JSON.stringify(todos));
+}
+```
 #####  Load Tasks
 ``` js
 function showTaskListByState(state) {
@@ -135,7 +162,19 @@ function showTaskListByState(state) {
 function generateTaskCard(task) {
   return ` <div id="card-${task.id}" class="card" draggable="true" ondragstart="startDraging('${task.id}')" onclick="showOverlay('${task.id}')">
     <div class="cardFrame">
+      <div class="cardHead">
       <div class="cardLable ${determineColor(task)}">${task.category}</div>
+      <div class="cardMove" onclick="displayMoveMenu('${task.id}'); stopIt(event)" id="moveIcon">
+      <img src="../img/move_black.png" alt="moveTo"> 
+    </div>
+         <div id="move-menu-${task.id}" class="move-menu d-none">
+          <div>move Task to:</div>
+          <div onclick="switchTo('${task.id}', 'toDo'); stopIt(event)">To do</div>
+          <div onclick="switchTo('${task.id}', 'inProgress'); stopIt(event)">In progress</div>
+          <div onclick="switchTo('${task.id}', 'awaitFeedback'); stopIt(event)">Await feedback</div>
+          <div onclick="switchTo('${task.id}', 'done'); stopIt(event)">Done</div>
+        </div>
+      </div>
       <div class="cardTextbox">
         <div class="cardTextI">${task.title}</div>
         <div class="cardTextII">${task.description}</div>
@@ -143,18 +182,30 @@ function generateTaskCard(task) {
       <div id="card-subtask-${task.id}" class="cardProgress ${determineIfSubtaskExists(task)}">
         <div class="cardProgressbar">
           <div class="progress">
-           <div class="progress-bar" role="progressbar" style="width: ${(taskSum(task) / task.subtasks.subtaskContent.length) * 100}%; 
-           height: 15px; border-radius: 8px;" aria-valuenow="${taskSum(task)}" aria-valuemin="0" aria-valuemax="${task.subtasks.subtaskContent.length}"></div>
+           <div class="progress-bar" role="progressbar" style="width: ${
+             (taskSum(task) / task.subtasks.subtaskContent.length) * 100
+           }%; 
+           height: 15px; border-radius: 8px;" aria-valuenow="${taskSum(
+             task
+           )}" aria-valuemin="0" aria-valuemax="${
+    task.subtasks.subtaskContent.length
+  }"></div>
           </div>
         </div>
-         <div class="cardProgressText">${taskSum(task)}/${task.subtasks.subtaskContent.length} Subtasks</div>
+         <div class="cardProgressText">${taskSum(task)}/${
+    task.subtasks.subtaskContent.length
+  } Subtasks</div>
       </div>
       <div class="cardContacts">
         <div class="cardContactsBadge">
-          <div class="cardAssignedInitials" id="cardAssignedNameContainer${task.id}"></div>
+          <div class="cardAssignedInitials" id="cardAssignedNameContainer${
+            task.id
+          }"></div>
         </div>
         <div class="cardContactsPrio">
-          <img src="${task.priorityImageSource}" alt="" class="cardContactsPrioImg" />
+          <img src="${
+            task.priorityImageSource
+          }" alt="" class="cardContactsPrioImg" />
         </div>
       </div>
     </div>
