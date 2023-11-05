@@ -123,7 +123,7 @@ function showTaskListByState(state) {
  * @returns {string} - The HTML markup for the task card.
  */
 function generateTaskCard(task) {
-  return ` <div id="card-${task.id}" class="card" draggable="true" ondragstart="startDraging('${task.id}')">
+  return ` <div id="card-${task.id}" class="card" draggable="true" ondragstart="startDraging('${task.id}')" onclick="showOverlay('${task.id}')">
     <div class="cardFrame">
       <div class="cardHead">
       <div class="cardLable ${determineColor(task)}">${task.category}</div>

@@ -21,16 +21,18 @@
   .cardMove {
     display: block;
   }
+  .boardCategory {
+    overflow-x: scroll;
+
+  }
+
   .drag {
     flex-direction: row;
     padding: 15px;
     min-height: 250px;
 
   }
-  .boardDrag{
 
-
-  }
 }
 
 @media (max-width: 820px) {
