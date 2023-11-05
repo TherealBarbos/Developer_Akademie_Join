@@ -21,16 +21,14 @@
   .cardMove {
     display: block;
   }
-  .boardCategory {
-    overflow-x: scroll;
 
-  }
 
   .drag {
     flex-direction: row;
     padding: 15px;
     min-height: 250px;
-
+    width: 60vw;
+    overflow-x: scroll;
   }
 
 }
@@ -53,6 +51,7 @@
 
   .drag {
     min-height: 20rem;
+    width: 85vw;
   }
 
   .addTaskButton {

@@ -127,15 +127,15 @@ function generateTaskCard(task) {
     <div class="cardFrame">
       <div class="cardHead">
       <div class="cardLable ${determineColor(task)}">${task.category}</div>
-      <div class="cardMove" onclick="displayMoveMenu('${task.id}')" id="moveIcon">
+      <div class="cardMove" onclick="displayMoveMenu('${task.id}'); stopIt(event)" id="moveIcon">
       <img src="../img/move_black.png" alt="moveTo"> 
     </div>
          <div id="move-menu-${task.id}" class="move-menu d-none">
           <div>move Task to:</div>
-          <div onclick="switchTo('${task.id}', 'toDo')">To do</div>
-          <div onclick="switchTo('${task.id}', 'inProgress')">In progress</div>
-          <div onclick="switchTo('${task.id}', 'awaitFeedback')">Await feedback</div>
-          <div onclick="switchTo('${task.id}', 'done')">Done</div>
+          <div onclick="switchTo('${task.id}', 'toDo'); stopIt(event)">To do</div>
+          <div onclick="switchTo('${task.id}', 'inProgress'); stopIt(event)">In progress</div>
+          <div onclick="switchTo('${task.id}', 'awaitFeedback'); stopIt(event)">Await feedback</div>
+          <div onclick="switchTo('${task.id}', 'done'); stopIt(event)">Done</div>
         </div>
       </div>
       <div class="cardTextbox">
@@ -267,7 +267,9 @@ function displayMoveMenu(index) {
   });
     document.getElementById(`move-menu-${index}`).classList.remove("d-none");
 }
-
+function stopIt(event) {
+  event.stopPropagation();
+}
 function hideMoveMenu(index) {
   document.getElementById(`move-menu-${index}`).classList.add("d-none");
 }

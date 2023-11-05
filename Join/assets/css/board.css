@@ -73,7 +73,6 @@
 }
 #boardSearchID:focus {
   outline: none;
-
 }
 
 .inputSearch::placeholder {
@@ -153,7 +152,6 @@
   display: flex;
   flex-direction: column;
   min-height: 35rem;
-
   gap: 24px;
 }
 
@@ -165,6 +163,7 @@
 
 .card {
   width: 260px;
+  min-width: 260px;
   max-height: 500px;
   margin-top: 16px;
   display: flex;
@@ -276,7 +275,6 @@
 .cardMove {
   cursor: pointer;
   display: none;
-
 }
 
 .cardMove img {
@@ -424,7 +422,6 @@
 .cardAssignedInitials li:nth-child(n + 2) {
   margin-left: -10px;
 }
-
 
 .cardContactsPrio {
   display: flex;
