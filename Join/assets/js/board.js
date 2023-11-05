@@ -96,19 +96,17 @@ function updateHTML() {
 /**
  * Filters the tasks array based on the given state and displays the task list in the corresponding container.
  *
- * @param {string} state - The state to filter tasks by (e.g., "toDo", "inProgress").
+ * @param {string} state 
  */
 function showTaskListByState(state) {
   let filteredTasksByState = todos.filter((t) => t["state"] == state);
   const taskListContainer = document.getElementById(state);
 
-  // Überprüfe, ob Aufgaben für diesen Zustand vorhanden sind
   if (filteredTasksByState.length === 0) {
-    // Wenn keine Aufgaben vorhanden sind, füge den Platzhalter und ein zufälliges Zitat ein
+
     taskListContainer.innerHTML = generatePlaceholder();
   } else {
-    // Andernfalls zeige die Aufgabenliste für diesen Zustand
-    taskListContainer.innerHTML = ""; // Leere den Container
+    taskListContainer.innerHTML = ""; 
     for (let index = 0; index < filteredTasksByState.length; index++) {
       const element = filteredTasksByState[index];
       taskListContainer.innerHTML += generateTaskCard(element);

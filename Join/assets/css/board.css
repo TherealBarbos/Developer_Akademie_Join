@@ -397,7 +397,7 @@
   line-height: 120%;
 }
 .cardAssignedInitials ul {
-  display: flex;
+  display: wrap;
 
   list-style-type: none;
   margin: 0;
@@ -421,6 +421,9 @@
 }
 .cardAssignedInitials li:nth-child(n + 2) {
   margin-left: -10px;
+}
+.cardAssignedInitials li:nth-child(7n +1) {
+  margin-left: 0;
 }
 
 .cardContactsPrio {
