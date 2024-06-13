@@ -22,7 +22,7 @@
 ## Unser Join
 ### Das ist Unser Join nach der Figmavorlage.
 ## [Join](http://join-707.developerakademie.net/Join/assets/html/page1.html)
-"derzeit offline"
+## "derzeit offline"
 
 
 <a name="gruppenaufteilung"></a>
