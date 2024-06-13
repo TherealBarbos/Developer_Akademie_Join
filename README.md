@@ -20,8 +20,8 @@
 ### [Figma](https://www.figma.com/file/3qlJ22yFozngW2gdOfczMe/Join-Version-1-(Final-version)?type=design&node-id=71072-5046&mode=design)
 
 ## Unser Join
-### Das ist Unser Join nach der Figmavorlage.
-## [Join](http://join-707.developerakademie.net/Join/assets/html/page1.html) "derzeit offline"
+### Das ist Unser Join nach der Figmavorlage."derzeit offline"
+## [Join](http://join-707.developerakademie.net/Join/assets/html/page1.html) 
 
 
 <a name="gruppenaufteilung"></a>
